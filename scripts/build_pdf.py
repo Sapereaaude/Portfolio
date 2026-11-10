@@ -12,7 +12,7 @@ name=ParagraphStyle('n',fontName='Helvetica-Bold',fontSize=15,leading=19)
 sub=ParagraphStyle('s',fontName='Helvetica',fontSize=9.5,leading=13,textColor='#4A4A57')
 p=ParagraphStyle('p',fontName='Times-Roman',fontSize=10.5,leading=13.7,spaceAfter=5.6)
 em=ParagraphStyle('e',parent=p,fontName='Times-BoldItalic')
-s=[Paragraph(L.NAME,name),Paragraph('Senior User Researcher · Paris · safaa.elouafi.am@gmail.com · linkedin.com/in/safaa-el-ouafi',sub),Paragraph('My portfolio, curated for Dust: uxrsafaaelouafi.vercel.app/dust',sub),Spacer(1,4*mm),Paragraph(escape(L.GREETING),p)]
+s=[Paragraph(L.NAME,name),Paragraph('User Experience Researcher · Paris · safaa.elouafi.am@gmail.com · linkedin.com/in/safaa-el-ouafi',sub),Paragraph('My portfolio, curated for Dust: uxrsafaaelouafi.vercel.app/dust',sub),Spacer(1,4*mm),Paragraph(escape(L.GREETING),p)]
 for k,t in L.BODY: s.append(Paragraph(escape(t),em if k=='em' else p))
 s+=[Spacer(1,2*mm),Paragraph(L.CLOSING,p),Paragraph(L.NAME,p)]
 doc.build(s)

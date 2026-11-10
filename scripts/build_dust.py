@@ -18,7 +18,7 @@ def head(title):
 <head>
 <meta charset="utf-8">
 <title>{title}</title>
-<meta name="description" content="A Senior User Researcher's journey through learning, product research and AI, and why Dust feels like the place where those paths meet.">
+<meta name="description" content="A User Experience Researcher's journey through learning, product research and AI, and why Dust feels like the place where those paths meet.">
 <script src="./support.js"></script>
 </head>
 <body>
@@ -99,7 +99,7 @@ dust = head('Safaa × Dust | Different jobs. Same obsession.') + f'''<div style=
 <h1 style="margin: 0; {ANTON}; font-size: clamp(42px, 7.4vw, 104px); line-height: 1"><span style="display: block">Different jobs.</span><span style="display: block; color: {{{{accent}}}}">Same obsession<span style="color: #D13A28">.</span></span></h1>
 <p style="margin: 0; max-width: 900px; {SERIF}; font-size: clamp(22px, 2.6vw, 32px); line-height: 1.2; text-wrap: balance">I build systems that help people learn, decide, and improve.</p>
 <div style="max-width: 760px; display: flex; flex-direction: column; gap: 8px">
-<p style="{BODY}">I’m a Senior User Researcher whose career has taken me through education, instructional design, product research and AI adoption.</p>
+<p style="{BODY}">I’m a User Experience Researcher whose career has taken me through education, instructional design, product research and AI adoption.</p>
 <p style="{BODY}">Different roles, same questions: What do people actually need? How do we know something works? And how can we make it better, together?</p>
 </div>
 <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 4px">

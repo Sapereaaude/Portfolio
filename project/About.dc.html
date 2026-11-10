@@ -25,10 +25,15 @@ a{color:#17171F}a:hover{color:#D13A28}
 .hf-dot{animation:hf-pulse 1.6s ease-in-out infinite}
 @keyframes hf-pulse{0%,100%{box-shadow:0 0 0 0 rgba(209,58,40,.55)}60%{box-shadow:0 0 0 7px rgba(209,58,40,0)}}
 @media (prefers-reduced-motion: reduce){.hf,.hf-dot{animation:none}.hf{transition:none}}
-.carousel{scrollbar-width:thin;scrollbar-color:#17171F #EEF1FA}
-.carousel::-webkit-scrollbar{height:6px}
-.carousel::-webkit-scrollbar-track{background:#EEF1FA;border-radius:3px}
-.carousel::-webkit-scrollbar-thumb{background:#17171F;border-radius:3px}
+.slides{scrollbar-width:none;overscroll-behavior-x:contain}
+.slides::-webkit-scrollbar{display:none}
+.series-card{flex:0 0 clamp(190px, 22vw, 250px);scroll-snap-align:start}
+.series-row{scrollbar-width:thin;scrollbar-color:#17171F #EEF1FA}
+.series-row::-webkit-scrollbar{height:6px}
+.series-row::-webkit-scrollbar-track{background:#EEF1FA;border-radius:3px}
+.series-row::-webkit-scrollbar-thumb{background:#17171F;border-radius:3px}
+.series-cover img{transition:transform .35s ease}
+.series-cover:hover img,.series-cover:focus-visible img{transform:scale(1.04)}
 .notes{grid-template-columns:repeat(2,minmax(0,1fr))}
 .notes>.note:last-child:nth-child(odd){grid-column:1/-1;justify-self:center;width:56%}
 @media (min-width: 900px){.notes{grid-template-columns:repeat(3,minmax(0,1fr))}.notes>.note:last-child:nth-child(odd){grid-column:auto;justify-self:stretch;width:auto}}
@@ -58,7 +63,7 @@ a{color:#17171F}a:hover{color:#D13A28}
 <section style="display: flex; flex-wrap: wrap; gap: 32px 56px; padding: 40px 0 48px; border-bottom: 1px solid #E3E3EA; align-items: flex-end">
 <div style="flex: 999 1 560px; min-width: 0">
 <h1 style="margin: 0; font-family: 'Anton', Impact, sans-serif; font-weight: 400; font-size: clamp(76px, 14vw, 216px); line-height: 0.86; letter-spacing: -0.01em; text-transform: uppercase">Safaa<br>El Ouafi<span style="color: #D13A28">.</span></h1>
-<p style="margin: 28px 0 0; max-width: 720px; font-size: clamp(22px, 2.4vw, 32px); line-height: 1.25; font-family: 'Newsreader', Georgia, serif; font-style: italic; text-wrap: balance">Senior User Researcher. Former teacher. Professional noticer of how you use the coffee machine.</p>
+<p style="margin: 28px 0 0; max-width: 720px; font-size: clamp(22px, 2.4vw, 32px); line-height: 1.25; font-family: 'Newsreader', Georgia, serif; font-style: italic; text-wrap: balance">User Experience Researcher. Former teacher. Professional noticer of how you use the coffee machine.</p>
 </div>
 <dl style="flex: 1 1 280px; margin: 0; display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 10px 16px; font-family: 'Figtree', sans-serif; font-weight: 700; font-size: 13px; line-height: 1.45; border-top: 1px solid #E3E3EA; padding-top: 14px">
 <dt style="text-transform: uppercase; color: #4A4A57">Based</dt><dd style="margin: 0">Paris</dd>
@@ -98,21 +103,21 @@ a{color:#17171F}a:hover{color:#D13A28}
 <span style="flex: 0 0 64px; font-family: 'Figtree', sans-serif; font-weight: 700; font-size: 14px; font-weight: 700">(a)</span>
 <div style="flex: 1 1 420px; min-width: 0">
 <h3 style="margin: 0 0 8px; font-size: clamp(26px, 3vw, 36px); font-weight: 600; line-height: 1.15; text-wrap: balance"><span style="color: {{accent}}">Rigour and heart</span>, in the same room<span style="color: #D13A28">.</span></h3>
-<p style="margin: 0; font-size: 18px; line-height: 1.6; text-wrap: pretty">Mission-driven places often forgive sloppiness. Rigorous places are often rigorous about something hollow. <span class="hl">I'm looking for the overlap</span>, and I try to be it.</p>
+<p style="margin: 0; font-size: 18px; line-height: 1.6; text-wrap: pretty">I love rigour, and I’m user-centred to the core. What I need most is a team where <span class="hl">everyone is obsessed with quality</span>. I’m happy to be the one obsessed with the user experience, even if it means noticing things users didn’t know about themselves.</p>
 </div>
 </article>
 <article style="display: flex; flex-wrap: wrap; gap: 8px 32px; padding: 28px 0; border-bottom: 1px solid #E3E3EA">
 <span style="flex: 0 0 64px; font-family: 'Figtree', sans-serif; font-weight: 700; font-size: 14px; font-weight: 700">(b)</span>
 <div style="flex: 1 1 420px; min-width: 0">
-<h3 style="margin: 0 0 8px; font-size: clamp(26px, 3vw, 36px); font-weight: 600; line-height: 1.15; text-wrap: balance"><span style="color: {{accent}}">The user</span>, in rooms they weren't invited to<span style="color: #D13A28">.</span></h3>
-<p style="margin: 0; font-size: 18px; line-height: 1.6; text-wrap: pretty">Research is worth nothing if it stays in a deck. I want <span class="hl hl2">findings that change a decision</span>, and I check whether they did.</p>
+<h3 style="margin: 0 0 8px; font-size: clamp(26px, 3vw, 36px); font-weight: 600; line-height: 1.15; text-wrap: balance"><span style="color: {{accent}}">The user</span>, in rooms they aren’t invited to enough<span style="color: #D13A28">.</span></h3>
+<p style="margin: 0; font-size: 18px; line-height: 1.6; text-wrap: pretty">Roadmap meetings, design reviews, sprint planning: that’s where decisions about users get made, usually without them. <span class="hl hl2">I bring them into the room</span>, with a quote, a clip, a moment from the field, until their voice changes the decision.</p>
 </div>
 </article>
 <article style="display: flex; flex-wrap: wrap; gap: 8px 32px; padding: 28px 0 0">
 <span style="flex: 0 0 64px; font-family: 'Figtree', sans-serif; font-weight: 700; font-size: 14px; font-weight: 700">(c)</span>
 <div style="flex: 1 1 420px; min-width: 0">
-<h3 style="margin: 0 0 8px; font-size: clamp(26px, 3vw, 36px); font-weight: 600; line-height: 1.15; text-wrap: balance"><span style="color: {{accent}}">Home</span>, and the people losing it<span style="color: #D13A28">.</span></h3>
-<p style="margin: 0; font-size: 18px; line-height: 1.6; text-wrap: pretty">Displacement, fairness, <span class="hl hl3">who pays the price of "efficiency"</span>. It runs through my research, my photography and the work I'm proudest of.</p>
+<h3 style="margin: 0 0 8px; font-size: clamp(26px, 3vw, 36px); font-weight: 600; line-height: 1.15; text-wrap: balance"><span style="color: {{accent}}">Together</span>, or not at all<span style="color: #D13A28">.</span></h3>
+<p style="margin: 0; font-size: 18px; line-height: 1.6; text-wrap: pretty">Research only has value <span class="hl hl3">if we do it together</span>. I can’t see myself disappearing for a month and coming back to deliver a report.</p>
 </div>
 </article>
 </div>
@@ -164,7 +169,7 @@ a{color:#17171F}a:hover{color:#D13A28}
 <ol style="margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 0 40px; font-size: 19px; line-height: 1.55">
 <li style="padding: 18px 0; border-top: 1px solid #D5D7E0; text-wrap: pretty"><span style="font-family: 'Figtree', sans-serif; font-weight: 700; font-size: 13px; color: {{accent}}; margin-right: 10px">01</span>Research upstream, framing the problem before the roadmap does.</li>
 <li style="padding: 18px 0; border-top: 1px solid #D5D7E0; text-wrap: pretty"><span style="font-family: 'Figtree', sans-serif; font-weight: 700; font-size: 13px; color: {{accent}}; margin-right: 10px">02</span>Living research. Not a study you run once: it keeps asking questions, and it keeps de‑risking what we build.</li>
-<li style="padding: 18px 0; border-top: 1px solid #D5D7E0; text-wrap: pretty"><span style="font-family: 'Figtree', sans-serif; font-weight: 700; font-size: 13px; color: {{accent}}; margin-right: 10px">03</span>A team that writes first, then meets. In an office: I like offices.</li>
+<li style="padding: 18px 0; border-top: 1px solid #D5D7E0; text-wrap: pretty"><span style="font-family: 'Figtree', sans-serif; font-weight: 700; font-size: 13px; color: {{accent}}; margin-right: 10px">03</span>A team that writes first, then meets. In an office: I love offices.</li>
 <li style="padding: 18px 0; border-top: 1px solid #D5D7E0; text-wrap: pretty"><span style="font-family: 'Figtree', sans-serif; font-weight: 700; font-size: 13px; color: {{accent}}; margin-right: 10px">04</span>People who stretch me. I grow toward people, not above them.</li>
 <li style="padding: 18px 0; border-top: 1px solid #D5D7E0; text-wrap: pretty"><span style="font-family: 'Figtree', sans-serif; font-weight: 700; font-size: 13px; color: {{accent}}; margin-right: 10px">05</span>Work whose effect on someone's life I can actually point to.</li>
 </ol>
@@ -181,15 +186,7 @@ a{color:#17171F}a:hover{color:#D13A28}
 <div style="margin-top: 8px">Working with me</div>
 <div style="margin-top: 20px; display: inline-block; background: #FBEAE8; color: #A42A1C; padding: 6px 12px; border-radius: 999px; font-weight: 700">User manual · v1</div>
 </div>
-<div style="flex: 999 1 560px; min-width: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 0 40px">
-<div style="padding: 20px 0; border-top: 1px solid #E3E3EA">
-<h3 style="margin: 0 0 6px; font-size: 24px; font-weight: 600; line-height: 1.2">I listen, then I systematise.</h3>
-<p style="margin: 0; font-size: 17px; line-height: 1.55; text-wrap: pretty">Empathy and logic first. When I see leverage, I turn it into a method, a template or a ritual.</p>
-</div>
-<div style="padding: 20px 0; border-top: 1px solid #E3E3EA">
-<h3 style="margin: 0 0 6px; font-size: 24px; font-weight: 600; line-height: 1.2">Written first.</h3>
-<p style="margin: 0; font-size: 17px; line-height: 1.55; text-wrap: pretty">Context, scope, goal, questions. Then we meet. Of course we meet.</p>
-</div>
+<div style="flex: 999 1 560px; min-width: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 0 32px">
 <div style="padding: 20px 0; border-top: 1px solid #E3E3EA">
 <h3 style="margin: 0 0 6px; font-size: 24px; font-weight: 600; line-height: 1.2">I'll tell you the uncomfortable finding.</h3>
 <p style="margin: 0; font-size: 17px; line-height: 1.55; text-wrap: pretty">Kindly, clearly, with the quote that proves it.</p>
@@ -198,8 +195,12 @@ a{color:#17171F}a:hover{color:#D13A28}
 <h3 style="margin: 0 0 6px; font-size: 24px; font-weight: 600; line-height: 1.2">Light tone, serious substance.</h3>
 <p style="margin: 0; font-size: 17px; line-height: 1.55; text-wrap: pretty">Expect emojis in my docs. And at least one pun per meeting. You've been warned.</p>
 </div>
+<div style="padding: 20px 0; border-top: 1px solid #E3E3EA">
+<h3 style="margin: 0 0 6px; font-size: 24px; font-weight: 600; line-height: 1.2">I hear voices.</h3>
+<p style="margin: 0; font-size: 17px; line-height: 1.55; text-wrap: pretty">It’s true. My colleagues even wrote it down. See below.</p>
+</div>
 <div style="grid-column: 1 / -1; padding: 24px 28px; border: 1px solid #E3E3EA; border-radius: 16px; background: #FFFFFF; overflow: hidden; margin-top: 12px">
-<p style="margin: 0; font-size: clamp(22px, 2.4vw, 30px); font-family: 'Newsreader', Georgia, serif; font-style: italic; line-height: 1.35; text-wrap: balance">I'm the colleague who reopens the conversation with "but what does the user actually do?", and who watches how you use the coffee machine. Just because.</p>
+<p style="margin: 0; font-size: clamp(22px, 2.4vw, 30px); font-family: 'Newsreader', Georgia, serif; font-style: italic; line-height: 1.35; text-wrap: balance">I’m the colleague who asks the uncomfortable questions, so you can make <span style="color: {{accent}}">the comfortable decision</span>.</p>
 </div>
 </div>
 </section>
@@ -269,29 +270,36 @@ a{color:#17171F}a:hover{color:#D13A28}
 <p style="margin: 0; flex: 1 1 420px; max-width: 640px; font-size: clamp(22px, 2.4vw, 30px); font-family: 'Newsreader', Georgia, serif; font-style: italic; line-height: 1.3; text-align: right; text-wrap: balance">Same eye, different lens. I see patterns everywhere, and I love seeing the aftermath of things.</p>
 </div>
 
-<div class="carousel" role="group" aria-label="Photo series" tabindex="0" style="display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 14px">
-<figure style="margin: 0; flex: 0 0 min(76vw, 320px); scroll-snap-align: start">
-<div style="aspect-ratio: 4 / 5; border-radius: 16px; background: #EEF1FA; display: flex; align-items: center; justify-content: center"><span style="color: #2A3F8F; font-size: 13px; font-weight: 600">[PHOTO]</span></div>
-<figcaption style="margin-top: 12px"><strong style="display: block; font-size: 22px; font-family: 'Newsreader', Georgia, serif; font-style: italic; font-weight: 600">Msemmen de Proust</strong><span style="font-family: 'Figtree', sans-serif; font-weight: 700; font-size: 12px; text-transform: uppercase">Morocco · food and memory</span></figcaption>
+<div class="series-row" role="list" aria-label="Photo series" tabindex="0" style="display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 2px 2px 16px">
+<figure class="series-card" style="margin: 0">
+<button type="button" id="open-looking" class="series-cover" onClick="{{openLooking}}" aria-label="Open the series The subtle art of looking like art, 4 photos" style="position: relative; display: block; width: 100%; padding: 0; border: none; border-radius: 16px; overflow: hidden; cursor: zoom-in; background: #FFFFFF; aspect-ratio: 4 / 5">
+<img src="/photos/looking-fine.jpg" alt="" width="1001" height="1400" loading="lazy" style="display: block; width: 100%; height: 100%; object-fit: cover">
+<span aria-hidden="true" style="position: absolute; top: 10px; right: 10px; display: inline-flex; align-items: center; gap: 5px; padding: 5px 9px 5px 7px; border-radius: 999px; background: rgba(23, 23, 31, 0.72); color: #FFFFFF; font-family: 'Figtree', sans-serif; font-size: 12px; font-weight: 700"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linejoin="round"><rect x="7" y="3" width="14" height="14" rx="2"></rect><path d="M3 7v12a2 2 0 0 0 2 2h12"></path></svg>4</span>
+</button>
+<figcaption style="margin-top: 12px"><strong style="display: block; font-size: clamp(17px, 1.55vw, 20px); line-height: 1.2; font-family: 'Newsreader', Georgia, serif; font-style: italic; font-weight: 600; text-wrap: balance">The subtle art of looking like art</strong><span style="display: block; margin-top: 4px; font-family: 'Figtree', sans-serif; font-weight: 700; font-size: 11px; line-height: 1.4; letter-spacing: 0.04em; text-transform: uppercase; text-wrap: balance">In a room full of art, I’d still look at people</span></figcaption>
 </figure>
-<figure style="margin: 0; flex: 0 0 min(76vw, 320px); scroll-snap-align: start">
+<figure class="series-card" style="margin: 0">
 <div style="aspect-ratio: 4 / 5; border-radius: 16px; background: #EEF1FA; display: flex; align-items: center; justify-content: center"><span style="color: #2A3F8F; font-size: 13px; font-weight: 600">[PHOTO]</span></div>
-<figcaption style="margin-top: 12px"><strong style="display: block; font-size: 22px; font-family: 'Newsreader', Georgia, serif; font-style: italic; font-weight: 600">In Search of Lost Thyme</strong><span style="font-family: 'Figtree', sans-serif; font-weight: 700; font-size: 12px; text-transform: uppercase">A family house, the day it came down</span></figcaption>
+<figcaption style="margin-top: 6px"><strong style="display: block; font-size: clamp(17px, 1.55vw, 20px); line-height: 1.2; font-family: 'Newsreader', Georgia, serif; font-style: italic; font-weight: 600; text-wrap: balance">Msemmen de Proust</strong><span style="display: block; margin-top: 4px; font-family: 'Figtree', sans-serif; font-weight: 700; font-size: 11px; line-height: 1.4; letter-spacing: 0.04em; text-transform: uppercase; text-wrap: balance">Morocco · food and memory</span></figcaption>
 </figure>
-<figure style="margin: 0; flex: 0 0 min(76vw, 320px); scroll-snap-align: start">
+<figure class="series-card" style="margin: 0">
 <div style="aspect-ratio: 4 / 5; border-radius: 16px; background: #EEF1FA; display: flex; align-items: center; justify-content: center"><span style="color: #2A3F8F; font-size: 13px; font-weight: 600">[PHOTO]</span></div>
-<figcaption style="margin-top: 12px"><strong style="display: block; font-size: 22px; font-family: 'Newsreader', Georgia, serif; font-style: italic; font-weight: 600">Assurance habitation</strong><span style="font-family: 'Figtree', sans-serif; font-weight: 700; font-size: 12px; text-transform: uppercase">Paris · habitation non incluse</span></figcaption>
+<figcaption style="margin-top: 6px"><strong style="display: block; font-size: clamp(17px, 1.55vw, 20px); line-height: 1.2; font-family: 'Newsreader', Georgia, serif; font-style: italic; font-weight: 600; text-wrap: balance">In Search of Lost Thyme</strong><span style="display: block; margin-top: 4px; font-family: 'Figtree', sans-serif; font-weight: 700; font-size: 11px; line-height: 1.4; letter-spacing: 0.04em; text-transform: uppercase; text-wrap: balance">A family house, the day it came down</span></figcaption>
 </figure>
-<figure style="margin: 0; flex: 0 0 min(76vw, 320px); scroll-snap-align: start">
+<figure class="series-card" style="margin: 0">
 <div style="aspect-ratio: 4 / 5; border-radius: 16px; background: #EEF1FA; display: flex; align-items: center; justify-content: center"><span style="color: #2A3F8F; font-size: 13px; font-weight: 600">[PHOTO]</span></div>
-<figcaption style="margin-top: 12px"><strong style="display: block; font-size: 22px; font-family: 'Newsreader', Georgia, serif; font-style: italic; font-weight: 600">Le village s'endort</strong><span style="font-family: 'Figtree', sans-serif; font-weight: 700; font-size: 12px; text-transform: uppercase">Djerba · the end of shabbat</span></figcaption>
+<figcaption style="margin-top: 6px"><strong style="display: block; font-size: clamp(17px, 1.55vw, 20px); line-height: 1.2; font-family: 'Newsreader', Georgia, serif; font-style: italic; font-weight: 600; text-wrap: balance">Assurance habitation</strong><span style="display: block; margin-top: 4px; font-family: 'Figtree', sans-serif; font-weight: 700; font-size: 11px; line-height: 1.4; letter-spacing: 0.04em; text-transform: uppercase; text-wrap: balance">Paris · habitation non incluse</span></figcaption>
+</figure>
+<figure class="series-card" style="margin: 0">
+<div style="aspect-ratio: 4 / 5; border-radius: 16px; background: #EEF1FA; display: flex; align-items: center; justify-content: center"><span style="color: #2A3F8F; font-size: 13px; font-weight: 600">[PHOTO]</span></div>
+<figcaption style="margin-top: 6px"><strong style="display: block; font-size: clamp(17px, 1.55vw, 20px); line-height: 1.2; font-family: 'Newsreader', Georgia, serif; font-style: italic; font-weight: 600; text-wrap: balance">Le village s'endort</strong><span style="display: block; margin-top: 4px; font-family: 'Figtree', sans-serif; font-weight: 700; font-size: 11px; line-height: 1.4; letter-spacing: 0.04em; text-transform: uppercase; text-wrap: balance">Djerba · the end of shabbat</span></figcaption>
 </figure>
 </div>
 
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 0 40px; margin-top: 40px; border-top: 1px solid #E3E3EA">
 <div style="padding: 24px 0">
-<div style="display: flex; align-items: center; gap: 8px; font-family: 'Figtree', sans-serif; font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: #4A4A57"><span class="hf-dot" aria-hidden="true" style="flex: none; width: 9px; height: 9px; border-radius: 50%; background: #D13A28"></span>Testimony of hyperfocus phases</div>
-<p style="margin: 6px 0 0; font-family: 'Newsreader', Georgia, serif; font-style: italic; font-size: 17px; color: #17171F">Built with AI, for fun and <span class="hl hl2">for real</span>.</p>
+<div style="display: flex; align-items: center; gap: 8px; font-family: 'Anton', Impact, sans-serif; font-weight: 400; font-size: clamp(22px, 2.1vw, 26px); line-height: 1.1; text-transform: uppercase; letter-spacing: 0.01em; color: {{accent}}"><span class="hf-dot" aria-hidden="true" style="flex: none; width: 10px; height: 10px; border-radius: 50%; background: #D13A28"></span>Testimony of hyperfocus phases</div>
+<p style="margin: 8px 0 0; font-family: 'Newsreader', Georgia, serif; font-style: italic; font-size: 19px; line-height: 1.3; color: #17171F">ADHD made me do it. <span class="hl hl2">I’m glad I did</span>.</p>
 <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 16px; padding: 0 4px">
 <a class="hf hf1" href="Case-bastille.dc.html" style="display: block; padding: 12px 16px 13px; border: 1.5px solid #17171F; border-radius: 14px; background: #FFFFFF; text-decoration: none; color: #17171F; transform: rotate(-1.4deg)"><span style="display: block; font-family: 'Anton', Impact, sans-serif; font-size: 22px; line-height: 1.1; letter-spacing: 0.01em; text-transform: uppercase; color: {{accent}}">Bastille<span style="color: #D13A28">.</span></span><span style="display: block; margin-top: 3px; font-size: 15px; line-height: 1.4; text-wrap: pretty">Tinder, but for presidential candidates.</span></a>
 <a class="hf hf2" href="Case-tracking.dc.html" style="display: block; padding: 12px 16px 13px; border: 1.5px solid #17171F; border-radius: 14px; background: #FFFFFF; text-decoration: none; color: #17171F; transform: rotate(1.1deg)"><span style="display: block; font-family: 'Anton', Impact, sans-serif; font-size: 22px; line-height: 1.1; letter-spacing: 0.01em; text-transform: uppercase; color: #17171F">Tracking Bad<span style="color: #D13A28">.</span></span><span style="display: block; margin-top: 3px; font-size: 15px; line-height: 1.4; text-wrap: pretty">My own days, tracked and analysed like a study.</span></a>
@@ -299,16 +307,43 @@ a{color:#17171F}a:hover{color:#D13A28}
 </div>
 </div>
 <div style="padding: 24px 0">
-<div style="font-family: 'Figtree', sans-serif; font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: #4A4A57">Currently obsessing over</div>
-<p style="margin: 10px 0 0; font-size: 17px; line-height: 1.55; text-wrap: pretty">Tofu. Vinyl. Cookbooks that are also about history. Blue cheese. <del class="scribble">Where</del> <ins class="fix">When</ins> words come from.</p>
+<div style="font-family: 'Anton', Impact, sans-serif; font-weight: 400; font-size: clamp(22px, 2.1vw, 26px); line-height: 1.1; text-transform: uppercase; letter-spacing: 0.01em; color: {{accent}}">Currently obsessing over</div>
+<p style="margin: 12px 0 0; font-size: 17px; line-height: 1.55; text-wrap: pretty">Tofu. Vinyl. Cookbooks that are also about history. Blue cheese. <del class="scribble">Where</del> <ins class="fix">When</ins> words come from.</p>
 </div>
 <div style="padding: 24px 0">
-<div style="font-family: 'Figtree', sans-serif; font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: #4A4A57">Currently learning</div>
-<p style="margin: 10px 0 0; font-size: 17px; line-height: 1.55; text-wrap: pretty">Chinese, Amazigh, flamenco, ukulele. Earlier: founded my own intercultural cooking workshops at 24.</p>
+<div style="font-family: 'Anton', Impact, sans-serif; font-weight: 400; font-size: clamp(22px, 2.1vw, 26px); line-height: 1.1; text-transform: uppercase; letter-spacing: 0.01em; color: {{accent}}">Currently learning</div>
+<p style="margin: 12px 0 0; font-size: 17px; line-height: 1.55; text-wrap: pretty">Chinese, Amazigh, flamenco, ukulele. Earlier: founded my own intercultural cooking workshops at 24.</p>
 </div>
 </div>
 </section>
 
+<sc-if value="{{lbOpen}}" hint-placeholder-val="{{ false }}">
+<div class="lb" role="dialog" aria-modal="true" aria-labelledby="lb-title" onClick="{{lbBackdrop}}" onKeyDown="{{lbKey}}" style="position: fixed; inset: 0; z-index: 100; display: flex; align-items: center; justify-content: center; padding: 16px; background: rgba(23, 23, 31, 0.88)">
+<div style="width: min(92vw, 560px); display: flex; flex-direction: column; gap: 10px; padding: 14px 14px 16px; border-radius: 18px; background: #FFFFFF; box-sizing: border-box">
+<div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 12px">
+<div style="min-width: 0">
+<h3 id="lb-title" style="margin: 0; font-family: 'Anton', Impact, sans-serif; font-weight: 400; font-size: 22px; line-height: 1.1; text-transform: uppercase; text-wrap: balance">The subtle art of <span style="color: {{accent}}">looking like art</span><span style="color: #D13A28">.</span></h3>
+<p style="margin: 4px 0 0; font-family: 'Newsreader', Georgia, serif; font-style: italic; font-size: 17px; color: #4A4A57; text-wrap: balance">In a room full of art, I’d still look at people.</p>
+</div>
+<button type="button" id="lb-close" onClick="{{closeLb}}" aria-label="Close" style="flex: none; display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; border: 1px solid #D5D7E0; background: #FFFFFF; color: #17171F; cursor: pointer"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+</div>
+<div style="position: relative">
+<div id="lb-slides" class="slides" onScroll="{{onSlide}}" style="display: flex; overflow-x: auto; scroll-snap-type: x mandatory; aspect-ratio: 1 / 1; max-height: 68vh; margin: 0 auto; border-radius: 12px; background: #FFFFFF">
+<img src="/photos/looking-fine.jpg" alt="A white-haired visitor in a black coat looks at a dark framed work printed with the word FINE." width="1001" height="1400" style="flex: 0 0 100%; width: 100%; height: 100%; object-fit: contain; scroll-snap-align: center; scroll-snap-stop: always">
+<img src="/photos/looking-blue.jpg" alt="A woman in a red coat sits on a bench, facing a large blue painting crossed by a single red stroke." width="1400" height="1400" style="flex: 0 0 100%; width: 100%; height: 100%; object-fit: contain; scroll-snap-align: center; scroll-snap-stop: always">
+<img src="/photos/looking-red.jpg" alt="A man in a patchwork knit sweater stands beside a huge red monochrome canvas." width="1400" height="1400" style="flex: 0 0 100%; width: 100%; height: 100%; object-fit: contain; scroll-snap-align: center; scroll-snap-stop: always">
+<img src="/photos/looking-white.jpg" alt="A woman in a patterned coat and a green beret stands near an all-white canvas." width="1400" height="1400" style="flex: 0 0 100%; width: 100%; height: 100%; object-fit: contain; scroll-snap-align: center; scroll-snap-stop: always">
+</div>
+<span aria-live="polite" style="position: absolute; top: 10px; right: 10px; padding: 3px 9px; border-radius: 999px; background: rgba(23, 23, 31, 0.72); color: #FFFFFF; font-family: 'Figtree', sans-serif; font-size: 12px; font-weight: 700">{{slideLabel}}</span>
+<sc-if value="{{hasPrev}}" hint-placeholder-val="{{ false }}"><button type="button" onClick="{{prev}}" aria-label="Previous photo" style="display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; border: none; background: rgba(255, 255, 255, 0.92); color: #17171F; box-shadow: 0 2px 10px rgba(23, 23, 31, 0.25); cursor: pointer; position: absolute; top: 50%; transform: translateY(-50%); left: 8px"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"></path></svg></button></sc-if>
+<sc-if value="{{hasNext}}" hint-placeholder-val="{{ true }}"><button type="button" onClick="{{next}}" aria-label="Next photo" style="display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; border: none; background: rgba(255, 255, 255, 0.92); color: #17171F; box-shadow: 0 2px 10px rgba(23, 23, 31, 0.25); cursor: pointer; position: absolute; top: 50%; transform: translateY(-50%); right: 8px"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"></path></svg></button></sc-if>
+</div>
+<div style="display: flex; justify-content: center; gap: 2px">
+<sc-for list="{{dots}}" as="d" hint-placeholder-count="4"><button type="button" aria-label="{{d.label}}" aria-current="{{d.current}}" onClick="{{d.go}}" style="{{d.style}}"></button></sc-for>
+</div>
+</div>
+</div>
+</sc-if>
 <footer style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; padding: 20px 0 32px; font-family: 'Figtree', sans-serif; font-weight: 700; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase">
 <span>Set in Anton, Figtree &amp; Newsreader</span>
 <span><a href="mailto:[YOUR EMAIL]">[YOUR EMAIL]</a> · <a href="https://[LINKEDIN]">[LINKEDIN]</a></span>
@@ -320,8 +355,51 @@ a{color:#17171F}a:hover{color:#D13A28}
 </x-dc>
 <script type="text/x-dc" data-dc-script="" data-props="{&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#3B5BB8&quot;,&quot;options&quot;:[&quot;#3B5BB8&quot;,&quot;#2A3F8F&quot;,&quot;#17171F&quot;]},&quot;grain&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true},&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:4800}}">
 class Component extends DCLogic {
+constructor(props) {
+super(props);
+this.state = { slide: 0, lb: false };
+}
 renderVals() {
-return { accent: this.props.accent ?? '#3B5BB8', grain: this.props.grain ?? true };
+var self = this;
+var accent = this.props.accent ?? '#3B5BB8';
+var count = 4;
+var current = this.state.slide || 0;
+function slides() { return document.getElementById('lb-slides'); }
+function goTo(k) { var el = slides(); if (el) { el.scrollTo({ left: k * el.clientWidth, behavior: 'smooth' }); } }
+function focusId(id) { try { var el = document.getElementById(id); if (el) { el.focus({ preventScroll: true }); } } catch (err) {} }
+function close() {
+self.setState({ lb: false }, function () { try { document.body.style.overflow = ''; } catch (err) {} focusId('open-looking'); });
+}
+var dots = [];
+for (var k = 0; k < count; k++) {
+(function (k) {
+dots.push({
+label: 'Photo ' + (k + 1) + ' of ' + count,
+current: k === current ? 'true' : 'false',
+style: 'width: 18px; height: 18px; padding: 0; border: none; cursor: pointer; background: radial-gradient(circle, ' + (k === current ? accent : '#B9BCCB') + ' 0 3.5px, transparent 4px)',
+go: function () { goTo(k); }
+});
+})(k);
+}
+return {
+accent: accent, grain: this.props.grain ?? true,
+lbOpen: this.state.lb,
+dots: dots, slideLabel: (current + 1) + '/' + count,
+hasPrev: current > 0, hasNext: current < count - 1,
+prev: function () { goTo(current - 1); },
+next: function () { goTo(current + 1); },
+openLooking: function () {
+self.setState({ lb: true, slide: 0 }, function () { try { document.body.style.overflow = 'hidden'; } catch (err) {} focusId('lb-close'); });
+},
+closeLb: close,
+lbBackdrop: function (e) { if (e.target === e.currentTarget) { close(); } },
+lbKey: function (e) {
+if (e.key === 'Escape') { close(); }
+else if (e.key === 'ArrowRight') { goTo(Math.min(count - 1, current + 1)); }
+else if (e.key === 'ArrowLeft') { goTo(Math.max(0, current - 1)); }
+},
+onSlide: function (e) { var el = e.currentTarget || e.target; var k = Math.round(el.scrollLeft / Math.max(1, el.clientWidth)); if (k !== self.state.slide) { self.setState({ slide: k }); } }
+};
 }
 }
 </script>

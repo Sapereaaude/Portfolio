@@ -15,8 +15,8 @@ SITE = 'https://uxrsafaaelouafi.vercel.app'
 
 ROUTES = {'Main': '', 'Timeline': 'timeline', 'About': 'about', 'Resume': 'resume', 'Dust': 'dust', 'DustLetter': 'dust/letter'}
 COMPONENTS = {'Connections'}  # imported by other pages, not a page of its own
-DEFAULT_DESC = "Safaa El Ouafi, Senior User Researcher. Different jobs, same obsession: I build systems that help people learn, decide, and improve."
-DUST_DESC = "A Senior User Researcher's journey through learning, product research and AI, and why Dust feels like the place where those paths meet."
+DEFAULT_DESC = "Safaa El Ouafi, User Experience Researcher. Different jobs, same obsession: I build systems that help people learn, decide, and improve."
+DUST_DESC = "A User Experience Researcher's journey through learning, product research and AI, and why Dust feels like the place where those paths meet."
 
 VOID = {'br', 'img', 'input', 'link', 'meta', 'hr'}
 TOKEN = re.compile(r'<!--.*?-->|</([\w-]+)\s*>|<([\w-]+)((?:\s+[\w:.-]+(?:\s*=\s*(?:"[^"]*"|\'[^\']*\'))?)*)\s*(/?)>', re.S)
@@ -220,6 +220,7 @@ def main():
         count += 1
     for asset in (PDF, 'og.png', 'og-dust.png'):
         shutil.copy(os.path.join(ROOT, 'assets', asset), os.path.join(OUT, asset))
+    shutil.copytree(os.path.join(ROOT, 'assets', 'photos'), os.path.join(OUT, 'photos'), dirs_exist_ok=True)
     open(os.path.join(OUT, '404.html'), 'w', encoding='utf-8').write(
         '<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Not found | Safaa El Ouafi</title></head>'
         '<body style="margin:0;font-family:system-ui,sans-serif;padding:48px 24px"><h1>Nothing in that drawer.</h1><p><a href="/">Back to the portfolio</a></p></body></html>')

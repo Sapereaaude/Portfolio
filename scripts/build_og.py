@@ -21,5 +21,5 @@ def make(name, eyebrow):
     d.rectangle([0, 606, 1200, 630], fill=BLUE)
     im.save(os.path.join(ROOT, 'assets', name), optimize=True)
 
-make('og.png', 'SAFAA EL OUAFI  ·  SENIOR USER RESEARCHER')
+make('og.png', 'SAFAA EL OUAFI  ·  USER EXPERIENCE RESEARCHER')
 make('og-dust.png', 'SAFAA × DUST')
