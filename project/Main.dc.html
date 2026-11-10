@@ -919,7 +919,7 @@ var items = [
 { id: 'asp3', pts: ['Displaced and vulnerable people', 'Mental health'], vis: 'home', quote: 'For people losing their place', meta: 'What I’m looking for', title: 'Tech for people losing their place', q: 'Where does research have the most to give?', a: 'Displaced people, vulnerable people, mental health. Jordan taught me what it looks like when lives visibly improve. I want that again.', jobs: ['looking'], who: ['founder', 'curious', 'hiring'], m: [], sc: [] },
 { id: 'ph1', pts: ['Morocco', 'Food and family, in warm colours'], vis: 'photo', meta: 'Morocco', title: 'Msemmen de Proust', q: 'What does a memory taste like?', a: 'Family and food, in warm colours. The madeleine, but Moroccan.', jobs: ['photo'], who: ['curious', 'designer'], m: [], sc: [] },
 { id: 'ph3', pts: ['Paris', 'Habitation non incluse'], vis: 'photo', meta: 'Paris', title: 'Assurance habitation, habitation non incluse*', q: 'Who is left out of the promise?', a: 'A man asleep under a home insurance ad. Habitation non incluse.', jobs: ['photo'], who: ['curious', 'designer'], m: [], sc: [] },
-{ id: 'ph4', pts: ['Djerba, 2026', 'Absence, then life coming back'], vis: 'photo', meta: 'Djerba · 2026', title: 'Shabbat, le village s’endort', q: 'Can absence be a portrait?', a: 'The Jewish quarter at the end of shabbat: closed doors, then children, lights and prayers coming back.', jobs: ['photo'], who: ['curious', 'designer'], m: [], sc: [] }
+{ id: 'ph4', pts: ['Djerba, 2026', 'Absence, then life coming back'], vis: 'photo', meta: 'Djerba · 2026', title: 'Le village s’endort', q: 'Can absence be a portrait?', a: 'The Jewish quarter at the end of shabbat: closed doors, then children, lights and prayers coming back.', jobs: ['photo'], who: ['curious', 'designer'], m: [], sc: [] }
 ];
 
 var CASES = ['aiid', 'vizcom', 'system', 'prio', 'plm', 'sat3d', 'usab', 'agents', 'swiss', 'community', 'superpowers', 'clinic', 'mind', 'clear', 'algo_academy', 'algo_journey', 'algo_personas', 'rbk', 'stress', 'programme', 'simplon', 'teach', 'embassy', 'workshops', 'sistech', 'bsf', 'vgwb', 'daradam', 'tracking', 'bastille', 'palier', 'askip', 'oasis', 'papier', 'cassandre'];
@@ -1075,14 +1075,16 @@ prevRow: function () { rowScroll(id, -1); }, nextRow: function () { rowScroll(id
 }) : [{ head: '', hasHead: false, more: false, rowId: 'row-all', cls: '', style: GRID, items: results }];
 
 var photos = [
-{ title: 'The subtle art of looking like art', sub: 'France · observing, or voyeurism?', img: '/photos/looking-fine.jpg', noImg: false, alt: '', btnId: 'open-looking', n: 4, open: function () { openSeries('looking'); } },
+{ title: 'The subtle art of looking like art', sub: 'France · Observation', img: '/photos/looking-fine.jpg', noImg: false, alt: '', btnId: 'open-looking', n: 4, open: function () { openSeries('looking'); } },
 { title: 'The aftermath', sub: 'China · what the meal leaves behind', img: '/photos/aftermath-turquoise.jpg', noImg: false, alt: '', btnId: 'open-aftermath', n: 4, open: function () { openSeries('aftermath'); } },
 { title: 'Bismillah, c’est les ténèbres', sub: '2026', img: '/photos/tenebres-wire.jpg', noImg: false, alt: '', btnId: 'open-tenebres', n: 7, open: function () { openSeries('tenebres'); } }
 ].concat(items.filter(function (it) { return it.vis === 'photo'; }).map(function (it) {
 if (it.id === 'ph1') { return { title: it.title, sub: 'Pantone 15-1340 · Morocco', img: '/photos/msemmen-saida.jpg', noImg: false, alt: '', btnId: 'open-msemmen', n: 6, open: function () { openSeries('msemmen'); } }; }
-if (it.id === 'ph4') { return { title: it.title, sub: 'Tunisie, un samedi', img: '/photos/village-door-arch.jpg', noImg: false, alt: '', btnId: 'open-village', n: 9, open: function () { openSeries('village'); } }; }
+if (it.id === 'ph4') { return { title: it.title, sub: 'Tunisie, un Shabbat', img: '/photos/village-door-arch.jpg', noImg: false, alt: '', btnId: 'open-village', n: 9, open: function () { openSeries('village'); } }; }
 if (it.id === 'ph3') { return { title: it.title, sub: 'Paris', img: '/photos/habitation-window.jpg', noImg: false, alt: '', btnId: 'open-habitation', n: 3, open: function () { openSeries('habitation'); } }; }
 return { title: it.title, sub: it.pts.join(' · '), img: '', noImg: true, alt: 'Photograph to add: ' + it.title }; }));
+var PH_ORDER = ['open-looking', 'open-tenebres', 'open-msemmen', 'open-village', 'open-habitation', 'open-aftermath'];
+photos.sort(function (a, b) { return PH_ORDER.indexOf(a.btnId) - PH_ORDER.indexOf(b.btnId); });
 
 var SERIES = {
 looking: { t1: 'The subtle art of ', t2: 'looking like art', sub: 'In a room full of art, I’d still look at people.', imgs: [
@@ -1114,7 +1116,7 @@ msemmen: { t1: 'Msemmen ', t2: 'de Proust', sub: 'Pantone 15-1340 · Morocco', i
 { src: '/photos/msemmen-door.jpg', w: 1054, h: 1400, alt: 'A smiling young woman holding bread looks out from the doorway of number 12, in a salmon-pink wall.' },
 { src: '/photos/msemmen-stairs.jpg', w: 1054, h: 1400, alt: 'A sunlit concrete stairwell with a potted prickly pear on the steps.' },
 { src: '/photos/msemmen-tea.jpg', w: 1054, h: 1400, alt: 'A small glass of tea left on a white balustrade, green leaves behind.' }] },
-village: { t1: 'Shabbat, ', t2: 'le village s’endort', sub: 'Tunisie, un samedi', imgs: [
+village: { t1: 'Le village ', t2: 's’endort', sub: 'Tunisie, un Shabbat', imgs: [
 { src: '/photos/village-door-arch.jpg', w: 1054, h: 1400, alt: 'A weathered blue wooden door with two knockers under a horseshoe arch.' },
 { src: '/photos/village-door-panels.jpg', w: 1054, h: 1400, alt: 'A blue double door with cream circles and ovals set in a white wall.' },
 { src: '/photos/village-menorah.jpg', w: 1006, h: 1400, alt: 'A pale blue menorah painted between a barred window and a padlocked iron door.' },
