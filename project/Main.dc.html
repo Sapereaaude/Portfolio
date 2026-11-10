@@ -75,6 +75,7 @@ a{color:#17171F}a:hover{color:#3B5BB8}
 </sc-for>
 <a href="Timeline.dc.html" style="white-space: nowrap; text-decoration: none; font-size: 15px; font-weight: 600; padding: 10px 16px; border: 1px solid #D5D7E0; border-radius: 999px">Career timeline</a>
 <a href="About.dc.html" style="white-space: nowrap; text-decoration: none; font-size: 15px; font-weight: 600; padding: 10px 16px; border: 1px solid #D5D7E0; border-radius: 999px">About me</a>
+<button type="button" onClick="{{goOutside}}" aria-pressed="{{navOutsideOn}}" style="{{navOutsideStyle}}">Off the clock</button>
 </span>
 </nav>
 
@@ -117,7 +118,6 @@ a{color:#17171F}a:hover{color:#3B5BB8}
 <section aria-labelledby="h-search" style="display: flex; flex-direction: column; gap: 18px">
 <div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 24px">
 <h2 id="h-search" style="margin: 0; font-family: 'Anton', Impact, sans-serif; font-weight: 400; font-size: clamp(26px, 3.2vw, 40px); line-height: 1.05; text-transform: uppercase; text-wrap: balance">Or search my work</h2>
-<p style="margin: 0; font-family: 'Newsreader', Georgia, serif; font-style: italic; font-size: 19px; color: #4A4A57">Pick your words, I’ll pick the work.</p>
 </div>
 <div style="font-family: 'Anton', Impact, sans-serif; font-size: clamp(26px, 4.4vw, 60px); line-height: 1.24; text-transform: uppercase; display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 0.28em; max-width: 1180px">
 <span style="white-space: nowrap">I am a</span>
@@ -156,12 +156,12 @@ a{color:#17171F}a:hover{color:#3B5BB8}
 </div>
 </section>
 
-<section aria-labelledby="h-outside" style="border-radius: 22px; background: #FBEAE8; padding: clamp(24px, 4vw, 48px); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px 40px">
-<div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 10px">
-<p id="h-outside" style="margin: 0; font-family: 'Newsreader', Georgia, serif; font-style: italic; font-size: clamp(22px, 2.4vw, 30px); line-height: 1.25; text-wrap: balance">Apparently, I don’t stop observing, experimenting and connecting things when I close my laptop.</p>
-<p style="margin: 0; font-size: 15px; font-weight: 600; color: #4A4A57">Photography · Mentoring · Side projects</p>
+<section aria-labelledby="h-outside" style="display: flex; flex-direction: column; gap: 20px">
+<h2 id="h-outside" style="margin: 0; font-family: 'Anton', Impact, sans-serif; font-weight: 400; font-size: clamp(26px, 3.2vw, 40px); line-height: 1.05; text-transform: uppercase; text-wrap: balance">Or get to know me</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 16px">
+<a href="About.dc.html" class="thread-card" style="display: flex; flex-direction: column; gap: 10px; text-align: left; padding: 22px 22px 20px; border-radius: 20px; border: 1px solid #D5D7E0; background: #FFFFFF; color: #17171F; cursor: pointer; font-family: 'Figtree', sans-serif; text-decoration: none"><span style="font-family: 'Anton', Impact, sans-serif; font-size: clamp(24px, 2.2vw, 30px); line-height: 1.08; text-transform: uppercase; white-space: nowrap">As a colleague</span><span style="font-family: 'Newsreader', Georgia, serif; font-style: italic; font-size: 19px; line-height: 1.3; text-wrap: pretty">How I work, and what I bring to a team.</span><span style="margin-top: auto; padding-top: 6px; display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 700; color: {{accent}}">About me <svg aria-hidden="true" width="18" height="18" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11h14M12 5l6 6-6 6"></path></svg></span></a>
+<button type="button" class="thread-card" onClick="{{goOutside}}" style="display: flex; flex-direction: column; gap: 10px; text-align: left; padding: 22px 22px 20px; border-radius: 20px; border: 1px solid #D5D7E0; background: #FFFFFF; color: #17171F; cursor: pointer; font-family: 'Figtree', sans-serif; text-decoration: none"><span style="font-family: 'Anton', Impact, sans-serif; font-size: clamp(24px, 2.2vw, 30px); line-height: 1.08; text-transform: uppercase; white-space: nowrap">As a person</span><span style="font-family: 'Newsreader', Georgia, serif; font-style: italic; font-size: 19px; line-height: 1.3; text-wrap: pretty">(I promise I’m not that weird.)</span><span style="margin-top: auto; padding-top: 6px; display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 700; color: {{accent}}">Off the clock <svg aria-hidden="true" width="18" height="18" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11h14M12 5l6 6-6 6"></path></svg></span></button>
 </div>
-<button type="button" onClick="{{goOutside}}" style="flex: none; min-height: 52px; padding: 0 24px; border: none; border-radius: 999px; background: #17171F; color: #FFFFFF; font-family: 'Figtree', sans-serif; font-size: 16px; font-weight: 700; cursor: pointer; display: inline-flex; align-items: center; gap: 10px; white-space: nowrap">Step outside <svg aria-hidden="true" width="18" height="18" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11h15M12 5l6 6-6 6"></path></svg></button>
 </section>
 
 
@@ -250,7 +250,7 @@ a{color:#17171F}a:hover{color:#3B5BB8}
 <div style="padding: 8px 0 0; display: flex; flex-direction: column; gap: clamp(32px, 5vw, 56px)">
 <header style="display: flex; flex-direction: column; gap: 12px">
 <div><button type="button" onClick="{{goHome}}" style="background: none; border: none; padding: 0; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; min-height: 44px; font-family: 'Figtree', sans-serif; font-size: 15px; font-weight: 600; color: {{accent}}">← Home</button></div>
-<h1 style="margin: 0; font-family: 'Anton', Impact, sans-serif; font-weight: 400; font-size: clamp(40px, 7vw, 100px); line-height: 1; text-transform: uppercase; text-wrap: balance">Outside the job title<span style="color: #D13A28">.</span></h1>
+<h1 style="margin: 0; font-family: 'Anton', Impact, sans-serif; font-weight: 400; font-size: clamp(40px, 7vw, 100px); line-height: 1; text-transform: uppercase; text-wrap: balance">Off the clock<span style="color: #D13A28">.</span></h1>
 <p style="margin: 0; max-width: 860px; font-family: 'Newsreader', Georgia, serif; font-style: italic; font-size: clamp(22px, 2.6vw, 32px); line-height: 1.25; text-wrap: balance">Apparently, I don’t stop observing, experimenting and connecting things when I close my laptop.</p>
 </header>
 
@@ -988,9 +988,9 @@ var pkOutcome = picker('outcome', 'So that I can', outcomes, outcome);
 
 var navItems = [
 { label: 'My thinking', on: isHome || isTheme, style: navStyle(isHome || isTheme), go: function () { self.setState({ screen: 'home' }); } },
-{ label: 'Search my work', on: isResults, style: navStyle(isResults), go: function () { self.setState({ screen: 'results', phase: 'all' }); } },
-{ label: 'Outside the job title', on: isOutside, style: navStyle(isOutside), go: function () { self.setState({ screen: 'outside' }); } }
+{ label: 'Search my work', on: isResults, style: navStyle(isResults), go: function () { self.setState({ screen: 'results', phase: 'all' }); } }
 ];
+var navOutsideStyle = navStyle(isOutside), navOutsideOn = isOutside;
 var themeCards = THEMES.map(function (t) {
 return { n: t.n, title: t.title, q: t.q, covers: t.covers, count: t.order.length + ' projects', go: goTheme(t.id),
 style: 'display: flex; flex-direction: column; gap: 12px; text-align: left; padding: 22px 22px 20px; border-radius: 20px; border: 1px solid #D5D7E0; background: #FFFFFF; color: #17171F; cursor: pointer; font-family: Figtree, sans-serif;' };
@@ -1161,6 +1161,7 @@ todoIntro: isT3 ? 'Two tools from the middle of this story are not documented he
 goNextTheme: goTheme(nextTheme.id), nextThemeLabel: nextTheme.n + ' · ' + nextTheme.title,
 goHome: function () { self.setState({ screen: 'home' }); },
 goOutside: function () { self.setState({ screen: 'outside' }); },
+navOutsideStyle: navOutsideStyle, navOutsideOn: navOutsideOn,
 go: function () { self.setState({ screen: 'results', phase: 'all' }); },
 back: function () { self.setState({ screen: 'home' }); },
 photos: photos,
