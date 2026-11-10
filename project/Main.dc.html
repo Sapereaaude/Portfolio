@@ -1080,6 +1080,7 @@ var photos = [
 { title: 'Bismillah, c’est les ténèbres', sub: '2026', img: '/photos/tenebres-wire.jpg', noImg: false, alt: '', btnId: 'open-tenebres', n: 7, open: function () { openSeries('tenebres'); } }
 ].concat(items.filter(function (it) { return it.vis === 'photo'; }).map(function (it) {
 if (it.id === 'ph1') { return { title: it.title, sub: 'Pantone 15-1340 · Morocco', img: '/photos/msemmen-saida.jpg', noImg: false, alt: '', btnId: 'open-msemmen', n: 6, open: function () { openSeries('msemmen'); } }; }
+if (it.id === 'ph4') { return { title: it.title, sub: 'Shabbat · Tunisie 2026', img: '/photos/village-door-panels.jpg', noImg: false, alt: '', btnId: 'open-village', n: 9, open: function () { openSeries('village'); } }; }
 if (it.id === 'ph3') { return { title: it.title, sub: 'Paris', img: '/photos/habitation-window.jpg', noImg: false, alt: '', btnId: 'open-habitation', n: 3, open: function () { openSeries('habitation'); } }; }
 return { title: it.title, sub: it.pts.join(' · '), img: '', noImg: true, alt: 'Photograph to add: ' + it.title }; }));
 
@@ -1112,7 +1113,17 @@ msemmen: { t1: 'Msemmen ', t2: 'de Proust', sub: 'Pantone 15-1340 · Morocco', i
 { src: '/photos/msemmen-couscous.jpg', w: 1054, h: 1400, alt: 'Hands rolling fresh couscous in a glazed terracotta dish by a kitchen window.' },
 { src: '/photos/msemmen-door.jpg', w: 1054, h: 1400, alt: 'A smiling young woman holding bread looks out from the doorway of number 12, in a salmon-pink wall.' },
 { src: '/photos/msemmen-stairs.jpg', w: 1054, h: 1400, alt: 'A sunlit concrete stairwell with a potted prickly pear on the steps.' },
-{ src: '/photos/msemmen-tea.jpg', w: 1054, h: 1400, alt: 'A small glass of tea left on a white balustrade, green leaves behind.' }] }
+{ src: '/photos/msemmen-tea.jpg', w: 1054, h: 1400, alt: 'A small glass of tea left on a white balustrade, green leaves behind.' }] },
+village: { t1: 'Le village ', t2: 's’endort', sub: 'Shabbat · Tunisie 2026', imgs: [
+{ src: '/photos/village-door-panels.jpg', w: 1054, h: 1400, alt: 'A blue double door with cream circles and ovals set in a white wall.' },
+{ src: '/photos/village-menorah.jpg', w: 1006, h: 1400, alt: 'A pale blue menorah painted between a barred window and a padlocked iron door.' },
+{ src: '/photos/village-door-arch.jpg', w: 1054, h: 1400, alt: 'A weathered blue wooden door with two knockers under a horseshoe arch.' },
+{ src: '/photos/village-wall-hebrew.jpg', w: 990, h: 1400, alt: 'A single word in Hebrew script sprayed on a white wall above a red and white kerb.' },
+{ src: '/photos/village-door-iron.jpg', w: 1054, h: 1400, alt: 'A dark blue metal door beside a cracked pink wall and a small house number.' },
+{ src: '/photos/village-alley.jpg', w: 1054, h: 1400, alt: 'A narrow whitewashed alley at sunset, blue doors at the end and a cat sitting on a step.' },
+{ src: '/photos/village-door-x.jpg', w: 1054, h: 1400, alt: 'Blue doors marked with white painted crosses, under palm fronds.' },
+{ src: '/photos/village-door-green.jpg', w: 1054, h: 1400, alt: 'A white door left ajar, dotted with green paint, opening onto a ruined courtyard.' },
+{ src: '/photos/village-door-green-arch.jpg', w: 1054, h: 1400, alt: 'A white arched door with dripping green dots, a plastic bag tied to the handle.' }] }
 };
 var ser = SERIES[s.lb] || SERIES.looking;
 var lbCount = ser.imgs.length, lbCur = s.slide || 0;

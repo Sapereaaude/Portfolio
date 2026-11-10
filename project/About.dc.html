@@ -307,8 +307,11 @@ a{color:#17171F}a:hover{color:#D13A28}
 <figcaption style="margin-top: 12px"><strong style="display: block; font-size: clamp(17px, 1.55vw, 20px); line-height: 1.2; font-family: 'Newsreader', Georgia, serif; font-style: italic; font-weight: 600; text-wrap: balance">Assurance habitation, habitation non incluse*</strong><span style="display: block; margin-top: 4px; font-family: 'Figtree', sans-serif; font-weight: 700; font-size: 11px; line-height: 1.4; letter-spacing: 0.04em; text-transform: uppercase; text-wrap: balance">Paris</span></figcaption>
 </figure>
 <figure class="series-card" style="margin: 0">
-<div style="aspect-ratio: 4 / 5; border-radius: 16px; background: #EEF1FA; display: flex; align-items: center; justify-content: center"><span style="color: #2A3F8F; font-size: 13px; font-weight: 600">[PHOTO]</span></div>
-<figcaption style="margin-top: 6px"><strong style="display: block; font-size: clamp(17px, 1.55vw, 20px); line-height: 1.2; font-family: 'Newsreader', Georgia, serif; font-style: italic; font-weight: 600; text-wrap: balance">Le village s’endort</strong><span style="display: block; margin-top: 4px; font-family: 'Figtree', sans-serif; font-weight: 700; font-size: 11px; line-height: 1.4; letter-spacing: 0.04em; text-transform: uppercase; text-wrap: balance">Djerba · the end of shabbat</span></figcaption>
+<button type="button" id="open-village" class="series-cover" onClick="{{openVillage}}" aria-label="Open the series Le village s’endort, 9 photos" style="position: relative; display: block; width: 100%; padding: 0; border: none; border-radius: 16px; overflow: hidden; cursor: zoom-in; background: #FFFFFF; aspect-ratio: 4 / 5">
+<img src="/photos/village-door-panels.jpg" alt="" width="1054" height="1400" loading="lazy" style="display: block; width: 100%; height: 100%; object-fit: cover">
+<span aria-hidden="true" style="position: absolute; top: 10px; right: 10px; display: inline-flex; align-items: center; gap: 5px; padding: 5px 9px 5px 7px; border-radius: 999px; background: rgba(23, 23, 31, 0.72); color: #FFFFFF; font-family: 'Figtree', sans-serif; font-size: 12px; font-weight: 700"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linejoin="round"><rect x="7" y="3" width="14" height="14" rx="2"></rect><path d="M3 7v12a2 2 0 0 0 2 2h12"></path></svg>9</span>
+</button>
+<figcaption style="margin-top: 12px"><strong style="display: block; font-size: clamp(17px, 1.55vw, 20px); line-height: 1.2; font-family: 'Newsreader', Georgia, serif; font-style: italic; font-weight: 600; text-wrap: balance">Le village s’endort</strong><span style="display: block; margin-top: 4px; font-family: 'Figtree', sans-serif; font-weight: 700; font-size: 11px; line-height: 1.4; letter-spacing: 0.04em; text-transform: uppercase; text-wrap: balance">Shabbat · Tunisie 2026</span></figcaption>
 </figure>
 </div>
 
@@ -409,7 +412,17 @@ msemmen: { t1: 'Msemmen ', t2: 'de Proust', sub: 'Pantone 15-1340 · Morocco', i
 { src: '/photos/msemmen-couscous.jpg', w: 1054, h: 1400, alt: 'Hands rolling fresh couscous in a glazed terracotta dish by a kitchen window.' },
 { src: '/photos/msemmen-door.jpg', w: 1054, h: 1400, alt: 'A smiling young woman holding bread looks out from the doorway of number 12, in a salmon-pink wall.' },
 { src: '/photos/msemmen-stairs.jpg', w: 1054, h: 1400, alt: 'A sunlit concrete stairwell with a potted prickly pear on the steps.' },
-{ src: '/photos/msemmen-tea.jpg', w: 1054, h: 1400, alt: 'A small glass of tea left on a white balustrade, green leaves behind.' }] }
+{ src: '/photos/msemmen-tea.jpg', w: 1054, h: 1400, alt: 'A small glass of tea left on a white balustrade, green leaves behind.' }] },
+village: { t1: 'Le village ', t2: 's’endort', sub: 'Shabbat · Tunisie 2026', imgs: [
+{ src: '/photos/village-door-panels.jpg', w: 1054, h: 1400, alt: 'A blue double door with cream circles and ovals set in a white wall.' },
+{ src: '/photos/village-menorah.jpg', w: 1006, h: 1400, alt: 'A pale blue menorah painted between a barred window and a padlocked iron door.' },
+{ src: '/photos/village-door-arch.jpg', w: 1054, h: 1400, alt: 'A weathered blue wooden door with two knockers under a horseshoe arch.' },
+{ src: '/photos/village-wall-hebrew.jpg', w: 990, h: 1400, alt: 'A single word in Hebrew script sprayed on a white wall above a red and white kerb.' },
+{ src: '/photos/village-door-iron.jpg', w: 1054, h: 1400, alt: 'A dark blue metal door beside a cracked pink wall and a small house number.' },
+{ src: '/photos/village-alley.jpg', w: 1054, h: 1400, alt: 'A narrow whitewashed alley at sunset, blue doors at the end and a cat sitting on a step.' },
+{ src: '/photos/village-door-x.jpg', w: 1054, h: 1400, alt: 'Blue doors marked with white painted crosses, under palm fronds.' },
+{ src: '/photos/village-door-green.jpg', w: 1054, h: 1400, alt: 'A white door left ajar, dotted with green paint, opening onto a ruined courtyard.' },
+{ src: '/photos/village-door-green-arch.jpg', w: 1054, h: 1400, alt: 'A white arched door with dripping green dots, a plastic bag tied to the handle.' }] }
 };
 var ser = SERIES[this.state.lb] || SERIES.looking;
 var count = ser.imgs.length;
@@ -459,6 +472,7 @@ openAftermath: function () { openSeries('aftermath'); },
 openTenebres: function () { openSeries('tenebres'); },
 openHabitation: function () { openSeries('habitation'); },
 openMsemmen: function () { openSeries('msemmen'); },
+openVillage: function () { openSeries('village'); },
 closeLb: close,
 lbBackdrop: function (e) { if (e.target === e.currentTarget) { close(); } },
 lbKey: function (e) {
