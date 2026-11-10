@@ -55,6 +55,7 @@ a{color:#17171F}a:hover{color:#3B5BB8}
 @media (max-width: 700px){.peek-row>.card{flex-basis:86%}}
 .slides{scrollbar-width:none;overscroll-behavior-x:contain}
 .slides::-webkit-scrollbar{display:none}
+@media (max-width: 700px){.photo-row{display:grid !important;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 12px !important;overflow:visible !important;scroll-snap-type:none !important}.photo-card{flex:none !important;min-width:0}}
 </style>
 </helmet>
 <div style="position: relative; background: #FFFFFF; color: #17171F; font-family: 'Figtree', sans-serif; overflow: clip; min-height: 100vh; display: flex; flex-direction: column">
@@ -1202,7 +1203,7 @@ var photos = [
 { title: 'The aftermath', sub: 'China · what the meal leaves behind', img: '/photos/aftermath-turquoise.jpg', noImg: false, alt: '', btnId: 'open-aftermath', n: 4, open: function () { openSeries('aftermath'); } },
 { title: 'Bismillah, c’est les ténèbres', sub: '2026', img: '/photos/tenebres-colonnade.jpg', noImg: false, alt: '', btnId: 'open-tenebres', n: 7, open: function () { openSeries('tenebres'); } }
 ].concat(items.filter(function (it) { return it.vis === 'photo'; }).map(function (it) {
-if (it.id === 'ph1') { return { title: it.title, sub: 'Pantone 15-1340 · Morocco', img: '/photos/msemmen-saida.jpg', noImg: false, alt: '', btnId: 'open-msemmen', n: 6, open: function () { openSeries('msemmen'); } }; }
+if (it.id === 'ph1') { return { title: it.title, sub: 'Pantone 15‑1340 · Morocco', img: '/photos/msemmen-saida.jpg', noImg: false, alt: '', btnId: 'open-msemmen', n: 6, open: function () { openSeries('msemmen'); } }; }
 if (it.id === 'ph4') { return { title: it.title, sub: 'Tunisie, un Shabbat', img: '/photos/village-door-arch.jpg', noImg: false, alt: '', btnId: 'open-village', n: 9, open: function () { openSeries('village'); } }; }
 if (it.id === 'ph3') { return { title: it.title, sub: 'Paris', img: '/photos/habitation-window.jpg', noImg: false, alt: '', btnId: 'open-habitation', n: 3, open: function () { openSeries('habitation'); } }; }
 return { title: it.title, sub: it.pts.join(' · '), img: '', noImg: true, alt: 'Photograph to add: ' + it.title }; }));
@@ -1232,7 +1233,7 @@ habitation: { t1: 'Assurance habitation, ', t2: 'habitation non incluse*', sub: 
 { src: '/photos/habitation-window.jpg', w: 996, h: 1400, alt: 'A man sleeps on a mattress set on wooden pallets, beneath a bank window advertising home insurance.' },
 { src: '/photos/habitation-pavement.jpg', w: 1054, h: 1400, alt: 'A barefoot man lies on the pavement with a Paris 2024 tote bag and an umbrella; behind him, a mattress bed against the same bank front.' },
 { src: '/photos/habitation-faim.jpg', w: 1050, h: 1400, alt: 'A tent covered with a checked sheet in a stone corner, under a small sign that reads FAIM.' }] },
-msemmen: { t1: 'Msemmen ', t2: 'de Proust', sub: 'Pantone 15-1340 · Morocco', imgs: [
+msemmen: { t1: 'Msemmen ', t2: 'de Proust', sub: 'Pantone 15‑1340 · Morocco', imgs: [
 { src: '/photos/msemmen-saida.jpg', w: 1054, h: 1400, alt: 'A sun-baked ochre wall with an arched niche, the name SAIDA scratched into the plaster and a wire casting a long shadow.' },
 { src: '/photos/msemmen-crates.jpg', w: 1054, h: 1400, alt: 'Stacks of orange market crates stamped BENI AMAR.' },
 { src: '/photos/msemmen-couscous.jpg', w: 1054, h: 1400, alt: 'Hands rolling fresh couscous in a glazed terracotta dish by a kitchen window.' },
