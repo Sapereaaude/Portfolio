@@ -124,6 +124,34 @@ def drop_links(nodes, text):
                 drop_links(n[2], text)
 
 
+def pin_nav(nodes, nav):
+    """Move `nav` to be the first content child of the page's long outer container, in its own padded shell."""
+    def remove(ns):
+        for i, n in enumerate(ns):
+            if n is nav:
+                del ns[i]
+                return True
+            if isinstance(n, list) and remove(n[2]):
+                return True
+        return False
+    def outer(ns):
+        for n in ns:
+            if isinstance(n, list) and n[0] == 'div' and 'overflow: hidden' in n[1].get('style', ''):
+                return n
+        for n in ns:
+            if isinstance(n, list):
+                o = outer(n[2])
+                if o:
+                    return o
+        return None
+    root = outer(nodes)
+    if not root or not remove(nodes):
+        return
+    shell = ['div', {'class': 'nav-shell', 'style': 'max-width: 1280px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 56px); box-sizing: border-box'}, [nav]]
+    idx = next((i for i, n in enumerate(root[2]) if isinstance(n, list) and n[0] == 'div'), len(root[2]))
+    root[2].insert(idx, shell)
+
+
 def site_fixes(name, d):
     blob = json.dumps(d['ast'], ensure_ascii=False)
     blob = re.sub(r'/_blob/[0-9a-f]{32}', '/' + PDF, blob)
@@ -139,6 +167,10 @@ def site_fixes(name, d):
                         ['div', {'style': 'overflow-x: auto; padding: 0 12px 24px'}, [['div', {'style': 'width: 794px; margin: 0 auto; background: #FFFFFF'}, d['ast']]]]]
         elif not replace_first_nav(d['ast'], nav) and not (name == 'About' and replace_first_nav(d['ast'], nav, 'header')):
             print('no top nav in', name)
+        if name == 'Resume':
+            d['ast'][0][1]['class'] = 'nav-shell'
+        elif name == 'About':  # lift the navigation out of the masthead so it can stay pinned while the page scrolls
+            pin_nav(d['ast'], nav)
     if name == 'Main':  # a new visit starts on the home view; the place is kept within one visit
         d['code'] = d['code'].replace('window.localStorage', 'window.sessionStorage')
     return d

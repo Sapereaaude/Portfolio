@@ -182,6 +182,39 @@
     if (sameSite && history.length > 1) { e.preventDefault(); history.back(); }
   });
 
+  /* Site-wide chrome: the top navigation stays pinned, and a button brings you back to the top. */
+  (function chrome() {
+    var css = [
+      '[style*="overflow: hidden"]{overflow:clip !important}',
+      '.nav-shell{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.94);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:0 0 0 100vmax rgba(255,255,255,.94);clip-path:inset(0 -100vmax)}',
+      '.nav-shell #page-top{position:static !important;box-shadow:none !important;clip-path:none !important;background:transparent !important;-webkit-backdrop-filter:none !important;backdrop-filter:none !important}',
+      '#page-top,nav#top,nav[aria-label="Letter"]{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.94);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:0 0 0 100vmax rgba(255,255,255,.94);clip-path:inset(0 -100vmax);padding-top:14px !important;padding-bottom:14px !important}',
+      '[id]{scroll-margin-top:calc(var(--nav-h, 0px) + 16px)}',
+      '@media (max-width: 700px){#page-top>span,nav#top>span,nav#top>div{flex-wrap:nowrap !important;overflow-x:auto;scrollbar-width:none;max-width:100%;padding-bottom:2px}#page-top>span::-webkit-scrollbar,nav#top>span::-webkit-scrollbar,nav#top>div::-webkit-scrollbar{display:none}#page-top>span>*,nav#top>span>*,nav#top>div>*{flex:none}}',
+      '.to-top{position:fixed;right:16px;bottom:16px;z-index:80;display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:50%;border:1px solid #17171F;background:#FFFFFF;color:#17171F;cursor:pointer;box-shadow:0 8px 24px rgba(23,23,31,.18);opacity:0;transform:translateY(12px);pointer-events:none;transition:opacity .2s ease,transform .2s ease}',
+      '.to-top.on{opacity:1;transform:none;pointer-events:auto}',
+      '@media (prefers-reduced-motion: reduce){.to-top{transition:none}}'
+    ].join('\n');
+    var st = document.createElement('style'); st.textContent = css; document.head.appendChild(st);
+    function navH() {
+      var n = document.querySelector('.nav-shell') || document.querySelector('#page-top,nav#top,nav[aria-label="Letter"]');
+      document.documentElement.style.setProperty('--nav-h', (n ? n.offsetHeight : 0) + 'px');
+    }
+    window.addEventListener('resize', navH);
+    var b = document.createElement('button');
+    b.type = 'button'; b.className = 'to-top'; b.setAttribute('aria-label', 'Back to top');
+    b.innerHTML = '<svg aria-hidden="true" width="20" height="20" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M11 18V4M5 10l6-6 6 6"></path></svg>';
+    b.addEventListener('click', function () {
+      var smooth = !(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+      window.scrollTo({ top: 0, behavior: smooth ? 'smooth' : 'auto' });
+    });
+    function onScroll() { navH(); b.classList.toggle('on', window.scrollY > 600); }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    document.addEventListener('DOMContentLoaded', function () { document.body.appendChild(b); onScroll(); });
+    if (document.body) { document.body.appendChild(b); }
+    setTimeout(onScroll, 300);
+  })();
+
   /* Visitors who arrive through the Dust page keep a way back to it on every other page. */
   (function dustTrail() {
     var onDust = /^\/dust(\/|$)/.test(location.pathname);

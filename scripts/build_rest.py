@@ -102,7 +102,7 @@ def case_nav():
     return f'''<nav style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px 24px; padding: 24px 0">
 <a href="Main.dc.html" style="font-family: 'Anton', Impact, sans-serif; font-size: 24px; letter-spacing: 0.02em; text-transform: uppercase; white-space: nowrap; text-decoration: none">Safaa El Ouafi<span style="color: #D13A28">.</span></a>
 <span style="display: flex; flex-wrap: wrap; gap: 8px">
-<a href="Main.dc.html" style="{NAVPILL}">Search my work</a>
+<a href="Main.dc.html#search" style="{NAVPILL}">Search my work</a>
 <a href="Timeline.dc.html" style="{NAVPILL}">Career timeline</a>
 <a href="About.dc.html" style="{NAVPILL}">About me</a>
 </span>
@@ -110,7 +110,7 @@ def case_nav():
 '''
 def back(mt):
     return f'''<div style="display: flex; flex-wrap: wrap; gap: 8px 16px; margin: {mt}">
-<a href="Main.dc.html" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; border-radius: 999px; background: {{{{accent}}}}; color: #FFFFFF; font-size: 14px; font-weight: 700; text-decoration: none">← Back to results</a>
+<a href="Main.dc.html#search" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; border-radius: 999px; background: {{{{accent}}}}; color: #FFFFFF; font-size: 14px; font-weight: 700; text-decoration: none">← Back to results</a>
 <a href="Timeline.dc.html" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; border-radius: 999px; border: 1px solid #D5D7E0; font-size: 14px; font-weight: 700; text-decoration: none">← Back to timeline</a>
 </div>
 '''

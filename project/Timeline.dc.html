@@ -12,6 +12,7 @@
 <style>
 body{margin:0;background:#FFFFFF}
 a{color:#17171F}a:hover{color:#3B5BB8}
+.tl-sticky{position:sticky;top:var(--nav-h, 0px);z-index:40;background:#FFFFFF;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:0 0 0 100vmax #FFFFFF;clip-path:inset(0 -100vmax -1px);border-bottom:1px solid #E3E3EA;padding-top:14px !important}
 .tl-dot,.tl-mk-dot{transition:transform .2s ease !important}
 .tl-btn:hover .tl-dot,.tl-btn:focus-visible .tl-dot{transform:scale(1.4) !important}
 .tl-mk:hover .tl-mk-dot,.tl-mk:focus-visible .tl-mk-dot{transform:scale(1.9) !important}
@@ -28,12 +29,12 @@ a{color:#17171F}a:hover{color:#3B5BB8}
 <nav style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px 24px; padding: 24px 0">
 <a href="Main.dc.html" style="font-family: 'Anton', Impact, sans-serif; font-size: 24px; letter-spacing: 0.02em; text-transform: uppercase; white-space: nowrap; text-decoration: none">Safaa El Ouafi<span style="color: #D13A28">.</span></a>
 <span style="display: flex; flex-wrap: wrap; gap: 8px">
-<a href="Main.dc.html" style="white-space: nowrap; text-decoration: none; font-size: 15px; font-weight: 600; padding: 10px 16px; border: 1px solid #D5D7E0; border-radius: 999px">Search my work</a>
+<a href="Main.dc.html#search" style="white-space: nowrap; text-decoration: none; font-size: 15px; font-weight: 600; padding: 10px 16px; border: 1px solid #D5D7E0; border-radius: 999px">Search my work</a>
 <a href="About.dc.html" style="white-space: nowrap; text-decoration: none; font-size: 15px; font-weight: 600; padding: 10px 16px; border: 1px solid #D5D7E0; border-radius: 999px">About me</a>
 </span>
 </nav>
 
-<a href="Main.dc.html" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; border-radius: 999px; border: 1px solid #D5D7E0; font-size: 14px; font-weight: 700; text-decoration: none">← Back to search</a>
+<a href="Main.dc.html#search" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; border-radius: 999px; border: 1px solid #D5D7E0; font-size: 14px; font-weight: 700; text-decoration: none">← Back to search</a>
 <header style="padding: 24px 0 8px">
 <p style="margin: 0 0 10px; font-size: 13px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #4A4A57">Career, 2008 → now</p>
 <h1 style="margin: 0; font-family: 'Anton', Impact, sans-serif; font-weight: 400; font-size: clamp(40px, 6vw, 80px); line-height: 1; text-transform: uppercase">{{headline}}<span style="color: #D13A28">.</span></h1>
@@ -41,7 +42,7 @@ a{color:#17171F}a:hover{color:#3B5BB8}
 </header>
 
 <!-- TIMELINE -->
-<div style="overflow-x: auto; padding: 28px 0 8px">
+<div class="tl-sticky" style="overflow-x: auto; padding: 28px 0 8px">
 <div style="min-width: 880px">
 <ol style="position: relative; list-style: none; margin: 0; padding: 0 0 4px; display: flex; gap: 0">
 <li aria-hidden="true" style="position: absolute; left: 0; right: 0; top: 13px; height: 2px; background: #D5D7E0"></li>
