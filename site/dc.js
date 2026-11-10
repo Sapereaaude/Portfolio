@@ -182,6 +182,21 @@
     if (sameSite && history.length > 1) { e.preventDefault(); history.back(); }
   });
 
+  /* Visitors who arrive through the Dust page keep a way back to it on every other page. */
+  (function dustTrail() {
+    var onDust = /^\/dust(\/|$)/.test(location.pathname);
+    try { if (onDust) { sessionStorage.setItem('via-dust', '1'); } } catch (err) {}
+    var via = false;
+    try { via = sessionStorage.getItem('via-dust') === '1'; } catch (err) {}
+    if (onDust || !via) { return; }
+    var a = document.createElement('a');
+    a.href = '/dust';
+    a.className = 'dust-back';
+    a.innerHTML = '<span aria-hidden="true">\u2190</span> Back to Safaa \u00d7 Dust';
+    a.setAttribute('style', "position: fixed; left: 16px; bottom: 16px; z-index: 90; display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 18px; border-radius: 999px; background: #17171F; color: #FFFFFF; font-family: Figtree, sans-serif; font-size: 14px; font-weight: 700; text-decoration: none; white-space: nowrap; box-shadow: 0 8px 24px rgba(23, 23, 31, 0.25)");
+    document.body.appendChild(a);
+  })();
+
   try { mount(document.getElementById('app')); }
   catch (err) {
     document.getElementById('app').textContent = 'This page could not be displayed. Please write to safaa.elouafi.am@gmail.com.';
