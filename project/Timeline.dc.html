@@ -12,6 +12,10 @@
 <style>
 body{margin:0;background:#FFFFFF}
 a{color:#17171F}a:hover{color:#3B5BB8}
+.tl-dot,.tl-mk-dot{transition:transform .2s ease !important}
+.tl-btn:hover .tl-dot,.tl-btn:focus-visible .tl-dot{transform:scale(1.4) !important}
+.tl-mk:hover .tl-mk-dot,.tl-mk:focus-visible .tl-mk-dot{transform:scale(1.9) !important}
+@media (prefers-reduced-motion: reduce){.tl-dot,.tl-mk-dot{transition:none !important}}
 </style>
 </helmet>
 <div style="position: relative; background: #FFFFFF; color: #17171F; font-family: 'Figtree', sans-serif; overflow: hidden; min-height: 100vh">
@@ -43,8 +47,8 @@ a{color:#17171F}a:hover{color:#3B5BB8}
 <li aria-hidden="true" style="position: absolute; left: 0; right: 0; top: 13px; height: 2px; background: #D5D7E0"></li>
 <sc-for list="{{stops}}" as="c" hint-placeholder-count="7">
 <li style="position: relative; flex: 1 1 0; min-width: 0">
-<button type="button" sc-camel-on-click="{{c.pick}}" aria-pressed="{{c.on}}" style="all: unset; box-sizing: border-box; cursor: pointer; display: flex; flex-direction: column; align-items: flex-start; gap: 8px; width: 100%; padding-right: 10px; min-height: 44px">
-<span style="{{c.dot}}"></span>
+<button type="button" class="tl-btn" sc-camel-on-click="{{c.pick}}" aria-pressed="{{c.on}}" style="all: unset; box-sizing: border-box; cursor: pointer; display: flex; flex-direction: column; align-items: flex-start; gap: 8px; width: 100%; padding-right: 10px; min-height: 44px">
+<span class="tl-dot" style="{{c.dot}}"></span>
 <span style="font-family: 'Anton', Impact, sans-serif; font-size: 18px; line-height: 1; color: {{c.yearColor}}">{{c.years}}</span>
 <span style="{{c.nameStyle}}">{{c.name}}</span>
 <span style="font-size: 12px; color: #4A4A57">{{c.count}}</span>
@@ -59,8 +63,8 @@ a{color:#17171F}a:hover{color:#3B5BB8}
 <sc-for list="{{cols}}" as="col" hint-placeholder-count="7">
 <div style="flex: 1 1 0; min-width: 0; display: flex; gap: 6px 14px; padding-right: 10px; min-height: 20px">
 <sc-for list="{{col.markers}}" as="mk" hint-placeholder-count="1">
-<button type="button" sc-camel-on-click="{{mk.pick}}" style="all: unset; box-sizing: border-box; cursor: pointer; display: flex; flex-direction: column; align-items: flex-start; gap: 3px; min-height: 36px; max-width: 120px">
-<span style="{{mk.dot}}"></span>
+<button type="button" class="tl-mk" sc-camel-on-click="{{mk.pick}}" style="all: unset; box-sizing: border-box; cursor: pointer; display: flex; flex-direction: column; align-items: flex-start; gap: 3px; min-height: 36px; max-width: 120px">
+<span class="tl-mk-dot" style="{{mk.dot}}"></span>
 <span style="font-size: 10px; font-weight: 700; color: #6B6E7B; white-space: nowrap">{{mk.y}}</span>
 <span style="font-size: 10px; line-height: 1.25; color: #6B6E7B">{{mk.l}}</span>
 </button>
@@ -159,9 +163,9 @@ a{color:#17171F}a:hover{color:#3B5BB8}
 </section>
 </sc-if>
 
-<footer style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; padding: 28px 0 32px; font-size: 13px; color: #4A4A57">
-<span>Every job, its own little universe.</span>
-<span><a href="mailto:[YOUR EMAIL]">[YOUR EMAIL]</a> · <a href="https://[LINKEDIN]">[LINKEDIN]</a></span>
+<footer style="display: flex; justify-content: flex-end; gap: 4px; padding: 20px 0 28px">
+<a href="https://www.linkedin.com/in/safaa-el-ouafi/en/" aria-label="LinkedIn" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; color: #17171F; text-decoration: none"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"></path></svg></a>
+<a href="mailto:safaa.elouafi.am@gmail.com" aria-label="Email" style="display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; color: #17171F; text-decoration: none"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3.5 6.5l8.5 6.5 8.5-6.5"></path></svg></a>
 </footer>
 </div>
 </div>

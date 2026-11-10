@@ -43,6 +43,13 @@ a{color:#17171F}a:hover{color:#3B5BB8}
 .search-sentence{margin-top:0 !important;font-size:clamp(22px, 2.6vw, 36px) !important;line-height:1.25 !important}
 .search-meta{flex-wrap:nowrap !important}
 @media (max-width: 700px){.search-sentence{font-size:20px !important}.search-suffix{display:none}}
+.peek-row{scrollbar-width:none}
+.peek-row::-webkit-scrollbar{display:none}
+.peek-row>.card{flex:0 0 calc(50% - 8px);min-width:0;max-height:250px;scroll-snap-align:start}
+.peek-row>.card::before{content:"";position:absolute;left:0;right:0;bottom:0;height:96px;background:linear-gradient(rgba(255,255,255,0),#FFFFFF 88%);pointer-events:none;z-index:2}
+@media (max-width: 700px){.peek-row>.card{flex-basis:86%}}
+.slides{scrollbar-width:none;overscroll-behavior-x:contain}
+.slides::-webkit-scrollbar{display:none}
 </style>
 </helmet>
 <div style="position: relative; background: #FFFFFF; color: #17171F; font-family: 'Figtree', sans-serif; overflow: clip; min-height: 100vh; display: flex; flex-direction: column">
@@ -157,9 +164,6 @@ a{color:#17171F}a:hover{color:#3B5BB8}
 <button type="button" onClick="{{goOutside}}" style="flex: none; min-height: 52px; padding: 0 24px; border: none; border-radius: 999px; background: #17171F; color: #FFFFFF; font-family: 'Figtree', sans-serif; font-size: 16px; font-weight: 700; cursor: pointer; display: inline-flex; align-items: center; gap: 10px; white-space: nowrap">Step outside <svg aria-hidden="true" width="18" height="18" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11h15M12 5l6 6-6 6"></path></svg></button>
 </section>
 
-<section aria-label="Career path" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px 40px; padding-top: 28px; border-top: 1px solid #E3E3EA">
-<p style="margin: 0; flex: 1 1 420px; min-width: 0; max-width: 720px; font-size: 17px; line-height: 1.6; text-wrap: pretty">I didn’t always know where I was going. Looking back, the continuity is there: <span class="hl">ask questions</span>, <span class="hl hl2">notice what could be better</span>, <span class="hl hl3">try something</span>, <span class="hl hl2">share what I learned</span>. <span style="font-family: 'Newsreader', Georgia, serif; font-style: italic; font-size: 19px">My career is not a straight line. It’s a collection of learning loops.</span></p>
-</section>
 
 </div>
 </sc-if>
@@ -264,7 +268,7 @@ a{color:#17171F}a:hover{color:#3B5BB8}
 <sc-for list="{{photos}}" as="ph" hint-placeholder-count="6">
 <figure class="photo-card" role="listitem" style="margin: 0">
 <sc-if value="{{ph.img}}" hint-placeholder-val="{{ false }}">
-<a href="/about" class="photo-cover" aria-label="{{ph.title}}, see the series on About me" style="display: block; aspect-ratio: 4 / 5; border-radius: 16px; overflow: hidden; background: #2A2A35"><img src="{{ph.img}}" alt="" width="1001" height="1400" loading="lazy" style="display: block; width: 100%; height: 100%; object-fit: cover"></a>
+<button type="button" id="{{ph.btnId}}" class="photo-cover" onClick="{{ph.open}}" aria-label="Open the series {{ph.title}}, {{ph.n}} photos" style="position: relative; display: block; width: 100%; padding: 0; border: none; border-radius: 16px; overflow: hidden; cursor: zoom-in; background: #2A2A35; aspect-ratio: 4 / 5"><img src="{{ph.img}}" alt="" width="1054" height="1400" loading="lazy" style="display: block; width: 100%; height: 100%; object-fit: cover"><span aria-hidden="true" style="position: absolute; top: 10px; right: 10px; display: inline-flex; align-items: center; gap: 5px; padding: 5px 9px 5px 7px; border-radius: 999px; background: rgba(23, 23, 31, 0.72); color: #FFFFFF; font-family: 'Figtree', sans-serif; font-size: 12px; font-weight: 700"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linejoin="round"><rect x="7" y="3" width="14" height="14" rx="2"></rect><path d="M3 7v12a2 2 0 0 0 2 2h12"></path></svg>{{ph.n}}</span></button>
 </sc-if>
 <sc-if value="{{ph.noImg}}" hint-placeholder-val="{{ true }}">
 <div role="img" aria-label="{{ph.alt}}" style="aspect-ratio: 4 / 5; border-radius: 16px; background: #2A2A35; border: 1px dashed #6E7183; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; letter-spacing: 0.14em; color: #C9CCDA">[PHOTO]</div>
@@ -277,9 +281,30 @@ a{color:#17171F}a:hover{color:#3B5BB8}
 
 <div style="display: flex; flex-direction: column; gap: 8px">
 <h2 style="margin: 0; font-family: 'Anton', Impact, sans-serif; font-weight: 400; font-size: clamp(26px, 3.2vw, 40px); line-height: 1.05; text-transform: uppercase; text-wrap: balance">Other side projects</h2>
-<p style="margin: 0; max-width: 760px; font-size: 17px; line-height: 1.6; text-wrap: pretty">Experiments, civic itches, volunteering and things I built because I wanted them to exist. None of this is client work.</p>
 </div>
 </div>
+<sc-if value="{{lbOpen}}" hint-placeholder-val="{{ false }}">
+<div class="lb" role="dialog" aria-modal="true" aria-labelledby="lb-title" onClick="{{lbBackdrop}}" onKeyDown="{{lbKey}}" style="position: fixed; inset: 0; z-index: 100; display: flex; align-items: center; justify-content: center; padding: 16px; background: rgba(23, 23, 31, 0.88)">
+<div style="width: min(92vw, 560px); display: flex; flex-direction: column; gap: 10px; padding: 14px 14px 16px; border-radius: 18px; background: #FFFFFF; box-sizing: border-box">
+<div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 12px">
+<div style="min-width: 0">
+<h3 id="lb-title" style="margin: 0; font-family: 'Anton', Impact, sans-serif; font-weight: 400; font-size: 22px; line-height: 1.1; text-transform: uppercase; text-wrap: balance">{{lbT1}}<span style="color: {{accent}}">{{lbT2}}</span><span style="color: #D13A28">.</span></h3>
+<p style="margin: 4px 0 0; font-family: 'Newsreader', Georgia, serif; font-style: italic; font-size: 17px; color: #4A4A57; text-wrap: balance">{{lbSub}}</p>
+</div>
+<button type="button" id="lb-close" onClick="{{closeLb}}" aria-label="Close" style="flex: none; display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; border: 1px solid #D5D7E0; background: #FFFFFF; color: #17171F; cursor: pointer"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+</div>
+<div style="position: relative">
+<div id="lb-slides" class="slides" onScroll="{{onSlide}}" style="display: flex; overflow-x: auto; scroll-snap-type: x mandatory; aspect-ratio: 1 / 1; max-height: 68vh; margin: 0 auto; border-radius: 12px; background: #FFFFFF"><sc-for list="{{lbImgs}}" as="im" hint-placeholder-count="4"><img src="{{im.src}}" alt="{{im.alt}}" width="{{im.w}}" height="{{im.h}}" style="flex: 0 0 100%; width: 100%; height: 100%; object-fit: contain; scroll-snap-align: center; scroll-snap-stop: always"></sc-for></div>
+<span aria-live="polite" style="position: absolute; top: 10px; right: 10px; padding: 3px 9px; border-radius: 999px; background: rgba(23, 23, 31, 0.72); color: #FFFFFF; font-family: 'Figtree', sans-serif; font-size: 12px; font-weight: 700">{{slideLabel}}</span>
+<sc-if value="{{hasPrev}}" hint-placeholder-val="{{ false }}"><button type="button" onClick="{{prev}}" aria-label="Previous photo" style="display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; border: none; background: rgba(255, 255, 255, 0.92); color: #17171F; box-shadow: 0 2px 10px rgba(23, 23, 31, 0.25); cursor: pointer; position: absolute; top: 50%; transform: translateY(-50%); left: 8px"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"></path></svg></button></sc-if>
+<sc-if value="{{hasNext}}" hint-placeholder-val="{{ true }}"><button type="button" onClick="{{next}}" aria-label="Next photo" style="display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; border: none; background: rgba(255, 255, 255, 0.92); color: #17171F; box-shadow: 0 2px 10px rgba(23, 23, 31, 0.25); cursor: pointer; position: absolute; top: 50%; transform: translateY(-50%); right: 8px"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"></path></svg></button></sc-if>
+</div>
+<div style="display: flex; justify-content: center; gap: 2px">
+<sc-for list="{{dots}}" as="d" hint-placeholder-count="4"><button type="button" aria-label="{{d.label}}" aria-current="{{d.current}}" onClick="{{d.go}}" style="{{d.style}}"></button></sc-for>
+</div>
+</div>
+</div>
+</sc-if>
 </sc-if>
 
 <!-- SHARED PROJECT CARDS -->
@@ -291,11 +316,17 @@ a{color:#17171F}a:hover{color:#3B5BB8}
 </sc-if>
 <sc-if value="{{isResults}}" hint-placeholder-val="{{ true }}"><div style="height: 16px"></div></sc-if>
 <sc-if value="{{hasResults}}" hint-placeholder-val="{{ true }}">
-<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 520px), 1fr)); gap: 16px">
-<sc-for list="{{results}}" as="r" hint-placeholder-count="5">
-<sc-if value="{{r.groupHead}}" hint-placeholder-val="{{ false }}">
-<div style="{{r.groupStyle}}"><h3 style="margin: 0; font-family: 'Anton', Impact, sans-serif; font-weight: 400; font-size: clamp(24px, 2.6vw, 32px); line-height: 1.05; text-transform: uppercase; white-space: nowrap">{{r.groupHead}}<span style="color: #D13A28">.</span></h3><span style="font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #4A4A57; white-space: nowrap">{{r.groupCount}}</span></div>
+<sc-for list="{{groups}}" as="g" hint-placeholder-count="1">
+<sc-if value="{{g.hasHead}}" hint-placeholder-val="{{ false }}">
+<div style="{{g.headStyle}}">
+<div style="display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; min-width: 0"><h3 style="margin: 0; font-family: 'Anton', Impact, sans-serif; font-weight: 400; font-size: clamp(24px, 2.6vw, 32px); line-height: 1.05; text-transform: uppercase; white-space: nowrap">{{g.head}}<span style="color: #D13A28">.</span></h3><span style="font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #4A4A57; white-space: nowrap">{{g.count}}</span></div>
+<sc-if value="{{g.more}}" hint-placeholder-val="{{ false }}">
+<div style="flex: none; display: flex; gap: 8px"><button type="button" onClick="{{g.prevRow}}" aria-label="Previous {{g.head}} projects" style="display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; border: 1px solid #17171F; background: #FFFFFF; color: #17171F; cursor: pointer"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"></path></svg></button><button type="button" onClick="{{g.nextRow}}" aria-label="More {{g.head}} projects" style="display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; border: 1px solid #17171F; background: #FFFFFF; color: #17171F; cursor: pointer"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"></path></svg></button></div>
 </sc-if>
+</div>
+</sc-if>
+<div id="{{g.rowId}}" class="{{g.cls}}" style="{{g.style}}">
+<sc-for list="{{g.items}}" as="r" hint-placeholder-count="5">
 <article class="card" style="display: flex; flex-direction: column; border: 1px solid #E3E3EA; border-radius: 18px; background: #FFFFFF; overflow: hidden; align-self: start">
 <div style="{{r.bannerStyle}}">
 <div aria-hidden="true" style="flex: 0 0 clamp(110px, 26%, 160px); align-self: stretch; min-height: 120px; position: relative">
@@ -721,6 +752,7 @@ a{color:#17171F}a:hover{color:#3B5BB8}
 </article>
 </sc-for>
 </div>
+</sc-for>
 </sc-if>
 <sc-if value="{{noResults}}" hint-placeholder-val="{{ false }}">
 <div style="border: 1px dashed #D5D7E0; border-radius: 16px; padding: 40px; font-family: 'Newsreader', Georgia, serif; font-style: italic; font-size: 21px; text-align: center">Nothing in that drawer. Loosen a filter, or change your search.</div>
@@ -771,9 +803,9 @@ a{color:#17171F}a:hover{color:#3B5BB8}
 
 </main>
 
-<footer style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; padding: 28px 0 32px; font-size: 13px; color: #4A4A57">
-<span>Understand. Improve. Repeat.</span>
-<span><a href="mailto:safaa.elouafi.am@gmail.com">safaa.elouafi.am@gmail.com</a> · <a href="https://www.linkedin.com/in/safaa-el-ouafi/en/">LinkedIn</a></span>
+<footer style="display: flex; justify-content: flex-end; gap: 4px; padding: 20px 0 28px">
+<a href="https://www.linkedin.com/in/safaa-el-ouafi/en/" aria-label="LinkedIn" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; color: #17171F; text-decoration: none"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"></path></svg></a>
+<a href="mailto:safaa.elouafi.am@gmail.com" aria-label="Email" style="display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; color: #17171F; text-decoration: none"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3.5 6.5l8.5 6.5 8.5-6.5"></path></svg></a>
 </footer>
 
 </div>
@@ -783,7 +815,7 @@ a{color:#17171F}a:hover{color:#3B5BB8}
 class Component extends DCLogic {
 constructor(props) {
 super(props);
-this.state = { pick: null, screen: 'home', theme: 't1', persona: 'hiring', job: 'built', outcome: 'talk', phase: 'all', open: null, side: false };
+this.state = { pick: null, screen: 'home', theme: 't1', persona: 'hiring', job: 'built', outcome: 'talk', phase: 'all', open: null, side: false, lb: null, slide: 0 };
 try { var saved = JSON.parse(window.localStorage.getItem('se-portfolio') || 'null'); if (saved && saved.persona) { this.state = Object.assign(this.state, saved, { open: null, screen: 'home', pick: null }); } } catch (err) {}
 var fromHash = this.readHash();
 if (fromHash) { this.state = Object.assign(this.state, fromHash); }
@@ -972,7 +1004,7 @@ var nextTheme = THEMES[(THEMES.indexOf(theme) + 1) % THEMES.length];
 var pool = [];
 var phaseDefs = [{ id: 'all', label: 'All' }, { id: 'pm', label: 'Programme management' }, { id: 'id', label: 'Instructional design' }, { id: 'research', label: 'User research & ResearchOps' }, { id: 'side', label: 'Mentoring & side projects' }];
 var phaseChips = [];
-var resultLine = '', resultCount = '', resultSuffix = '', groupAt = {};
+var resultLine = '', resultCount = '', resultSuffix = '', groupDefs = [];
 if (isResults) {
 var sideCount = 0;
 var byJob = items.filter(function (it) {
@@ -999,15 +1031,15 @@ pool = theme.order.map(function (id) { return byId[id]; }).filter(function (it) 
 resultLine = pool.length + ' projects on this thread';
 } else if (isOutside) {
 var GROUPS = [
+{ label: 'Make my work life easier', ids: ['cassandre'] },
 { label: 'Education', ids: ['sistech', 'vgwb', 'daradam', 'bsf'] },
 { label: 'Social impact', ids: ['bastille', 'palier', 'oasis', 'workshops'] },
-{ label: 'Health', ids: ['tracking', 'askip'] },
-{ label: 'Make my work life easier', ids: ['cassandre'] }
+{ label: 'Health', ids: ['tracking', 'askip'] }
 ];
-pool = []; groupAt = {};
+pool = []; groupDefs = [];
 GROUPS.forEach(function (g) {
 var its = g.ids.map(function (id) { return byId[id]; }).filter(Boolean);
-if (its.length) { groupAt[pool.length] = { label: g.label, n: its.length, first: pool.length === 0 }; }
+if (its.length) { groupDefs.push({ label: g.label, from: pool.length, n: its.length }); }
 pool = pool.concat(its);
 });
 resultLine = pool.length + ' side projects and commitments';
@@ -1020,10 +1052,7 @@ var tone = tones[it.vis] || 'grey';
 var solid = tone === 'solid';
 var hasCase = CASES.indexOf(it.id) !== -1;
 var threads = it.themes.map(function (t) { var on = isTheme && t.id === theme.id; return { label: t.n + ' ' + t.short, style: chipStyle(on, 1), go: goTheme(t.id) }; });
-var gh = groupAt[i];
 var r = {
-groupHead: gh ? gh.label : '', groupCount: gh ? (gh.n + (gh.n === 1 ? ' project' : ' projects')) : '',
-groupStyle: 'grid-column: 1 / -1; display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; margin: ' + (gh && !gh.first ? '28px' : '0') + ' 0 2px; padding-top: ' + (gh && !gh.first ? '20px' : '0') + '; border-top: ' + (gh && !gh.first ? '1px solid #E3E3EA' : 'none') + ';',
 hasCase: hasCase, noCase: !hasCase, href: 'Case-' + it.id + '.dc.html',
 title: it.title, meta: it.meta, q: it.q, a: it.a, v: v, pts: it.pts || [],
 threads: threads, hasThreads: threads.length > 0,
@@ -1037,9 +1066,52 @@ for (var k = 0; k < 7; k++) { r['c' + k] = hl.indexOf(k) !== -1 ? accent : '#FFF
 return r;
 });
 
-var photos = [{ title: 'The subtle art of looking like art', sub: 'In a room full of art, I’d still look at people', img: '/photos/looking-fine.jpg', noImg: false, alt: '' }].concat(items.filter(function (it) { return it.vis === 'photo'; }).map(function (it) { return { title: it.title, sub: it.pts.join(' · '), img: '', noImg: true, alt: 'Photograph to add: ' + it.title }; }));
+var GRID = 'display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 520px), 1fr)); gap: 16px';
+var groups = isOutside ? groupDefs.map(function (g, gi) {
+var id = 'row-' + gi, more = g.n > 2;
+return { head: g.label, hasHead: true, count: g.n + (g.n === 1 ? ' project' : ' projects'), more: more, rowId: id, cls: 'peek-row',
+style: 'display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 2px 0',
+headStyle: 'display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: ' + (gi ? '36px' : '0') + ' 0 14px; padding-top: ' + (gi ? '22px' : '0') + '; border-top: ' + (gi ? '1px solid #E3E3EA' : 'none') + ';',
+items: results.slice(g.from, g.from + g.n),
+prevRow: function () { rowScroll(id, -1); }, nextRow: function () { rowScroll(id, 1); } };
+}) : [{ head: '', hasHead: false, more: false, rowId: 'row-all', cls: '', style: GRID, items: results }];
+
+var photos = [
+{ title: 'The subtle art of looking like art', sub: 'In a room full of art, I’d still look at people', img: '/photos/looking-fine.jpg', noImg: false, alt: '', btnId: 'open-looking', n: 4, open: function () { openSeries('looking'); } },
+{ title: 'The aftermath', sub: 'China · what the meal leaves behind', img: '/photos/aftermath-chili.jpg', noImg: false, alt: '', btnId: 'open-aftermath', n: 4, open: function () { openSeries('aftermath'); } }
+].concat(items.filter(function (it) { return it.vis === 'photo'; }).map(function (it) { return { title: it.title, sub: it.pts.join(' · '), img: '', noImg: true, alt: 'Photograph to add: ' + it.title }; }));
+
+var SERIES = {
+looking: { t1: 'The subtle art of ', t2: 'looking like art', sub: 'In a room full of art, I’d still look at people.', imgs: [
+{ src: '/photos/looking-fine.jpg', w: 1001, h: 1400, alt: 'A white-haired visitor in a black coat looks at a dark framed work printed with the word FINE.' },
+{ src: '/photos/looking-blue.jpg', w: 1400, h: 1400, alt: 'A woman in a red coat sits on a bench, facing a large blue painting crossed by a single red stroke.' },
+{ src: '/photos/looking-red.jpg', w: 1400, h: 1400, alt: 'A man in a patchwork knit sweater stands beside a huge red monochrome canvas.' },
+{ src: '/photos/looking-white.jpg', w: 1400, h: 1400, alt: 'A woman in a patterned coat and a green beret stands near an all-white canvas.' }] },
+aftermath: { t1: 'The ', t2: 'aftermath', sub: 'Everyone has left. The bowls are still talking.', imgs: [
+{ src: '/photos/aftermath-chili.jpg', w: 1054, h: 1400, alt: 'Two white trays of used bowls, chilli oil and bamboo skewers on the pavement, next to a yellow wet-floor sign.' },
+{ src: '/photos/aftermath-crates.jpg', w: 1054, h: 1400, alt: 'Blue crates of stained bowls, cups and chopsticks stacked against a worn blue doorstep.' },
+{ src: '/photos/aftermath-turquoise.jpg', w: 1073, h: 1400, alt: 'Seen from above, a turquoise crate overflowing with plates, cups and black chopsticks on grey paving.' },
+{ src: '/photos/aftermath-garlic.jpg', w: 1054, h: 1400, alt: 'A colander of peeled garlic with a knife, a bag of cloves and a small bin on the pavement, by an empty stool.' }] }
+};
+var ser = SERIES[s.lb] || SERIES.looking;
+var lbCount = ser.imgs.length, lbCur = s.slide || 0;
+function lbEl() { return document.getElementById('lb-slides'); }
+function lbGo(k) { var el = lbEl(); if (el) { el.scrollTo({ left: k * el.clientWidth, behavior: 'smooth' }); } }
+function lbFocus(id) { try { var el = document.getElementById(id); if (el) { el.focus({ preventScroll: true }); } } catch (err) {} }
+function lbClose() { var key = self.state.lb; self.setState({ lb: null }, function () { try { document.body.style.overflow = ''; } catch (err) {} lbFocus('open-' + key); }); }
+function openSeries(k) { self.setState({ lb: k, slide: 0 }, function () { try { document.body.style.overflow = 'hidden'; var el = lbEl(); if (el) { el.scrollLeft = 0; } } catch (err) {} lbFocus('lb-close'); }); }
+var dots = [];
+for (var dk = 0; dk < lbCount; dk++) { (function (k) { dots.push({ label: 'Photo ' + (k + 1) + ' of ' + lbCount, current: k === lbCur ? 'true' : 'false', style: 'width: 18px; height: 18px; padding: 0; border: none; cursor: pointer; background: radial-gradient(circle, ' + (k === lbCur ? accent : '#B9BCCB') + ' 0 3.5px, transparent 4px)', go: function () { lbGo(k); } }); })(dk); }
+function rowScroll(id, dir) { var el = document.getElementById(id); if (el) { el.scrollBy({ left: dir * el.clientWidth, behavior: 'smooth' }); } }
 
 return {
+lbOpen: !!s.lb, lbT1: ser.t1, lbT2: ser.t2, lbSub: ser.sub, lbImgs: ser.imgs, dots: dots, slideLabel: (lbCur + 1) + '/' + lbCount,
+hasPrev: lbCur > 0, hasNext: lbCur < lbCount - 1,
+prev: function () { lbGo(lbCur - 1); }, next: function () { lbGo(lbCur + 1); },
+closeLb: lbClose,
+lbBackdrop: function (e) { if (e.target === e.currentTarget) { lbClose(); } },
+lbKey: function (e) { if (e.key === 'Escape') { lbClose(); } else if (e.key === 'ArrowRight') { lbGo(Math.min(lbCount - 1, lbCur + 1)); } else if (e.key === 'ArrowLeft') { lbGo(Math.max(0, lbCur - 1)); } },
+onSlide: function (e) { var el = e.currentTarget || e.target; var k = Math.round(el.scrollLeft / Math.max(1, el.clientWidth)); if (k !== self.state.slide) { self.setState({ slide: k }); } },
 accent: accent,
 grain: this.props.grain ?? true,
 isHome: isHome, isResults: isResults, isTheme: isTheme, isOutside: isOutside, isT3: isT3,
@@ -1072,7 +1144,7 @@ sideKnob: 'position: absolute; top: 3px; left: ' + (s.side ? '19px' : '3px') + '
 results: results,
 hasResults: results.length > 0,
 noResults: results.length === 0,
-resultLine: resultLine, resultCount: resultCount, resultSuffix: resultSuffix,
+resultLine: resultLine, groups: groups, resultCount: resultCount, resultSuffix: resultSuffix,
 ctaTitle: outcome.title,
 ctaButton: outcome.button
 };
