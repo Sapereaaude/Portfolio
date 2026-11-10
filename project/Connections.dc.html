@@ -1,6 +1,5 @@
-<!doctype html>
-<html lang="en">
-<head>
+<!DOCTYPE html>
+<html lang="en"><head>
 <meta charset="utf-8">
 <title>This connects to — shared component</title>
 <script src="./support.js"></script>
@@ -31,7 +30,7 @@ a{color:#17171F}a:hover{color:#3B5BB8}
 </sc-if>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"pid":{"editor":"text","default":"system"},"part":{"editor":"enum","options":["connects","threads"],"default":"connects"},"n":{"editor":"text","default":"09"},"accent":{"editor":"color","default":"#3B5BB8"},"$preview":{"width":1120,"height":420}}'>
+<script type="text/x-dc" data-dc-script="" data-props="{&quot;pid&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;system&quot;},&quot;part&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;connects&quot;,&quot;threads&quot;],&quot;default&quot;:&quot;connects&quot;},&quot;n&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;09&quot;},&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#3B5BB8&quot;},&quot;$preview&quot;:{&quot;width&quot;:1120,&quot;height&quot;:420}}">
 class Component extends DCLogic {
 renderVals() {
 var pid = this.props.pid ?? 'system';
@@ -57,5 +56,6 @@ showThreads: part === 'threads' && threads.length > 0
 }
 }
 </script>
-</body>
-</html>
+
+
+</body></html>
