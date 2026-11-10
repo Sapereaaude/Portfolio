@@ -3,8 +3,15 @@
 Source backup of my interactive portfolio, built as a Claude design canvas
 ("Safaa El Ouafi — Portfolio & Resume"). Different jobs. Same obsession.
 
-These files are canvas artboards (`.dc.html`). They need the canvas runtime to
-render, so this repository is a backup of the code, not a deployable website.
+The pages are designed as canvas artboards (`project/*.dc.html`). The deployable
+website is generated from them into `site/`.
+
+## The website
+
+- `site/` — the static site: `/`, `/dust`, `/dust/letter`, `/timeline`, `/about`, `/resume` and `/work/<project>`.
+- `site/dc.js` — the small script that renders each page in the browser.
+- `scripts/build_site.py` — rebuilds `site/` from `project/` (`python3 scripts/build_site.py`).
+- `vercel.json` — tells Vercel to serve `site/` as is, with no build step (preset: Other).
 
 ## What is here
 
