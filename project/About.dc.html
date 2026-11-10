@@ -12,6 +12,10 @@
 <style>
 body{margin:0;background:#FFFFFF}
 a{color:#17171F}a:hover{color:#D13A28}
+.carousel{scrollbar-width:thin;scrollbar-color:#17171F #EEF1FA}
+.carousel::-webkit-scrollbar{height:6px}
+.carousel::-webkit-scrollbar-track{background:#EEF1FA;border-radius:3px}
+.carousel::-webkit-scrollbar-thumb{background:#17171F;border-radius:3px}
 .notes{grid-template-columns:repeat(2,minmax(0,1fr))}
 .notes>.note:last-child:nth-child(odd){grid-column:1/-1;justify-self:center;width:56%}
 @media (min-width: 900px){.notes{grid-template-columns:repeat(3,minmax(0,1fr))}.notes>.note:last-child:nth-child(odd){grid-column:auto;justify-self:stretch;width:auto}}
@@ -133,66 +137,23 @@ a{color:#17171F}a:hover{color:#D13A28}
 </section>
 
 <!-- 05 OUTSIDE -->
-<section style="padding: 72px 0; border-bottom: 1px solid #E3E3EA">
-<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 16px 40px; margin-bottom: 40px">
-<div style="font-family: 'Figtree', sans-serif; font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em">
-<div style="font-family: 'Anton', Impact, sans-serif; font-size: 72px; line-height: 1; color: {{accent}}">§04</div>
-<div style="margin-top: 8px">Off the clock</div>
-</div>
-<p style="margin: 0; flex: 1 1 420px; max-width: 640px; font-size: clamp(22px, 2.4vw, 30px); font-family: 'Newsreader', Georgia, serif; font-style: italic; line-height: 1.3; text-align: right; text-wrap: balance">Same eye, different lens. I photograph the before and after of things, rarely the thing itself.</p>
-</div>
-
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px">
-<figure style="margin: 0">
-<div style="aspect-ratio: 4 / 5; border-radius: 16px; background: #EEF1FA; display: flex; align-items: center; justify-content: center"><span style="color: #2A3F8F; font-size: 13px; font-weight: 600">[PHOTO]</span></div>
-<figcaption style="margin-top: 12px"><strong style="display: block; font-size: 22px; font-family: 'Newsreader', Georgia, serif; font-style: italic; font-weight: 600">Msemmen de Proust</strong><span style="font-family: 'Figtree', sans-serif; font-weight: 700; font-size: 12px; text-transform: uppercase">Morocco · food and memory</span></figcaption>
-</figure>
-<figure style="margin: 0">
-<div style="aspect-ratio: 4 / 5; border-radius: 16px; background: #EEF1FA; display: flex; align-items: center; justify-content: center"><span style="color: #2A3F8F; font-size: 13px; font-weight: 600">[PHOTO]</span></div>
-<figcaption style="margin-top: 12px"><strong style="display: block; font-size: 22px; font-family: 'Newsreader', Georgia, serif; font-style: italic; font-weight: 600">In Search of Lost Thyme</strong><span style="font-family: 'Figtree', sans-serif; font-weight: 700; font-size: 12px; text-transform: uppercase">A family house, the day it came down</span></figcaption>
-</figure>
-<figure style="margin: 0">
-<div style="aspect-ratio: 4 / 5; border-radius: 16px; background: #EEF1FA; display: flex; align-items: center; justify-content: center"><span style="color: #2A3F8F; font-size: 13px; font-weight: 600">[PHOTO]</span></div>
-<figcaption style="margin-top: 12px"><strong style="display: block; font-size: 22px; font-family: 'Newsreader', Georgia, serif; font-style: italic; font-weight: 600">Assurance habitation</strong><span style="font-family: 'Figtree', sans-serif; font-weight: 700; font-size: 12px; text-transform: uppercase">Paris · habitation non incluse</span></figcaption>
-</figure>
-<figure style="margin: 0">
-<div style="aspect-ratio: 4 / 5; border-radius: 16px; background: #EEF1FA; display: flex; align-items: center; justify-content: center"><span style="color: #2A3F8F; font-size: 13px; font-weight: 600">[PHOTO]</span></div>
-<figcaption style="margin-top: 12px"><strong style="display: block; font-size: 22px; font-family: 'Newsreader', Georgia, serif; font-style: italic; font-weight: 600">Le village s'endort</strong><span style="font-family: 'Figtree', sans-serif; font-weight: 700; font-size: 12px; text-transform: uppercase">Djerba · the end of shabbat</span></figcaption>
-</figure>
-</div>
-
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 0; margin-top: 48px; border-top: 1px solid #E3E3EA">
-<div style="padding: 24px 24px 24px 0; border-bottom: 1px solid #E3E3EA">
-<div style="font-family: 'Figtree', sans-serif; font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: #4A4A57">Built with AI, for fun and for real</div>
-<p style="margin: 10px 0 0; font-size: 17px; line-height: 1.55; text-wrap: pretty"><strong>Bastille</strong>, an app for the 2027 French election: swipe the ideas, not the candidates. <strong>Askip</strong>, a daily game for couples. <strong>Oasis Spot</strong>, a map of cool places for heatwaves.</p>
-</div>
-<div style="padding: 24px 24px 24px 0; border-bottom: 1px solid #E3E3EA">
-<div style="font-family: 'Figtree', sans-serif; font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: #4A4A57">Le papier mâché</div>
-<p style="margin: 10px 0 0; font-size: 17px; line-height: 1.55; text-wrap: pretty">An Instagram that reviews cookbooks poetically and cooks one recipe from each. I collect cookbooks. And vinyl.</p>
-</div>
-<div style="padding: 24px 0; border-bottom: 1px solid #E3E3EA">
-<div style="font-family: 'Figtree', sans-serif; font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: #4A4A57">Currently learning</div>
-<p style="margin: 10px 0 0; font-size: 17px; line-height: 1.55; text-wrap: pretty">Chinese, Amazigh, flamenco, ukulele. Earlier: founded my own intercultural cooking workshops at 24.</p>
-</div>
-</div>
-</section>
-
 </div>
 
 <!-- 06 LOOKING FOR -->
 <section style="background: #EEF1FA; color: #17171F">
 <div style="max-width: 1280px; margin: 0 auto; padding: 88px clamp(20px, 4vw, 56px); display: flex; flex-wrap: wrap; gap: 32px 56px">
 <div style="flex: 1 1 240px; font-family: 'Figtree', sans-serif; font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em">
-<div style="font-family: 'Anton', Impact, sans-serif; font-size: 72px; line-height: 1; color: {{accent}}">§05</div>
+<div style="font-family: 'Anton', Impact, sans-serif; font-size: 72px; line-height: 1; color: {{accent}}">§04</div>
 <div style="margin-top: 8px">What I'm looking for</div>
 </div>
 <div style="flex: 999 1 560px; min-width: 0">
 <h2 style="margin: 0 0 40px; font-family: 'Anton', Impact, sans-serif; font-weight: 400; font-size: clamp(44px, 6vw, 88px); line-height: 0.95; text-transform: uppercase; text-wrap: balance">A table where rigour and heart sit together</h2>
 <ol style="margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 0 40px; font-size: 19px; line-height: 1.55">
 <li style="padding: 18px 0; border-top: 1px solid #D5D7E0; text-wrap: pretty"><span style="font-family: 'Figtree', sans-serif; font-weight: 700; font-size: 13px; color: {{accent}}; margin-right: 10px">01</span>Research upstream, framing the problem before the roadmap does.</li>
-<li style="padding: 18px 0; border-top: 1px solid #D5D7E0; text-wrap: pretty"><span style="font-family: 'Figtree', sans-serif; font-weight: 700; font-size: 13px; color: {{accent}}; margin-right: 10px">02</span>A team that writes first, then meets. In an office: I like offices.</li>
-<li style="padding: 18px 0; border-top: 1px solid #D5D7E0; text-wrap: pretty"><span style="font-family: 'Figtree', sans-serif; font-weight: 700; font-size: 13px; color: {{accent}}; margin-right: 10px">03</span>People who stretch me. I grow toward people, not above them.</li>
-<li style="padding: 18px 0; border-top: 1px solid #D5D7E0; text-wrap: pretty"><span style="font-family: 'Figtree', sans-serif; font-weight: 700; font-size: 13px; color: {{accent}}; margin-right: 10px">04</span>Work whose effect on someone's life I can actually point to.</li>
+<li style="padding: 18px 0; border-top: 1px solid #D5D7E0; text-wrap: pretty"><span style="font-family: 'Figtree', sans-serif; font-weight: 700; font-size: 13px; color: {{accent}}; margin-right: 10px">02</span>Living research. Not a study you run once: it keeps asking questions, and it keeps de‑risking what we build.</li>
+<li style="padding: 18px 0; border-top: 1px solid #D5D7E0; text-wrap: pretty"><span style="font-family: 'Figtree', sans-serif; font-weight: 700; font-size: 13px; color: {{accent}}; margin-right: 10px">03</span>A team that writes first, then meets. In an office: I like offices.</li>
+<li style="padding: 18px 0; border-top: 1px solid #D5D7E0; text-wrap: pretty"><span style="font-family: 'Figtree', sans-serif; font-weight: 700; font-size: 13px; color: {{accent}}; margin-right: 10px">04</span>People who stretch me. I grow toward people, not above them.</li>
+<li style="padding: 18px 0; border-top: 1px solid #D5D7E0; text-wrap: pretty"><span style="font-family: 'Figtree', sans-serif; font-weight: 700; font-size: 13px; color: {{accent}}; margin-right: 10px">05</span>Work whose effect on someone's life I can actually point to.</li>
 </ol>
 </div>
 </div>
@@ -203,7 +164,7 @@ a{color:#17171F}a:hover{color:#D13A28}
 <!-- 07 WORKING WITH ME -->
 <section style="display: flex; flex-wrap: wrap; gap: 24px 56px; padding: 72px 0; border-bottom: 1px solid #E3E3EA">
 <div style="flex: 1 1 240px; font-family: 'Figtree', sans-serif; font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em">
-<div style="font-family: 'Anton', Impact, sans-serif; font-size: 72px; line-height: 1; color: {{accent}}">§06</div>
+<div style="font-family: 'Anton', Impact, sans-serif; font-size: 72px; line-height: 1; color: {{accent}}">§05</div>
 <div style="margin-top: 8px">Working with me</div>
 <div style="margin-top: 20px; display: inline-block; background: #FBEAE8; color: #A42A1C; padding: 6px 12px; border-radius: 999px; font-weight: 700">User manual · v1</div>
 </div>
@@ -214,7 +175,7 @@ a{color:#17171F}a:hover{color:#D13A28}
 </div>
 <div style="padding: 20px 0; border-top: 1px solid #E3E3EA">
 <h3 style="margin: 0 0 6px; font-size: 24px; font-weight: 600; line-height: 1.2">Written first.</h3>
-<p style="margin: 0; font-size: 17px; line-height: 1.55; text-wrap: pretty">Context, scope, goal, questions. Then we meet, if we still need to.</p>
+<p style="margin: 0; font-size: 17px; line-height: 1.55; text-wrap: pretty">Context, scope, goal, questions. Then we meet. Of course we meet.</p>
 </div>
 <div style="padding: 20px 0; border-top: 1px solid #E3E3EA">
 <h3 style="margin: 0 0 6px; font-size: 24px; font-weight: 600; line-height: 1.2">I'll tell you the uncomfortable finding.</h3>
@@ -230,9 +191,9 @@ a{color:#17171F}a:hover{color:#D13A28}
 </div>
 </section>
 
-<section style="display: flex; flex-wrap: wrap; gap: 24px 56px; padding: 72px 0">
+<section style="display: flex; flex-wrap: wrap; gap: 24px 56px; padding: 72px 0; border-bottom: 1px solid #E3E3EA">
 <div style="flex: 1 1 240px; font-family: 'Figtree', sans-serif; font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em">
-<div style="font-family: 'Anton', Impact, sans-serif; font-size: 72px; line-height: 1; color: {{accent}}">§07</div>
+<div style="font-family: 'Anton', Impact, sans-serif; font-size: 72px; line-height: 1; color: {{accent}}">§06</div>
 <div style="margin-top: 8px">What people say</div>
 </div>
 <div style="flex: 999 1 560px; min-width: 0">
@@ -286,6 +247,51 @@ a{color:#17171F}a:hover{color:#D13A28}
 </div>
 </div>
 </section>
+<section style="padding: 72px 0">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 16px 40px; margin-bottom: 40px">
+<div style="font-family: 'Figtree', sans-serif; font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em">
+<div style="font-family: 'Anton', Impact, sans-serif; font-size: 72px; line-height: 1; color: {{accent}}">§07</div>
+<div style="margin-top: 8px">Off the clock</div>
+</div>
+<p style="margin: 0; flex: 1 1 420px; max-width: 640px; font-size: clamp(22px, 2.4vw, 30px); font-family: 'Newsreader', Georgia, serif; font-style: italic; line-height: 1.3; text-align: right; text-wrap: balance">Same eye, different lens. I see patterns everywhere, and I love seeing the aftermath of things.</p>
+</div>
+
+<div class="carousel" role="group" aria-label="Photo series" tabindex="0" style="display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 14px">
+<figure style="margin: 0; flex: 0 0 min(76vw, 320px); scroll-snap-align: start">
+<div style="aspect-ratio: 4 / 5; border-radius: 16px; background: #EEF1FA; display: flex; align-items: center; justify-content: center"><span style="color: #2A3F8F; font-size: 13px; font-weight: 600">[PHOTO]</span></div>
+<figcaption style="margin-top: 12px"><strong style="display: block; font-size: 22px; font-family: 'Newsreader', Georgia, serif; font-style: italic; font-weight: 600">Msemmen de Proust</strong><span style="font-family: 'Figtree', sans-serif; font-weight: 700; font-size: 12px; text-transform: uppercase">Morocco · food and memory</span></figcaption>
+</figure>
+<figure style="margin: 0; flex: 0 0 min(76vw, 320px); scroll-snap-align: start">
+<div style="aspect-ratio: 4 / 5; border-radius: 16px; background: #EEF1FA; display: flex; align-items: center; justify-content: center"><span style="color: #2A3F8F; font-size: 13px; font-weight: 600">[PHOTO]</span></div>
+<figcaption style="margin-top: 12px"><strong style="display: block; font-size: 22px; font-family: 'Newsreader', Georgia, serif; font-style: italic; font-weight: 600">In Search of Lost Thyme</strong><span style="font-family: 'Figtree', sans-serif; font-weight: 700; font-size: 12px; text-transform: uppercase">A family house, the day it came down</span></figcaption>
+</figure>
+<figure style="margin: 0; flex: 0 0 min(76vw, 320px); scroll-snap-align: start">
+<div style="aspect-ratio: 4 / 5; border-radius: 16px; background: #EEF1FA; display: flex; align-items: center; justify-content: center"><span style="color: #2A3F8F; font-size: 13px; font-weight: 600">[PHOTO]</span></div>
+<figcaption style="margin-top: 12px"><strong style="display: block; font-size: 22px; font-family: 'Newsreader', Georgia, serif; font-style: italic; font-weight: 600">Assurance habitation</strong><span style="font-family: 'Figtree', sans-serif; font-weight: 700; font-size: 12px; text-transform: uppercase">Paris · habitation non incluse</span></figcaption>
+</figure>
+<figure style="margin: 0; flex: 0 0 min(76vw, 320px); scroll-snap-align: start">
+<div style="aspect-ratio: 4 / 5; border-radius: 16px; background: #EEF1FA; display: flex; align-items: center; justify-content: center"><span style="color: #2A3F8F; font-size: 13px; font-weight: 600">[PHOTO]</span></div>
+<figcaption style="margin-top: 12px"><strong style="display: block; font-size: 22px; font-family: 'Newsreader', Georgia, serif; font-style: italic; font-weight: 600">Le village s'endort</strong><span style="font-family: 'Figtree', sans-serif; font-weight: 700; font-size: 12px; text-transform: uppercase">Djerba · the end of shabbat</span></figcaption>
+</figure>
+</div>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 0 40px; margin-top: 40px; border-top: 1px solid #E3E3EA">
+<div style="padding: 24px 0">
+<div style="font-family: 'Figtree', sans-serif; font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: #4A4A57">Testimony of hyperfocus phases</div>
+<p style="margin: 6px 0 0; font-family: 'Newsreader', Georgia, serif; font-style: italic; font-size: 17px; color: #4A4A57">Built with AI, for fun and for real.</p>
+<p style="margin: 10px 0 0; font-size: 17px; line-height: 1.55; text-wrap: pretty"><strong>Bastille</strong>: Tinder, but for presidential candidates. <strong>Tracking Bad</strong>: my own days, tracked and analysed like a study. <strong>Cassandre</strong>: test what you can, research what you can’t.</p>
+</div>
+<div style="padding: 24px 0">
+<div style="font-family: 'Figtree', sans-serif; font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: #4A4A57">Currently obsessing over</div>
+<p style="margin: 10px 0 0; font-size: 17px; line-height: 1.55; text-wrap: pretty">Tofu. Vinyl. Cookbooks that are also about history. Blue cheese. Where words come from.</p>
+</div>
+<div style="padding: 24px 0">
+<div style="font-family: 'Figtree', sans-serif; font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: #4A4A57">Currently learning</div>
+<p style="margin: 10px 0 0; font-size: 17px; line-height: 1.55; text-wrap: pretty">Chinese, Amazigh, flamenco, ukulele. Earlier: founded my own intercultural cooking workshops at 24.</p>
+</div>
+</div>
+</section>
+
 <footer style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; padding: 20px 0 32px; font-family: 'Figtree', sans-serif; font-weight: 700; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase">
 <span>Set in Anton, Figtree &amp; Newsreader</span>
 <span><a href="mailto:[YOUR EMAIL]">[YOUR EMAIL]</a> · <a href="https://[LINKEDIN]">[LINKEDIN]</a></span>
