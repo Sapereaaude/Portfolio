@@ -770,6 +770,13 @@ a{color:#17171F}a:hover{color:#3B5BB8}
 <span style="display: inline-flex; gap: 8px; align-items: baseline; font-size: 14px; line-height: 1.4; color: #2E2E38"><span aria-hidden="true" style="flex: none; width: 6px; height: 6px; border-radius: 50%; background: {{accent}}; transform: translateY(-2px)"></span><span>{{p}}</span></span>
 </sc-for>
 </span>
+<sc-if value="{{r.hasAudio}}" hint-placeholder-val="{{ false }}">
+<div class="pod-player" style="display: flex; flex-direction: column; gap: 8px; margin-top: 4px; padding: 14px 16px; border-radius: 14px; background: #F5F6FA; border: 1px solid #E3E3EA">
+<span style="font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #4A4A57">Sample episode · <span style="font-family: 'Newsreader', Georgia, serif; font-style: italic; font-weight: 400; font-size: 14px; letter-spacing: 0; text-transform: none; color: #17171F">Les règles secrètes des oiseaux du&nbsp;balcon</span></span>
+<audio controls preload="none" src="{{r.audio}}" onPlay="{{r.onPlay}}" style="width: 100%; height: 40px"></audio>
+<sc-if value="{{r.audioNote}}" hint-placeholder-val="{{ false }}"><p role="status" style="margin: 0; font-family: 'Newsreader', Georgia, serif; font-style: italic; font-size: 16px; line-height: 1.4; color: #4A4A57; text-wrap: pretty">I’m not going to share company files, am I? So here’s an example instead: what I do with my free&nbsp;time.</p></sc-if>
+</div>
+</sc-if>
 </div>
 </sc-if>
 </article>
@@ -1175,7 +1182,7 @@ var solid = tone === 'solid';
 var hasCase = CASES.indexOf(it.id) !== -1;
 var threads = it.themes.map(function (t) { var on = isTheme && t.id === theme.id; return { label: t.n + ' ' + t.short, style: chipStyle(on, 1), go: goTheme(t.id) }; });
 var r = {
-hasCase: hasCase, noCase: !hasCase, href: 'Case-' + it.id + '.dc.html',
+hasCase: hasCase, noCase: !hasCase, hasAudio: it.id === 'podcast', audio: '/audio/balcony-birds.m4a', audioNote: !!s.podPlayed, onPlay: function () { if (!self.state.podPlayed) { self.setState({ podPlayed: true }); } }, href: 'Case-' + it.id + '.dc.html',
 title: it.title, meta: it.meta, q: it.q, a: it.a, v: v, pts: it.pts || [],
 threads: threads, hasThreads: threads.length > 0,
 connects: 'Connects to ' + it.links.join(' · '), hasConnects: it.links.length > 0,

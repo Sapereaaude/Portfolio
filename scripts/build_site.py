@@ -253,6 +253,7 @@ def main():
     for asset in (PDF, 'og.png', 'og-dust.png'):
         shutil.copy(os.path.join(ROOT, 'assets', asset), os.path.join(OUT, asset))
     shutil.copytree(os.path.join(ROOT, 'assets', 'photos'), os.path.join(OUT, 'photos'), dirs_exist_ok=True)
+    shutil.copytree(os.path.join(ROOT, 'assets', 'audio'), os.path.join(OUT, 'audio'), dirs_exist_ok=True)
     open(os.path.join(OUT, '404.html'), 'w', encoding='utf-8').write(
         '<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Not found | Safaa El Ouafi</title></head>'
         '<body style="margin:0;font-family:system-ui,sans-serif;padding:48px 24px"><h1>Nothing in that drawer.</h1><p><a href="/">Back to the portfolio</a></p></body></html>')
