@@ -1132,9 +1132,12 @@ var isSide = SIDE.indexOf(it.id) !== -1;
 if (isSide) { sideCount++; }
 return !isSide || s.side;
 });
+/* Most telling work first: research ops and community, then AI adoption and use, then the rest. */
+var PRIORITY = ['system', 'community', 'aiid', 'agents', 'podcast', 'vizcom', 'swiss', 'cassandre', 'superpowers', 'sat3d', 'usab', 'prio', 'plm', 'clinic', 'mind', 'clear', 'algo_journey', 'algo_academy', 'algo_personas', 'rbk', 'stress', 'programme', 'embassy', 'workshops'];
+function rank(it) { var i = PRIORITY.indexOf(it.id); return i === -1 ? 999 : i; }
 byJob.sort(function (a, b) {
-var sa = a.who.indexOf(s.persona); var sb = b.who.indexOf(s.persona);
-return (sa === -1 ? 99 : sa) - (sb === -1 ? 99 : sb);
+var ma = a.who.indexOf(s.persona) === -1 ? 1 : 0; var mb = b.who.indexOf(s.persona) === -1 ? 1 : 0;
+return (ma - mb) || (rank(a) - rank(b));
 });
 phaseChips = phaseDefs.map(function (d) {
 var n = byJob.filter(function (it) { return okP(it, d.id); }).length;
