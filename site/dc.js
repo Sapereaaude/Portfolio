@@ -199,6 +199,8 @@
     function navH() {
       var n = document.querySelector('.nav-shell') || document.querySelector('#page-top,nav#top,nav[aria-label="Letter"]');
       document.documentElement.style.setProperty('--nav-h', (n ? n.offsetHeight : 0) + 'px');
+      var t = document.querySelector('.tl-sticky');
+      document.documentElement.style.setProperty('--tl-h', (t ? t.offsetHeight : 0) + 'px');
     }
     window.addEventListener('resize', navH);
     var b = document.createElement('button');
@@ -213,6 +215,7 @@
     document.addEventListener('DOMContentLoaded', function () { document.body.appendChild(b); onScroll(); });
     if (document.body) { document.body.appendChild(b); }
     setTimeout(onScroll, 300);
+    setTimeout(onScroll, 1200);
   })();
 
   /* Visitors who arrive through the Dust page keep a way back to it on every other page. */
