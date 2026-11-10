@@ -20,6 +20,10 @@ a{color:#17171F}a:hover{color:#3B5BB8}
 .thread-card{transition:transform .2s ease,box-shadow .2s ease,background-color .2s ease,border-color .2s ease}
 .thread-card:hover,.thread-card:focus-visible{transform:translateY(-8px) scale(1.015);background:#EEF1FA !important;border-color:#3B5BB8 !important;box-shadow:0 18px 36px rgba(59,91,184,.22)}
 .thread-card:active{transform:translateY(-2px)}
+.loop{background:#EEF1FA;color:#17171F;animation:loop-on 7.5s ease-in-out infinite}
+.loop1{animation-delay:1.5s}.loop2{animation-delay:3s}.loop3{animation-delay:4.5s}.loop4{animation-delay:6s}
+@keyframes loop-on{0%{background:#EEF1FA;color:#17171F}4%,18%{background:#17171F;color:#FFFFFF}24%,100%{background:#EEF1FA;color:#17171F}}
+@media (prefers-reduced-motion: reduce){.loop{animation:none}.loop4{background:#17171F;color:#FFFFFF}}
 .hl{padding:0 .28em;margin:0 -.2em;-webkit-box-decoration-break:clone;box-decoration-break:clone;border-radius:3px 9px 4px 11px / 10px 4px 9px 3px;background:linear-gradient(98deg,rgba(59,91,184,.10),rgba(59,91,184,.34) 6%,rgba(59,91,184,.20) 55%,rgba(59,91,184,.36) 97%,rgba(59,91,184,.08)) no-repeat 0 82% / 100% 64%}
 .hl2{border-radius:10px 3px 12px 4px / 4px 11px 3px 9px;background:linear-gradient(94deg,rgba(209,58,40,.08),rgba(209,58,40,.30) 5%,rgba(209,58,40,.16) 48%,rgba(209,58,40,.32) 95%,rgba(209,58,40,.10)) no-repeat 0 96% / 100% 58%}
 .hl3{background-position:0 60%;background-size:100% 70%;border-radius:5px 12px 3px 8px / 9px 3px 12px 4px}
@@ -67,11 +71,11 @@ a{color:#17171F}a:hover{color:#3B5BB8}
 <p style="margin: 0; max-width: 900px; font-family: 'Newsreader', Georgia, serif; font-style: italic; font-size: clamp(24px, 3vw, 38px); line-height: 1.2; text-wrap: balance">I build systems that help people learn, decide, and improve.</p>
 <p style="margin: 0; max-width: 760px; font-size: clamp(17px, 1.5vw, 19px); line-height: 1.6; text-wrap: pretty">From classrooms to product teams, from learning design to user research and AI, I’ve spent my career asking the same questions: What do people actually need? How do we know something works? And how can we make it better, together?</p>
 <ol aria-label="The loop" style="margin: 6px 0 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 8px">
-<li style="padding: 8px 14px; border-radius: 999px; background: #EEF1FA; font-size: 14px; font-weight: 700; white-space: nowrap">Understand people</li>
-<li style="padding: 8px 14px; border-radius: 999px; background: #EEF1FA; font-size: 14px; font-weight: 700; white-space: nowrap">Design something useful</li>
-<li style="padding: 8px 14px; border-radius: 999px; background: #EEF1FA; font-size: 14px; font-weight: 700; white-space: nowrap">Observe what happens</li>
-<li style="padding: 8px 14px; border-radius: 999px; background: #EEF1FA; font-size: 14px; font-weight: 700; white-space: nowrap">Improve it</li>
-<li style="padding: 8px 14px; border-radius: 999px; background: #17171F; color: #FFFFFF; font-size: 14px; font-weight: 700; white-space: nowrap">Repeat</li>
+<li class="loop loop0" style="padding: 8px 14px; border-radius: 999px; font-size: 14px; font-weight: 700; white-space: nowrap">Understand people</li>
+<li class="loop loop1" style="padding: 8px 14px; border-radius: 999px; font-size: 14px; font-weight: 700; white-space: nowrap">Design something useful</li>
+<li class="loop loop2" style="padding: 8px 14px; border-radius: 999px; font-size: 14px; font-weight: 700; white-space: nowrap">Observe what happens</li>
+<li class="loop loop3" style="padding: 8px 14px; border-radius: 999px; font-size: 14px; font-weight: 700; white-space: nowrap">Improve it</li>
+<li class="loop loop4" style="padding: 8px 14px; border-radius: 999px; font-size: 14px; font-weight: 700; white-space: nowrap">Repeat</li>
 </ol>
 </header>
 
@@ -135,19 +139,14 @@ a{color:#17171F}a:hover{color:#3B5BB8}
 
 <section aria-labelledby="h-outside" style="border-radius: 22px; background: #FBEAE8; padding: clamp(24px, 4vw, 48px); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px 40px">
 <div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 10px">
-<h2 id="h-outside" style="margin: 0; font-family: 'Anton', Impact, sans-serif; font-weight: 400; font-size: clamp(26px, 3.2vw, 40px); line-height: 1.05; text-transform: uppercase; text-wrap: balance">Outside the job title</h2>
-<p style="margin: 0; font-family: 'Newsreader', Georgia, serif; font-style: italic; font-size: clamp(19px, 2vw, 24px); line-height: 1.3; text-wrap: pretty">Apparently, I don’t stop observing, experimenting and connecting things when I close my laptop.</p>
-<p style="margin: 0; font-size: 15px; font-weight: 600; color: #4A4A57">Photography · Le papier mâché · Side projects</p>
+<p id="h-outside" style="margin: 0; font-family: 'Newsreader', Georgia, serif; font-style: italic; font-size: clamp(22px, 2.4vw, 30px); line-height: 1.25; text-wrap: balance">Apparently, I don’t stop observing, experimenting and connecting things when I close my laptop.</p>
+<p style="margin: 0; font-size: 15px; font-weight: 600; color: #4A4A57">Photography · Mentoring · Side projects</p>
 </div>
 <button type="button" onClick="{{goOutside}}" style="flex: none; min-height: 52px; padding: 0 24px; border: none; border-radius: 999px; background: #17171F; color: #FFFFFF; font-family: 'Figtree', sans-serif; font-size: 16px; font-weight: 700; cursor: pointer; display: inline-flex; align-items: center; gap: 10px; white-space: nowrap">Step outside <svg aria-hidden="true" width="18" height="18" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11h15M12 5l6 6-6 6"></path></svg></button>
 </section>
 
 <section aria-label="Career path" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px 40px; padding-top: 28px; border-top: 1px solid #E3E3EA">
 <p style="margin: 0; flex: 1 1 420px; min-width: 0; max-width: 720px; font-size: 17px; line-height: 1.6; text-wrap: pretty">I didn’t always know where I was going. Looking back, the continuity is there: <span class="hl">ask questions</span>, <span class="hl hl2">notice what could be better</span>, <span class="hl hl3">try something</span>, <span class="hl hl2">share what I learned</span>. <span style="font-family: 'Newsreader', Georgia, serif; font-style: italic; font-size: 19px">My career is not a straight line. It’s a collection of learning loops.</span></p>
-<div style="display: flex; flex-direction: column; align-items: flex-start; gap: 6px">
-<a href="Timeline.dc.html" style="display: inline-flex; align-items: center; min-height: 48px; padding: 0 22px; border-radius: 999px; border: 1px solid #17171F; font-size: 15px; font-weight: 700; text-decoration: none; white-space: nowrap">The career timeline →</a>
-<span style="font-size: 13px; color: #4A4A57">Where, when, in what role. Concise and factual.</span>
-</div>
 </section>
 
 </div>
@@ -280,7 +279,12 @@ a{color:#17171F}a:hover{color:#3B5BB8}
 
 <!-- SHARED PROJECT CARDS -->
 <sc-if value="{{showGrid}}" hint-placeholder-val="{{ false }}">
-<p style="margin: 18px 0 16px; font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #4A4A57">{{resultLine}}</p>
+<div style="margin: 18px 0 16px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 20px">
+<p style="margin: 0; font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #4A4A57">{{resultLine}}</p>
+<sc-if value="{{isResults}}" hint-placeholder-val="{{ true }}">
+<button type="button" role="switch" aria-checked="{{sideAria}}" onClick="{{toggleSide}}" style="display: inline-flex; align-items: center; gap: 10px; min-height: 44px; padding: 0; border: none; background: none; cursor: pointer; font-family: 'Figtree', sans-serif; font-size: 15px; font-weight: 600; color: #17171F; white-space: nowrap"><span aria-hidden="true" style="{{sideTrack}}"><span style="{{sideKnob}}"></span></span>Side projects</button>
+</sc-if>
+</div>
 <sc-if value="{{hasResults}}" hint-placeholder-val="{{ true }}">
 <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 520px), 1fr)); gap: 16px">
 <sc-for list="{{results}}" as="r" hint-placeholder-count="5">
@@ -771,7 +775,7 @@ a{color:#17171F}a:hover{color:#3B5BB8}
 class Component extends DCLogic {
 constructor(props) {
 super(props);
-this.state = { pick: null, screen: 'home', theme: 't1', persona: 'hiring', job: 'built', outcome: 'talk', phase: 'all', open: null };
+this.state = { pick: null, screen: 'home', theme: 't1', persona: 'hiring', job: 'built', outcome: 'talk', phase: 'all', open: null, side: false };
 try { var saved = JSON.parse(window.localStorage.getItem('se-portfolio') || 'null'); if (saved && saved.persona) { this.state = Object.assign(this.state, saved, { open: null, screen: 'home', pick: null }); } } catch (err) {}
 var fromHash = this.readHash();
 if (fromHash) { this.state = Object.assign(this.state, fromHash); }
@@ -795,7 +799,7 @@ try { window.removeEventListener('hashchange', this.onHash); document.removeEven
 }
 componentDidUpdate(prevProps, prevState) {
 var st = this.state;
-try { window.localStorage.setItem('se-portfolio', JSON.stringify({ screen: st.screen, theme: st.theme, persona: st.persona, job: st.job, outcome: st.outcome, phase: st.phase })); } catch (err) {}
+try { window.localStorage.setItem('se-portfolio', JSON.stringify({ screen: st.screen, theme: st.theme, persona: st.persona, job: st.job, outcome: st.outcome, phase: st.phase, side: !!st.side })); } catch (err) {}
 try { var pop = document.getElementById('pick-pop'); if (pop) { pop.style.transform = ''; var pr = pop.getBoundingClientRect(); var over = pr.right - (window.innerWidth - 12); if (over > 0) { pop.style.transform = 'translateX(-' + Math.min(over, Math.max(0, pr.left - 12)) + 'px)'; } } } catch (err) {}
 var viewKey = st.screen + '/' + st.theme;
 if (this._viewKey !== viewKey) {
@@ -824,10 +828,6 @@ var jobs = [
 { id: 'built', label: "see what you've built" },
 { id: 'research', label: 'see how you run research' },
 { id: 'ai', label: 'see your AI work' },
-{ id: 'side', label: 'see your side projects' },
-{ id: 'career', label: 'follow your career path' },
-{ id: 'looking', label: "know what you're looking for" },
-{ id: 'photo', label: 'see your photography' },
 { id: 'all', label: 'see everything' }
 ];
 var outcomes = [
@@ -885,6 +885,7 @@ var items = [
 ];
 
 var CASES = ['aiid', 'vizcom', 'system', 'prio', 'plm', 'sat3d', 'usab', 'agents', 'swiss', 'community', 'superpowers', 'clinic', 'mind', 'clear', 'algo_academy', 'algo_journey', 'algo_personas', 'rbk', 'stress', 'programme', 'simplon', 'teach', 'embassy', 'workshops', 'sistech', 'bsf', 'vgwb', 'daradam', 'tracking', 'bastille', 'palier', 'askip', 'oasis', 'papier', 'cassandre'];
+var SIDE = ['cassandre', 'sistech', 'vgwb', 'daradam', 'bsf', 'workshops', 'bastille', 'palier', 'askip', 'oasis', 'papier', 'tracking'];
 var PHASES = {'teach': ['teaching'], 'rbk': ['pm'], 'stress': ['pm'], 'programme': ['pm'], 'cassandre': ['side'], 'simplon': ['pm'], 'algo_academy': ['id'], 'algo_journey': ['id'], 'algo_personas': ['id'], 'aiid': ['research'], 'vizcom': ['research'], 'system': ['research'], 'prio': ['research'], 'plm': ['research'], 'sat3d': ['research'], 'usab': ['research'], 'agents': ['research'], 'swiss': ['research'], 'community': ['research'], 'superpowers': ['research', 'side'], 'clinic': ['research'], 'mind': ['research'], 'clear': ['research'], 'tech': ['research'], 'sistech': ['side'], 'vgwb': ['side'], 'daradam': ['side'], 'bsf': ['side'], 'workshops': ['side'], 'bastille': ['side'], 'palier': ['side'], 'askip': ['side'], 'oasis': ['side'], 'papier': ['side'], 'tracking': ['side']};
 var stopsDefUnused = [{ y: '2008', l: 'Teaching' }, { y: '2015', l: 'Amman' }, { y: '2017', l: 'RBK' }, { y: '2018', l: 'Asia · Simplon' }, { y: '2019', l: 'Algolia' }, { y: '2021', l: 'Alan' }, { y: '2023', l: 'Decathlon' }];
 var visKeys = ['pot', 'library', 'mentor', 'chalk', 'job', 'balance', 'doc', 'home', 'speech', 'loop', 'academy', 'journey', 'personas', 'game', 'cubes', 'palier', 'clinic', 'mind', 'clear', 'plm', 'stress', 'tracking', 'slide', 'finding', 'repo', 'report', 'monthly', 'chat', 'sheet', 'channel', 'tiers', 'matchscreen', 'bastille', 'grads', 'timeline', 'quote', 'askip', 'oasis', 'book', 'photo'];
@@ -965,7 +966,14 @@ var phaseDefs = [{ id: 'all', label: 'All' }, { id: 'pm', label: 'Programme mana
 var phaseChips = [];
 var resultLine = '';
 if (isResults) {
-var byJob = items.filter(function (it) { return s.job === 'all' || it.jobs.indexOf(s.job) !== -1; });
+var sideCount = 0;
+var byJob = items.filter(function (it) {
+if (CASES.indexOf(it.id) === -1 || it.id === 'teach' || it.id === 'simplon') { return false; }
+if (job.id !== 'all' && it.jobs.indexOf(job.id) === -1) { return false; }
+var isSide = SIDE.indexOf(it.id) !== -1;
+if (isSide) { sideCount++; }
+return !isSide || s.side;
+});
 byJob.sort(function (a, b) {
 var sa = a.who.indexOf(s.persona); var sb = b.who.indexOf(s.persona);
 return (sa === -1 ? 99 : sa) - (sb === -1 ? 99 : sb);
@@ -976,7 +984,7 @@ var on = s.phase === d.id;
 return { label: d.label, count: n, on: on, style: chipStyle(on, n), pick: function () { self.setState({ phase: d.id, open: null }); } };
 });
 pool = byJob;
-resultLine = pool.length + (pool.length === 1 ? ' result' : ' results') + ' · sorted for ' + persona.a;
+resultLine = pool.length + (pool.length === 1 ? ' project' : ' projects') + ' · sorted for ' + persona.a;
 } else if (isTheme) {
 pool = theme.order.map(function (id) { return byId[id]; }).filter(function (it) { return it && !(isT3 && it.id === 'cassandre'); });
 resultLine = pool.length + ' projects on this thread';
@@ -1034,6 +1042,10 @@ onPersona: function (e) { self.setState({ persona: e.target.value }); },
 onJob: function (e) { self.setState({ job: e.target.value, phase: 'all' }); },
 onOutcome: function (e) { self.setState({ outcome: e.target.value }); },
 phaseChips: phaseChips,
+sideOn: !!s.side, sideAria: s.side ? 'true' : 'false',
+toggleSide: function () { self.setState({ side: !self.state.side }); },
+sideTrack: 'flex: none; position: relative; width: 40px; height: 24px; border-radius: 999px; transition: background .2s ease; background: ' + (s.side ? accent : '#C9CCDA') + ';',
+sideKnob: 'position: absolute; top: 3px; left: ' + (s.side ? '19px' : '3px') + '; width: 18px; height: 18px; border-radius: 50%; background: #FFFFFF; box-shadow: 0 1px 3px rgba(23,23,31,0.3); transition: left .2s ease;',
 results: results,
 hasResults: results.length > 0,
 noResults: results.length === 0,
