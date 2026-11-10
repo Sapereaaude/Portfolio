@@ -19,10 +19,7 @@ render, so this repository is a backup of the code, not a deployable website.
 
 ## Recovered from the canvas export
 
-- `project/Timeline.dc.html`, `project/About.dc.html`, `project/Resume.dc.html` — rebuilt from the canvas's HTML export (same content, re-serialised by the export).
-- `export/site-pages.html` — the canvas's own standalone export of the six "Site" pages (home, timeline, about, resume, Dust, letter). Opens in a browser.
+- `project/Timeline.dc.html`, `project/About.dc.html`, `project/Resume.dc.html` and the 34 other `project/Case-*.dc.html` case studies — rebuilt from the canvas's HTML export (same content, re-serialised by the export). `scripts/unpack.py` is the script that unpacks an export.
+- `export/site-pages.html` — the canvas's own standalone export of the "Site" pages. Opens in a browser.
 
-## Not here yet
-
-The 34 other case studies are listed in `canvas.json` but their files still
-live only in the canvas ("Case studies" page).
+All 42 artboards listed in `project/canvas.json` are in this repository.
