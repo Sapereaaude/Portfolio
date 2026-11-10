@@ -1,0 +1,423 @@
+<article style="display: flex; flex-direction: column; border: 1px solid #E3E3EA; border-radius: 18px; background: #FFFFFF; overflow: hidden; align-self: start">
+<div style="{{r.bannerStyle}}">
+<div aria-hidden="true" style="flex: 0 0 clamp(110px, 26%, 160px); align-self: stretch; min-height: 120px; position: relative">
+
+<sc-if value="{{r.v.pot}}" hint-placeholder-val="{{ false }}">
+<svg viewBox="44 8 196 150" style="position: absolute; inset: 0; width: 100%; height: 100%; display: block">
+<circle cx="150" cy="70" r="54" fill="#FFFFFF" opacity="0.7"></circle>
+<path d="M108 76 h88 v24 a20 20 0 0 1 -20 20 h-48 a20 20 0 0 1 -20 -20z" fill="{{accent}}"></path>
+<rect x="100" y="70" width="104" height="8" rx="4" fill="#17171F"></rect>
+<path d="M132 58 q-6 -10 0 -20 M152 58 q-6 -10 0 -20 M172 58 q-6 -10 0 -20" fill="none" stroke="#D13A28" stroke-width="2.5" stroke-linecap="round"></path>
+</svg>
+</sc-if>
+
+<sc-if value="{{r.v.library}}" hint-placeholder-val="{{ false }}">
+<svg viewBox="44 8 196 150" style="position: absolute; inset: 0; width: 100%; height: 100%; display: block">
+<circle cx="150" cy="72" r="54" fill="#FFFFFF" opacity="0.7"></circle>
+<rect x="100" y="112" width="110" height="6" rx="3" fill="#17171F"></rect>
+<rect x="108" y="58" width="14" height="54" rx="2" fill="{{accent}}"></rect><rect x="124" y="66" width="12" height="46" rx="2" fill="#D13A28"></rect><rect x="138" y="52" width="16" height="60" rx="2" fill="#17171F"></rect><rect x="156" y="70" width="12" height="42" rx="2" fill="{{accent}}" opacity="0.5"></rect>
+<rect x="176" y="62" width="14" height="50" rx="2" fill="#FFFFFF" stroke="#17171F" transform="rotate(14 183 87)"></rect>
+<circle cx="214" cy="44" r="12" fill="none" stroke="{{accent}}" stroke-width="2"></circle><path d="M202 44 h24 M214 32 c6 8 6 16 0 24 c-6 -8 -6 -16 0 -24" fill="none" stroke="{{accent}}" stroke-width="1.5"></path>
+</svg>
+</sc-if>
+
+<sc-if value="{{r.v.mentor}}" hint-placeholder-val="{{ false }}">
+<svg viewBox="44 8 196 150" style="position: absolute; inset: 0; width: 100%; height: 100%; display: block">
+<circle cx="150" cy="72" r="54" fill="#FFFFFF" opacity="0.7"></circle>
+<path d="M100 124 h30 v-22 h30 v-22 h30 v-22 h28" fill="none" stroke="#17171F" stroke-width="2"></path>
+<circle cx="146" cy="66" r="10" fill="{{accent}}"></circle><path d="M136 100 v-12 a10 10 0 0 1 20 0 v12" fill="{{accent}}"></path>
+<circle cx="204" cy="38" r="8" fill="#D13A28"></circle>
+<path d="M162 72 q20 -24 36 -30" fill="none" stroke="#D13A28" stroke-width="1.5" stroke-dasharray="3 4"></path>
+</svg>
+</sc-if>
+
+<sc-if value="{{r.v.chalk}}" hint-placeholder-val="{{ false }}">
+<svg viewBox="44 8 196 150" style="position: absolute; inset: 0; width: 100%; height: 100%; display: block">
+<rect x="94" y="28" width="132" height="86" rx="6" fill="#17171F"></rect>
+<text x="112" y="66" font-family="Newsreader, serif" font-size="26" fill="#FFFFFF">Aa</text>
+<text x="196" y="66" font-family="Newsreader, serif" font-size="26" fill="#FFFFFF">أ</text>
+<path d="M112 86 q20 -8 40 0 t40 0" fill="none" stroke="{{accent}}" stroke-width="2"></path>
+<rect x="140" y="114" width="40" height="5" rx="2" fill="#D13A28"></rect>
+</svg>
+</sc-if>
+
+<sc-if value="{{r.v.job}}" hint-placeholder-val="{{ false }}">
+<svg viewBox="44 8 196 150" style="position: absolute; inset: 0; width: 100%; height: 100%; display: block">
+<circle cx="152" cy="72" r="54" fill="#FFFFFF" opacity="0.7"></circle>
+<rect x="110" y="56" width="84" height="58" rx="8" fill="{{accent}}"></rect>
+<path d="M138 56 v-8 a6 6 0 0 1 6 -6 h16 a6 6 0 0 1 6 6 v8" fill="none" stroke="#17171F" stroke-width="3"></path>
+<rect x="110" y="78" width="84" height="6" fill="#17171F" opacity="0.25"></rect>
+<circle cx="208" cy="48" r="12" fill="#D13A28"></circle><path d="M202 48 l4 4 8 -8" stroke="#FFFFFF" stroke-width="2.4" fill="none"></path>
+</svg>
+</sc-if>
+
+<sc-if value="{{r.v.balance}}" hint-placeholder-val="{{ false }}">
+<svg viewBox="44 8 196 150" style="position: absolute; inset: 0; width: 100%; height: 100%; display: block">
+<circle cx="152" cy="72" r="54" fill="#FFFFFF" opacity="0.7"></circle>
+<path d="M152 36 v80 M128 118 h48 M108 50 h88" stroke="#17171F" stroke-width="2.5" stroke-linecap="round"></path>
+<path d="M96 84 l12 -34 12 34z" fill="none" stroke="#17171F" stroke-width="1.5"></path><path d="M184 84 l12 -34 12 34z" fill="none" stroke="#17171F" stroke-width="1.5"></path>
+<path d="M92 84 a16 8 0 0 0 32 0z" fill="{{accent}}"></path><path d="M180 84 a16 8 0 0 0 32 0z" fill="#D13A28"></path>
+</svg>
+</sc-if>
+
+<sc-if value="{{r.v.doc}}" hint-placeholder-val="{{ false }}">
+<svg viewBox="44 8 196 150" style="position: absolute; inset: 0; width: 100%; height: 100%; display: block">
+<circle cx="152" cy="72" r="54" fill="#FFFFFF" opacity="0.7"></circle>
+<path d="M112 26 h50 l18 18 v74 h-68z" fill="#FFFFFF" stroke="#17171F" stroke-width="1.2"></path><path d="M162 26 v18 h18" fill="none" stroke="#17171F" stroke-width="1.2"></path>
+<rect x="122" y="54" width="46" height="6" rx="3" fill="#17171F"></rect><rect x="122" y="68" width="40" height="5" rx="2.5" fill="#17171F" opacity="0.3"></rect><rect x="122" y="80" width="44" height="5" rx="2.5" fill="#17171F" opacity="0.3"></rect>
+<path d="M176 86 h42 a8 8 0 0 1 8 8 v16 a8 8 0 0 1 -8 8 h-24 l-10 10 v-10 h-8 a8 8 0 0 1 -8 -8 v-16 a8 8 0 0 1 8 -8z" fill="{{accent}}"></path>
+</svg>
+</sc-if>
+
+<sc-if value="{{r.v.home}}" hint-placeholder-val="{{ false }}">
+<svg viewBox="44 8 196 150" style="position: absolute; inset: 0; width: 100%; height: 100%; display: block">
+<circle cx="152" cy="72" r="54" fill="#FFFFFF" opacity="0.7"></circle>
+<path d="M112 74 l40 -36 40 36 v44 h-80z" fill="#FFFFFF" stroke="#17171F" stroke-width="1.5"></path>
+<path d="M152 104 c-14 -9 -18 -16 -18 -22 a9 9 0 0 1 18 -3 a9 9 0 0 1 18 3 c0 6 -4 13 -18 22z" fill="#D13A28"></path>
+<path d="M204 112 c10 -4 18 -4 26 0" fill="none" stroke="{{accent}}" stroke-width="2" stroke-linecap="round"></path><path d="M200 122 c12 -4 22 -4 32 0" fill="none" stroke="{{accent}}" stroke-width="2" stroke-linecap="round" opacity="0.5"></path>
+</svg>
+</sc-if>
+
+<sc-if value="{{r.v.speech}}" hint-placeholder-val="{{ false }}">
+<svg viewBox="44 8 196 150" style="position: absolute; inset: 0; width: 100%; height: 100%; display: block">
+<rect x="96" y="34" width="70" height="46" rx="14" fill="{{accent}}"></rect><text x="131" y="64" text-anchor="middle" font-family="Newsreader, serif" font-size="22" fill="#FFFFFF">Bonjour</text>
+<rect x="146" y="88" width="72" height="44" rx="14" fill="#FFFFFF" stroke="#17171F" stroke-width="1.2"></rect><text x="182" y="117" text-anchor="middle" font-family="Newsreader, serif" font-size="22" fill="#17171F">مرحبا</text>
+</svg>
+</sc-if>
+
+<sc-if value="{{r.v.loop}}" hint-placeholder-val="{{ false }}">
+<svg viewBox="44 8 196 150" style="position: absolute; inset: 0; width: 100%; height: 100%; display: block">
+<path d="M110 80 a42 42 0 1 1 42 42" fill="none" stroke="{{accent}}" stroke-width="10" stroke-linecap="round"></path>
+<path d="M144 112 l10 10 -10 10" fill="none" stroke="{{accent}}" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></path>
+<g fill="#FFFFFF" stroke="#17171F" stroke-width="1.2"><circle cx="152" cy="38" r="9"></circle><circle cx="194" cy="80" r="9"></circle></g><circle cx="110" cy="80" r="9" fill="#D13A28"></circle>
+</svg>
+</sc-if>
+
+<sc-if value="{{r.v.academy}}" hint-placeholder-val="{{ false }}">
+<svg viewBox="44 8 196 150" style="position: absolute; inset: 0; width: 100%; height: 100%; display: block">
+<circle cx="150" cy="70" r="54" fill="#FFFFFF" opacity="0.7"></circle>
+<rect x="100" y="34" width="104" height="72" rx="8" fill="#FFFFFF" stroke="#17171F" stroke-width="1.2"></rect>
+<rect x="114" y="48" width="56" height="7" rx="3.5" fill="#17171F"></rect><rect x="114" y="62" width="76" height="5" rx="2.5" fill="#17171F" opacity="0.3"></rect><rect x="114" y="72" width="60" height="5" rx="2.5" fill="#17171F" opacity="0.3"></rect>
+<circle cx="190" cy="104" r="16" fill="{{accent}}"></circle><path d="M182 118 l-4 18 12 -7 12 7 -4 -18" fill="{{accent}}"></path><path d="M184 104 l4 4 8 -8" stroke="#FFFFFF" stroke-width="2.4" fill="none"></path>
+</svg>
+</sc-if>
+
+<sc-if value="{{r.v.journey}}" hint-placeholder-val="{{ false }}">
+<svg viewBox="44 8 196 150" style="position: absolute; inset: 0; width: 100%; height: 100%; display: block">
+<path d="M66 120 C 100 120, 100 50, 140 60 S 190 120, 226 50" fill="none" stroke="#17171F" stroke-width="1.5" stroke-dasharray="4 5"></path>
+<circle cx="66" cy="120" r="8" fill="#FFFFFF" stroke="#17171F" stroke-width="1.5"></circle><circle cx="118" cy="66" r="8" fill="#FFFFFF" stroke="#17171F" stroke-width="1.5"></circle>
+<circle cx="170" cy="92" r="13" fill="{{accent}}"></circle><circle cx="170" cy="92" r="22" fill="none" stroke="{{accent}}" opacity="0.35" stroke-width="2"></circle>
+<circle cx="226" cy="50" r="8" fill="#D13A28"></circle>
+</svg>
+</sc-if>
+
+<sc-if value="{{r.v.personas}}" hint-placeholder-val="{{ false }}">
+<svg viewBox="44 8 196 150" style="position: absolute; inset: 0; width: 100%; height: 100%; display: block">
+<rect x="92" y="40" width="56" height="74" rx="10" fill="#FFFFFF" stroke="#D5D7E0" transform="rotate(-8 120 77)"></rect>
+<rect x="176" y="40" width="56" height="74" rx="10" fill="#FFFFFF" stroke="#D5D7E0" transform="rotate(8 204 77)"></rect>
+<rect x="132" y="30" width="60" height="82" rx="10" fill="#FFFFFF" stroke="#17171F" stroke-width="1.2"></rect>
+<circle cx="162" cy="56" r="12" fill="{{accent}}"></circle><rect x="144" y="76" width="36" height="6" rx="3" fill="#17171F"></rect><rect x="148" y="88" width="28" height="5" rx="2.5" fill="#17171F" opacity="0.3"></rect>
+<circle cx="112" cy="62" r="8" fill="#D13A28" opacity="0.7"></circle><circle cx="212" cy="62" r="8" fill="#17171F" opacity="0.6"></circle>
+</svg>
+</sc-if>
+
+<sc-if value="{{r.v.game}}" hint-placeholder-val="{{ false }}">
+<svg viewBox="44 8 196 150" style="position: absolute; inset: 0; width: 100%; height: 100%; display: block">
+<circle cx="156" cy="70" r="54" fill="#FFFFFF" opacity="0.7"></circle>
+<path d="M112 70 a22 22 0 0 1 22 -22 h44 a22 22 0 0 1 22 22 l6 30 a12 12 0 0 1 -22 8 l-10 -14 h-36 l-10 14 a12 12 0 0 1 -22 -8z" fill="#FFFFFF" stroke="#17171F" stroke-width="1.2"></path>
+<path d="M132 66 v16 M124 74 h16" stroke="#17171F" stroke-width="3" stroke-linecap="round"></path>
+<circle cx="178" cy="68" r="5" fill="{{accent}}"></circle><circle cx="190" cy="80" r="5" fill="#D13A28"></circle>
+<text x="210" y="44" font-family="Newsreader, serif" font-size="26" fill="{{accent}}">ع</text>
+</svg>
+</sc-if>
+
+<sc-if value="{{r.v.cubes}}" hint-placeholder-val="{{ false }}">
+<svg viewBox="44 8 196 150" style="position: absolute; inset: 0; width: 100%; height: 100%; display: block">
+<g stroke="#17171F" stroke-width="1.2">
+<rect x="104" y="80" width="40" height="40" rx="6" fill="#FFFFFF"></rect><rect x="150" y="80" width="40" height="40" rx="6" fill="{{accent}}"></rect><rect x="127" y="36" width="40" height="40" rx="6" fill="#FFFFFF" transform="rotate(-8 147 56)"></rect><rect x="196" y="80" width="40" height="40" rx="6" fill="#D13A28" opacity="0.85"></rect>
+</g>
+<text x="124" y="108" text-anchor="middle" font-family="Newsreader, serif" font-size="22" fill="#17171F">ب</text>
+<text x="147" y="64" text-anchor="middle" font-family="Newsreader, serif" font-size="22" fill="#17171F" transform="rotate(-8 147 56)">أ</text>
+<text x="170" y="108" text-anchor="middle" font-family="Newsreader, serif" font-size="22" fill="#FFFFFF">ت</text>
+</svg>
+</sc-if>
+
+<sc-if value="{{r.v.palier}}" hint-placeholder-val="{{ false }}">
+<svg viewBox="44 8 196 150" style="position: absolute; inset: 0; width: 100%; height: 100%; display: block">
+<rect x="104" y="30" width="76" height="120" rx="4" fill="#FFFFFF" stroke="#17171F" stroke-width="1.2"></rect>
+<g fill="{{accent}}" opacity="0.25"><rect x="116" y="44" width="18" height="16" rx="2"></rect><rect x="150" y="44" width="18" height="16" rx="2"></rect><rect x="116" y="74" width="18" height="16" rx="2"></rect><rect x="116" y="104" width="18" height="16" rx="2"></rect><rect x="150" y="104" width="18" height="16" rx="2"></rect></g>
+<rect x="150" y="74" width="18" height="16" rx="2" fill="#D13A28"></rect>
+<rect x="134" y="128" width="16" height="22" rx="2" fill="#17171F"></rect>
+<rect x="176" y="40" width="54" height="22" rx="11" fill="{{accent}}"></rect><rect x="186" y="48" width="34" height="6" rx="3" fill="#FFFFFF"></rect>
+<rect x="60" y="86" width="50" height="22" rx="11" fill="#FFFFFF" stroke="#17171F" stroke-width="1.2"></rect><rect x="70" y="94" width="30" height="6" rx="3" fill="#17171F" opacity="0.5"></rect>
+</svg>
+</sc-if>
+
+<sc-if value="{{r.v.clinic}}" hint-placeholder-val="{{ false }}">
+<svg viewBox="44 8 196 150" style="position: absolute; inset: 0; width: 100%; height: 100%; display: block">
+<circle cx="70" cy="70" r="22" fill="{{accent}}"></circle><circle cx="200" cy="70" r="22" fill="#17171F"></circle>
+<path d="M98 70 C 120 40, 150 40, 172 70" fill="none" stroke="#17171F" stroke-width="1.2" stroke-dasharray="3 4"></path>
+<rect x="104" y="64" width="62" height="34" rx="14" fill="#FFFFFF" stroke="#17171F" stroke-width="1.2"></rect><path d="M126 98 l6 10 6 -10" fill="#FFFFFF" stroke="#17171F" stroke-width="1.2"></path>
+<path d="M128 81 h14 M135 74 v14" stroke="#D13A28" stroke-width="3" stroke-linecap="round"></path>
+</svg>
+</sc-if>
+
+<sc-if value="{{r.v.mind}}" hint-placeholder-val="{{ false }}">
+<svg viewBox="44 8 196 150" style="position: absolute; inset: 0; width: 100%; height: 100%; display: block">
+<path d="M150 130 v-22 c-26 -2 -40 -22 -40 -46 c0 -26 22 -44 48 -44 c28 0 46 20 46 44 c0 8 4 14 8 20 l-8 4 v14 c0 6 -4 8 -10 8 h-8 v22z" fill="#FFFFFF" stroke="#17171F" stroke-width="1.2"></path>
+<circle cx="150" cy="54" r="12" fill="{{accent}}"></circle><rect x="164" y="40" width="26" height="10" rx="5" fill="#D13A28"></rect><circle cx="178" cy="68" r="7" fill="#17171F"></circle><rect x="134" y="72" width="20" height="10" rx="5" fill="{{accent}}" opacity="0.45"></rect>
+</svg>
+</sc-if>
+
+<sc-if value="{{r.v.clear}}" hint-placeholder-val="{{ false }}">
+<svg viewBox="44 8 196 150" style="position: absolute; inset: 0; width: 100%; height: 100%; display: block">
+<circle cx="150" cy="66" r="52" fill="#FFFFFF" opacity="0.8"></circle>
+<circle cx="122" cy="72" r="22" fill="{{accent}}" opacity="0.18" stroke="#17171F" stroke-width="3"></circle>
+<circle cx="180" cy="72" r="22" fill="{{accent}}" opacity="0.18" stroke="#17171F" stroke-width="3"></circle>
+<path d="M144 70 q7 -8 14 0" fill="none" stroke="#17171F" stroke-width="3"></path><path d="M100 66 l-14 -6 M202 66 l14 -6" stroke="#17171F" stroke-width="3" stroke-linecap="round"></path>
+<rect x="196" y="108" width="34" height="22" rx="5" fill="#D13A28"></rect><path d="M203 108 v-5 a10 7 0 0 1 20 0 v5" fill="none" stroke="#D13A28" stroke-width="2.5"></path>
+</svg>
+</sc-if>
+
+<sc-if value="{{r.v.plm}}" hint-placeholder-val="{{ false }}">
+<svg viewBox="44 8 196 150" style="position: absolute; inset: 0; width: 100%; height: 100%; display: block">
+<circle cx="150" cy="70" r="46" fill="none" stroke="#FFFFFF" stroke-width="10" opacity="0.35"></circle>
+<path d="M150 24 A46 46 0 1 1 104 70" fill="none" stroke="#FFFFFF" stroke-width="10" stroke-linecap="round"></path>
+<path d="M96 60 l8 12 10 -10" fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path>
+<circle cx="150" cy="24" r="9" fill="#D13A28" stroke="#FFFFFF" stroke-width="2"></circle>
+<rect x="134" y="58" width="32" height="24" rx="4" fill="#FFFFFF"></rect><path d="M134 66 h32" stroke="{{accent}}" stroke-width="2"></path>
+</svg>
+</sc-if>
+
+<sc-if value="{{r.v.stress}}" hint-placeholder-val="{{ false }}">
+<svg viewBox="44 8 196 150" style="position: absolute; inset: 0; width: 100%; height: 100%; display: block">
+<circle cx="150" cy="66" r="54" fill="#FFFFFF" opacity="0.75"></circle>
+<path d="M70 80 h34 l10 -26 14 50 12 -40 10 16 h60" fill="none" stroke="#D13A28" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"></path>
+<circle cx="210" cy="80" r="7" fill="{{accent}}"></circle>
+<path d="M206 40 l6 -10 6 10" fill="none" stroke="{{accent}}" stroke-width="2.5" stroke-linecap="round"></path>
+</svg>
+</sc-if>
+
+<sc-if value="{{r.v.tracking}}" hint-placeholder-val="{{ false }}">
+<svg viewBox="44 8 196 150" style="position: absolute; inset: 0; width: 100%; height: 100%; display: block">
+<rect x="96" y="22" width="128" height="96" rx="12" fill="#FFFFFF" stroke="#17171F" stroke-width="1.2"></rect>
+<g fill="{{accent}}"><rect x="110" y="84" width="10" height="20" rx="3" opacity="0.4"></rect><rect x="126" y="76" width="10" height="28" rx="3" opacity="0.5"></rect><rect x="142" y="88" width="10" height="16" rx="3" opacity="0.4"></rect><rect x="158" y="68" width="10" height="36" rx="3" opacity="0.7"></rect><rect x="174" y="72" width="10" height="32" rx="3" opacity="0.6"></rect><rect x="190" y="58" width="10" height="46" rx="3"></rect></g>
+<rect x="110" y="36" width="44" height="7" rx="3.5" fill="#17171F"></rect>
+<circle cx="206" cy="40" r="7" fill="#D13A28"></circle>
+</svg>
+</sc-if>
+
+<sc-if value="{{r.v.slide}}" hint-placeholder-val="{{ false }}">
+<svg viewBox="44 8 196 150" style="position: absolute; inset: 0; width: 100%; height: 100%; display: block">
+<circle cx="168" cy="70" r="58" fill="#FFFFFF" opacity="0.7"></circle>
+<rect x="96" y="34" width="124" height="78" rx="10" fill="#FFFFFF" stroke="#17171F" stroke-width="1.2" transform="rotate(-4 158 73)"></rect>
+<g transform="rotate(-4 158 73)"><rect x="108" y="48" width="56" height="7" rx="3.5" fill="#17171F"></rect><rect x="108" y="60" width="40" height="7" rx="3.5" fill="{{accent}}"></rect><rect x="108" y="82" width="28" height="18" rx="5" fill="{{accent}}"></rect><rect x="140" y="82" width="28" height="18" rx="5" fill="#EEF1FA"></rect><rect x="172" y="82" width="28" height="18" rx="5" fill="#D13A28"></rect></g>
+<circle cx="214" cy="128" r="9" fill="#D13A28"></circle><circle cx="80" cy="118" r="5" fill="{{accent}}"></circle>
+</svg>
+</sc-if>
+
+<sc-if value="{{r.v.finding}}" hint-placeholder-val="{{ false }}">
+<svg viewBox="44 8 196 150" style="position: absolute; inset: 0; width: 100%; height: 100%; display: block">
+<circle cx="176" cy="64" r="54" fill="#FFFFFF" opacity="0.7"></circle>
+<path d="M104 38 h112 a12 12 0 0 1 12 12 v44 a12 12 0 0 1 -12 12 h-74 l-16 16 v-16 h-22 a12 12 0 0 1 -12 -12 v-44 a12 12 0 0 1 12 -12z" fill="#FFFFFF" stroke="#17171F" stroke-width="1.2"></path>
+<text x="114" y="74" font-family="Newsreader, serif" font-size="40" fill="{{accent}}">“</text>
+<rect x="138" y="58" width="68" height="7" rx="3.5" fill="#17171F"></rect><rect x="138" y="72" width="52" height="7" rx="3.5" fill="#17171F" opacity="0.35"></rect>
+<rect x="134" y="84" width="58" height="10" rx="2" fill="#D13A28" opacity="0.25"></rect>
+<path d="M214 128 l4 9 9 1 -7 6 2 9 -8 -5 -8 5 2 -9 -7 -6 9 -1z" fill="#D13A28"></path>
+</svg>
+</sc-if>
+
+<sc-if value="{{r.v.repo}}" hint-placeholder-val="{{ false }}">
+<svg viewBox="44 8 196 150" style="position: absolute; inset: 0; width: 100%; height: 100%; display: block">
+<circle cx="170" cy="72" r="56" fill="#FFFFFF" opacity="0.7"></circle>
+<rect x="118" y="60" width="96" height="64" rx="10" fill="#FFFFFF" stroke="#D5D7E0" stroke-width="1.2" transform="rotate(8 166 92)"></rect>
+<rect x="108" y="46" width="96" height="64" rx="10" fill="#FFFFFF" stroke="#17171F" stroke-width="1.2"></rect>
+<rect x="120" y="60" width="50" height="6" rx="3" fill="#17171F"></rect><rect x="120" y="72" width="70" height="6" rx="3" fill="#17171F" opacity="0.25"></rect><rect x="120" y="84" width="60" height="6" rx="3" fill="#17171F" opacity="0.25"></rect>
+<rect x="196" y="30" width="34" height="14" rx="7" fill="{{accent}}"></rect><rect x="84" y="94" width="30" height="14" rx="7" fill="#D13A28"></rect><rect x="200" y="122" width="26" height="14" rx="7" fill="#17171F"></rect>
+</svg>
+</sc-if>
+
+<sc-if value="{{r.v.report}}" hint-placeholder-val="{{ false }}">
+<svg viewBox="44 8 196 150" style="position: absolute; inset: 0; width: 100%; height: 100%; display: block">
+<circle cx="168" cy="74" r="56" fill="#FFFFFF" opacity="0.7"></circle>
+<rect x="140" y="26" width="70" height="96" rx="6" fill="#FFFFFF" stroke="#D5D7E0" stroke-width="1.2" transform="rotate(8 175 74)"></rect>
+<rect x="128" y="22" width="70" height="96" rx="6" fill="#FFFFFF" stroke="#17171F" stroke-width="1.2"></rect>
+<rect x="128" y="22" width="70" height="6" fill="{{accent}}"></rect>
+<rect x="138" y="40" width="44" height="6" rx="3" fill="#17171F"></rect><rect x="138" y="52" width="34" height="6" rx="3" fill="#17171F"></rect>
+<rect x="138" y="72" width="50" height="4" rx="2" fill="#17171F" opacity="0.25"></rect><rect x="138" y="82" width="40" height="4" rx="2" fill="#17171F" opacity="0.25"></rect>
+<path d="M92 120 q30 -4 46 -26" fill="none" stroke="#D13A28" stroke-width="2"></path><path d="M132 92 l7 1 -2 7" fill="none" stroke="#D13A28" stroke-width="2"></path>
+</svg>
+</sc-if>
+
+<sc-if value="{{r.v.monthly}}" hint-placeholder-val="{{ false }}">
+<svg viewBox="44 8 196 150" style="position: absolute; inset: 0; width: 100%; height: 100%; display: block">
+<circle cx="170" cy="74" r="56" fill="#FFFFFF" opacity="0.7"></circle>
+<rect x="110" y="30" width="100" height="90" rx="12" fill="#FFFFFF" stroke="#17171F" stroke-width="1.2"></rect>
+<rect x="110" y="30" width="100" height="20" rx="10" fill="{{accent}}"></rect><rect x="110" y="40" width="100" height="10" fill="{{accent}}"></rect>
+<circle cx="130" cy="26" r="4" fill="#17171F"></circle><circle cx="190" cy="26" r="4" fill="#17171F"></circle>
+<rect x="122" y="62" width="10" height="10" rx="2.5" fill="{{accent}}"></rect><rect x="138" y="64" width="54" height="6" rx="3" fill="#17171F" opacity="0.4"></rect>
+<rect x="122" y="80" width="10" height="10" rx="2.5" fill="{{accent}}"></rect><rect x="138" y="82" width="44" height="6" rx="3" fill="#17171F" opacity="0.4"></rect>
+<rect x="122" y="98" width="10" height="10" rx="2.5" fill="#FFFFFF" stroke="#17171F"></rect><rect x="138" y="100" width="50" height="6" rx="3" fill="#17171F" opacity="0.4"></rect>
+<circle cx="88" cy="110" r="10" fill="#D13A28"></circle>
+</svg>
+</sc-if>
+
+<sc-if value="{{r.v.chat}}" hint-placeholder-val="{{ false }}">
+<svg viewBox="44 8 196 150" style="position: absolute; inset: 0; width: 100%; height: 100%; display: block">
+<circle cx="170" cy="72" r="56" fill="#FFFFFF" opacity="0.7"></circle>
+<rect x="140" y="28" width="80" height="24" rx="12" fill="#17171F"></rect><rect x="152" y="37" width="50" height="6" rx="3" fill="#FFFFFF" opacity="0.8"></rect>
+<rect x="100" y="62" width="104" height="36" rx="14" fill="#FFFFFF" stroke="#17171F" stroke-width="1.2"></rect><rect x="112" y="73" width="70" height="6" rx="3" fill="#17171F" opacity="0.5"></rect><rect x="112" y="84" width="50" height="6" rx="3" fill="#17171F" opacity="0.5"></rect>
+<circle cx="86" cy="86" r="11" fill="{{accent}}"></circle>
+<rect x="112" y="108" width="62" height="20" rx="10" fill="{{accent}}"></rect>
+<circle cx="220" cy="120" r="6" fill="#D13A28"></circle>
+</svg>
+</sc-if>
+
+<sc-if value="{{r.v.sheet}}" hint-placeholder-val="{{ false }}">
+<svg viewBox="44 8 196 150" style="position: absolute; inset: 0; width: 100%; height: 100%; display: block">
+<circle cx="168" cy="74" r="56" fill="#FFFFFF" opacity="0.7"></circle>
+<rect x="116" y="24" width="84" height="104" rx="8" fill="#FFFFFF" stroke="#17171F" stroke-width="1.2"></rect>
+<rect x="140" y="18" width="36" height="12" rx="4" fill="#17171F"></rect>
+<g><rect x="128" y="44" width="8" height="8" rx="2" fill="{{accent}}"></rect><rect x="142" y="45" width="46" height="5" rx="2.5" fill="#17171F" opacity="0.35"></rect>
+<rect x="128" y="60" width="8" height="8" rx="2" fill="{{accent}}"></rect><rect x="142" y="61" width="38" height="5" rx="2.5" fill="#17171F" opacity="0.35"></rect>
+<rect x="128" y="76" width="8" height="8" rx="2" fill="#D13A28"></rect><rect x="142" y="77" width="42" height="5" rx="2.5" fill="#17171F" opacity="0.35"></rect>
+<rect x="128" y="92" width="8" height="8" rx="2" fill="{{accent}}"></rect><rect x="142" y="93" width="30" height="5" rx="2.5" fill="#17171F" opacity="0.35"></rect></g>
+<circle cx="200" cy="118" r="18" fill="none" stroke="#17171F" stroke-width="3"></circle><path d="M213 131 l12 12" stroke="#17171F" stroke-width="4" stroke-linecap="round"></path>
+</svg>
+</sc-if>
+
+<sc-if value="{{r.v.channel}}" hint-placeholder-val="{{ false }}">
+<svg viewBox="44 8 196 150" style="position: absolute; inset: 0; width: 100%; height: 100%; display: block">
+<circle cx="166" cy="76" r="44" fill="none" stroke="#17171F" stroke-width="1" stroke-dasharray="3 5"></circle>
+<text x="166" y="94" text-anchor="middle" font-family="Anton, sans-serif" font-size="52" fill="#17171F">#</text>
+<circle cx="166" cy="32" r="10" fill="{{accent}}"></circle><circle cx="210" cy="76" r="10" fill="#D13A28"></circle><circle cx="166" cy="120" r="10" fill="#17171F"></circle><circle cx="122" cy="76" r="10" fill="{{accent}}" opacity="0.5"></circle>
+<circle cx="200" cy="44" r="5" fill="#FFFFFF" stroke="#17171F"></circle>
+</svg>
+</sc-if>
+
+<sc-if value="{{r.v.matchscreen}}" hint-placeholder-val="{{ false }}">
+<svg viewBox="44 8 196 150" style="position: absolute; inset: 0; width: 100%; height: 100%; display: block">
+<circle cx="140" cy="74" r="40" fill="{{accent}}" opacity="0.85"></circle>
+<circle cx="190" cy="74" r="40" fill="#D13A28" opacity="0.75"></circle>
+<rect x="138" y="116" width="54" height="22" rx="11" fill="#FFFFFF" stroke="#17171F" stroke-width="1.2"></rect>
+<path d="M159 127 l4 4 8 -8" fill="none" stroke="#17171F" stroke-width="2"></path>
+</svg>
+</sc-if>
+
+<sc-if value="{{r.v.bastille}}" hint-placeholder-val="{{ false }}">
+<svg viewBox="44 8 196 150" style="position: absolute; inset: 0; width: 100%; height: 100%; display: block">
+<circle cx="166" cy="74" r="58" fill="#FFFFFF" opacity="0.7"></circle>
+<rect x="130" y="18" width="66" height="122" rx="14" fill="#FFFFFF" stroke="#17171F" stroke-width="1.2"></rect>
+<rect x="140" y="36" width="46" height="60" rx="8" fill="#FFFFFF" stroke="#17171F" transform="rotate(10 163 66)"></rect>
+<g transform="rotate(10 163 66)"><rect x="147" y="48" width="30" height="5" rx="2.5" fill="#17171F"></rect><rect x="147" y="58" width="24" height="5" rx="2.5" fill="#17171F"></rect><rect x="147" y="68" width="28" height="5" rx="2.5" fill="#17171F"></rect></g>
+<circle cx="150" cy="118" r="8" fill="#D13A28"></circle><circle cx="176" cy="118" r="8" fill="{{accent}}"></circle>
+<path d="M210 60 l12 0 M216 54 l6 6 -6 6" stroke="{{accent}}" stroke-width="2" fill="none"></path>
+</svg>
+</sc-if>
+
+<sc-if value="{{r.v.grads}}" hint-placeholder-val="{{ false }}">
+<svg viewBox="44 8 196 150" style="position: absolute; inset: 0; width: 100%; height: 100%; display: block">
+<rect x="104" y="112" width="40" height="22" fill="#FFFFFF"></rect><rect x="144" y="92" width="40" height="42" fill="#FFFFFF"></rect><rect x="184" y="72" width="40" height="62" fill="#FFFFFF"></rect>
+<path d="M108 100 l16 -7 16 7 -16 7z" fill="{{accent}}"></path><path d="M148 80 l16 -7 16 7 -16 7z" fill="#D13A28"></path><path d="M188 60 l16 -7 16 7 -16 7z" fill="#17171F"></path>
+<circle cx="204" cy="30" r="8" fill="#D13A28" opacity="0.6"></circle>
+</svg>
+</sc-if>
+
+<sc-if value="{{r.v.tiers}}" hint-placeholder-val="{{ false }}">
+<svg viewBox="44 8 196 150" style="position: absolute; inset: 0; width: 100%; height: 100%; display: block">
+<circle cx="166" cy="74" r="56" fill="#FFFFFF" opacity="0.7"></circle>
+<rect x="104" y="40" width="116" height="22" rx="11" fill="{{accent}}"></rect><circle cx="208" cy="51" r="6" fill="#FFFFFF"></circle>
+<rect x="104" y="70" width="116" height="22" rx="11" fill="#FFFFFF" stroke="#17171F" stroke-width="1.2"></rect><circle cx="208" cy="81" r="6" fill="#17171F" opacity="0.4"></circle>
+<rect x="104" y="100" width="116" height="22" rx="11" fill="#D13A28"></rect><circle cx="208" cy="111" r="6" fill="#FFFFFF"></circle>
+</svg>
+</sc-if>
+
+<sc-if value="{{r.v.timeline}}" hint-placeholder-val="{{ false }}">
+<svg viewBox="44 8 196 150" style="position: absolute; inset: 0; width: 100%; height: 100%; display: block">
+<path d="M72 120 C 100 120, 100 60, 130 60 S 170 110, 196 90 S 220 40, 230 36" fill="none" stroke="#17171F" stroke-width="1.2" stroke-dasharray="3 4"></path>
+<circle cx="72" cy="120" r="7" fill="{{r.c0}}" stroke="#17171F" stroke-width="1.2"></circle><circle cx="100" cy="92" r="7" fill="{{r.c1}}" stroke="#17171F" stroke-width="1.2"></circle><circle cx="130" cy="60" r="7" fill="{{r.c2}}" stroke="#17171F" stroke-width="1.2"></circle><circle cx="160" cy="88" r="7" fill="{{r.c3}}" stroke="#17171F" stroke-width="1.2"></circle><circle cx="186" cy="98" r="7" fill="{{r.c4}}" stroke="#17171F" stroke-width="1.2"></circle><circle cx="210" cy="66" r="7" fill="{{r.c5}}" stroke="#17171F" stroke-width="1.2"></circle><circle cx="230" cy="36" r="7" fill="{{r.c6}}" stroke="#17171F" stroke-width="1.2"></circle>
+</svg>
+</sc-if>
+
+<sc-if value="{{r.v.quote}}" hint-placeholder-val="{{ false }}">
+<svg viewBox="44 8 196 150" style="position: absolute; inset: 0; width: 100%; height: 100%; display: block">
+<circle cx="172" cy="70" r="54" fill="#FFFFFF" opacity="0.6"></circle>
+<text x="128" y="122" font-family="Newsreader, serif" font-size="150" fill="{{accent}}">“</text>
+<circle cx="218" cy="122" r="8" fill="#D13A28"></circle>
+</svg>
+</sc-if>
+
+<sc-if value="{{r.v.askip}}" hint-placeholder-val="{{ false }}">
+<svg viewBox="44 8 196 150" style="position: absolute; inset: 0; width: 100%; height: 100%; display: block">
+<circle cx="168" cy="74" r="56" fill="#FFFFFF" opacity="0.7"></circle>
+<rect x="116" y="34" width="62" height="84" rx="10" fill="{{accent}}" transform="rotate(-10 147 76)"></rect>
+<rect x="150" y="34" width="62" height="84" rx="10" fill="#FFFFFF" stroke="#17171F" stroke-width="1.2" transform="rotate(8 181 76)"></rect>
+<text x="181" y="86" text-anchor="middle" font-family="Anton, sans-serif" font-size="26" fill="#D13A28" transform="rotate(8 181 76)">?</text>
+</svg>
+</sc-if>
+
+<sc-if value="{{r.v.oasis}}" hint-placeholder-val="{{ false }}">
+<svg viewBox="44 8 196 150" style="position: absolute; inset: 0; width: 100%; height: 100%; display: block">
+<circle cx="166" cy="74" r="58" fill="#FFFFFF" opacity="0.7"></circle>
+<path d="M110 120 L140 40 L190 56 L222 118 Z" fill="#FFFFFF" stroke="#D5D7E0" stroke-width="1.2"></path>
+<path d="M166 30 c-14 0 -22 10 -22 22 c0 16 22 38 22 38 s22 -22 22 -38 c0 -12 -8 -22 -22 -22z" fill="{{accent}}"></path>
+<path d="M166 42 c-5 7 -8 11 -8 15 a8 8 0 0 0 16 0 c0 -4 -3 -8 -8 -15z" fill="#FFFFFF"></path>
+<circle cx="130" cy="104" r="5" fill="{{accent}}" opacity="0.6"></circle><circle cx="204" cy="104" r="5" fill="{{accent}}" opacity="0.6"></circle><circle cx="214" cy="40" r="10" fill="#D13A28" opacity="0.7"></circle>
+</svg>
+</sc-if>
+
+<sc-if value="{{r.v.book}}" hint-placeholder-val="{{ false }}">
+<svg viewBox="44 8 196 150" style="position: absolute; inset: 0; width: 100%; height: 100%; display: block">
+<circle cx="168" cy="72" r="56" fill="#FFFFFF" opacity="0.7"></circle>
+<path d="M110 50 q30 -14 58 0 v70 q-28 -14 -58 0z" fill="#FFFFFF" stroke="#17171F" stroke-width="1.2"></path>
+<path d="M168 50 q28 -14 58 0 v70 q-30 -14 -58 0z" fill="#FFFFFF" stroke="#17171F" stroke-width="1.2"></path>
+<rect x="120" y="64" width="36" height="4" rx="2" fill="#17171F" opacity="0.35"></rect><rect x="120" y="74" width="30" height="4" rx="2" fill="#17171F" opacity="0.35"></rect>
+<circle cx="197" cy="78" r="14" fill="#D13A28" opacity="0.85"></circle><circle cx="197" cy="78" r="6" fill="#FFFFFF"></circle>
+</svg>
+</sc-if>
+
+<sc-if value="{{r.v.photo}}" hint-placeholder-val="{{ false }}">
+<svg viewBox="44 8 196 150" style="position: absolute; inset: 0; width: 100%; height: 100%; display: block">
+<rect x="128" y="26" width="84" height="98" rx="4" fill="#FFFFFF" stroke="#D5D7E0" transform="rotate(8 170 75)"></rect>
+<rect x="116" y="22" width="84" height="98" rx="4" fill="#FFFFFF" stroke="#17171F" stroke-width="1.2"></rect>
+<rect x="124" y="30" width="68" height="64" fill="#EEF1FA"></rect>
+<text x="158" y="66" text-anchor="middle" font-family="Figtree, sans-serif" font-size="9" font-weight="700" fill="#2A3F8F">[PHOTO]</text>
+</svg>
+</sc-if>
+
+</div>
+<div style="flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 6px; padding: 4px 0">
+<span style="{{r.metaStyle}}">{{r.meta}}</span>
+<h3 style="{{r.titleStyle}}">{{r.title}}</h3>
+<p style="{{r.qStyle}}">{{r.q}}</p>
+</div>
+</div>
+<sc-if value="{{r.hasThreads}}" hint-placeholder-val="{{ false }}">
+<div role="group" aria-label="Threads this project sits on" style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px; padding: 12px 22px 0">
+<span style="margin-right: 2px; font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #4A4A57">Threads</span>
+<sc-for list="{{r.threads}}" as="t" hint-placeholder-count="2">
+<button type="button" onClick="{{t.go}}" style="{{t.style}}">{{t.label}}</button>
+</sc-for>
+</div>
+</sc-if>
+<sc-if value="{{r.hasCase}}" hint-placeholder-val="{{ true }}">
+<a href="{{r.href}}" style="display: flex; flex-direction: column; gap: 10px; padding: 16px 22px 18px; text-decoration: none; color: #17171F">
+<span style="display: flex; flex-wrap: wrap; gap: 6px 18px">
+<sc-for list="{{r.pts}}" as="p" hint-placeholder-count="3">
+<span style="display: inline-flex; gap: 8px; align-items: baseline; font-size: 14px; line-height: 1.4; color: #2E2E38"><span aria-hidden="true" style="flex: none; width: 6px; height: 6px; border-radius: 50%; background: {{accent}}; transform: translateY(-2px)"></span><span>{{p}}</span></span>
+</sc-for>
+</span>
+<sc-if value="{{r.hasConnects}}" hint-placeholder-val="{{ false }}"><span style="font-size: 13px; line-height: 1.4; color: #4A4A57; text-wrap: pretty">{{r.connects}}</span></sc-if>
+<span style="font-size: 13px; font-weight: 700; color: {{accent}}">Read the case →</span>
+</a>
+</sc-if>
+<sc-if value="{{r.noCase}}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; flex-direction: column; gap: 10px; padding: 16px 22px 18px">
+<span style="display: flex; flex-wrap: wrap; gap: 6px 18px">
+<sc-for list="{{r.pts}}" as="p" hint-placeholder-count="3">
+<span style="display: inline-flex; gap: 8px; align-items: baseline; font-size: 14px; line-height: 1.4; color: #2E2E38"><span aria-hidden="true" style="flex: none; width: 6px; height: 6px; border-radius: 50%; background: {{accent}}; transform: translateY(-2px)"></span><span>{{p}}</span></span>
+</sc-for>
+</span>
+</div>
+</sc-if>
+</article>

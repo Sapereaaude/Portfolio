@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>This connects to — shared component</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Figtree:ital,wght@0,400;0,600;0,700;1,400&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400;1,6..72,500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FFFFFF}
+a{color:#17171F}a:hover{color:#3B5BB8}
+</style>
+</helmet>
+<div style="color: #17171F; font-family: 'Figtree', sans-serif">
+<sc-if value="{{showThreads}}" hint-placeholder-val="{{ false }}">
+<p style="margin: 8px 0 0; display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-size: 12.5px; font-weight: 600"><span style="margin-right: 2px; font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #4A4A57">Threads</span><sc-for list="{{threads}}" as="t" hint-placeholder-count="2"><span style="padding: 6px 12px; border: 1px solid #D5D7E0; border-radius: 999px">{{t}}</span></sc-for></p>
+</sc-if>
+<sc-if value="{{showConnects}}" hint-placeholder-val="{{ true }}">
+<section style="padding: 26px 0; border-top: 1px solid #E3E3EA; display: flex; flex-wrap: wrap; gap: 8px 28px">
+<div style="flex: 0 0 250px; display: flex; align-items: baseline; gap: 12px"><span style="font-family: 'Anton', Impact, sans-serif; font-size: 28px; color: {{accent}}">{{n}}</span><h2 style="margin: 0; font-family: 'Anton', Impact, sans-serif; font-weight: 400; font-size: 24px; text-transform: uppercase; white-space: nowrap">This connects to</h2></div>
+<div style="flex: 1 1 420px; min-width: 0; font-size: 17px; line-height: 1.6; text-wrap: pretty"><div style="display: flex; flex-direction: column; gap: 10px">
+<sc-for list="{{links}}" as="l" hint-placeholder-count="3">
+<a href="{{l.href}}" style="display: block; padding: 14px 16px; border: 1px solid #E3E3EA; border-radius: 12px; text-decoration: none"><span style="display: block; font-family: 'Anton', Impact, sans-serif; font-size: 20px; text-transform: uppercase">{{l.title}} →</span><span style="display: block; margin-top: 4px; font-family: 'Newsreader', Georgia, serif; font-style: italic; font-size: 18px; line-height: 1.35; text-wrap: pretty">{{l.why}}</span></a>
+</sc-for>
+</div></div>
+</section>
+</sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"pid":{"editor":"text","default":"system"},"part":{"editor":"enum","options":["connects","threads"],"default":"connects"},"n":{"editor":"text","default":"09"},"accent":{"editor":"color","default":"#3B5BB8"},"$preview":{"width":1120,"height":420}}'>
+class Component extends DCLogic {
+renderVals() {
+var pid = this.props.pid ?? 'system';
+var part = this.props.part ?? 'connects';
+/* CURATED: edit the explanations here. Each pair shows on both projects, three at most per project, in this order. */
+var LINKS = [{"a": "algo_academy", "b": "system", "why": "From helping people understand a product to helping teams understand their users."}, {"a": "system", "b": "agents", "why": "From documenting research methods to making them accessible through conversation."}, {"a": "agents", "b": "cassandre", "why": "From helping teams ask better questions to automatically checking what can already be verified."}, {"a": "rbk", "b": "system", "why": "Different environments. The same principle: listen, adapt, improve."}, {"a": "rbk", "b": "programme", "why": "One rough first cohort, then a habit: let each cohort teach the next."}, {"a": "stress", "b": "rbk", "why": "Same bootcamp, two ways of listening: one-to-one conversations and a stress measure."}, {"a": "stress", "b": "tracking", "why": "Measuring what people go through to adjust their conditions. Years later, I tried it on myself."}, {"a": "vizcom", "b": "aiid", "why": "The survey said what designers wanted from AI. The diary showed what they did with it over three months."}, {"a": "vizcom", "b": "sat3d", "why": "Two ways of staying with users over time: a three-month diary and a monthly pulse."}, {"a": "swiss", "b": "agents", "why": "A method first, then assistants that carry methods to people who never asked for one."}, {"a": "swiss", "b": "cassandre", "why": "AI runs the predictable part, a human decides what matters. Same split, one step further."}, {"a": "aiid", "b": "agents", "why": "Studying how others adopt AI, while building assistants for my own teams."}, {"a": "system", "b": "community", "why": "A shared repository for five teams, then a shared space for the researchers themselves."}, {"a": "community", "b": "superpowers", "why": "The same bet twice: the expertise is already in the building, people just can’t find each other."}, {"a": "algo_journey", "b": "algo_personas", "why": "Who is learning, and when they most need to understand: two halves of one question."}, {"a": "algo_journey", "b": "clinic", "why": "Finding the moments that matter in a journey: for customers implementing a product, for members seeking care."}, {"a": "mind", "b": "clinic", "why": "Two Alan products, one starting point: understand how people think about care before designing for it."}, {"a": "mind", "b": "tracking", "why": "Mental health, studied for a product, then tracked for myself."}, {"a": "prio", "b": "plm", "why": "Who decides which products get made, and how engineers keep them alive afterwards: two ends of the same pipeline."}, {"a": "prio", "b": "system", "why": "Atomic research, built as a repository in one project and used as the analysis method in the other."}, {"a": "usab", "b": "sat3d", "why": "Evaluative research made readable: a verdict in ten seconds, a pulse every month."}, {"a": "usab", "b": "cassandre", "why": "Making a usability verdict readable was one step. Checking the predictable issues before any participant is the next question."}, {"a": "teach", "b": "algo_academy", "why": "From classrooms to an academy: still working out where someone really is before deciding where to take them."}, {"a": "programme", "b": "sat3d", "why": "A cohort retrospective and a monthly survey are the same reflex: ask again, regularly."}];
+/* Thematic journeys: a project can sit on several threads. Keep in step with the home page. */
+var THREADS = [{"n": "01", "short": "Understand people", "order": ["rbk", "programme", "stress", "algo_journey", "algo_personas", "algo_academy", "mind", "clinic", "clear", "system", "plm", "prio", "sat3d", "aiid", "vizcom", "cassandre"]}, {"n": "02", "short": "Make knowledge everyone’s business", "order": ["teach", "algo_academy", "system", "usab", "community", "superpowers", "agents", "cassandre"]}, {"n": "03", "short": "Automate the predictable", "order": ["swiss", "agents", "aiid", "vizcom", "cassandre"]}];
+var TITLES = {"agents": "A small pantheon of agents", "aiid": "AI in Design", "algo_academy": "Algolia Academy", "algo_journey": "The customer learning journey", "algo_personas": "Learner personas", "cassandre": "Cassandre", "clinic": "Alan Clinic", "community": "One community, four cities", "mind": "Alan Mind", "plm": "Idea to recycling", "prio": "How products get chosen", "programme": "Better from cohort to cohort", "rbk": "Refugees to software engineers", "sat3d": "A monthly pulse on 3D tools", "stress": "Stress & success", "superpowers": "Superpowers Directory", "swiss": "The ten-question Swiss knife", "system": "A research system for 5 teams", "teach": "Teacher, then Amman", "tracking": "Tracking Bad", "usab": "Usability, readable in one glance", "vizcom": "After the demo effect"};
+var links = [];
+LINKS.forEach(function (l) {
+var other = l.a === pid ? l.b : (l.b === pid ? l.a : null);
+if (other) { links.push({ href: 'Case-' + other + '.dc.html', title: TITLES[other] || other, why: l.why }); }
+});
+links = links.slice(0, 3);
+var threads = THREADS.filter(function (t) { return t.order.indexOf(pid) !== -1; }).map(function (t) { return t.n + ' ' + t.short; });
+return {
+accent: this.props.accent ?? '#3B5BB8', n: this.props.n ?? '',
+links: links, threads: threads,
+showConnects: part === 'connects' && links.length > 0,
+showThreads: part === 'threads' && threads.length > 0
+};
+}
+}
+</script>
+</body>
+</html>
