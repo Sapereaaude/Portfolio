@@ -288,7 +288,7 @@ a{color:#17171F}a:hover{color:#3B5BB8}
 <div style="width: min(92vw, 560px); display: flex; flex-direction: column; gap: 10px; padding: 14px 14px 16px; border-radius: 18px; background: #FFFFFF; box-sizing: border-box">
 <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 12px">
 <div style="min-width: 0">
-<h3 id="lb-title" style="margin: 0; font-family: 'Anton', Impact, sans-serif; font-weight: 400; font-size: 22px; line-height: 1.1; text-transform: uppercase; text-wrap: balance">{{lbT1}}<span style="color: {{accent}}">{{lbT2}}</span><span style="color: #D13A28">.</span></h3>
+<h3 id="lb-title" style="margin: 0; font-family: 'Anton', Impact, sans-serif; font-weight: 400; font-size: 22px; line-height: 1.1; text-transform: uppercase; text-wrap: balance">{{lbT1}}<span style="color: {{accent}}">{{lbT2}}</span><span style="color: #D13A28">{{lbDot}}</span></h3>
 <p style="margin: 4px 0 0; font-family: 'Newsreader', Georgia, serif; font-style: italic; font-size: 17px; color: #4A4A57; text-wrap: balance">{{lbSub}}</p>
 </div>
 <button type="button" id="lb-close" onClick="{{closeLb}}" aria-label="Close" style="flex: none; display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; border: 1px solid #D5D7E0; background: #FFFFFF; color: #17171F; cursor: pointer"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
@@ -918,10 +918,8 @@ var items = [
 { id: 'asp2', pts: ['Framing before the roadmap', 'Docs first, then meetings'], vis: 'doc', quote: 'Upstream, written first', meta: 'What I’m looking for', title: 'Upstream, written first', q: 'Where am I most useful?', a: 'Framing the problem before the roadmap does. Docs first, then meetings. In an office: I like offices.', jobs: ['looking'], who: ['hiring', 'pm', 'founder'], m: [], sc: [] },
 { id: 'asp3', pts: ['Displaced and vulnerable people', 'Mental health'], vis: 'home', quote: 'For people losing their place', meta: 'What I’m looking for', title: 'Tech for people losing their place', q: 'Where does research have the most to give?', a: 'Displaced people, vulnerable people, mental health. Jordan taught me what it looks like when lives visibly improve. I want that again.', jobs: ['looking'], who: ['founder', 'curious', 'hiring'], m: [], sc: [] },
 { id: 'ph1', pts: ['Morocco', 'Food and family, in warm colours'], vis: 'photo', meta: 'Morocco', title: 'Msemmen de Proust', q: 'What does a memory taste like?', a: 'Family and food, in warm colours. The madeleine, but Moroccan.', jobs: ['photo'], who: ['curious', 'designer'], m: [], sc: [] },
-{ id: 'ph2', pts: ['Morocco', 'A house, the day it came down'], vis: 'photo', meta: 'Morocco', title: 'In Search of Lost Thyme', q: 'How do you photograph a place that is disappearing?', a: 'A family house I had never seen, photographed the day it was being torn down.', jobs: ['photo'], who: ['curious', 'designer'], m: [], sc: [] },
-{ id: 'ph3', pts: ['Paris', 'Habitation non incluse'], vis: 'photo', meta: 'Paris', title: 'Assurance habitation', q: 'Who is left out of the promise?', a: 'A man asleep under a home insurance ad. Habitation non incluse.', jobs: ['photo'], who: ['curious', 'designer'], m: [], sc: [] },
-{ id: 'ph4', pts: ['Djerba, 2026', 'Absence, then life coming back'], vis: 'photo', meta: 'Djerba · 2026', title: 'Le village s’endort', q: 'Can absence be a portrait?', a: 'The Jewish quarter at the end of shabbat: closed doors, then children, lights and prayers coming back.', jobs: ['photo'], who: ['curious', 'designer'], m: [], sc: [] },
-{ id: 'ph5', pts: ['China', 'Black & white street'], vis: 'photo', meta: 'China', title: 'Black & white street', q: 'What happens before and after the meal?', a: 'A noodle vendor, a pipe smoker, a chess game, a subway car. I shoot the before and after of things.', jobs: ['photo'], who: ['curious', 'designer'], m: [], sc: [] }
+{ id: 'ph3', pts: ['Paris', 'Habitation non incluse'], vis: 'photo', meta: 'Paris', title: 'Assurance habitation, habitation non incluse*', q: 'Who is left out of the promise?', a: 'A man asleep under a home insurance ad. Habitation non incluse.', jobs: ['photo'], who: ['curious', 'designer'], m: [], sc: [] },
+{ id: 'ph4', pts: ['Djerba, 2026', 'Absence, then life coming back'], vis: 'photo', meta: 'Djerba · 2026', title: 'Le village s’endort', q: 'Can absence be a portrait?', a: 'The Jewish quarter at the end of shabbat: closed doors, then children, lights and prayers coming back.', jobs: ['photo'], who: ['curious', 'designer'], m: [], sc: [] }
 ];
 
 var CASES = ['aiid', 'vizcom', 'system', 'prio', 'plm', 'sat3d', 'usab', 'agents', 'swiss', 'community', 'superpowers', 'clinic', 'mind', 'clear', 'algo_academy', 'algo_journey', 'algo_personas', 'rbk', 'stress', 'programme', 'simplon', 'teach', 'embassy', 'workshops', 'sistech', 'bsf', 'vgwb', 'daradam', 'tracking', 'bastille', 'palier', 'askip', 'oasis', 'papier', 'cassandre'];
@@ -1080,7 +1078,9 @@ var photos = [
 { title: 'The subtle art of looking like art', sub: 'France · observing, or voyeurism?', img: '/photos/looking-fine.jpg', noImg: false, alt: '', btnId: 'open-looking', n: 4, open: function () { openSeries('looking'); } },
 { title: 'The aftermath', sub: 'China · what the meal leaves behind', img: '/photos/aftermath-turquoise.jpg', noImg: false, alt: '', btnId: 'open-aftermath', n: 4, open: function () { openSeries('aftermath'); } },
 { title: 'Bismillah, c’est les ténèbres', sub: '2026', img: '/photos/tenebres-wire.jpg', noImg: false, alt: '', btnId: 'open-tenebres', n: 7, open: function () { openSeries('tenebres'); } }
-].concat(items.filter(function (it) { return it.vis === 'photo'; }).map(function (it) { return { title: it.title, sub: it.pts.join(' · '), img: '', noImg: true, alt: 'Photograph to add: ' + it.title }; }));
+].concat(items.filter(function (it) { return it.vis === 'photo'; }).map(function (it) {
+if (it.id === 'ph3') { return { title: it.title, sub: 'Paris', img: '/photos/habitation-window.jpg', noImg: false, alt: '', btnId: 'open-habitation', n: 3, open: function () { openSeries('habitation'); } }; }
+return { title: it.title, sub: it.pts.join(' · '), img: '', noImg: true, alt: 'Photograph to add: ' + it.title }; }));
 
 var SERIES = {
 looking: { t1: 'The subtle art of ', t2: 'looking like art', sub: 'In a room full of art, I’d still look at people.', imgs: [
@@ -1100,7 +1100,11 @@ tenebres: { t1: 'Bismillah, ', t2: 'c’est les ténèbres', sub: '2026', imgs: 
 { src: '/photos/tenebres-moon.jpg', w: 1054, h: 1400, alt: 'A thin daytime moon above a white chimney stack crowned with a row of terracotta pots.' },
 { src: '/photos/tenebres-curves.jpg', w: 1054, h: 1400, alt: 'Curved whitewashed walls and a round window cut into a flat blue sky.' },
 { src: '/photos/tenebres-peak.jpg', w: 1054, h: 1400, alt: 'The white point of a building’s corner against a solid blue sky, like a paper mountain.' },
-{ src: '/photos/tenebres-genie.jpg', w: 1054, h: 1400, alt: 'A gilded winged figure balancing on one foot atop a tall column, alone in the blue.' }] }
+{ src: '/photos/tenebres-genie.jpg', w: 1054, h: 1400, alt: 'A gilded winged figure balancing on one foot atop a tall column, alone in the blue.' }] },
+habitation: { t1: 'Assurance habitation, ', t2: 'habitation non incluse*', sub: 'Paris', imgs: [
+{ src: '/photos/habitation-window.jpg', w: 996, h: 1400, alt: 'A man sleeps on a mattress set on wooden pallets, beneath a bank window advertising home insurance.' },
+{ src: '/photos/habitation-pavement.jpg', w: 1054, h: 1400, alt: 'A barefoot man lies on the pavement with a Paris 2024 tote bag and an umbrella; behind him, a mattress bed against the same bank front.' },
+{ src: '/photos/habitation-faim.jpg', w: 1050, h: 1400, alt: 'A tent covered with a checked sheet in a stone corner, under a small sign that reads FAIM.' }] }
 };
 var ser = SERIES[s.lb] || SERIES.looking;
 var lbCount = ser.imgs.length, lbCur = s.slide || 0;
@@ -1114,7 +1118,7 @@ for (var dk = 0; dk < lbCount; dk++) { (function (k) { dots.push({ label: 'Photo
 function rowScroll(id, dir) { var el = document.getElementById(id); if (el) { el.scrollBy({ left: dir * el.clientWidth, behavior: 'smooth' }); } }
 
 return {
-lbOpen: !!s.lb, lbT1: ser.t1, lbT2: ser.t2, lbSub: ser.sub, lbImgs: ser.imgs, dots: dots, slideLabel: (lbCur + 1) + '/' + lbCount,
+lbOpen: !!s.lb, lbT1: ser.t1, lbT2: ser.t2, lbSub: ser.sub, lbDot: /[*]$/.test(ser.t2) ? '' : '.', lbImgs: ser.imgs, dots: dots, slideLabel: (lbCur + 1) + '/' + lbCount,
 hasPrev: lbCur > 0, hasNext: lbCur < lbCount - 1,
 prev: function () { lbGo(lbCur - 1); }, next: function () { lbGo(lbCur + 1); },
 closeLb: lbClose,
