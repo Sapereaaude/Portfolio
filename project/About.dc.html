@@ -34,6 +34,8 @@ a{color:#17171F}a:hover{color:#D13A28}
 .series-row::-webkit-scrollbar-thumb{background:#17171F;border-radius:3px}
 .series-cover img{transition:transform .35s ease}
 .series-cover:hover img,.series-cover:focus-visible img{transform:scale(1.04)}
+.wwm{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media (max-width: 700px){.wwm{grid-template-columns:1fr}}
 .notes{grid-template-columns:repeat(2,minmax(0,1fr))}
 .notes>.note:last-child:nth-child(odd){grid-column:1/-1;justify-self:center;width:56%}
 @media (min-width: 900px){.notes{grid-template-columns:repeat(3,minmax(0,1fr))}.notes>.note:last-child:nth-child(odd){grid-column:auto;justify-self:stretch;width:auto}}
@@ -187,7 +189,7 @@ a{color:#17171F}a:hover{color:#D13A28}
 <div style="font-family: 'Anton', Impact, sans-serif; font-size: 72px; line-height: 1; color: {{accent}}">§05</div>
 <div style="margin-top: 8px">Working with me</div>
 </div>
-<div style="flex: 999 1 560px; min-width: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 0 32px">
+<div class="wwm" style="flex: 999 1 560px; min-width: 0; display: grid; gap: 0 32px">
 <div style="padding: 20px 0; border-top: 1px solid #E3E3EA">
 <h3 style="margin: 0 0 6px; font-size: 24px; font-weight: 600; line-height: 1.2">I'll tell you the uncomfortable&nbsp;finding.</h3>
 <p style="margin: 0; font-size: 17px; line-height: 1.55; text-wrap: pretty">Kindly, clearly, with the quote that&nbsp;proves&nbsp;it.</p>
@@ -199,6 +201,10 @@ a{color:#17171F}a:hover{color:#D13A28}
 <div style="padding: 20px 0; border-top: 1px solid #E3E3EA">
 <h3 style="margin: 0 0 6px; font-size: 24px; font-weight: 600; line-height: 1.2">I work with you, not next&nbsp;to&nbsp;you.</h3>
 <p style="margin: 0; font-size: 17px; line-height: 1.55; text-wrap: pretty">A hard problem doesn’t scare me. It&nbsp;wakes&nbsp;me&nbsp;up.</p>
+</div>
+<div style="padding: 20px 0; border-top: 1px solid #E3E3EA">
+<h3 style="margin: 0 0 6px; font-size: 24px; font-weight: 600; line-height: 1.2">I don’t hand over reports.</h3>
+<p style="margin: 0; font-size: 17px; line-height: 1.55; text-wrap: pretty">I share insights once they’re worth acting on, and we build the understanding and the decisions&nbsp;together.</p>
 </div>
 <div style="grid-column: 1 / -1; padding: 24px 28px; border: 1px solid #E3E3EA; border-radius: 16px; background: #FFFFFF; overflow: hidden; margin-top: 12px">
 <p style="margin: 0; font-size: clamp(22px, 2.4vw, 30px); font-family: 'Newsreader', Georgia, serif; font-style: italic; line-height: 1.35; text-wrap: balance">I’m the colleague who asks the uncomfortable questions, so you can make <span style="color: {{accent}}">the comfortable decision</span>.</p>

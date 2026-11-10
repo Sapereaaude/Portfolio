@@ -106,7 +106,7 @@ a{color:#17171F}a:hover{color:#3B5BB8}
 
 <section aria-labelledby="h-thinking" style="display: flex; flex-direction: column; gap: 20px">
 <div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 24px">
-<h2 id="h-thinking" style="margin: 0; font-family: 'Anton', Impact, sans-serif; font-weight: 400; font-size: clamp(26px, 3.2vw, 40px); line-height: 1.05; text-transform: uppercase; text-wrap: balance">Explore my thinking</h2>
+<h2 id="h-thinking" style="margin: 0; scroll-margin-top: 24px; font-family: 'Anton', Impact, sans-serif; font-weight: 400; font-size: clamp(26px, 3.2vw, 40px); line-height: 1.05; text-transform: uppercase; text-wrap: balance">Explore my thinking</h2>
 </div>
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 16px">
 <sc-for list="{{themeCards}}" as="t" hint-placeholder-count="3">
@@ -256,7 +256,7 @@ a{color:#17171F}a:hover{color:#3B5BB8}
 <header style="display: flex; flex-direction: column; gap: 12px">
 <div><button type="button" onClick="{{goHome}}" style="background: none; border: none; padding: 0; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; min-height: 44px; font-family: 'Figtree', sans-serif; font-size: 15px; font-weight: 600; color: {{accent}}">← Home</button></div>
 <h1 style="margin: 0; font-family: 'Anton', Impact, sans-serif; font-weight: 400; font-size: clamp(40px, 7vw, 100px); line-height: 1; text-transform: uppercase; text-wrap: balance">Off the clock<span style="color: #D13A28">.</span></h1>
-<p style="margin: 0; max-width: 860px; font-family: 'Newsreader', Georgia, serif; font-style: italic; font-size: clamp(22px, 2.6vw, 32px); line-height: 1.25; text-wrap: balance">Apparently, I don’t stop observing, experimenting and connecting things when I close my laptop.</p>
+<p style="margin: 0; max-width: 860px; font-family: 'Newsreader', Georgia, serif; font-style: italic; font-size: clamp(22px, 2.6vw, 32px); line-height: 1.25; text-wrap: balance">I don’t know any researcher who stops researching off the clock. Here’s what it looks like for&nbsp;me.</p>
 </header>
 
 <section aria-labelledby="h-photo" style="border-radius: 24px; background: #17171F; color: #FFFFFF; padding: clamp(22px, 4vw, 48px); display: flex; flex-direction: column; gap: 24px">
@@ -918,10 +918,17 @@ if (['t1', 't2', 't3'].indexOf(this.state.theme) === -1) { this.state.theme = 't
 this._viewKey = this.state.screen + '/' + this.state.theme;
 }
 readHash() {
-var map = { 'search': { screen: 'results' }, 'outside': { screen: 'outside' }, 'thinking-understand': { screen: 'theme', theme: 't1' }, 'thinking-knowledge': { screen: 'theme', theme: 't2' }, 'thinking-automate': { screen: 'theme', theme: 't3' } };
+var map = { 'thinking': { screen: 'home', anchor: 'thinking' }, 'search': { screen: 'results' }, 'outside': { screen: 'outside' }, 'thinking-understand': { screen: 'theme', theme: 't1' }, 'thinking-knowledge': { screen: 'theme', theme: 't2' }, 'thinking-automate': { screen: 'theme', theme: 't3' } };
 try { var h = String(window.location.hash || '').replace('#', ''); return map[h] || null; } catch (err) { return null; }
 }
+goAnchor() {
+var self = this, id = this.state.anchor;
+this.setState({ anchor: null });
+var go = function () { try { var el = document.getElementById('h-' + id); if (el) { el.scrollIntoView({ block: 'start', behavior: 'smooth' }); } } catch (err) {} };
+try { window.setTimeout(go, 120); } catch (err) {}
+}
 componentDidMount() {
+if (this.state.anchor) { this.goAnchor(); }
 var self = this;
 this.onHash = function () { var st = self.readHash(); if (st) { self.setState(st); } };
 try { window.addEventListener('hashchange', this.onHash); } catch (err) {}
@@ -944,6 +951,7 @@ try { window.history.replaceState(null, '', name ? '#' + name : window.location.
 var toTop = function () { try { window.scrollTo(0, 0); var el = document.getElementById('page-top'); if (el) { if (el.scrollIntoView) { el.scrollIntoView({ block: 'start' }); } el.setAttribute('tabindex', '-1'); el.style.outline = 'none'; el.focus(); } } catch (err) {} };
 toTop(); try { window.requestAnimationFrame(toTop); window.setTimeout(toTop, 60); } catch (err) {}
 }
+if (st.anchor) { this.goAnchor(); }
 }
 renderVals() {
 var self = this;
@@ -1081,7 +1089,7 @@ var pkJob = picker('job', 'I want to', jobs, job, { phase: 'all' });
 var pkOutcome = picker('outcome', 'So that I can', outcomes, outcome);
 
 var navItems = [
-{ label: 'My thinking', on: isHome || isTheme, style: navStyle(isHome || isTheme), go: function () { self.setState({ screen: 'home' }); } },
+{ label: 'My thinking', on: isHome || isTheme, style: navStyle(isHome || isTheme), go: function () { self.setState({ screen: 'home', anchor: 'thinking' }); } },
 { label: 'Search my work', on: isResults, style: navStyle(isResults), go: function () { self.setState({ screen: 'results', phase: 'all' }); } }
 ];
 var navOutsideStyle = navStyle(isOutside), navOutsideOn = isOutside;

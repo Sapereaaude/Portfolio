@@ -84,7 +84,7 @@ def load(name):
 
 
 NAV_PILL = "font-family: Figtree, sans-serif; font-size: 15px; font-weight: 600; padding: 10px 16px; white-space: nowrap; text-decoration: none; border-radius: 999px; border: 1px solid %s; background: %s; color: %s"
-NAV_ITEMS = [('My thinking', '/', None), ('Search my work', '/#search', None), ('Career timeline', '/timeline', 'Timeline'),
+NAV_ITEMS = [('My thinking', '/#thinking', None), ('Search my work', '/#search', None), ('Career timeline', '/timeline', 'Timeline'),
              ('About me', '/about', 'About'), ('Off the clock', '/#outside', None)]
 
 
