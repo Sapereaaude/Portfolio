@@ -39,6 +39,9 @@ a{color:#17171F}a:hover{color:#3B5BB8}
 .photo-cover img{transition:transform .35s ease}
 .photo-cover:hover img,.photo-cover:focus-visible img{transform:scale(1.04)}
 .group-head{grid-column:1/-1}
+@media (max-width: 700px){.refer-card{min-height:0 !important}}
+.locked-card{transition:transform .2s ease}
+.locked-card:hover,.locked-card:focus-visible{transform:scale(1.01)}
 .search-sticky{position:sticky;top:0;z-index:10;margin:0 calc(-1 * clamp(20px, 4vw, 56px));padding:12px clamp(20px, 4vw, 56px) 8px;background:rgba(255,255,255,.94);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid #E3E3EA}
 .search-sentence{margin-top:0 !important;font-size:clamp(22px, 2.6vw, 36px) !important;line-height:1.25 !important}
 .search-meta{flex-wrap:nowrap !important}
@@ -792,6 +795,49 @@ a{color:#17171F}a:hover{color:#3B5BB8}
 </div>
 </sc-if>
 
+<sc-if value="{{isOutside}}" hint-placeholder-val="{{ false }}">
+<div style="margin: 48px 0 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 16px">
+
+<section aria-labelledby="h-locked" style="position: relative; border-radius: 20px; overflow: hidden; background: #17171F; color: #FFFFFF; min-height: 240px">
+<div aria-hidden="true" style="position: absolute; inset: 0; display: grid; grid-template-columns: repeat(3, 1fr)">
+<img src="/photos/msemmen-couscous.jpg" alt="" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; filter: blur(14px) saturate(1.2); transform: scale(1.2)">
+<img src="/photos/tenebres-obelisk.jpg" alt="" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; filter: blur(14px) saturate(1.2); transform: scale(1.2)">
+<img src="/photos/aftermath-chili.jpg" alt="" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; filter: blur(14px) saturate(1.2); transform: scale(1.2)">
+</div>
+<div aria-hidden="true" style="position: absolute; inset: 0; background: rgba(23, 23, 31, 0.55)"></div>
+<sc-if value="{{lockedClosed}}" hint-placeholder-val="{{ true }}">
+<button type="button" class="locked-card" onClick="{{openLocked}}" aria-label="Things I’d rather not share yet. Locked." style="position: relative; width: 100%; min-height: 240px; padding: clamp(22px, 3vw, 32px); border: none; background: none; color: #FFFFFF; cursor: pointer; display: flex; flex-direction: column; align-items: flex-start; justify-content: space-between; gap: 18px; text-align: left; font-family: 'Figtree', sans-serif">
+<span style="display: inline-flex; align-items: center; justify-content: center; width: 48px; height: 48px; border-radius: 50%; background: rgba(255, 255, 255, 0.16); border: 1px solid rgba(255, 255, 255, 0.4)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg></span>
+<span style="display: flex; flex-direction: column; gap: 6px"><span id="h-locked" style="font-family: 'Anton', Impact, sans-serif; font-size: clamp(24px, 2.4vw, 32px); line-height: 1.05; text-transform: uppercase">Things I’d rather not share&nbsp;yet</span><span style="font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #C9CCDA">Travel · food · and other&nbsp;obsessions</span></span>
+</button>
+</sc-if>
+<sc-if value="{{lockedOpen}}" hint-placeholder-val="{{ false }}">
+<div role="status" style="position: relative; min-height: 240px; padding: clamp(22px, 3vw, 32px); display: flex; flex-direction: column; justify-content: center; gap: 14px">
+<p style="margin: 0; font-family: 'Anton', Impact, sans-serif; font-size: clamp(28px, 3vw, 40px); line-height: 1.05; text-transform: uppercase">Curious, huh<span style="color: #D13A28">?</span></p>
+<p style="margin: 0; font-family: 'Newsreader', Georgia, serif; font-style: italic; font-size: 20px; line-height: 1.3">You clicked anyway. Let’s&nbsp;talk.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 4px">
+<a href="mailto:safaa.elouafi.am@gmail.com?subject=Curious%2C%20huh%3F" style="display: inline-flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 22px; border-radius: 999px; font-family: 'Figtree', sans-serif; font-size: 15px; font-weight: 700; text-decoration: none; white-space: nowrap; cursor: pointer; background: #FFFFFF; color: #17171F">Say hello <svg aria-hidden="true" width="18" height="18" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11h14M12 5l6 6-6 6"></path></svg></a>
+<a href="https://www.linkedin.com/in/safaa-el-ouafi/en/" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 22px; border-radius: 999px; font-family: 'Figtree', sans-serif; font-size: 15px; font-weight: 700; text-decoration: none; white-space: nowrap; cursor: pointer; border: 1px solid #FFFFFF; color: #FFFFFF">LinkedIn</a>
+</div>
+</div>
+</sc-if>
+</section>
+
+<section aria-labelledby="h-refer" class="refer-card" style="border-radius: 20px; background: #FBEAE8; padding: clamp(22px, 3vw, 32px); display: flex; flex-direction: column; justify-content: space-between; gap: 18px; min-height: 240px">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<h2 id="h-refer" style="margin: 0; font-family: 'Anton', Impact, sans-serif; font-weight: 400; font-size: clamp(24px, 2.4vw, 32px); line-height: 1.05; text-transform: uppercase; text-wrap: balance">Know the perfect match for&nbsp;me<span style="color: #D13A28">?</span></h2>
+<p style="margin: 0; font-family: 'Newsreader', Georgia, serif; font-style: italic; font-size: 20px; line-height: 1.3; text-wrap: pretty">Not hiring yourself? Pass me&nbsp;along.</p>
+</div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px">
+<button type="button" onClick="{{referMe}}" style="display: inline-flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 22px; border-radius: 999px; font-family: 'Figtree', sans-serif; font-size: 15px; font-weight: 700; text-decoration: none; white-space: nowrap; cursor: pointer; border: none; background: #17171F; color: #FFFFFF">Refer me <svg aria-hidden="true" width="18" height="18" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11h14M12 5l6 6-6 6"></path></svg></button>
+<a href="{{introHref}}" style="display: inline-flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 22px; border-radius: 999px; font-family: 'Figtree', sans-serif; font-size: 15px; font-weight: 700; text-decoration: none; white-space: nowrap; cursor: pointer; border: 1px solid #17171F; color: #17171F">Write an intro</a>
+<sc-if value="{{referCopied}}" hint-placeholder-val="{{ false }}"><span role="status" style="font-size: 14px; font-weight: 700; color: #17171F; white-space: nowrap">Link copied. Thank you!</span></sc-if>
+</div>
+</section>
+
+</div>
+</sc-if>
+
 <section style="margin: 56px 0 0; border-radius: 20px; background: #EEF1FA; padding: clamp(28px, 4vw, 48px); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px 40px">
 <p style="margin: 0; flex: 1 1 420px; font-family: 'Anton', Impact, sans-serif; font-size: clamp(28px, 3.6vw, 46px); line-height: 1.08; text-transform: uppercase; text-wrap: balance">{{ctaTitle}}</p>
 <div style="flex: 0 1 auto; display: flex; flex-wrap: wrap; gap: 12px">
@@ -815,7 +861,7 @@ a{color:#17171F}a:hover{color:#3B5BB8}
 class Component extends DCLogic {
 constructor(props) {
 super(props);
-this.state = { pick: null, screen: 'home', theme: 't1', persona: 'hiring', job: 'built', outcome: 'talk', phase: 'all', open: null, side: false, lb: null, slide: 0 };
+this.state = { pick: null, screen: 'home', theme: 't1', persona: 'hiring', job: 'built', outcome: 'talk', phase: 'all', open: null, side: false, lb: null, slide: 0, locked: false, copied: false };
 try { var saved = JSON.parse(window.localStorage.getItem('se-portfolio') || 'null'); if (saved && saved.persona) { this.state = Object.assign(this.state, saved, { open: null, screen: 'home', pick: null }); } } catch (err) {}
 var fromHash = this.readHash();
 if (fromHash) { this.state = Object.assign(this.state, fromHash); }
@@ -1138,7 +1184,22 @@ var dots = [];
 for (var dk = 0; dk < lbCount; dk++) { (function (k) { dots.push({ label: 'Photo ' + (k + 1) + ' of ' + lbCount, current: k === lbCur ? 'true' : 'false', style: 'width: 18px; height: 18px; padding: 0; border: none; cursor: pointer; background: radial-gradient(circle, ' + (k === lbCur ? accent : '#B9BCCB') + ' 0 3.5px, transparent 4px)', go: function () { lbGo(k); } }); })(dk); }
 function rowScroll(id, dir) { var el = document.getElementById(id); if (el) { el.scrollBy({ left: dir * el.clientWidth, behavior: 'smooth' }); } }
 
+var SITE_URL = 'https://uxrsafaaelouafi.vercel.app';
+var introHref = 'mailto:?cc=safaa.elouafi.am%40gmail.com&subject=' + encodeURIComponent('Someone you should meet: Safaa El Ouafi, User Experience Researcher') + '&body=' + encodeURIComponent('Hi,\n\nI think you should meet Safaa El Ouafi, a User Experience Researcher (generative research, research ops, AI). I have copied her here.\n\nHer portfolio: ' + SITE_URL + '\n\n');
+function copyLink() {
+var done = function () { self.setState({ copied: true }); try { window.setTimeout(function () { self.setState({ copied: false }); }, 3500); } catch (err) {} };
+try { if (navigator.clipboard && navigator.clipboard.writeText) { navigator.clipboard.writeText(SITE_URL).then(done, function () { fallbackCopy(); done(); }); return; } } catch (err) {}
+fallbackCopy(); done();
+}
+function fallbackCopy() { try { var t = document.createElement('textarea'); t.value = SITE_URL; t.setAttribute('readonly', ''); t.style.position = 'fixed'; t.style.opacity = '0'; document.body.appendChild(t); t.select(); document.execCommand('copy'); document.body.removeChild(t); } catch (err) {} }
 return {
+lockedOpen: !!s.locked, lockedClosed: !s.locked,
+openLocked: function () { self.setState({ locked: true }); },
+referCopied: !!s.copied, introHref: introHref,
+referMe: function () {
+try { if (navigator.share) { navigator.share({ title: 'Safaa El Ouafi, User Experience Researcher', text: 'You should meet Safaa El Ouafi, a User Experience Researcher.', url: SITE_URL }).catch(function () {}); return; } } catch (err) {}
+copyLink();
+},
 lbOpen: !!s.lb, lbT1: ser.t1, lbT2: ser.t2, lbSub: ser.sub, lbDot: /[*]$/.test(ser.t2) ? '' : '.', lbImgs: ser.imgs, dots: dots, slideLabel: (lbCur + 1) + '/' + lbCount,
 hasPrev: lbCur > 0, hasNext: lbCur < lbCount - 1,
 prev: function () { lbGo(lbCur - 1); }, next: function () { lbGo(lbCur + 1); },
