@@ -11,6 +11,7 @@ OUT = os.path.join(ROOT, 'site')
 PDF = 'Safaa_El_Ouafi_Cover_Letter_Dust.pdf'
 EMAIL = 'safaa.elouafi.am@gmail.com'
 LINKEDIN = 'https://www.linkedin.com/in/safaa-el-ouafi/en/'
+SITE = 'https://uxrsafaaelouafi.vercel.app'
 
 ROUTES = {'Main': '', 'Timeline': 'timeline', 'About': 'about', 'Resume': 'resume', 'Dust': 'dust', 'DustLetter': 'dust/letter'}
 COMPONENTS = {'Connections'}  # imported by other pages, not a page of its own
@@ -83,7 +84,7 @@ def load(name):
 def site_fixes(name, d):
     blob = json.dumps(d['ast'], ensure_ascii=False)
     blob = re.sub(r'/_blob/[0-9a-f]{32}', '/' + PDF, blob)
-    for old, new in [('mailto:[YOUR EMAIL]', 'mailto:' + EMAIL), ('https://[LINKEDIN]', LINKEDIN), ('[YOUR EMAIL]', EMAIL), ('[LINKEDIN]', 'LinkedIn')]:
+    for old, new in [('mailto:[YOUR EMAIL]', 'mailto:' + EMAIL), ('https://[LINKEDIN]', LINKEDIN), ('[YOUR EMAIL]', EMAIL), ('[LINKEDIN]', 'LinkedIn'), ('[PORTFOLIO URL]', SITE.replace('https://', ''))]:
         blob = blob.replace(old, new)
     d['ast'] = json.loads(blob)
     if name == 'Main':  # a new visit starts on the home view; the place is kept within one visit
@@ -101,7 +102,13 @@ SHELL = '''<!DOCTYPE html>
 <meta property="og:type" content="website">
 <meta property="og:title" content="{title}">
 <meta property="og:description" content="{desc}">
-<meta name="twitter:card" content="summary">
+<meta property="og:url" content="{url}">
+<meta property="og:image" content="{image}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="{image}">
+<link rel="canonical" href="{url}">
 <link rel="icon" href="data:,">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -148,14 +155,15 @@ def main():
         desc = DUST_DESC if n.startswith('Dust') else DEFAULT_DESC
         data = json.dumps({'entry': n, 'routes': routes, 'defs': defs}, ensure_ascii=False, separators=(',', ':')).replace('</', '<\\/')
         resume = n == 'Resume'
-        page = SHELL.format(title=html.escape(title), desc=html.escape(desc, quote=True), data=data,
+        page = SHELL.format(url=SITE + '/' + routes[n], image=SITE + ('/og-dust.png' if n.startswith('Dust') else '/og.png'), title=html.escape(title), desc=html.escape(desc, quote=True), data=data,
                             bg='#F2F2F5' if resume else '#FFFFFF',
                             extra='#app{display:flex;justify-content:center;padding:24px 12px;overflow-x:auto}#app>*{flex:none;background:#FFFFFF}\n' if resume else '')
         path = os.path.join(OUT, routes[n], 'index.html')
         os.makedirs(os.path.dirname(path), exist_ok=True)
         open(path, 'w', encoding='utf-8').write(page)
         count += 1
-    shutil.copy(os.path.join(ROOT, 'assets', PDF), os.path.join(OUT, PDF))
+    for asset in (PDF, 'og.png', 'og-dust.png'):
+        shutil.copy(os.path.join(ROOT, 'assets', asset), os.path.join(OUT, asset))
     open(os.path.join(OUT, '404.html'), 'w', encoding='utf-8').write(
         '<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Not found | Safaa El Ouafi</title></head>'
         '<body style="margin:0;font-family:system-ui,sans-serif;padding:48px 24px"><h1>Nothing in that drawer.</h1><p><a href="/">Back to the portfolio</a></p></body></html>')

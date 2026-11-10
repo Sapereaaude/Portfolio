@@ -4,7 +4,7 @@ sys.path.insert(0, '/home/claude/scripts')
 import letter as L
 
 P = '/home/claude/pf/project/'
-PDF = '/_blob/bbb0d21ffe638a346193fd52e22ec01b'
+PDF = '/_blob/4719292060c638f1d4731ba09b5fa5a9'
 PDFNAME = 'Safaa_El_Ouafi_Cover_Letter_Dust.pdf'
 CARD = open('/home/claude/scripts/card.html', encoding='utf-8').read()
 ITEMS_JS = open('/home/claude/scripts/items.js', encoding='utf-8').read()
