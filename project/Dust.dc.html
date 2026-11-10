@@ -18,6 +18,8 @@ a{color:#17171F}a:hover{color:#3B5BB8}
 .card:has(.card-link):hover{border-color:#17171F !important;box-shadow:0 10px 24px rgba(23,23,31,.10)}
 .card-link::after{content:"";position:absolute;inset:0}
 .card-threads{position:relative;z-index:1}
+.star-link .star{transition:transform .2s ease}
+.star-link:hover .star,.star-link:focus-visible .star{transform:scale(1.12)}
 </style>
 </helmet>
 <div style="position: relative; background: #FFFFFF; color: #17171F; font-family: 'Figtree', sans-serif; overflow: hidden">
@@ -29,10 +31,9 @@ a{color:#17171F}a:hover{color:#3B5BB8}
 <span style="display: flex; flex-wrap: wrap; gap: 8px">
 <a href="#why" style="white-space: nowrap; text-decoration: none; font-size: 15px; font-weight: 600; padding: 10px 16px; border: 1px solid #D5D7E0; border-radius: 999px">Why Dust?</a>
 <a href="#work" style="white-space: nowrap; text-decoration: none; font-size: 15px; font-weight: 600; padding: 10px 16px; border: 1px solid #D5D7E0; border-radius: 999px">Selected work</a>
-<a href="#story" style="white-space: nowrap; text-decoration: none; font-size: 15px; font-weight: 600; padding: 10px 16px; border: 1px solid #D5D7E0; border-radius: 999px">My story</a>
-<a href="DustLetter.dc.html" style="white-space: nowrap; text-decoration: none; font-size: 15px; font-weight: 600; padding: 10px 16px; border: 1px solid #D5D7E0; border-radius: 999px">Letter</a>
-<a href="#contact" style="white-space: nowrap; text-decoration: none; font-size: 15px; font-weight: 600; padding: 10px 16px; border: 1px solid #D5D7E0; border-radius: 999px">Contact</a>
 <a href="Main.dc.html" style="white-space: nowrap; text-decoration: none; font-size: 15px; font-weight: 600; padding: 10px 16px; border: 1px solid #D5D7E0; border-radius: 999px; background: #17171F; color: #FFFFFF; border-color: #17171F">Full portfolio</a>
+<a href="About.dc.html" style="white-space: nowrap; text-decoration: none; font-size: 15px; font-weight: 600; padding: 10px 16px; border: 1px solid #D5D7E0; border-radius: 999px">About me</a>
+<a href="Main.dc.html#outside" style="white-space: nowrap; text-decoration: none; font-size: 15px; font-weight: 600; padding: 10px 16px; border: 1px solid #D5D7E0; border-radius: 999px">Off the clock</a>
 </span>
 </nav>
 
@@ -547,10 +548,45 @@ a{color:#17171F}a:hover{color:#3B5BB8}
 <p style="margin: 0; font-size: clamp(17px, 1.5vw, 19px); line-height: 1.6; text-wrap: pretty; max-width: 720px">I’d love to bring my experience in user research, AI adoption and research enablement to a team building the kind of tools I’ve been trying to create myself.</p>
 <p style="margin: 0; font-size: 16px; color: #E6E7EE">safaa.elouafi.am@gmail.com · linkedin.com/in/safaa-el-ouafi</p>
 <div style="display: flex; flex-wrap: wrap; gap: 10px">
-<a href="mailto:safaa.elouafi.am@gmail.com" style="display: inline-flex; align-items: center; min-height: 52px; padding: 0 24px; border-radius: 999px; font-size: 16px; font-weight: 700; text-decoration: none; white-space: nowrap; background: #FFFFFF; color: #17171F">Email me</a>
-<a href="https://www.linkedin.com/in/safaa-el-ouafi/en/" style="display: inline-flex; align-items: center; min-height: 52px; padding: 0 24px; border-radius: 999px; font-size: 16px; font-weight: 700; text-decoration: none; white-space: nowrap; border: 1px solid #FFFFFF; color: #FFFFFF">LinkedIn</a>
-<a href="Main.dc.html" style="display: inline-flex; align-items: center; min-height: 52px; padding: 0 24px; border-radius: 999px; font-size: 16px; font-weight: 700; text-decoration: none; white-space: nowrap; border: 1px solid #FFFFFF; color: #FFFFFF">Explore the full portfolio</a>
+<button type="button" onClick="{{toggleHello}}" aria-expanded="{{helloOpen}}" style="display: inline-flex; align-items: center; gap: 10px; min-height: 52px; padding: 0 24px; border-radius: 999px; font-family: 'Figtree', sans-serif; font-size: 16px; font-weight: 700; white-space: nowrap; cursor: pointer; border: none; background: #FFFFFF; color: #17171F">Say hello <svg aria-hidden="true" width="18" height="18" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11h14M12 5l6 6-6 6"></path></svg></button>
+<button type="button" onClick="{{toggleRefer}}" aria-expanded="{{referOpen}}" style="display: inline-flex; align-items: center; gap: 10px; min-height: 52px; padding: 0 24px; border-radius: 999px; font-family: 'Figtree', sans-serif; font-size: 16px; font-weight: 700; white-space: nowrap; cursor: pointer; border: 1px solid #FFFFFF; background: transparent; color: #FFFFFF">Refer me <svg aria-hidden="true" width="18" height="18" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11h14M12 5l6 6-6 6"></path></svg></button>
+<button type="button" onClick="{{openIntro}}" style="display: inline-flex; align-items: center; gap: 10px; min-height: 52px; padding: 0 24px; border-radius: 999px; font-family: 'Figtree', sans-serif; font-size: 16px; font-weight: 700; white-space: nowrap; cursor: pointer; border: 1px solid #FFFFFF; background: transparent; color: #FFFFFF">Write an intro</button>
 </div>
+<sc-if value="{{helloOpen}}" hint-placeholder-val="{{ false }}">
+<div class="constellation" role="group" aria-label="Pick an app" style="position: relative; width: 310px; max-width: 100%; height: 118px; margin-top: 6px">
+<svg aria-hidden="true" width="310" height="118" style="position: absolute; inset: 0; overflow: visible"><path d="M30 68 L112 32 L194 78 L276 40" fill="none" stroke="rgba(255,255,255,0.55)" stroke-width="1.5" stroke-dasharray="3 5"></path></svg>
+<a class="star-link" href="{{hello_gmail}}" target="_blank" rel="noopener" aria-label="Gmail" style="position: absolute; left: 4px; top: 42px; display: flex; flex-direction: column; align-items: center; gap: 4px; width: 52px; padding: 0; border: none; background: none; text-decoration: none; cursor: pointer; font-family: 'Figtree', sans-serif"><span class="star" style="display: inline-flex; align-items: center; justify-content: center; width: 52px; height: 52px; border-radius: 50%; background: #FFFFFF; border: 1px solid #17171F; box-shadow: 0 6px 16px rgba(23,23,31,.18)"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24"><path d="M3 6.5v11A1.5 1.5 0 0 0 4.5 19H7v-8l5 3.8L17 11v8h2.5a1.5 1.5 0 0 0 1.5-1.5v-11" fill="none" stroke="#17171F" stroke-width="1.8" stroke-linejoin="round"></path><path d="M3 6.5 12 13l9-6.5" fill="none" stroke="#D13A28" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span style="font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #FFFFFF">Gmail</span></a>
+<a class="star-link" href="{{hello_mail}}" target="_blank" rel="noopener" aria-label="Mail" style="position: absolute; left: 86px; top: 6px; display: flex; flex-direction: column; align-items: center; gap: 4px; width: 52px; padding: 0; border: none; background: none; text-decoration: none; cursor: pointer; font-family: 'Figtree', sans-serif"><span class="star" style="display: inline-flex; align-items: center; justify-content: center; width: 52px; height: 52px; border-radius: 50%; background: #FFFFFF; border: 1px solid #17171F; box-shadow: 0 6px 16px rgba(23,23,31,.18)"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#17171F" stroke-width="2" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3.5 6.5l8.5 6.5 8.5-6.5"></path></svg></span><span style="font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #FFFFFF">Mail</span></a>
+<a class="star-link" href="{{hello_linkedin}}" target="_blank" rel="noopener" aria-label="LinkedIn" style="position: absolute; left: 168px; top: 52px; display: flex; flex-direction: column; align-items: center; gap: 4px; width: 52px; padding: 0; border: none; background: none; text-decoration: none; cursor: pointer; font-family: 'Figtree', sans-serif"><span class="star" style="display: inline-flex; align-items: center; justify-content: center; width: 52px; height: 52px; border-radius: 50%; background: #FFFFFF; border: 1px solid #17171F; box-shadow: 0 6px 16px rgba(23,23,31,.18)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="#17171F"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"></path></svg></span><span style="font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #FFFFFF">LinkedIn</span></a>
+<button type="button" class="star-link" onClick="{{sendPigeon}}" aria-label="Send a pigeon" style="position: absolute; left: 250px; top: 14px; display: flex; flex-direction: column; align-items: center; gap: 4px; width: 52px; padding: 0; border: none; background: none; text-decoration: none; cursor: pointer; font-family: 'Figtree', sans-serif"><span class="star" style="display: inline-flex; align-items: center; justify-content: center; width: 52px; height: 52px; border-radius: 50%; background: #FFFFFF; border: 1px solid #17171F; box-shadow: 0 6px 16px rgba(23,23,31,.18)"><svg aria-hidden="true" width="26" height="26" viewBox="0 0 32 32" fill="none" stroke="#17171F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 13c0-3 2.2-5 5-5 2.2 0 3.6 1.3 4.2 3l3.3 2.3c3.5.4 7.2 2.2 9.5 5.7-4 .8-7.3.6-10-.4l-1 4.4c-.3 1.3-1.5 2-2.8 2H9.5"></path><path d="M6 13l-3 1.2L6 15.5"></path><circle cx="10.3" cy="11.6" r="0.9" fill="#17171F"></circle><path d="M12.5 23v3M15.5 23v3"></path><path d="M15 15.5c2 1.6 4.5 2.4 7.5 2.4" stroke="#D13A28"></path></svg></span><span style="font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #FFFFFF">Pigeon</span></button>
+</div>
+<sc-if value="{{pigeonSent}}" hint-placeholder-val="{{ false }}"><p role="status" style="margin: 0; font-family: 'Newsreader', Georgia, serif; font-style: italic; font-size: 17px; color: #FFFFFF">Coo. The pigeon has left. ETA unknown, Gmail is&nbsp;faster.</p></sc-if>
+</sc-if>
+<sc-if value="{{referOpen}}" hint-placeholder-val="{{ false }}">
+<div class="constellation" role="group" aria-label="Pick an app" style="position: relative; width: 310px; max-width: 100%; height: 118px; margin-top: 6px">
+<svg aria-hidden="true" width="310" height="118" style="position: absolute; inset: 0; overflow: visible"><path d="M30 68 L112 32 L194 78 L276 40" fill="none" stroke="rgba(255,255,255,0.55)" stroke-width="1.5" stroke-dasharray="3 5"></path></svg>
+<a class="star-link" href="{{refer_gmail}}" target="_blank" rel="noopener" aria-label="Gmail" style="position: absolute; left: 4px; top: 42px; display: flex; flex-direction: column; align-items: center; gap: 4px; width: 52px; padding: 0; border: none; background: none; text-decoration: none; cursor: pointer; font-family: 'Figtree', sans-serif"><span class="star" style="display: inline-flex; align-items: center; justify-content: center; width: 52px; height: 52px; border-radius: 50%; background: #FFFFFF; border: 1px solid #17171F; box-shadow: 0 6px 16px rgba(23,23,31,.18)"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24"><path d="M3 6.5v11A1.5 1.5 0 0 0 4.5 19H7v-8l5 3.8L17 11v8h2.5a1.5 1.5 0 0 0 1.5-1.5v-11" fill="none" stroke="#17171F" stroke-width="1.8" stroke-linejoin="round"></path><path d="M3 6.5 12 13l9-6.5" fill="none" stroke="#D13A28" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><span style="font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #FFFFFF">Gmail</span></a>
+<a class="star-link" href="{{refer_mail}}" target="_blank" rel="noopener" aria-label="Mail" style="position: absolute; left: 86px; top: 6px; display: flex; flex-direction: column; align-items: center; gap: 4px; width: 52px; padding: 0; border: none; background: none; text-decoration: none; cursor: pointer; font-family: 'Figtree', sans-serif"><span class="star" style="display: inline-flex; align-items: center; justify-content: center; width: 52px; height: 52px; border-radius: 50%; background: #FFFFFF; border: 1px solid #17171F; box-shadow: 0 6px 16px rgba(23,23,31,.18)"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#17171F" stroke-width="2" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3.5 6.5l8.5 6.5 8.5-6.5"></path></svg></span><span style="font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #FFFFFF">Mail</span></a>
+<a class="star-link" href="{{refer_linkedin}}" target="_blank" rel="noopener" aria-label="LinkedIn" style="position: absolute; left: 168px; top: 52px; display: flex; flex-direction: column; align-items: center; gap: 4px; width: 52px; padding: 0; border: none; background: none; text-decoration: none; cursor: pointer; font-family: 'Figtree', sans-serif"><span class="star" style="display: inline-flex; align-items: center; justify-content: center; width: 52px; height: 52px; border-radius: 50%; background: #FFFFFF; border: 1px solid #17171F; box-shadow: 0 6px 16px rgba(23,23,31,.18)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="#17171F"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"></path></svg></span><span style="font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #FFFFFF">LinkedIn</span></a>
+<button type="button" class="star-link" onClick="{{sendPigeon}}" aria-label="Send a pigeon" style="position: absolute; left: 250px; top: 14px; display: flex; flex-direction: column; align-items: center; gap: 4px; width: 52px; padding: 0; border: none; background: none; text-decoration: none; cursor: pointer; font-family: 'Figtree', sans-serif"><span class="star" style="display: inline-flex; align-items: center; justify-content: center; width: 52px; height: 52px; border-radius: 50%; background: #FFFFFF; border: 1px solid #17171F; box-shadow: 0 6px 16px rgba(23,23,31,.18)"><svg aria-hidden="true" width="26" height="26" viewBox="0 0 32 32" fill="none" stroke="#17171F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 13c0-3 2.2-5 5-5 2.2 0 3.6 1.3 4.2 3l3.3 2.3c3.5.4 7.2 2.2 9.5 5.7-4 .8-7.3.6-10-.4l-1 4.4c-.3 1.3-1.5 2-2.8 2H9.5"></path><path d="M6 13l-3 1.2L6 15.5"></path><circle cx="10.3" cy="11.6" r="0.9" fill="#17171F"></circle><path d="M12.5 23v3M15.5 23v3"></path><path d="M15 15.5c2 1.6 4.5 2.4 7.5 2.4" stroke="#D13A28"></path></svg></span><span style="font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #FFFFFF">Pigeon</span></button>
+</div>
+<sc-if value="{{pigeonSent}}" hint-placeholder-val="{{ false }}"><p role="status" style="margin: 0; font-family: 'Newsreader', Georgia, serif; font-style: italic; font-size: 17px; color: #FFFFFF">Coo. The pigeon has left. ETA unknown, Gmail is&nbsp;faster.</p></sc-if>
+</sc-if>
+<sc-if value="{{introOpen}}" hint-placeholder-val="{{ false }}">
+<div class="lb" role="dialog" aria-modal="true" aria-labelledby="intro-title" onClick="{{introBackdrop}}" onKeyDown="{{introKey}}" style="position: fixed; inset: 0; z-index: 100; display: flex; align-items: center; justify-content: center; padding: 16px; background: rgba(23, 23, 31, 0.72)">
+<div style="width: min(92vw, 520px); display: flex; flex-direction: column; gap: 14px; padding: 22px; border-radius: 18px; background: #FFFFFF; color: #17171F; box-sizing: border-box">
+<div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 12px">
+<h3 id="intro-title" style="margin: 0; font-family: 'Anton', Impact, sans-serif; font-weight: 400; font-size: 26px; line-height: 1.1; text-transform: uppercase">Write an intro<span style="color: #D13A28">.</span></h3>
+<button type="button" id="intro-close" onClick="{{closeIntro}}" aria-label="Close" style="flex: none; display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; border: 1px solid #D5D7E0; background: #FFFFFF; color: #17171F; cursor: pointer"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+</div>
+<p style="margin: 0; font-family: 'Newsreader', Georgia, serif; font-style: italic; font-size: 18px; color: #4A4A57">Copy it, paste it wherever you talk to them.</p>
+<div id="intro-text" style="padding: 16px 18px; border-radius: 12px; background: #EEF1FA; font-size: 17px; line-height: 1.55; white-space: pre-line; user-select: all">{{introText}}</div>
+<div style="display: flex; align-items: center; gap: 12px">
+<button type="button" onClick="{{copyIntro}}" style="display: inline-flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 22px; border: none; border-radius: 999px; background: #17171F; color: #FFFFFF; font-family: 'Figtree', sans-serif; font-size: 15px; font-weight: 700; cursor: pointer; white-space: nowrap">{{copyLabel}}</button>
+</div>
+</div>
+</div>
+</sc-if>
 </section>
 
 </main>
@@ -565,7 +601,12 @@ a{color:#17171F}a:hover{color:#3B5BB8}
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#3B5BB8","options":["#3B5BB8","#2A3F8F","#17171F"]},"$preview":{"width":1440,"height":5600}}'>
 class Component extends DCLogic {
+constructor(props) {
+super(props);
+this.state = { hello: false, refer: false, intro: false, copied: false, pigeon: false };
+}
 renderVals() {
+var self = this, st = this.state;
 var accent = this.props.accent ?? '#3B5BB8';
 /* Same project records as the home page (Main.dc.html). This view only chooses which ones to show. */
 var items = [
@@ -644,7 +685,30 @@ var sections = DUST.map(function (d) {
 return { id: d.id, href: '#' + d.id, n: d.n, title: d.title, q: d.q, hl: d.hl, note: d.note, hasNote: !!d.note,
 cards: d.ids.map(function (id) { return byId[id]; }).filter(Boolean).map(card) };
 });
-return { accent: accent, sections: sections };
+var SITE_URL = 'https://uxrsafaaelouafi.vercel.app';
+var INTRO = 'Hey, I came across this profile. I think it could be a good match for the role you’re hiring for. Want to take a look?\n\n' + SITE_URL;
+var REFER_SUBJECT = 'Someone you should meet', HELLO_SUBJECT = 'Hello Safaa';
+function copyText(txt, done) { try { if (navigator.clipboard && navigator.clipboard.writeText) { navigator.clipboard.writeText(txt).then(done, function () { fallbackCopy(txt); done(); }); return; } } catch (err) {} fallbackCopy(txt); done(); }
+function fallbackCopy(txt) { try { var t = document.createElement('textarea'); t.value = txt; t.setAttribute('readonly', ''); t.style.position = 'fixed'; t.style.opacity = '0'; document.body.appendChild(t); t.select(); document.execCommand('copy'); document.body.removeChild(t); } catch (err) {} }
+function closeIntroFn() { self.setState({ intro: false, copied: false }, function () { try { document.body.style.overflow = ''; } catch (err) {} }); }
+return { accent: accent, sections: sections,
+helloOpen: !!st.hello, referOpen: !!st.refer, introOpen: !!st.intro, pigeonSent: !!st.pigeon, introText: INTRO,
+hello_gmail: 'https://mail.google.com/mail/?view=cm&fs=1&to=' + encodeURIComponent('safaa.elouafi.am@gmail.com') + '&su=' + encodeURIComponent(HELLO_SUBJECT),
+hello_mail: 'mailto:safaa.elouafi.am@gmail.com?subject=' + encodeURIComponent(HELLO_SUBJECT),
+hello_linkedin: 'https://www.linkedin.com/in/safaa-el-ouafi/en/',
+refer_gmail: 'https://mail.google.com/mail/?view=cm&fs=1&su=' + encodeURIComponent(REFER_SUBJECT) + '&body=' + encodeURIComponent(INTRO),
+refer_mail: 'mailto:?subject=' + encodeURIComponent(REFER_SUBJECT) + '&body=' + encodeURIComponent(INTRO),
+refer_linkedin: 'https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent(SITE_URL),
+toggleHello: function () { self.setState({ hello: !st.hello, refer: false, pigeon: false }); },
+toggleRefer: function () { self.setState({ refer: !st.refer, hello: false, pigeon: false }); },
+sendPigeon: function () { self.setState({ pigeon: true }); },
+openIntro: function () { self.setState({ intro: true, copied: false }, function () { try { document.body.style.overflow = 'hidden'; var c = document.getElementById('intro-close'); if (c) { c.focus({ preventScroll: true }); } } catch (err) {} }); },
+closeIntro: closeIntroFn,
+introBackdrop: function (e) { if (e.target === e.currentTarget) { closeIntroFn(); } },
+introKey: function (e) { if (e.key === 'Escape') { closeIntroFn(); } },
+copyLabel: st.copied ? 'Copied. Thank you!' : 'Copy the message',
+copyIntro: function () { copyText(INTRO, function () { self.setState({ copied: true }); }); }
+};
 }
 }
 </script>
