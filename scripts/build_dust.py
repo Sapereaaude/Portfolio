@@ -159,7 +159,7 @@ dust = head('Safaa × Dust | Different jobs. Same obsession.') + f'''<div style=
 <h2 id="h-story" style="{H2}">Different careers? Not really<span style="color: #D13A28">.</span></h2>
 <div style="max-width: 720px; display: flex; flex-direction: column; gap: 10px">
 <p style="{BODY}">I started by helping people learn.</p>
-<p style="{BODY}">Then I started helping teams understand the people they were building for.</p>
+<p style="{BODY}">Then I started helping teams understand how people learn… and think, and&nbsp;work.</p>
 <p style="{BODY}">Eventually, I began building the methods, tools and systems that help teams do both more independently.</p>
 <p style="margin: 4px 0 0; {SERIF}; font-size: clamp(21px, 2.4vw, 28px); line-height: 1.25; text-wrap: balance">AI didn’t create that ambition. It gave me new ways to pursue it.</p>
 </div>
