@@ -1077,8 +1077,9 @@ prevRow: function () { rowScroll(id, -1); }, nextRow: function () { rowScroll(id
 }) : [{ head: '', hasHead: false, more: false, rowId: 'row-all', cls: '', style: GRID, items: results }];
 
 var photos = [
-{ title: 'The subtle art of looking like art', sub: 'In a room full of art, I’d still look at people', img: '/photos/looking-fine.jpg', noImg: false, alt: '', btnId: 'open-looking', n: 4, open: function () { openSeries('looking'); } },
-{ title: 'The aftermath', sub: 'China · what the meal leaves behind', img: '/photos/aftermath-chili.jpg', noImg: false, alt: '', btnId: 'open-aftermath', n: 4, open: function () { openSeries('aftermath'); } }
+{ title: 'The subtle art of looking like art', sub: 'France · observing, or voyeurism?', img: '/photos/looking-fine.jpg', noImg: false, alt: '', btnId: 'open-looking', n: 4, open: function () { openSeries('looking'); } },
+{ title: 'The aftermath', sub: 'China · what the meal leaves behind', img: '/photos/aftermath-turquoise.jpg', noImg: false, alt: '', btnId: 'open-aftermath', n: 4, open: function () { openSeries('aftermath'); } },
+{ title: 'Bismillah, c’est les ténèbres', sub: '2026', img: '/photos/tenebres-wire.jpg', noImg: false, alt: '', btnId: 'open-tenebres', n: 7, open: function () { openSeries('tenebres'); } }
 ].concat(items.filter(function (it) { return it.vis === 'photo'; }).map(function (it) { return { title: it.title, sub: it.pts.join(' · '), img: '', noImg: true, alt: 'Photograph to add: ' + it.title }; }));
 
 var SERIES = {
@@ -1088,10 +1089,18 @@ looking: { t1: 'The subtle art of ', t2: 'looking like art', sub: 'In a room ful
 { src: '/photos/looking-red.jpg', w: 1400, h: 1400, alt: 'A man in a patchwork knit sweater stands beside a huge red monochrome canvas.' },
 { src: '/photos/looking-white.jpg', w: 1400, h: 1400, alt: 'A woman in a patterned coat and a green beret stands near an all-white canvas.' }] },
 aftermath: { t1: 'The ', t2: 'aftermath', sub: 'Everyone has left. The bowls are still talking.', imgs: [
+{ src: '/photos/aftermath-turquoise.jpg', w: 1073, h: 1400, alt: 'Seen from above, a turquoise crate overflowing with plates, cups and black chopsticks on grey paving.' },
 { src: '/photos/aftermath-chili.jpg', w: 1054, h: 1400, alt: 'Two white trays of used bowls, chilli oil and bamboo skewers on the pavement, next to a yellow wet-floor sign.' },
 { src: '/photos/aftermath-crates.jpg', w: 1054, h: 1400, alt: 'Blue crates of stained bowls, cups and chopsticks stacked against a worn blue doorstep.' },
-{ src: '/photos/aftermath-turquoise.jpg', w: 1073, h: 1400, alt: 'Seen from above, a turquoise crate overflowing with plates, cups and black chopsticks on grey paving.' },
-{ src: '/photos/aftermath-garlic.jpg', w: 1054, h: 1400, alt: 'A colander of peeled garlic with a knife, a bag of cloves and a small bin on the pavement, by an empty stool.' }] }
+{ src: '/photos/aftermath-garlic.jpg', w: 1054, h: 1400, alt: 'A colander of peeled garlic with a knife, a bag of cloves and a small bin on the pavement, by an empty stool.' }] },
+tenebres: { t1: 'Bismillah, ', t2: 'c’est les ténèbres', sub: '2026', imgs: [
+{ src: '/photos/tenebres-wire.jpg', w: 1054, h: 1400, alt: 'A single black cable hangs straight down from a yellow crane across a blue sky streaked with clouds.' },
+{ src: '/photos/tenebres-colonnade.jpg', w: 1050, h: 1400, alt: 'Stone saints along the curve of a colonnade, facing one small white cloud in a deep blue sky.' },
+{ src: '/photos/tenebres-obelisk.jpg', w: 1080, h: 1400, alt: 'The tip of a hieroglyph-carved obelisk seems to puff out a large white cloud.' },
+{ src: '/photos/tenebres-moon.jpg', w: 1054, h: 1400, alt: 'A thin daytime moon above a white chimney stack crowned with a row of terracotta pots.' },
+{ src: '/photos/tenebres-curves.jpg', w: 1054, h: 1400, alt: 'Curved whitewashed walls and a round window cut into a flat blue sky.' },
+{ src: '/photos/tenebres-peak.jpg', w: 1054, h: 1400, alt: 'The white point of a building’s corner against a solid blue sky, like a paper mountain.' },
+{ src: '/photos/tenebres-genie.jpg', w: 1054, h: 1400, alt: 'A gilded winged figure balancing on one foot atop a tall column, alone in the blue.' }] }
 };
 var ser = SERIES[s.lb] || SERIES.looking;
 var lbCount = ser.imgs.length, lbCur = s.slide || 0;
