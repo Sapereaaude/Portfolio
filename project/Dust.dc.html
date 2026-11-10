@@ -14,6 +14,10 @@
 <style>
 body{margin:0;background:#FFFFFF}
 a{color:#17171F}a:hover{color:#3B5BB8}
+.card{position:relative;transition:border-color .15s ease,box-shadow .15s ease}
+.card:has(.card-link):hover{border-color:#17171F !important;box-shadow:0 10px 24px rgba(23,23,31,.10)}
+.card-link::after{content:"";position:absolute;inset:0}
+.card-threads{position:relative;z-index:1}
 </style>
 </helmet>
 <div style="position: relative; background: #FFFFFF; color: #17171F; font-family: 'Figtree', sans-serif; overflow: hidden">
@@ -85,7 +89,7 @@ a{color:#17171F}a:hover{color:#3B5BB8}
 <p style="margin: 0 0 4px; max-width: 860px; font-size: 15px; font-weight: 600; line-height: 1.5; color: #4A4A57; text-wrap: pretty">{{s.hl}}</p>
 <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 520px), 1fr)); gap: 16px">
 <sc-for list="{{s.cards}}" as="r" hint-placeholder-count="3">
-<article style="display: flex; flex-direction: column; border: 1px solid #E3E3EA; border-radius: 18px; background: #FFFFFF; overflow: hidden; align-self: start">
+<article class="card" style="display: flex; flex-direction: column; border: 1px solid #E3E3EA; border-radius: 18px; background: #FFFFFF; overflow: hidden; align-self: start">
 <div style="{{r.bannerStyle}}">
 <div aria-hidden="true" style="flex: 0 0 clamp(110px, 26%, 160px); align-self: stretch; min-height: 120px; position: relative">
 
@@ -480,7 +484,7 @@ a{color:#17171F}a:hover{color:#3B5BB8}
 </div>
 </div>
 <sc-if value="{{r.hasThreads}}" hint-placeholder-val="{{ false }}">
-<div role="group" aria-label="Threads this project sits on" style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px; padding: 12px 22px 0">
+<div class="card-threads" role="group" aria-label="Threads this project sits on" style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px; padding: 12px 22px 0">
 <span style="margin-right: 2px; font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #4A4A57">Threads</span>
 <sc-for list="{{r.threads}}" as="t" hint-placeholder-count="2">
 <button type="button" onClick="{{t.go}}" style="{{t.style}}">{{t.label}}</button>
@@ -488,7 +492,7 @@ a{color:#17171F}a:hover{color:#3B5BB8}
 </div>
 </sc-if>
 <sc-if value="{{r.hasCase}}" hint-placeholder-val="{{ true }}">
-<a href="{{r.href}}" style="display: flex; flex-direction: column; gap: 10px; padding: 16px 22px 18px; text-decoration: none; color: #17171F">
+<a class="card-link" href="{{r.href}}" style="display: flex; flex-direction: column; gap: 10px; padding: 16px 22px 18px; text-decoration: none; color: #17171F">
 <span style="display: flex; flex-wrap: wrap; gap: 6px 18px">
 <sc-for list="{{r.pts}}" as="p" hint-placeholder-count="3">
 <span style="display: inline-flex; gap: 8px; align-items: baseline; font-size: 14px; line-height: 1.4; color: #2E2E38"><span aria-hidden="true" style="flex: none; width: 6px; height: 6px; border-radius: 50%; background: {{accent}}; transform: translateY(-2px)"></span><span>{{p}}</span></span>

@@ -13,6 +13,20 @@
 <style>
 body{margin:0;background:#FFFFFF}
 a{color:#17171F}a:hover{color:#3B5BB8}
+.card{position:relative;transition:border-color .15s ease,box-shadow .15s ease}
+.card:has(.card-link):hover{border-color:#17171F !important;box-shadow:0 10px 24px rgba(23,23,31,.10)}
+.card-link::after{content:"";position:absolute;inset:0}
+.card-threads{position:relative;z-index:1}
+.thread-card{transition:transform .2s ease,box-shadow .2s ease,background-color .2s ease,border-color .2s ease}
+.thread-card:hover,.thread-card:focus-visible{transform:translateY(-8px) scale(1.015);background:#EEF1FA !important;border-color:#3B5BB8 !important;box-shadow:0 18px 36px rgba(59,91,184,.22)}
+.thread-card:active{transform:translateY(-2px)}
+.hl{padding:0 .28em;margin:0 -.2em;-webkit-box-decoration-break:clone;box-decoration-break:clone;border-radius:3px 9px 4px 11px / 10px 4px 9px 3px;background:linear-gradient(98deg,rgba(59,91,184,.10),rgba(59,91,184,.34) 6%,rgba(59,91,184,.20) 55%,rgba(59,91,184,.36) 97%,rgba(59,91,184,.08)) no-repeat 0 82% / 100% 64%}
+.hl2{border-radius:10px 3px 12px 4px / 4px 11px 3px 9px;background:linear-gradient(94deg,rgba(209,58,40,.08),rgba(209,58,40,.30) 5%,rgba(209,58,40,.16) 48%,rgba(209,58,40,.32) 95%,rgba(209,58,40,.10)) no-repeat 0 96% / 100% 58%}
+.hl3{background-position:0 60%;background-size:100% 70%;border-radius:5px 12px 3px 8px / 9px 3px 12px 4px}
+.pick-opt{background:transparent;transition:background-color .12s ease}
+.pick-opt:hover,.pick-opt:focus-visible{background:#EEF1FA}
+.pick:hover{opacity:.82}
+@media (prefers-reduced-motion: reduce){.thread-card{transition:none}.thread-card:hover,.thread-card:focus-visible{transform:none}}
 </style>
 </helmet>
 <div style="position: relative; background: #FFFFFF; color: #17171F; font-family: 'Figtree', sans-serif; overflow: hidden; min-height: 100vh; display: flex; flex-direction: column">
@@ -64,15 +78,13 @@ a{color:#17171F}a:hover{color:#3B5BB8}
 <section aria-labelledby="h-thinking" style="display: flex; flex-direction: column; gap: 20px">
 <div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 24px">
 <h2 id="h-thinking" style="margin: 0; font-family: 'Anton', Impact, sans-serif; font-weight: 400; font-size: clamp(26px, 3.2vw, 40px); line-height: 1.05; text-transform: uppercase; text-wrap: balance">Explore my thinking</h2>
-<p style="margin: 0; font-family: 'Newsreader', Georgia, serif; font-style: italic; font-size: 19px; color: #4A4A57">Three threads. Some projects sit on more than one.</p>
 </div>
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 16px">
 <sc-for list="{{themeCards}}" as="t" hint-placeholder-count="3">
-<button type="button" onClick="{{t.go}}" style="{{t.style}}">
+<button type="button" class="thread-card" onClick="{{t.go}}" style="{{t.style}}">
 <span style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px"><span style="font-family: 'Anton', Impact, sans-serif; font-size: 56px; line-height: 1; color: {{accent}}">{{t.n}}</span><span style="font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #4A4A57; white-space: nowrap">{{t.count}}</span></span>
 <span style="font-family: 'Anton', Impact, sans-serif; font-size: clamp(24px, 2.2vw, 30px); line-height: 1.08; text-transform: uppercase; text-wrap: balance">{{t.title}}</span>
 <span style="font-family: 'Newsreader', Georgia, serif; font-style: italic; font-size: 19px; line-height: 1.3; text-wrap: pretty">{{t.q}}</span>
-<span style="font-size: 14px; line-height: 1.45; color: #4A4A57; text-wrap: pretty">{{t.covers}}</span>
 <span style="margin-top: auto; padding-top: 6px; display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 700; color: {{accent}}">Follow this thread <svg aria-hidden="true" width="18" height="18" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11h15M12 5l6 6-6 6"></path></svg></span>
 </button>
 </sc-for>
@@ -86,25 +98,34 @@ a{color:#17171F}a:hover{color:#3B5BB8}
 </div>
 <div style="font-family: 'Anton', Impact, sans-serif; font-size: clamp(26px, 4.4vw, 60px); line-height: 1.24; text-transform: uppercase; display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 0.28em; max-width: 1180px">
 <span style="white-space: nowrap">I am a</span>
-<span style="position: relative; display: inline-flex; align-items: center; max-width: 100%">
-<select aria-label="I am a" value="{{persona}}" onChange="{{onPersona}}" style="appearance: none; -webkit-appearance: none; max-width: 100%; font: inherit; text-transform: inherit; color: {{accent}}; background: transparent; border: none; border-bottom: 3px solid {{accent}}; border-radius: 0; padding: 0 0.6em 0 0; cursor: pointer; line-height: 1.1">
-<sc-for list="{{personas}}" as="o" hint-placeholder-count="6"><option value="{{o.id}}">{{o.label}}</option></sc-for>
-</select>
+<span data-pick="persona" onKeyDown="{{pickKey}}" style="position: relative; display: inline-flex; align-items: center; max-width: 100%">
+<button type="button" class="pick" aria-haspopup="listbox" aria-expanded="{{pkPersona.open}}" aria-label="{{pkPersona.aria}}" onClick="{{pkPersona.toggle}}" style="font: inherit; text-transform: inherit; text-align: left; color: {{accent}}; background: transparent; border: none; border-bottom: 3px solid {{accent}}; border-radius: 0; padding: 0 0.6em 0 0; margin: 0; cursor: pointer; line-height: 1.1; max-width: 100%">{{pkPersona.label}}</button>
 <svg aria-hidden="true" width="0.4em" height="0.4em" viewBox="0 0 10 10" style="position: absolute; right: 0.05em; pointer-events: none"><path d="M1 3 L5 7 L9 3" fill="none" stroke="{{accent}}" stroke-width="1.8"></path></svg>
+<sc-if value="{{pkPersona.open}}" hint-placeholder-val="{{ false }}">
+<span id="pick-pop" role="listbox" aria-label="I am a" style="position: absolute; top: calc(100% + 10px); left: 0; z-index: 20; display: flex; flex-direction: column; gap: 2px; padding: 8px; border-radius: 16px; border: 1.5px solid #17171F; background: #FFFFFF; box-shadow: 0 18px 40px rgba(23, 23, 31, 0.18)">
+<sc-for list="{{pkPersona.options}}" as="o" hint-placeholder-count="5"><button type="button" class="pick-opt" role="option" aria-selected="{{o.on}}" onClick="{{o.pick}}" style="{{o.style}}">{{o.label}}</button></sc-for>
+</span>
+</sc-if>
 </span>
 <span style="white-space: nowrap">and I want to</span>
-<span style="position: relative; display: inline-flex; align-items: center; max-width: 100%">
-<select aria-label="I want to" value="{{job}}" onChange="{{onJob}}" style="appearance: none; -webkit-appearance: none; max-width: 100%; font: inherit; text-transform: inherit; color: {{accent}}; background: transparent; border: none; border-bottom: 3px solid {{accent}}; border-radius: 0; padding: 0 0.6em 0 0; cursor: pointer; line-height: 1.1">
-<sc-for list="{{jobs}}" as="o" hint-placeholder-count="8"><option value="{{o.id}}">{{o.label}}</option></sc-for>
-</select>
+<span data-pick="job" onKeyDown="{{pickKey}}" style="position: relative; display: inline-flex; align-items: center; max-width: 100%">
+<button type="button" class="pick" aria-haspopup="listbox" aria-expanded="{{pkJob.open}}" aria-label="{{pkJob.aria}}" onClick="{{pkJob.toggle}}" style="font: inherit; text-transform: inherit; text-align: left; color: {{accent}}; background: transparent; border: none; border-bottom: 3px solid {{accent}}; border-radius: 0; padding: 0 0.6em 0 0; margin: 0; cursor: pointer; line-height: 1.1; max-width: 100%">{{pkJob.label}}</button>
 <svg aria-hidden="true" width="0.4em" height="0.4em" viewBox="0 0 10 10" style="position: absolute; right: 0.05em; pointer-events: none"><path d="M1 3 L5 7 L9 3" fill="none" stroke="{{accent}}" stroke-width="1.8"></path></svg>
+<sc-if value="{{pkJob.open}}" hint-placeholder-val="{{ false }}">
+<span id="pick-pop" role="listbox" aria-label="I want to" style="position: absolute; top: calc(100% + 10px); left: 0; z-index: 20; display: flex; flex-direction: column; gap: 2px; padding: 8px; border-radius: 16px; border: 1.5px solid #17171F; background: #FFFFFF; box-shadow: 0 18px 40px rgba(23, 23, 31, 0.18)">
+<sc-for list="{{pkJob.options}}" as="o" hint-placeholder-count="5"><button type="button" class="pick-opt" role="option" aria-selected="{{o.on}}" onClick="{{o.pick}}" style="{{o.style}}">{{o.label}}</button></sc-for>
+</span>
+</sc-if>
 </span>
 <span style="white-space: nowrap">so that I can</span>
-<span style="position: relative; display: inline-flex; align-items: center; max-width: 100%">
-<select aria-label="So that I can" value="{{outcome}}" onChange="{{onOutcome}}" style="appearance: none; -webkit-appearance: none; max-width: 100%; font: inherit; text-transform: inherit; color: {{accent}}; background: transparent; border: none; border-bottom: 3px solid {{accent}}; border-radius: 0; padding: 0 0.6em 0 0; cursor: pointer; line-height: 1.1">
-<sc-for list="{{outcomes}}" as="o" hint-placeholder-count="4"><option value="{{o.id}}">{{o.label}}</option></sc-for>
-</select>
+<span data-pick="outcome" onKeyDown="{{pickKey}}" style="position: relative; display: inline-flex; align-items: center; max-width: 100%">
+<button type="button" class="pick" aria-haspopup="listbox" aria-expanded="{{pkOutcome.open}}" aria-label="{{pkOutcome.aria}}" onClick="{{pkOutcome.toggle}}" style="font: inherit; text-transform: inherit; text-align: left; color: {{accent}}; background: transparent; border: none; border-bottom: 3px solid {{accent}}; border-radius: 0; padding: 0 0.6em 0 0; margin: 0; cursor: pointer; line-height: 1.1; max-width: 100%">{{pkOutcome.label}}</button>
 <svg aria-hidden="true" width="0.4em" height="0.4em" viewBox="0 0 10 10" style="position: absolute; right: 0.05em; pointer-events: none"><path d="M1 3 L5 7 L9 3" fill="none" stroke="{{accent}}" stroke-width="1.8"></path></svg>
+<sc-if value="{{pkOutcome.open}}" hint-placeholder-val="{{ false }}">
+<span id="pick-pop" role="listbox" aria-label="So that I can" style="position: absolute; top: calc(100% + 10px); left: 0; z-index: 20; display: flex; flex-direction: column; gap: 2px; padding: 8px; border-radius: 16px; border: 1.5px solid #17171F; background: #FFFFFF; box-shadow: 0 18px 40px rgba(23, 23, 31, 0.18)">
+<sc-for list="{{pkOutcome.options}}" as="o" hint-placeholder-count="5"><button type="button" class="pick-opt" role="option" aria-selected="{{o.on}}" onClick="{{o.pick}}" style="{{o.style}}">{{o.label}}</button></sc-for>
+</span>
+</sc-if>
 </span><span style="color: #D13A28">.</span>
 </div>
 <div>
@@ -122,7 +143,7 @@ a{color:#17171F}a:hover{color:#3B5BB8}
 </section>
 
 <section aria-label="Career path" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px 40px; padding-top: 28px; border-top: 1px solid #E3E3EA">
-<p style="margin: 0; flex: 1 1 420px; min-width: 0; max-width: 720px; font-size: 17px; line-height: 1.6; text-wrap: pretty">I didn’t always know where I was going. Looking back, the continuity is there: ask questions, notice what could be better, try something, share what I learned. <span style="font-family: 'Newsreader', Georgia, serif; font-style: italic; font-size: 19px">My career is not a straight line. It’s a collection of learning loops.</span></p>
+<p style="margin: 0; flex: 1 1 420px; min-width: 0; max-width: 720px; font-size: 17px; line-height: 1.6; text-wrap: pretty">I didn’t always know where I was going. Looking back, the continuity is there: <span class="hl">ask questions</span>, <span class="hl hl2">notice what could be better</span>, <span class="hl hl3">try something</span>, <span class="hl hl2">share what I learned</span>. <span style="font-family: 'Newsreader', Georgia, serif; font-style: italic; font-size: 19px">My career is not a straight line. It’s a collection of learning loops.</span></p>
 <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 6px">
 <a href="Timeline.dc.html" style="display: inline-flex; align-items: center; min-height: 48px; padding: 0 22px; border-radius: 999px; border: 1px solid #17171F; font-size: 15px; font-weight: 700; text-decoration: none; white-space: nowrap">The career timeline →</a>
 <span style="font-size: 13px; color: #4A4A57">Where, when, in what role. Concise and factual.</span>
@@ -139,32 +160,35 @@ a{color:#17171F}a:hover{color:#3B5BB8}
 <h1 style="margin: 6px 0 0; font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #4A4A57">Search my work</h1>
 <div style="font-family: 'Anton', Impact, sans-serif; font-size: clamp(24px, 3.2vw, 44px); line-height: 1.3; text-transform: uppercase; display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 0.28em; max-width: 1180px; margin-top: 8px">
 <span style="white-space: nowrap">I am a</span>
-<span style="position: relative; display: inline-flex; align-items: center; max-width: 100%">
-<select aria-label="I am a (change)" value="{{persona}}" onChange="{{onPersona}}" style="appearance: none; -webkit-appearance: none; max-width: 100%; font: inherit; text-transform: inherit; color: {{accent}}; background: transparent; border: none; border-bottom: 3px solid {{accent}}; border-radius: 0; padding: 0 0.6em 0 0; cursor: pointer; line-height: 1.1">
-<sc-for list="{{personas}}" as="o" hint-placeholder-count="6"><option value="{{o.id}}">{{o.label}}</option></sc-for>
-</select>
+<span data-pick="persona" onKeyDown="{{pickKey}}" style="position: relative; display: inline-flex; align-items: center; max-width: 100%">
+<button type="button" class="pick" aria-haspopup="listbox" aria-expanded="{{pkPersona.open}}" aria-label="{{pkPersona.aria}}" onClick="{{pkPersona.toggle}}" style="font: inherit; text-transform: inherit; text-align: left; color: {{accent}}; background: transparent; border: none; border-bottom: 3px solid {{accent}}; border-radius: 0; padding: 0 0.6em 0 0; margin: 0; cursor: pointer; line-height: 1.1; max-width: 100%">{{pkPersona.label}}</button>
 <svg aria-hidden="true" width="0.4em" height="0.4em" viewBox="0 0 10 10" style="position: absolute; right: 0.05em; pointer-events: none"><path d="M1 3 L5 7 L9 3" fill="none" stroke="{{accent}}" stroke-width="1.8"></path></svg>
+<sc-if value="{{pkPersona.open}}" hint-placeholder-val="{{ false }}">
+<span id="pick-pop" role="listbox" aria-label="I am a (change)" style="position: absolute; top: calc(100% + 10px); left: 0; z-index: 20; display: flex; flex-direction: column; gap: 2px; padding: 8px; border-radius: 16px; border: 1.5px solid #17171F; background: #FFFFFF; box-shadow: 0 18px 40px rgba(23, 23, 31, 0.18)">
+<sc-for list="{{pkPersona.options}}" as="o" hint-placeholder-count="5"><button type="button" class="pick-opt" role="option" aria-selected="{{o.on}}" onClick="{{o.pick}}" style="{{o.style}}">{{o.label}}</button></sc-for>
+</span>
+</sc-if>
 </span>
 <span style="white-space: nowrap">and I want to</span>
-<span style="position: relative; display: inline-flex; align-items: center; max-width: 100%">
-<select aria-label="I want to (change)" value="{{job}}" onChange="{{onJob}}" style="appearance: none; -webkit-appearance: none; max-width: 100%; font: inherit; text-transform: inherit; color: {{accent}}; background: transparent; border: none; border-bottom: 3px solid {{accent}}; border-radius: 0; padding: 0 0.6em 0 0; cursor: pointer; line-height: 1.1">
-<sc-for list="{{jobs}}" as="o" hint-placeholder-count="8"><option value="{{o.id}}">{{o.label}}</option></sc-for>
-</select>
+<span data-pick="job" onKeyDown="{{pickKey}}" style="position: relative; display: inline-flex; align-items: center; max-width: 100%">
+<button type="button" class="pick" aria-haspopup="listbox" aria-expanded="{{pkJob.open}}" aria-label="{{pkJob.aria}}" onClick="{{pkJob.toggle}}" style="font: inherit; text-transform: inherit; text-align: left; color: {{accent}}; background: transparent; border: none; border-bottom: 3px solid {{accent}}; border-radius: 0; padding: 0 0.6em 0 0; margin: 0; cursor: pointer; line-height: 1.1; max-width: 100%">{{pkJob.label}}</button>
 <svg aria-hidden="true" width="0.4em" height="0.4em" viewBox="0 0 10 10" style="position: absolute; right: 0.05em; pointer-events: none"><path d="M1 3 L5 7 L9 3" fill="none" stroke="{{accent}}" stroke-width="1.8"></path></svg>
+<sc-if value="{{pkJob.open}}" hint-placeholder-val="{{ false }}">
+<span id="pick-pop" role="listbox" aria-label="I want to (change)" style="position: absolute; top: calc(100% + 10px); left: 0; z-index: 20; display: flex; flex-direction: column; gap: 2px; padding: 8px; border-radius: 16px; border: 1.5px solid #17171F; background: #FFFFFF; box-shadow: 0 18px 40px rgba(23, 23, 31, 0.18)">
+<sc-for list="{{pkJob.options}}" as="o" hint-placeholder-count="5"><button type="button" class="pick-opt" role="option" aria-selected="{{o.on}}" onClick="{{o.pick}}" style="{{o.style}}">{{o.label}}</button></sc-for>
+</span>
+</sc-if>
 </span>
 <span style="white-space: nowrap">so that I can</span>
-<span style="position: relative; display: inline-flex; align-items: center; max-width: 100%">
-<select aria-label="So that I can (change)" value="{{outcome}}" onChange="{{onOutcome}}" style="appearance: none; -webkit-appearance: none; max-width: 100%; font: inherit; text-transform: inherit; color: {{accent}}; background: transparent; border: none; border-bottom: 3px solid {{accent}}; border-radius: 0; padding: 0 0.6em 0 0; cursor: pointer; line-height: 1.1">
-<sc-for list="{{outcomes}}" as="o" hint-placeholder-count="4"><option value="{{o.id}}">{{o.label}}</option></sc-for>
-</select>
+<span data-pick="outcome" onKeyDown="{{pickKey}}" style="position: relative; display: inline-flex; align-items: center; max-width: 100%">
+<button type="button" class="pick" aria-haspopup="listbox" aria-expanded="{{pkOutcome.open}}" aria-label="{{pkOutcome.aria}}" onClick="{{pkOutcome.toggle}}" style="font: inherit; text-transform: inherit; text-align: left; color: {{accent}}; background: transparent; border: none; border-bottom: 3px solid {{accent}}; border-radius: 0; padding: 0 0.6em 0 0; margin: 0; cursor: pointer; line-height: 1.1; max-width: 100%">{{pkOutcome.label}}</button>
 <svg aria-hidden="true" width="0.4em" height="0.4em" viewBox="0 0 10 10" style="position: absolute; right: 0.05em; pointer-events: none"><path d="M1 3 L5 7 L9 3" fill="none" stroke="{{accent}}" stroke-width="1.8"></path></svg>
+<sc-if value="{{pkOutcome.open}}" hint-placeholder-val="{{ false }}">
+<span id="pick-pop" role="listbox" aria-label="So that I can (change)" style="position: absolute; top: calc(100% + 10px); left: 0; z-index: 20; display: flex; flex-direction: column; gap: 2px; padding: 8px; border-radius: 16px; border: 1.5px solid #17171F; background: #FFFFFF; box-shadow: 0 18px 40px rgba(23, 23, 31, 0.18)">
+<sc-for list="{{pkOutcome.options}}" as="o" hint-placeholder-count="5"><button type="button" class="pick-opt" role="option" aria-selected="{{o.on}}" onClick="{{o.pick}}" style="{{o.style}}">{{o.label}}</button></sc-for>
+</span>
+</sc-if>
 </span><span style="color: #D13A28">.</span>
-</div>
-<div role="group" aria-label="Filter by phase" style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-top: 20px">
-<span style="margin-right: 4px; font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #4A4A57">Phase</span>
-<sc-for list="{{phaseChips}}" as="t" hint-placeholder-count="5">
-<button type="button" onClick="{{t.pick}}" aria-pressed="{{t.on}}" style="{{t.style}}">{{t.label}} <span style="opacity: 0.7; font-weight: 400">{{t.count}}</span></button>
-</sc-for>
 </div>
 </div>
 </sc-if>
@@ -260,7 +284,7 @@ a{color:#17171F}a:hover{color:#3B5BB8}
 <sc-if value="{{hasResults}}" hint-placeholder-val="{{ true }}">
 <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 520px), 1fr)); gap: 16px">
 <sc-for list="{{results}}" as="r" hint-placeholder-count="5">
-<article style="display: flex; flex-direction: column; border: 1px solid #E3E3EA; border-radius: 18px; background: #FFFFFF; overflow: hidden; align-self: start">
+<article class="card" style="display: flex; flex-direction: column; border: 1px solid #E3E3EA; border-radius: 18px; background: #FFFFFF; overflow: hidden; align-self: start">
 <div style="{{r.bannerStyle}}">
 <div aria-hidden="true" style="flex: 0 0 clamp(110px, 26%, 160px); align-self: stretch; min-height: 120px; position: relative">
 
@@ -655,7 +679,7 @@ a{color:#17171F}a:hover{color:#3B5BB8}
 </div>
 </div>
 <sc-if value="{{r.hasThreads}}" hint-placeholder-val="{{ false }}">
-<div role="group" aria-label="Threads this project sits on" style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px; padding: 12px 22px 0">
+<div class="card-threads" role="group" aria-label="Threads this project sits on" style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px; padding: 12px 22px 0">
 <span style="margin-right: 2px; font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #4A4A57">Threads</span>
 <sc-for list="{{r.threads}}" as="t" hint-placeholder-count="2">
 <button type="button" onClick="{{t.go}}" style="{{t.style}}">{{t.label}}</button>
@@ -663,7 +687,7 @@ a{color:#17171F}a:hover{color:#3B5BB8}
 </div>
 </sc-if>
 <sc-if value="{{r.hasCase}}" hint-placeholder-val="{{ true }}">
-<a href="{{r.href}}" style="display: flex; flex-direction: column; gap: 10px; padding: 16px 22px 18px; text-decoration: none; color: #17171F">
+<a class="card-link" href="{{r.href}}" style="display: flex; flex-direction: column; gap: 10px; padding: 16px 22px 18px; text-decoration: none; color: #17171F">
 <span style="display: flex; flex-wrap: wrap; gap: 6px 18px">
 <sc-for list="{{r.pts}}" as="p" hint-placeholder-count="3">
 <span style="display: inline-flex; gap: 8px; align-items: baseline; font-size: 14px; line-height: 1.4; color: #2E2E38"><span aria-hidden="true" style="flex: none; width: 6px; height: 6px; border-radius: 50%; background: {{accent}}; transform: translateY(-2px)"></span><span>{{p}}</span></span>
@@ -747,8 +771,8 @@ a{color:#17171F}a:hover{color:#3B5BB8}
 class Component extends DCLogic {
 constructor(props) {
 super(props);
-this.state = { screen: 'home', theme: 't1', persona: 'hiring', job: 'built', outcome: 'talk', phase: 'all', open: null };
-try { var saved = JSON.parse(window.localStorage.getItem('se-portfolio') || 'null'); if (saved && saved.persona) { this.state = Object.assign(this.state, saved, { open: null }); } } catch (err) {}
+this.state = { pick: null, screen: 'home', theme: 't1', persona: 'hiring', job: 'built', outcome: 'talk', phase: 'all', open: null };
+try { var saved = JSON.parse(window.localStorage.getItem('se-portfolio') || 'null'); if (saved && saved.persona) { this.state = Object.assign(this.state, saved, { open: null, screen: 'home', pick: null }); } } catch (err) {}
 var fromHash = this.readHash();
 if (fromHash) { this.state = Object.assign(this.state, fromHash); }
 if (['home', 'results', 'theme', 'outside'].indexOf(this.state.screen) === -1) { this.state.screen = 'home'; }
@@ -763,13 +787,16 @@ componentDidMount() {
 var self = this;
 this.onHash = function () { var st = self.readHash(); if (st) { self.setState(st); } };
 try { window.addEventListener('hashchange', this.onHash); } catch (err) {}
+this.onDocClick = function (e) { if (self.state.pick && !(e.target && e.target.closest && e.target.closest('[data-pick]'))) { self.setState({ pick: null }); } };
+try { document.addEventListener('click', this.onDocClick); } catch (err) {}
 }
 componentWillUnmount() {
-try { window.removeEventListener('hashchange', this.onHash); } catch (err) {}
+try { window.removeEventListener('hashchange', this.onHash); document.removeEventListener('click', this.onDocClick); } catch (err) {}
 }
 componentDidUpdate(prevProps, prevState) {
 var st = this.state;
 try { window.localStorage.setItem('se-portfolio', JSON.stringify({ screen: st.screen, theme: st.theme, persona: st.persona, job: st.job, outcome: st.outcome, phase: st.phase })); } catch (err) {}
+try { var pop = document.getElementById('pick-pop'); if (pop) { pop.style.transform = ''; var pr = pop.getBoundingClientRect(); var over = pr.right - (window.innerWidth - 12); if (over > 0) { pop.style.transform = 'translateX(-' + Math.min(over, Math.max(0, pr.left - 12)) + 'px)'; } } } catch (err) {}
 var viewKey = st.screen + '/' + st.theme;
 if (this._viewKey !== viewKey) {
 this._viewKey = viewKey;
@@ -902,6 +929,24 @@ return 'font-family: Figtree, sans-serif; font-size: 15px; font-weight: 600; pad
 }
 function okP(it, x) { return x === 'all' || it.ph.indexOf(x) !== -1; }
 
+function picker(key, aria, opts, current, extra) {
+var open = s.pick === key;
+function refocus() { try { var b = document.querySelector('[data-pick="' + key + '"] .pick'); if (b) { b.focus({ preventScroll: true }); } if (self.state.screen === 'results') { window.scrollTo(0, 0); } } catch (err) {} }
+return {
+open: open, aria: aria + ': ' + current.label, label: current.label,
+toggle: function () { self.setState({ pick: open ? null : key }); },
+options: opts.map(function (o) {
+var on = o.id === current.id;
+return { label: o.label, on: on,
+style: 'font-family: Anton, Impact, sans-serif; font-size: 18px; letter-spacing: 0.02em; line-height: 1.15; text-transform: uppercase; text-align: left; white-space: nowrap; min-height: 44px; padding: 10px 14px; border: none; border-radius: 10px; cursor: pointer;' + (on ? ' background: ' + accent + '; color: #FFFFFF;' : ' color: #17171F;'),
+pick: function () { var st = { pick: null }; st[key] = o.id; if (extra) { Object.assign(st, extra); } self.setState(st, refocus); } };
+})
+};
+}
+var pkPersona = picker('persona', 'I am a', personas, persona);
+var pkJob = picker('job', 'I want to', jobs, job, { phase: 'all' });
+var pkOutcome = picker('outcome', 'So that I can', outcomes, outcome);
+
 var navItems = [
 { label: 'My thinking', on: isHome || isTheme, style: navStyle(isHome || isTheme), go: function () { self.setState({ screen: 'home' }); } },
 { label: 'Search my work', on: isResults, style: navStyle(isResults), go: function () { self.setState({ screen: 'results', phase: 'all' }); } },
@@ -930,7 +975,7 @@ var n = byJob.filter(function (it) { return okP(it, d.id); }).length;
 var on = s.phase === d.id;
 return { label: d.label, count: n, on: on, style: chipStyle(on, n), pick: function () { self.setState({ phase: d.id, open: null }); } };
 });
-pool = byJob.filter(function (it) { return okP(it, s.phase); });
+pool = byJob;
 resultLine = pool.length + (pool.length === 1 ? ' result' : ' results') + ' · sorted for ' + persona.a;
 } else if (isTheme) {
 pool = theme.order.map(function (id) { return byId[id]; }).filter(function (it) { return it && !(isT3 && it.id === 'cassandre'); });
@@ -968,6 +1013,8 @@ accent: accent,
 grain: this.props.grain ?? true,
 isHome: isHome, isResults: isResults, isTheme: isTheme, isOutside: isOutside, isT3: isT3,
 showGrid: !isHome,
+pkPersona: pkPersona, pkJob: pkJob, pkOutcome: pkOutcome,
+pickKey: function (e) { if (e.key === 'Escape' && self.state.pick) { var k = self.state.pick; self.setState({ pick: null }, function () { try { var b = document.querySelector('[data-pick="' + k + '"] .pick'); if (b) { b.focus(); } } catch (err) {} }); } },
 navItems: navItems, themeCards: themeCards, themeChips: themeChips,
 themeN: theme.n, themeTitle: theme.title, themeQ: theme.q, themeParas: theme.paras,
 t3Steps: T3_STEPS.map(function (t, i) { return { n: '0' + (i + 1), text: t }; }),

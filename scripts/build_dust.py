@@ -28,6 +28,10 @@ def head(title):
 <style>
 body{{margin:0;background:#FFFFFF}}
 a{{color:#17171F}}a:hover{{color:#3B5BB8}}
+.card{{position:relative;transition:border-color .15s ease,box-shadow .15s ease}}
+.card:has(.card-link):hover{{border-color:#17171F !important;box-shadow:0 10px 24px rgba(23,23,31,.10)}}
+.card-link::after{{content:"";position:absolute;inset:0}}
+.card-threads{{position:relative;z-index:1}}
 </style>
 </helmet>
 '''

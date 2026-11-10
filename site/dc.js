@@ -174,6 +174,14 @@
     }
   }
 
+  document.addEventListener('click', function (e) {
+    var a = e.target && e.target.closest ? e.target.closest('a') : null;
+    if (!a || a.textContent.indexOf('Back to results') === -1) { return; }
+    var sameSite = false;
+    try { sameSite = !!document.referrer && new URL(document.referrer).origin === location.origin; } catch (err) {}
+    if (sameSite && history.length > 1) { e.preventDefault(); history.back(); }
+  });
+
   try { mount(document.getElementById('app')); }
   catch (err) {
     document.getElementById('app').textContent = 'This page could not be displayed. Please write to safaa.elouafi.am@gmail.com.';

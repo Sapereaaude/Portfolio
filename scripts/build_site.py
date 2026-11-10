@@ -78,7 +78,50 @@ def load(name):
     props = {k: v.get('default') for k, v in json.loads(raw).items() if not k.startswith('$') and isinstance(v, dict) and 'default' in v}
     code = sm.group(2).strip()
     title = html.unescape(re.search(r'<title>(.*?)</title>', h, re.S).group(1)).strip()
-    return {'ast': strip_helmet(parse(body)), 'props': props, 'code': code}, title, body
+    hm = re.search(r'<helmet>.*?<style>(.*?)</style>.*?</helmet>', body, re.S)
+    css = '\n'.join(l for l in (hm.group(1) if hm else '').split('\n') if l.strip() and not l.startswith(('body{', 'a{')))
+    return {'ast': strip_helmet(parse(body)), 'props': props, 'code': code, 'css': css}, title, body
+
+
+NAV_PILL = "font-family: Figtree, sans-serif; font-size: 15px; font-weight: 600; padding: 10px 16px; white-space: nowrap; text-decoration: none; border-radius: 999px; border: 1px solid %s; background: %s; color: %s"
+NAV_ITEMS = [('My thinking', '/', None), ('Search my work', '/#search', None), ('Outside the job title', '/#outside', None),
+             ('Career timeline', '/timeline', 'Timeline'), ('About me', '/about', 'About')]
+
+
+def site_nav(current):
+    """The same top navigation on every page: the name goes home, every section is one tap away."""
+    pills = []
+    for label, href, page in NAV_ITEMS:
+        on = page == current
+        attrs = {'href': href, 'style': NAV_PILL % (('#17171F', '#17171F', '#FFFFFF') if on else ('#D5D7E0', '#FFFFFF', '#17171F'))}
+        if on:
+            attrs['aria-current'] = 'page'
+        pills.append(['a', attrs, [label]])
+    logo = ['a', {'href': '/', 'aria-label': 'Safaa El Ouafi, home', 'style': "font-family: 'Anton', Impact, sans-serif; font-size: 24px; letter-spacing: 0.02em; text-transform: uppercase; white-space: nowrap; text-decoration: none; color: #17171F; display: inline-flex; align-items: center; min-height: 44px"},
+            ['Safaa El Ouafi', ['span', {'style': 'color: #D13A28'}, ['.']]]]
+    return ['nav', {'id': 'page-top', 'aria-label': 'Main', 'style': 'display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 10px 24px; padding: 24px 0'},
+            [logo, ['span', {'style': 'display: flex; flex-wrap: wrap; gap: 8px'}, pills]]]
+
+
+def replace_first_nav(nodes, new, tag='nav'):
+    for i, n in enumerate(nodes):
+        if isinstance(n, list):
+            if n[0] == tag and n[1].get('aria-label') != 'More cases':
+                nodes[i] = new
+                return True
+            if replace_first_nav(n[2], new, tag):
+                return True
+    return False
+
+
+def drop_links(nodes, text):
+    """Remove links whose label contains `text` (one way back is enough on a case page)."""
+    for n in list(nodes):
+        if isinstance(n, list):
+            if n[0] == 'a' and any(isinstance(k, str) and text in k for k in n[2]):
+                nodes.remove(n)
+            else:
+                drop_links(n[2], text)
 
 
 def site_fixes(name, d):
@@ -87,6 +130,15 @@ def site_fixes(name, d):
     for old, new in [('mailto:[YOUR EMAIL]', 'mailto:' + EMAIL), ('https://[LINKEDIN]', LINKEDIN), ('[YOUR EMAIL]', EMAIL), ('[LINKEDIN]', 'LinkedIn'), ('[PORTFOLIO URL]', SITE.replace('https://', ''))]:
         blob = blob.replace(old, new)
     d['ast'] = json.loads(blob)
+    if name not in ('Main', 'Dust', 'DustLetter') and name not in COMPONENTS:
+        nav = site_nav(name)
+        if name.startswith('Case-'):
+            drop_links(d['ast'], 'Back to timeline')
+        if name == 'Resume':  # an A4 sheet: the navigation sits above it, the sheet scrolls sideways on a phone
+            d['ast'] = [['div', {'style': 'max-width: 794px; margin: 0 auto; padding: 0 12px; box-sizing: content-box'}, [nav]],
+                        ['div', {'style': 'overflow-x: auto; padding: 0 12px 24px'}, [['div', {'style': 'width: 794px; margin: 0 auto; background: #FFFFFF'}, d['ast']]]]]
+        elif not replace_first_nav(d['ast'], nav) and not (name == 'About' and replace_first_nav(d['ast'], nav, 'header')):
+            print('no top nav in', name)
     if name == 'Main':  # a new visit starts on the home view; the place is kept within one visit
         d['code'] = d['code'].replace('window.localStorage', 'window.sessionStorage')
     return d
@@ -118,6 +170,7 @@ html{{-webkit-text-size-adjust:100%}}
 body{{margin:0;background:{bg}}}
 a{{color:#17171F}}a:hover{{color:#3B5BB8}}
 :focus-visible{{outline:3px solid #3B5BB8;outline-offset:2px}}
+a[aria-current="page"]:hover{{color:#FFFFFF}}
 {extra}</style>
 </head>
 <body>
@@ -137,6 +190,8 @@ def main():
         if n.startswith('Case-'):
             routes[n] = 'work/' + n[5:].replace('_', '-')
     comps = {c: site_fixes(c, load(c)[0]) for c in COMPONENTS}
+    for c in comps.values():
+        c.pop('css', None)
     for old in glob.glob(os.path.join(OUT, '*')):
         if os.path.basename(old) != 'dc.js':
             shutil.rmtree(old) if os.path.isdir(old) else os.remove(old)
@@ -146,6 +201,7 @@ def main():
             continue
         d, title, body = load(n)
         d = site_fixes(n, d)
+        css = d.pop('css', '')
         defs = {n: d}
         for c in COMPONENTS:
             if 'dc-import name="%s"' % c in body:
@@ -157,7 +213,7 @@ def main():
         resume = n == 'Resume'
         page = SHELL.format(url=SITE + '/' + routes[n], image=SITE + ('/og-dust.png' if n.startswith('Dust') else '/og.png'), title=html.escape(title), desc=html.escape(desc, quote=True), data=data,
                             bg='#F2F2F5' if resume else '#FFFFFF',
-                            extra='#app{display:flex;justify-content:center;padding:24px 12px;overflow-x:auto}#app>*{flex:none;background:#FFFFFF}\n' if resume else '')
+                            extra=(css + '\n' if css else ''))
         path = os.path.join(OUT, routes[n], 'index.html')
         os.makedirs(os.path.dirname(path), exist_ok=True)
         open(path, 'w', encoding='utf-8').write(page)
