@@ -57,6 +57,19 @@ a{color:#17171F}a:hover{color:#D13A28}
 .uses-ico:hover .uses-tip,.uses-ico:focus-visible .uses-tip,.uses-ico.on .uses-tip{opacity:1}
 .uses-ico:hover,.uses-ico.on{box-shadow:0 0 0 1.5px #17171F;z-index:3}
 .uses-sun{position:absolute;left:50%;top:50%;width:52px;height:52px;margin:-26px 0 0 -26px;display:flex;align-items:center;justify-content:center;border:none;border-radius:50%;color:#FFFFFF;cursor:pointer}
+.frise{position:absolute;left:-14px;right:-14px;z-index:30;box-sizing:border-box;padding:18px 20px 16px;border-radius:18px;background:#FFFFFF;box-shadow:0 0 0 1.5px #17171F,0 24px 60px rgba(23,23,31,.18);font-weight:700;animation:usesSky .3s cubic-bezier(.2,.8,.2,1) both;transform-origin:top left}
+.frise-x{position:absolute;top:8px;right:8px;display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border:none;border-radius:50%;background:none;color:#17171F;cursor:pointer}
+.frise-eyebrow{display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#D13A28}
+.frise-line{position:relative;margin:12px 0 0;padding:0 0 0 22px;list-style:none;display:flex;flex-direction:column;gap:12px}
+.frise-line::before{content:"";position:absolute;left:5px;top:6px;bottom:6px;border-left:1.5px dashed #A9ACBA}
+.frise-step{position:relative;display:flex;flex-direction:column;gap:1px;animation:friseIn .4s cubic-bezier(.2,.8,.2,1) both}
+.frise-dot{position:absolute;left:-22px;top:3px;width:12px;height:12px;box-sizing:border-box;border-radius:50%;background:#FFFFFF;border:1.5px solid #17171F}
+.frise-step:last-child .frise-dot{background:#3B5BB8;border-color:#3B5BB8}
+.frise-year{font-family:"Anton",Impact,sans-serif;font-weight:400;font-size:15px;line-height:1.1;color:#3B5BB8}
+.frise-name{font-size:14px;line-height:1.3}
+.frise-school{font-size:13px;font-weight:400;line-height:1.35;color:#4A4A57}
+@keyframes friseIn{from{opacity:0;transform:translateX(-8px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion: reduce){.frise,.frise-step{animation:none}}
 @keyframes usesSky{from{opacity:0;transform:scale(.6)}to{opacity:1;transform:none}}
 @keyframes usesOut{from{opacity:0;transform:rotate(calc(var(--a) - 90deg)) translateX(0)}to{opacity:1;transform:rotate(var(--a)) translateX(var(--r))}}
 @keyframes usesSpin{to{transform:rotate(360deg)}}
@@ -87,7 +100,7 @@ a{color:#17171F}a:hover{color:#D13A28}
 <p style="margin: 28px 0 0; max-width: 720px; font-size: clamp(22px, 2.4vw, 32px); line-height: 1.25; font-family: 'Newsreader', Georgia, serif; font-style: italic; text-wrap: balance">User Experience Researcher. Former teacher. Professional noticer of how you use the coffee machine.</p>
 </div>
 <dl style="flex: 1 1 430px; margin: 0; position: relative; display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 10px 16px; font-family: 'Figtree', sans-serif; font-weight: 700; font-size: 13px; line-height: 1.45; border-top: 1px solid #E3E3EA; padding-top: 14px">
-<dt style="text-transform: uppercase; color: #4A4A57">Based</dt><dd style="margin: 0">Paris <span style="font-weight: 400; color: #4A4A57">(open to the world)</span></dd>
+<dt style="text-transform: uppercase; color: #4A4A57">Based</dt><dd style="margin: 0">Paris <span style="font-weight: 400; color: #4A4A57">(open to the world)</span><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#3B5BB8" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round" style="display: inline-block; margin-left: 6px; vertical-align: -2px"><path d="M21.5 3 2.8 10.4l7.2 2.8 2.8 7.3z"></path><path d="M21.5 3 10 13.2"></path></svg></dd>
 <dt style="text-transform: uppercase; color: #4A4A57">Speaks</dt><dd style="margin: 0">FR · EN · AR · ES</dd>
 <dt style="text-transform: uppercase; color: #4A4A57">Does</dt><dd style="margin: 0"><span style="white-space: nowrap">Generative research,</span> <span style="white-space: nowrap">Mixed methods, ResearchOps</span></dd>
 <dt style="text-transform: uppercase; color: #4A4A57">Explores</dt><dd style="margin: 0">Psychology, Human–AI interaction</dd>
@@ -106,14 +119,20 @@ a{color:#17171F}a:hover{color:#D13A28}
 </dd>
 </sc-if>
 <div style="grid-column: 1 / -1; display: grid; grid-template-columns: subgrid; gap: 10px 16px; cursor: pointer" onClick="{{toggleStudied}}">
-<dt style="text-transform: uppercase; color: #4A4A57">Studied</dt><dd style="margin: 0"><button type="button" aria-expanded="{{studiedAria}}" aria-controls="studied-list" style="display: inline-flex; align-items: center; gap: 6px; padding: 0; margin: 0; border: none; background: none; font: inherit; color: inherit; text-align: left; cursor: pointer">Advanced Product Design<svg aria-hidden="true" width="10" height="10" viewBox="0 0 10 10" style="{{studiedChevron}}"><path d="M1 3 L5 7 L9 3" fill="none" stroke="currentColor" stroke-width="1.8"></path></svg></button></dd>
+<dt style="text-transform: uppercase; color: #4A4A57">Studied</dt><dd style="margin: 0"><button type="button" aria-expanded="{{studiedAria}}" aria-controls="studied-frise" style="display: inline-flex; align-items: center; gap: 6px; padding: 0; margin: 0; border: none; background: none; font: inherit; color: inherit; text-align: left; cursor: pointer">Advanced Product Design<svg aria-hidden="true" width="10" height="10" viewBox="0 0 10 10" style="{{studiedChevron}}"><path d="M1 3 L5 7 L9 3" fill="none" stroke="currentColor" stroke-width="1.8"></path></svg></button></dd>
 </div>
 <sc-if value="{{studiedOpen}}" hint-placeholder-val="{{ false }}">
-<dd id="studied-list" style="grid-column: 2; margin: -4px 0 0"><ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 6px">
-<sc-for list="{{studied}}" as="t" hint-placeholder-count="5"><li>{{t.name}}<sc-if value="{{t.hasSchool}}" hint-placeholder-val="{{ false }}"><span style="display: block; font-weight: 400; color: #4A4A57; text-wrap: balance">{{t.school}}</span></sc-if></li></sc-for>
-</ul></dd>
+<dd id="studied-frise" style="margin: 0; position: absolute; left: 0; right: 0; top: 0; height: 0">
+<div class="frise" role="dialog" aria-label="What I studied" style="top: {{studiedTop}}px" onClick="{{usesSkyClick}}">
+<button type="button" class="frise-x" aria-label="Close" onClick="{{toggleStudied}}"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+<span class="frise-eyebrow">Studied</span>
+<ol class="frise-line">
+<sc-for list="{{studied}}" as="t" hint-placeholder-count="5"><li class="frise-step" style="{{t.delay}}"><span class="frise-dot" aria-hidden="true"></span><sc-if value="{{t.hasYear}}" hint-placeholder-val="{{ true }}"><span class="frise-year">{{t.year}}</span></sc-if><span class="frise-name">{{t.name}}</span><sc-if value="{{t.hasSchool}}" hint-placeholder-val="{{ true }}"><span class="frise-school">{{t.school}}</span></sc-if></li></sc-for>
+</ol>
+</div>
+</dd>
 </sc-if>
-<dt style="text-transform: uppercase; color: #4A4A57">Currently</dt><dd style="margin: 0">Senior UXR at Decathlon</dd>
+<dt style="text-transform: uppercase; color: #4A4A57">Currently</dt><dd style="margin: 0"><span class="hl">Senior UXR at Decathlon</span></dd>
 <dt style="text-transform: uppercase; color: #4A4A57">Reach</dt><dd style="margin: 0; display: flex; gap: 6px"><a href="{{hello_gmail}}" aria-label="Email" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; margin: -6px 0; color: #17171F; text-decoration: none"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3.5 6.5l8.5 6.5 8.5-6.5"></path></svg></a><a href="https://www.linkedin.com/in/safaa-el-ouafi/en/" aria-label="LinkedIn" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; margin: -6px 0; color: #17171F; text-decoration: none"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"></path></svg></a></dd>
 </dl>
 </section>
@@ -233,20 +252,20 @@ a{color:#17171F}a:hover{color:#D13A28}
 </div>
 <div class="wwm" style="flex: 999 1 560px; min-width: 0; display: grid; gap: 0 32px">
 <div style="padding: 20px 0; border-top: 1px solid #E3E3EA">
-<h3 style="margin: 0 0 6px; font-size: 24px; font-weight: 600; line-height: 1.2">I'll tell you the uncomfortable&nbsp;finding.</h3>
+<h3 style="margin: 0 0 6px; font-size: 24px; font-weight: 600; line-height: 1.2">I'll tell you the <span style="color: {{accent}}">uncomfortable&nbsp;finding</span>.</h3>
 <p style="margin: 0; font-size: 17px; line-height: 1.55; text-wrap: pretty">Kindly, clearly, with the quote that&nbsp;proves&nbsp;it.</p>
 </div>
 <div style="padding: 20px 0; border-top: 1px solid #E3E3EA">
-<h3 style="margin: 0 0 6px; font-size: 24px; font-weight: 600; line-height: 1.2">Light tone, serious substance.</h3>
+<h3 style="margin: 0 0 6px; font-size: 24px; font-weight: 600; line-height: 1.2"><span style="color: {{accent}}">Light tone</span>, serious&nbsp;substance.</h3>
 <p style="margin: 0; font-size: 17px; line-height: 1.55; text-wrap: pretty">Expect emojis in my docs. And at least one pun per meeting. You've been warned.</p>
 </div>
 <div style="padding: 20px 0; border-top: 1px solid #E3E3EA">
-<h3 style="margin: 0 0 6px; font-size: 24px; font-weight: 600; line-height: 1.2">I work with you, not next&nbsp;to&nbsp;you.</h3>
+<h3 style="margin: 0 0 6px; font-size: 24px; font-weight: 600; line-height: 1.2">I work <span style="color: {{accent}}">with you</span>, not next&nbsp;to&nbsp;you.</h3>
 <p style="margin: 0; font-size: 17px; line-height: 1.55; text-wrap: pretty">A hard problem doesn’t scare me. It&nbsp;wakes&nbsp;me&nbsp;up.</p>
 </div>
 <div style="padding: 20px 0; border-top: 1px solid #E3E3EA">
-<h3 style="margin: 0 0 6px; font-size: 24px; font-weight: 600; line-height: 1.2">I don’t hand over reports.</h3>
-<p style="margin: 0; font-size: 17px; line-height: 1.55; text-wrap: pretty">I share insights once they’re worth acting on, and we build the understanding and the decisions&nbsp;together.</p>
+<h3 style="margin: 0 0 6px; font-size: 24px; font-weight: 600; line-height: 1.2">I don’t share decks. <span style="color: {{accent}}; white-space: nowrap">We make decisions.</span></h3>
+<p style="margin: 0; font-size: 17px; line-height: 1.55; text-wrap: pretty">I share insights once they’re worth acting on, and we build the understanding&nbsp;together.</p>
 </div>
 <div style="grid-column: 1 / -1; padding: 24px 28px; border: 1px solid #E3E3EA; border-radius: 16px; background: #FFFFFF; overflow: hidden; margin-top: 12px">
 <p style="margin: 0; font-size: clamp(22px, 2.4vw, 30px); font-family: 'Newsreader', Georgia, serif; font-style: italic; line-height: 1.35; text-wrap: balance">I’m the colleague who asks the uncomfortable questions, so you can make <span style="color: {{accent}}">the comfortable decision</span>.</p>
@@ -491,8 +510,12 @@ this.state = { slide: 0, lb: null, shot: null, cta: false, pigeon: false, refer:
 }
 componentDidMount() {
 var self = this;
-this._usesOut = function (e) { if (self.state.uses && !(e.target && e.target.closest && (e.target.closest('.uses-sky') || e.target.closest('[aria-controls="uses-sky"]')))) { self.setState({ uses: false, tool: null }); } };
-this._usesKey = function (e) { if (e.key === 'Escape' && self.state.uses) { self.setState({ uses: false, tool: null }); } };
+this._usesOut = function (e) {
+var t = e.target && e.target.closest ? e.target : null;
+if (self.state.uses && !(t && (t.closest('.uses-sky') || t.closest('[aria-controls="uses-sky"]')))) { self.setState({ uses: false, tool: null }); }
+if (self.state.studied && !(t && (t.closest('.frise') || t.closest('[aria-controls="studied-frise"]')))) { self.setState({ studied: false }); }
+};
+this._usesKey = function (e) { if (e.key === 'Escape' && (self.state.uses || self.state.studied)) { self.setState({ uses: false, tool: null, studied: false }); } };
 try { document.addEventListener('click', this._usesOut); document.addEventListener('keydown', this._usesKey); } catch (err) {}
 }
 componentWillUnmount() { try { document.removeEventListener('click', this._usesOut); document.removeEventListener('keydown', this._usesKey); } catch (err) {} }
@@ -577,12 +600,13 @@ function fallbackCopy(txt) { try { var t = document.createElement('textarea'); t
 function closeIntroFn() { self.setState({ intro: false, copied: false }, function () { try { document.body.style.overflow = ''; } catch (err) {} }); }
 var HELLO_LINKS = { hello_gmail: 'https://mail.google.com/mail/?view=cm&fs=1&to=' + encodeURIComponent('safaa.elouafi.am@gmail.com') + '&su=' + encodeURIComponent('Hello Safaa'), hello_mail: 'mailto:safaa.elouafi.am@gmail.com?subject=' + encodeURIComponent('Hello Safaa'), hello_linkedin: 'https://www.linkedin.com/in/safaa-el-ouafi/en/' };
 /* STUDIED: the "Studied" line of the intro block. Fill in  school  when you want it shown (left empty = not shown). */
+/* STUDIED: the frise, oldest first. school is optional (left empty = not shown); no years by choice. */
 var STUDIED = [
-{ name: 'Advanced Product Design', school: 'The Design Crew' },
-{ name: 'Data Analysis', school: 'Le Wagon' },
-{ name: 'User Research', school: 'Cousto' },
-{ name: 'Language Didactics', school: 'Université du Maine' },
-{ name: 'Education Sciences', school: 'Université Toulouse-Le Mirail' }
+{ name: 'Education Sciences', school: 'Université Toulouse-Le Mirail', year: '' },
+{ name: 'Language Didactics', school: 'Université du Maine', year: '' },
+{ name: 'User Research', school: 'Cousto', year: '' },
+{ name: 'Data Analysis', school: 'Le Wagon', year: '' },
+{ name: 'Advanced Product Design', school: 'The Design Crew', year: '' }
 ];
 /* USES: the toolbox constellation. Add a tool with its name and an SVG logo saved in assets/tools/. */
 var USES = [
@@ -614,7 +638,7 @@ toggleUses: function (e) {
 var top = self.state.usesTop || 0;
 try { var row = document.querySelector('[aria-controls="uses-sky"]'); var dl = row && row.closest('dl'); if (row && dl) { var rr = row.getBoundingClientRect(), dr = dl.getBoundingClientRect(); top = rr.top - dr.top + rr.height / 2; } } catch (err) {}
 try { if (e && e.stopPropagation) { e.stopPropagation(); } } catch (err) {}
-self.setState({ uses: !self.state.uses, tool: null, usesTop: Math.round(top) });
+self.setState({ uses: !self.state.uses, tool: null, studied: false, usesTop: Math.round(top) });
 },
 usesTop: this.state.usesTop || 0,
 usesSkyCls: 'uses-sky' + (this.state.tool !== null && this.state.tool !== undefined ? ' hold' : ''),
@@ -626,9 +650,15 @@ arm: '--a: ' + p.a + 'deg; --r: ' + p.r + 'px; animation-delay: ' + (60 + i * 40
 tap: function (e) { try { e.stopPropagation(); } catch (err) {} self.setState({ tool: on ? null : i }); } };
 }),
 studiedOpen: studiedOpen, studiedAria: studiedOpen ? 'true' : 'false',
-studied: STUDIED.map(function (t) { return { name: t.name, school: t.school, hasSchool: !!t.school }; }),
+studied: STUDIED.map(function (t, i) { return { name: t.name, school: t.school, hasSchool: !!t.school, year: t.year || '', hasYear: !!t.year, delay: 'animation-delay: ' + (80 + i * 60) + 'ms' }; }),
+studiedTop: this.state.studiedTop || 0,
 studiedChevron: 'flex: none; transition: transform .2s ease; transform: rotate(' + (studiedOpen ? '180' : '0') + 'deg)',
-toggleStudied: function () { self.setState({ studied: !self.state.studied }); },
+toggleStudied: function (e) {
+var top = self.state.studiedTop || 0;
+try { var row = document.querySelector('[aria-controls="studied-frise"]'); var dl = row && row.closest('dl'); if (row && dl) { var rr = row.getBoundingClientRect(), dr = dl.getBoundingClientRect(); top = rr.top - dr.top - 18; } } catch (err) {}
+try { if (e && e.stopPropagation) { e.stopPropagation(); } } catch (err) {}
+self.setState({ studied: !self.state.studied, uses: false, usesTop: self.state.usesTop, studiedTop: Math.round(top) });
+},
 referOpen: !!this.state.refer, introOpen: !!this.state.intro, introText: INTRO,
 refer_gmail: 'https://mail.google.com/mail/?view=cm&fs=1&su=' + encodeURIComponent(REFER_SUBJECT) + '&body=' + encodeURIComponent(INTRO),
 refer_mail: 'mailto:?subject=' + encodeURIComponent(REFER_SUBJECT) + '&body=' + encodeURIComponent(INTRO),
