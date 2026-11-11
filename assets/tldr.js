@@ -49,7 +49,7 @@ var TLDR_EPISODE = {
     '.tldr-sub{margin:6px 0 0;font-family:"Newsreader",Georgia,serif;font-style:italic;font-size:19px;line-height:1.3}',
     '.tldr-micro{margin:2px 0 0;font-size:13px;color:#4A4A57}',
     '.tldr-close{position:absolute;top:10px;right:10px;display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border:none;border-radius:50%;background:none;color:#17171F;cursor:pointer}',
-    '.tldr-row{display:flex;align-items:center;gap:12px;margin-top:16px}',
+    '.tldr-ctrl{display:flex;align-items:center;gap:12px;margin-top:16px}',
     '.tldr-play{flex:none;display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;border:none;border-radius:50%;background:#3B5BB8;color:#FFFFFF;cursor:pointer}',
     '.tldr-play[disabled]{background:#D5D7E0;color:#FFFFFF;cursor:not-allowed}',
     '.tldr-track{flex:1 1 auto;min-width:0;display:flex;flex-direction:column;gap:6px}',
@@ -117,7 +117,7 @@ var TLDR_EPISODE = {
     '<h2 class="tldr-title" id="tldr-title">' + esc(EP.title) + '</h2>' +
     '<p class="tldr-sub">' + esc(EP.subtitle) + '</p>' +
     '<p class="tldr-micro">' + esc(EP.micro) + '</p>' +
-    '<div class="tldr-row">' +
+    '<div class="tldr-ctrl">' +
       '<button type="button" class="tldr-play" aria-label="Play"' + (READY ? '' : ' disabled') + '>' + ICON_PLAY + '</button>' +
       '<div class="tldr-track">' +
         '<input class="tldr-range" type="range" min="0" max="100" step="0.1" value="0" aria-label="Seek"' + (READY ? '' : ' disabled') + '>' +
