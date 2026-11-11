@@ -142,6 +142,9 @@
     "vis": "academy",
     "a": "As instructional designer, I designed the curricula for CSMs, sales and onboarding, and the Algolia Academy with its partner certifications. I worked with product teams like Magento and Crawler on content specific to their products.",
     "meta": "Algolia · Instructional design",
+    "rtype": [
+      "exploratory"
+    ],
     "m": [],
     "pts": [
       "Curricula for CSMs, sales and onboarding",
