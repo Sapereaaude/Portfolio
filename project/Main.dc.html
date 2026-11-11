@@ -16,6 +16,7 @@ a{color:#17171F}a:hover{color:#3B5BB8}
 .card{position:relative;transition:border-color .15s ease,box-shadow .15s ease}
 .card:has(.card-link):hover{border-color:#17171F !important;box-shadow:0 10px 24px rgba(23,23,31,.10)}
 .card-link::after{content:"";position:absolute;inset:0}
+article.card > div[style*="#24305E"] svg [fill="#17171F"],article.card > div[style*="rgb(36, 48, 94)"] svg [fill="#17171F"]{stroke:#FFFFFF;stroke-width:1.5px;paint-order:stroke}
 .card-threads{position:relative;z-index:1}
 .thread-card{transition:transform .2s ease,box-shadow .2s ease,background-color .2s ease,border-color .2s ease}
 .thread-card:hover,.thread-card:focus-visible{transform:translateY(-8px) scale(1.015);background:#EEF1FA !important;border-color:#3B5BB8 !important;box-shadow:0 18px 36px rgba(59,91,184,.22)}
@@ -45,6 +46,29 @@ a{color:#17171F}a:hover{color:#3B5BB8}
 .locked-card{transition:transform .2s ease}
 .locked-card:hover,.locked-card:focus-visible{transform:scale(1.01)}
 .tldr-row .card{border-color:#17171F !important}
+/* home: three screens on desktop (hero / thinking + search / get to know me); home-motion.js moves one screen per wheel step */
+@media (min-width: 1000px) and (min-height: 640px){
+.home-hero{min-height:calc(100svh - var(--nav-h, 0px) - clamp(28px, 5vw, 64px));justify-content:center;box-sizing:border-box;padding-bottom:clamp(24px, 4vh, 48px)}
+.home-mid{min-height:calc(100svh - var(--nav-h, 0px));box-sizing:border-box;justify-content:center;gap:clamp(20px, 4vh, 56px) !important;padding:clamp(14px, 2.4vh, 32px) 0 clamp(10px, 2vh, 32px)}
+.home-mid section{gap:clamp(14px, 2.2vh, 20px) !important}
+.home-mid .thread-card{padding-top:clamp(16px, 2.4vh, 22px) !important;padding-bottom:clamp(14px, 2.2vh, 20px) !important}
+.home-sentence{font-size:clamp(26px, min(4.4vw, 5.6vh), 60px) !important}
+.home-mid h2{font-size:clamp(24px, min(3.2vw, 4.4vh), 40px) !important}
+.home-mid .thread-card > span:first-child > span:first-child{font-size:clamp(40px, 6.2vh, 56px) !important}
+}
+/* threads: 01, 02, 03 light up one after the other when the screen arrives (never while the loop above is on screen) */
+@keyframes thread-on{0%,100%{transform:none;background:#FFFFFF;border-color:#D5D7E0;box-shadow:0 0 0 rgba(59,91,184,0)}22%,70%{transform:translateY(-8px) scale(1.015);background:#EEF1FA;border-color:#3B5BB8;box-shadow:0 18px 36px rgba(59,91,184,.22)}}
+html.threads-run .home-threads .thread-card{animation:thread-on 1.9s ease-in-out 1 both}
+html.threads-run .home-threads .thread-card:nth-of-type(2){animation-delay:1.6s}
+html.threads-run .home-threads .thread-card:nth-of-type(3){animation-delay:3.2s}
+html.threads-run .home-threads:hover .thread-card{animation:none}
+html.mid-on .loop{animation:none}
+/* search: the first time, each blank of the sentence pulses once */
+@keyframes pick-pulse{0%,100%{transform:none;background-color:rgba(238,241,250,0);box-shadow:0 0 0 0 rgba(238,241,250,0)}40%{transform:scale(1.05);background-color:#EEF1FA;box-shadow:0 0 0 10px #EEF1FA}}
+html.search-intro .home-sentence .pick{transform-origin:left center;border-radius:6px !important;animation:pick-pulse 1s ease-in-out 1 both}
+html.search-intro .home-sentence [data-pick="job"] .pick{animation-delay:.9s}
+html.search-intro .home-sentence [data-pick="outcome"] .pick{animation-delay:1.8s}
+@media (prefers-reduced-motion: reduce){html.threads-run .home-threads .thread-card,html.search-intro .home-sentence .pick{animation:none}}
 .search-sticky{position:sticky;top:var(--nav-h, 0px);z-index:10;margin:0 calc(-1 * clamp(20px, 4vw, 56px));padding:12px clamp(20px, 4vw, 56px) 8px;background:rgba(255,255,255,.94);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid #E3E3EA}
 .search-sentence{margin-top:0 !important;font-size:clamp(22px, 2.6vw, 36px) !important;line-height:1.25 !important}
 .search-meta{flex-wrap:nowrap !important}
@@ -92,7 +116,7 @@ a{color:#17171F}a:hover{color:#3B5BB8}
 <sc-if value="{{isHome}}" hint-placeholder-val="{{ true }}">
 <div style="display: flex; flex-direction: column; gap: clamp(56px, 8vw, 104px); padding: clamp(28px, 5vw, 64px) 0 0">
 
-<header style="display: flex; flex-direction: column; gap: 22px">
+<header class="home-hero" style="display: flex; flex-direction: column; gap: 22px">
 <p style="margin: 0; font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #4A4A57">User Experience Researcher · Paris</p>
 <h1 style="margin: 0; font-family: 'Anton', Impact, sans-serif; font-weight: 400; font-size: clamp(46px, 9vw, 128px); line-height: 1; text-transform: uppercase"><span style="display: block">Different jobs.</span><span style="display: block; color: {{accent}}">Same obsession<span style="color: #D13A28">.</span></span></h1>
 <p style="margin: 0; max-width: 900px; font-family: 'Newsreader', Georgia, serif; font-style: italic; font-size: clamp(24px, 3vw, 38px); line-height: 1.2; text-wrap: balance">I build systems that help people learn, decide, and improve.</p>
@@ -106,11 +130,12 @@ a{color:#17171F}a:hover{color:#3B5BB8}
 </ol>
 </header>
 
+<div class="home-mid" style="display: flex; flex-direction: column; gap: clamp(56px, 8vw, 104px)">
 <section aria-labelledby="h-thinking" style="display: flex; flex-direction: column; gap: 20px">
 <div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 24px">
 <h2 id="h-thinking" style="margin: 0; scroll-margin-top: calc(var(--nav-h, 0px) + 24px); font-family: 'Anton', Impact, sans-serif; font-weight: 400; font-size: clamp(26px, 3.2vw, 40px); line-height: 1.05; text-transform: uppercase; text-wrap: balance">Explore my thinking</h2>
 </div>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 16px">
+<div class="home-threads" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 16px">
 <sc-for list="{{themeCards}}" as="t" hint-placeholder-count="3">
 <button type="button" class="thread-card" onClick="{{t.go}}" style="{{t.style}}">
 <span style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px"><span style="font-family: 'Anton', Impact, sans-serif; font-size: 56px; line-height: 1; color: {{accent}}">{{t.n}}</span><span style="font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #4A4A57; white-space: nowrap">{{t.count}}</span></span>
@@ -126,7 +151,7 @@ a{color:#17171F}a:hover{color:#3B5BB8}
 <div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 24px">
 <h2 id="h-search" style="margin: 0; font-family: 'Anton', Impact, sans-serif; font-weight: 400; font-size: clamp(26px, 3.2vw, 40px); line-height: 1.05; text-transform: uppercase; text-wrap: balance">Or search my work</h2>
 </div>
-<div style="font-family: 'Anton', Impact, sans-serif; font-size: clamp(26px, 4.4vw, 60px); line-height: 1.24; text-transform: uppercase; display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 0.28em; max-width: 1180px">
+<div class="home-sentence" style="font-family: 'Anton', Impact, sans-serif; font-size: clamp(26px, 4.4vw, 60px); line-height: 1.24; text-transform: uppercase; display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 0.28em; max-width: 1180px">
 <span style="white-space: nowrap">I am a</span>
 <span data-pick="persona" onKeyDown="{{pickKey}}" style="position: relative; display: inline-flex; align-items: center; max-width: 100%">
 <button type="button" class="pick" aria-haspopup="listbox" aria-expanded="{{pkPersona.open}}" aria-label="{{pkPersona.aria}}" onClick="{{pkPersona.toggle}}" style="font: inherit; text-transform: inherit; text-align: left; color: {{accent}}; background: transparent; border: none; border-radius: 0; padding: 0; text-decoration: underline; text-decoration-color: {{accent}}; text-decoration-thickness: 3px; text-underline-offset: 0.12em; text-decoration-skip-ink: none; margin: 0; cursor: pointer; line-height: inherit; max-width: 100%">{{pkPersona.head}}<span style="white-space: nowrap">{{pkPersona.last}}<svg aria-hidden="true" width="0.4em" height="0.4em" viewBox="0 0 10 10" style="display: inline-block; margin-left: 0.14em; vertical-align: 0.1em; pointer-events: none"><path d="M1 3 L5 7 L9 3" fill="none" stroke="{{accent}}" stroke-width="1.8"></path></svg></span></button>
@@ -159,6 +184,7 @@ a{color:#17171F}a:hover{color:#3B5BB8}
 <button type="button" onClick="{{go}}" style="min-height: 56px; padding: 0 28px; border: none; border-radius: 999px; background: {{accent}}; color: #FFFFFF; font-family: 'Figtree', sans-serif; font-size: 17px; font-weight: 700; cursor: pointer; display: inline-flex; align-items: center; gap: 10px; white-space: nowrap">Show me <svg aria-hidden="true" width="18" height="18" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11h15M12 5l6 6-6 6"></path></svg></button>
 </div>
 </section>
+</div>
 </div>
 </sc-if>
 
@@ -862,8 +888,7 @@ a{color:#17171F}a:hover{color:#3B5BB8}
 <p style="margin: 0; font-family: 'Anton', Impact, sans-serif; font-size: clamp(28px, 3vw, 40px); line-height: 1.05; text-transform: uppercase">Curious, huh<span style="color: #D13A28">?</span></p>
 <p style="margin: 0; font-family: 'Newsreader', Georgia, serif; font-style: italic; font-size: 20px; line-height: 1.3">You clicked anyway. Let’s&nbsp;talk.</p>
 <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 4px">
-<button type="button" onClick="{{toggleHello}}" aria-expanded="{{helloOpen}}" style="display: inline-flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 22px; border-radius: 999px; font-family: 'Figtree', sans-serif; font-size: 15px; font-weight: 700; text-decoration: none; white-space: nowrap; cursor: pointer; background: #FFFFFF; color: #17171F; border: none">Say hello <svg aria-hidden="true" width="18" height="18" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11h14M12 5l6 6-6 6"></path></svg></button>
-<a href="https://www.linkedin.com/in/safaa-el-ouafi/en/" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 22px; border-radius: 999px; font-family: 'Figtree', sans-serif; font-size: 15px; font-weight: 700; text-decoration: none; white-space: nowrap; cursor: pointer; border: 1px solid #FFFFFF; color: #FFFFFF">LinkedIn</a>
+<button type="button" onClick="{{toggleHello}}" aria-expanded="{{helloOpen}}" style="display: inline-flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 22px; border-radius: 999px; font-family: 'Figtree', sans-serif; font-size: 15px; font-weight: 700; text-decoration: none; white-space: nowrap; cursor: pointer; background: #FFFFFF; color: #17171F; border: none">Say hello<span aria-hidden="true">👋</span></button>
 </div>
 <sc-if value="{{helloOpen}}" hint-placeholder-val="{{ false }}">
 <div class="constellation" role="group" aria-label="Pick an app" style="position: relative; width: 310px; max-width: 100%; height: 118px; margin-top: 6px">
@@ -941,7 +966,7 @@ a{color:#17171F}a:hover{color:#3B5BB8}
 
 
 <sc-if value="{{isHome}}" hint-placeholder-val="{{ true }}">
-<div style="display: flex; flex-direction: column; padding: clamp(56px, 8vw, 104px) 0 clamp(40px, 6vw, 72px)">
+<div class="home-know" style="display: flex; flex-direction: column; padding: clamp(56px, 8vw, 104px) 0 clamp(40px, 6vw, 72px)">
 <section aria-labelledby="h-outside" style="display: flex; flex-direction: column; gap: 20px">
 <h2 id="h-outside" style="margin: 0; font-family: 'Anton', Impact, sans-serif; font-weight: 400; font-size: clamp(26px, 3.2vw, 40px); line-height: 1.05; text-transform: uppercase; text-wrap: balance">Or get to know me</h2>
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 16px">
@@ -1296,7 +1321,7 @@ hasCase: hasCase, noCase: !hasCase, hasAudio: it.id === 'podcast', audio: '/audi
 title: it.title, meta: it.meta, q: it.q, a: it.a, v: v, pts: it.pts || [],
 threads: threads, hasThreads: threads.length > 0, rtags: rtagsOf(it), hasRtags: (it.rtype || []).length > 0, hasTagRow: threads.length > 0 || (it.rtype || []).length > 0,
 connects: 'Connects to ' + it.links.join(' · '), hasConnects: it.links.length > 0,
-bannerStyle: 'display: flex; align-items: center; gap: 18px; padding: 16px 22px 16px 14px; flex-direction: ' + (i % 2 === 0 ? 'row' : 'row-reverse') + '; background: ' + (solid ? accent : toneBg[tone]) + ';',
+bannerStyle: 'display: flex; align-items: center; gap: 18px; padding: 16px 22px 16px 14px; flex-direction: ' + (i % 2 === 0 ? 'row' : 'row-reverse') + '; background: ' + (solid ? '#24305E' : toneBg[tone]) + ';',
 metaStyle: 'font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: ' + (solid ? '#FFFFFF' : '#4A4A57') + ';',
 titleStyle: 'margin: 0; font-family: Anton, Impact, sans-serif; font-weight: 400; font-size: 26px; line-height: 1.04; text-transform: uppercase; text-wrap: balance; color: ' + (solid ? '#FFFFFF' : '#17171F') + ';',
 qStyle: 'margin: 0; font-family: Newsreader, Georgia, serif; font-style: italic; font-size: 17px; line-height: 1.3; text-wrap: pretty; color: ' + (solid ? '#FFFFFF' : '#17171F') + ';'
