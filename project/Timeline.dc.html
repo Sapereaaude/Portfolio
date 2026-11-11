@@ -195,7 +195,7 @@ class Component extends DCLogic {
 constructor(props) {
 super(props);
 /* Guided tour: on the first visit of the session, open each stop's constellation in turn, from the first job to Decathlon.
-   Any click, key, scroll or touch stops it and leaves the visitor in control. Skipped with reduced motion. */
+   It plays through once; only picking a stop, a marker or a star yourself stops it early. Scrolling never does. Skipped with reduced motion. */
 this._tourIds = ['teach', 'amman', 'rbk', 'asia', 'algolia', 'alan', 'decathlon'];
 this._doTour = false;
 try { this._doTour = !window.sessionStorage.getItem('se-timeline-tour') && !(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches); } catch (err) {}
@@ -210,13 +210,11 @@ componentWillUnmount() { clearTimeout(this._t); this.stopTour(); }
 startTour() {
 var self = this, i = 0;
 try { window.sessionStorage.setItem('se-timeline-tour', '1'); } catch (err) {}
-this._stop = function () { self.stopTour(); };
-['pointerdown', 'keydown', 'wheel', 'touchstart'].forEach(function (ev) { try { window.addEventListener(ev, self._stop, { passive: true }); } catch (err) {} });
 var dwell = function (id) { var n = (self.findCompany(id) || { projects: [] }).projects.length; return Math.min(1400 + n * 200, 2400); };
 var next = function () {
 i += 1;
 if (i >= self._tourIds.length) { self.stopTour(); return; }
-self.choose(self._tourIds[i]);
+self.choose(self._tourIds[i], null, true);
 self._tour = setTimeout(next, dwell(self._tourIds[i]));
 };
 this._tour = setTimeout(next, dwell(this._tourIds[0]) + 400);
@@ -224,11 +222,11 @@ this._tour = setTimeout(next, dwell(this._tourIds[0]) + 400);
 stopTour() {
 var self = this;
 clearTimeout(this._tour);
-if (this._stop) { ['pointerdown', 'keydown', 'wheel', 'touchstart'].forEach(function (ev) { try { window.removeEventListener(ev, self._stop); } catch (err) {} }); this._stop = null; }
 }
 findCompany(id) { return (this._companies || []).find(function (c) { return c.id === id; }); }
-choose(id, proj) {
+choose(id, proj, fromTour) {
 var self = this;
+if (!fromTour) { this.stopTour(); }
 clearTimeout(this._t);
 this.setState({ company: id, project: proj || null, entered: false });
 this._t = setTimeout(function () { self.setState({ entered: true }); }, 60);
@@ -272,7 +270,7 @@ var delay = (0.15 + i * 0.08).toFixed(2);
 var len = R, deg = ang * 180 / Math.PI;
 return {
 t: p.t, on: on,
-pick: function () { self.setState({ project: on ? null : p.id }); },
+pick: function () { self.stopTour(); self.setState({ project: on ? null : p.id }); },
 style: 'position: absolute; left: ' + (e ? x : 50) + '%; top: ' + (e ? y : 50) + '%; transform: translate(-50%, -50%) scale(' + (e ? 1 : 0.3) + '); opacity: ' + (e ? 1 : 0) + '; transition: left 0.8s cubic-bezier(.2,.8,.2,1) ' + delay + 's, top 0.8s cubic-bezier(.2,.8,.2,1) ' + delay + 's, transform 0.8s cubic-bezier(.2,.8,.2,1) ' + delay + 's, opacity 0.5s ease ' + delay + 's, background 0.2s; z-index: 3; max-width: clamp(86px, 22%, 136px); min-height: 44px; box-sizing: border-box; padding: 7px 11px; border-radius: 999px; cursor: pointer; font-family: Figtree, sans-serif; font-size: clamp(11px, 1.1vw, 12.5px); font-weight: 700; line-height: 1.2; text-align: center; border: 1px solid ' + (on ? accent : '#D5D7E0') + '; background: ' + (on ? accent : '#FFFFFF') + '; color: ' + (on ? '#FFFFFF' : '#17171F') + '; box-shadow: 0 6px 18px rgba(23,23,31,0.08);',
 line: 'position: absolute; left: 50%; top: 50%; height: 1px; width: ' + (e ? len : 0) + '%; background: ' + (on ? accent : '#C9CCD8') + '; transform-origin: 0 50%; transform: rotate(' + deg + 'deg); transition: width 0.8s cubic-bezier(.2,.8,.2,1) ' + delay + 's; z-index: 1;'
 };
