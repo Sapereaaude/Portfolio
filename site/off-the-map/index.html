@@ -24,20 +24,25 @@ h1 span{color:#D13A28}
 @media (max-width:760px){.map{margin-left:calc(-1 * clamp(20px,4vw,56px));margin-right:calc(-1 * clamp(20px,4vw,56px));overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}.map::-webkit-scrollbar{display:none}.wrap .map > svg{width:900px;max-width:none}}
 .hint{display:none;margin:6px 0 0;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#4A4A57}
 @media (max-width:760px){.hint{display:block}}
-.map svg{display:block;width:100%;height:auto;overflow:visible}
+.map svg{cursor:grab;touch-action:pan-x pan-y}.map svg.grabbing{cursor:grabbing}
+.zoom{position:absolute;right:0;top:0;display:flex;gap:6px;z-index:2}
+.zoom button{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;padding:0;border:1px solid #D5D7E0;border-radius:50%;background:#FFFFFF;color:#17171F;font:700 16px/1 Figtree,sans-serif;cursor:pointer;transition:border-color .15s ease}
+.zoom button:hover{border-color:#17171F}.zoom button[disabled]{opacity:.4;cursor:default}
+@media (max-width:760px){.zoom,.legend .pinch{display:none}}
+.legend{display:flex;flex-wrap:wrap;align-items:center;gap:10px 24px;margin:18px 0 0;padding:0;list-style:none;font-size:13px;font-weight:600;color:#4A4A57}
+.legend li{display:inline-flex;align-items:center;gap:8px;white-space:nowrap}
+.legend i{display:inline-block;width:11px;height:11px;border-radius:50%}
+.legend .been{background:#D13A28;border:2px solid #FFFFFF;box-shadow:0 0 0 1px #D13A28}
+.legend .wish{background:#FFFFFF;border:2px solid #D13A28}
+.legend .land{width:14px;height:8px;border-radius:50%;background:#3B5BB8}.legend .wishland{background:#F2C7C0}
+.map svg{display:block;width:100%;height:auto;overflow:hidden;border-radius:18px}
 .dot{transition:fill .25s ease}
-.pin{cursor:pointer;outline:none}
+.pin{pointer-events:none}
+.pin.wish .head{fill:#FFFFFF;stroke:#D13A28;stroke-width:2}
+.pin.wish .stem{stroke-dasharray:2 3}
 .pin .stem{stroke:#17171F;stroke-width:1.4}
-.pin .head{fill:#D13A28;stroke:#FFFFFF;stroke-width:2;transition:transform .2s ease}
+.pin .head{fill:#D13A28;stroke:#FFFFFF;stroke-width:2}
 .pin .base{fill:rgba(23,23,31,.18)}
-.pin:hover .head,.pin:focus-visible .head,.pin.on .head{transform:scale(1.35)}
-.pin text{font-family:Figtree,sans-serif;font-weight:700;font-size:13px;fill:#17171F;opacity:0;transition:opacity .15s ease;pointer-events:none;paint-order:stroke;stroke:#FFFFFF;stroke-width:5px;stroke-linejoin:round}
-.pin:hover text,.pin:focus-visible text,.pin.on text{opacity:1}
-.list{display:flex;flex-wrap:wrap;gap:8px;margin:clamp(16px,3vw,28px) 0 0;padding:0;list-style:none}
-.list button{min-height:36px;padding:0 14px;border:1px solid #D5D7E0;border-radius:999px;background:#FFFFFF;color:#17171F;font:600 13px/1 Figtree,sans-serif;white-space:nowrap;cursor:pointer;transition:border-color .15s ease,background-color .15s ease,color .15s ease}
-.list button:hover,.list button[aria-pressed="true"]{border-color:#3B5BB8;background:#EEF1FA}
-.list .region{background:#3B5BB8;border-color:#3B5BB8;color:#FFFFFF}
-.list .region:hover,.list .region[aria-pressed="true"]{background:#17171F;border-color:#17171F;color:#FFFFFF}
 .note{margin:18px 0 0;font-size:13px;color:#4A4A57}
 @keyframes rise{from{opacity:0}to{opacity:1}}
 @keyframes drop{from{opacity:0;transform:translateY(-18px)}to{opacity:1;transform:none}}
@@ -51,10 +56,10 @@ h1 span{color:#D13A28}
 <nav class="top"><a href="/about">← About me</a><span>You found the paper plane</span></nav>
 <p class="eyebrow">Unexpected user behaviour · 03</p>
 <h1>Off the map<span>.</span></h1>
-<p class="sub">Every place I’ve set foot in, so far. Tap a pin, or a name below.</p>
-<div class="map" id="map" role="img" aria-label="An isometric dot map of the world. The countries I have been to are blue, with a red pin on each place."></div>
+<p class="sub">Where I’ve been, and where I’d like to go next.</p>
+<div class="map" id="map" role="img" aria-label="An isometric dot map of the world. The countries I have been to are blue, with a red pin on each place I have been. Pale red countries and open pins mark my bucket list: overland from Paris to Kashgar, Svaneti in Georgia, Rome, Naples, Athens, Mexico, Argentina, eastern Canada, Iceland, Nepal, New Zealand, Benin, Algeria, Senegal, Côte d’Ivoire, Iran, Cuba, Japan, Cambodia and Laos."></div>
 <p class="hint" aria-hidden="true">← Swipe the map →</p>
-<ul class="list" id="list" aria-label="Places"></ul>
+<ul class="legend"><li><i class="land"></i>Countries I’ve been to</li><li><i class="land wishland"></i>Countries on my list</li><li><i class="been"></i>Been there</li><li><i class="wish"></i>Bucket list</li><li class="pinch">Pinch or ⌘ + scroll to zoom, drag to move</li></ul>
 <p class="note">So far. The plane is still flying.</p>
 </div>
 <script src="/off-the-map/dots.js"></script>
@@ -62,24 +67,44 @@ h1 span{color:#D13A28}
 (function () {
   'use strict';
   /* ── the places: edit here ── */
-  var COUNTRIES = ['France', 'Jordan', 'Palestine', 'Lebanon', 'Qatar', 'Singapore', 'Malaysia', 'Vietnam', 'Thailand', 'China', 'Indonesia', 'Morocco', 'Tunisia'];
+  var COUNTRIES = ['France', 'Jordan', 'Palestine', 'Lebanon', 'Qatar', 'Saudi Arabia', 'Turkey', 'Singapore', 'Malaysia', 'Vietnam', 'Thailand', 'China', 'Indonesia', 'Morocco', 'Tunisia'];
   var EUROPE = ['Spain', 'Portugal', 'Italy', 'Germany', 'Belgium', 'Netherlands', 'Luxembourg', 'Switzerland', 'Austria', 'United Kingdom', 'Ireland',
-    'Denmark', 'Sweden', 'Norway', 'Finland', 'Iceland', 'Poland', 'Czechia', 'Slovakia', 'Hungary', 'Slovenia', 'Croatia', 'Bosnia and Herz.',
+    'Denmark', 'Sweden', 'Norway', 'Finland', 'Poland', 'Czechia', 'Slovakia', 'Hungary', 'Slovenia', 'Croatia', 'Bosnia and Herz.',
     'Serbia', 'Montenegro', 'Albania', 'Macedonia', 'North Macedonia', 'Greece', 'Bulgaria', 'Romania', 'Estonia', 'Latvia', 'Lithuania', 'Malta', 'Cyprus'];
-  var PINS = [  // label, lon, lat
-    ['France', 2.35, 48.86], ['Europe, almost everywhere', 13.4, 50.5],
-    ['Morocco', -6.84, 33.97], ['Tunisia', 10.86, 33.8],
-    ['Jordan', 35.93, 31.95], ['Palestine', 35.2, 31.9], ['Lebanon', 35.5, 33.89], ['Qatar', 51.53, 25.29],
-    ['China', 104.07, 30.67], ['Vietnam', 105.85, 21.03], ['Thailand', 100.5, 13.75],
-    ['Malaysia', 101.69, 3.14], ['Singapore', 103.82, 1.35], ['Indonesia', 106.85, -6.2],
-    ['San Francisco', -122.42, 37.77], ['Miami', -80.19, 25.76]
+  var BEEN = [  // lon, lat: one pin per place
+    [2.35, 48.86], [13.4, 50.5], [-6.84, 33.97], [10.86, 33.8], [35.93, 31.95], [35.2, 31.9], [35.5, 33.89], [51.53, 25.29],
+    [46.72, 24.69], [28.98, 41.01], [104.07, 30.67], [105.85, 21.03], [100.5, 13.75], [101.69, 3.14], [103.82, 1.35], [106.85, -6.2],
+    [-122.42, 37.77], [-80.19, 25.76]
+  ];
+  var WISH_COUNTRIES = ['Mexico', 'Argentina', 'Iceland', 'Nepal', 'New Zealand', 'Benin', 'Algeria', 'Senegal', "Côte d'Ivoire", 'Iran', 'Cuba', 'Japan', 'Cambodia', 'Laos', 'Georgia'];
+  var WISH = [  // bucket list pins
+    [75.99, 39.47],  // Kashgar, overland from Paris
+    [42.54, 43.05],  // Svaneti, Georgia
+    [12.5, 41.9], [14.27, 40.85], [23.73, 37.98],  // Rome, Naples, Athens
+    [-99.13, 19.43],  // Mexico
+    [-58.38, -34.6],  // Argentina
+    [-71.21, 46.81],  // Eastern Canada (Québec)
+    [-21.94, 64.15],  // Iceland
+    [85.32, 27.72],  // Nepal
+    [174.78, -41.29],  // New Zealand
+    [2.42, 6.37],  // Benin
+    [3.06, 36.75],  // Algeria
+    [-17.47, 14.72],  // Senegal
+    [-4.01, 5.36],  // Côte d'Ivoire
+    [51.39, 35.69],  // Iran
+    [-82.37, 23.11],  // Cuba
+    [139.69, 35.69],  // Japan
+    [104.92, 11.56],  // Cambodia
+    [102.13, 19.89]  // Laos
   ];
 
-  var G = window.PLACES_GRID, ACCENT = '#3B5BB8', LAND = '#D5D7E0';
+  var G = window.PLACES_GRID, ACCENT = '#3B5BB8', LAND = '#D5D7E0', WISHLAND = '#F2C7C0';
   var reduce = false;
   try { reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
   var visited = {};
   COUNTRIES.concat(EUROPE).forEach(function (n) { visited[n] = true; });
+  var wished = {};
+  WISH_COUNTRIES.forEach(function (n) { wished[n] = true; });
 
   /* plane → screen: a gentle isometric tilt (rotate, then squash) */
   var CELL = 10, ROT = -16 * Math.PI / 180, SQ = 0.56, cos = Math.cos(ROT), sin = Math.sin(ROT);
@@ -89,7 +114,8 @@ h1 span{color:#D13A28}
   var pts = [];
   for (var i = 0; i < G.dots.length; i += 3) {
     var p = proj((G.dots[i] + 0.5) * CELL, (G.dots[i + 1] + 0.5) * CELL);
-    pts.push({ x: p[0], y: p[1], on: !!visited[G.names[G.dots[i + 2]]], col: G.dots[i] });
+    var nm = G.names[G.dots[i + 2]];
+    pts.push({ x: p[0], y: p[1], on: !!visited[nm], wish: !visited[nm] && !!wished[nm], col: G.dots[i] });
   }
   var minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity;
   pts.forEach(function (q) { minX = Math.min(minX, q.x); maxX = Math.max(maxX, q.x); minY = Math.min(minY, q.y); maxY = Math.max(maxY, q.y); });
@@ -105,54 +131,96 @@ h1 span{color:#D13A28}
   var dots = '';
   pts.forEach(function (q) {
     var delay = reduce ? 0 : (q.col / 180 * 0.9).toFixed(2);
-    dots += '<ellipse class="dot" cx="' + sx(q.x) + '" cy="' + sy(q.y) + '" rx="3.3" ry="1.95" fill="' + (q.on ? ACCENT : LAND) + '" style="animation-delay:' + delay + 's"></ellipse>';
+    dots += '<ellipse class="dot" cx="' + sx(q.x) + '" cy="' + sy(q.y) + '" rx="3.3" ry="1.95" fill="' + (q.on ? ACCENT : (q.wish ? WISHLAND : LAND)) + '" style="animation-delay:' + delay + 's"></ellipse>';
   });
   svg.innerHTML = '<g>' + dots + '</g>';
 
-  var pins = PINS.map(function (p, k) {
-    var s = fromLonLat(p[1], p[2]);
-    return { label: p[0], x: +sx(s[0]), y: +sy(s[1]), k: k };
-  }).sort(function (a, b) { return a.y - b.y; });
-  var STEM = 26;
+  var pins = BEEN.map(function (p) { return { lon: p[0], lat: p[1], wish: false }; })
+    .concat(WISH.map(function (p) { return { lon: p[0], lat: p[1], wish: true }; }))
+    .map(function (p) { var q = fromLonLat(p.lon, p.lat); p.x = +sx(q[0]); p.y = +sy(q[1]); return p; })
+    .sort(function (a, b) { return a.y - b.y; });
+  var STEM = 26, pinLayer = document.createElementNS(NS, 'g');
   pins.forEach(function (p, n) {
     var g = document.createElementNS(NS, 'g');
-    g.setAttribute('class', 'pin'); g.setAttribute('tabindex', '0'); g.setAttribute('role', 'button');
-    g.setAttribute('aria-label', p.label);
-    g.style.animationDelay = reduce ? '0s' : (1 + n * 0.06).toFixed(2) + 's';
-    var anchor = p.x > W * 0.78 ? 'end' : (p.x < W * 0.12 ? 'start' : 'middle');
-    g.innerHTML = '<ellipse class="base" cx="' + p.x + '" cy="' + p.y + '" rx="4" ry="2.2"></ellipse>' +
-      '<line class="stem" x1="' + p.x + '" y1="' + p.y + '" x2="' + p.x + '" y2="' + (p.y - STEM) + '"></line>' +
-      '<circle class="head" cx="' + p.x + '" cy="' + (p.y - STEM) + '" r="5.5" style="transform-origin:' + p.x + 'px ' + (p.y - STEM) + 'px"></circle>' +
-      '<text x="' + p.x + '" y="' + (p.y - STEM - 12) + '" text-anchor="' + anchor + '">' + p.label + '</text>';
-    p.el = g;
-    svg.appendChild(g);
+    g.setAttribute('class', 'pin' + (p.wish ? ' wish' : ''));
+    g.style.animationDelay = reduce ? '0s' : (1 + n * 0.05).toFixed(2) + 's';
+    var inner = document.createElementNS(NS, 'g');
+    inner.innerHTML = '<ellipse class="base" cx="0" cy="0" rx="4" ry="2.2"></ellipse><line class="stem" x1="0" y1="0" x2="0" y2="' + (-STEM) + '"></line><circle class="head" cx="0" cy="' + (-STEM) + '" r="5.5"></circle>';
+    g.appendChild(inner); p.inner = inner;
+    pinLayer.appendChild(g);
   });
+  svg.appendChild(pinLayer);
   var box = document.getElementById('map');
+  svg.removeAttribute('aria-hidden'); svg.setAttribute('role', 'img'); svg.setAttribute('aria-label', box.getAttribute('aria-label'));
+  box.removeAttribute('role'); box.removeAttribute('aria-label');
   box.appendChild(svg);
-  function centreOn(x) { if (box.scrollWidth > box.clientWidth) { box.scrollTo({ left: x / W * box.scrollWidth - box.clientWidth / 2, behavior: reduce ? 'auto' : 'smooth' }); } }
   requestAnimationFrame(function () { var f = fromLonLat(60, 35); if (box.scrollWidth > box.clientWidth) { box.scrollLeft = (+sx(f[0])) / W * box.scrollWidth - box.clientWidth / 2; } });
 
-  /* the list: tap a name to light its pin (handy on a phone, where there is no hover) */
-  var list = document.getElementById('list'), current = null;
-  function select(p, btn) {
-    pins.forEach(function (q) { q.el.classList.toggle('on', q === p && current !== p); });
-    Array.prototype.forEach.call(list.querySelectorAll('button'), function (b) { b.setAttribute('aria-pressed', String(b === btn && current !== p)); });
-    current = current === p ? null : p;
-    if (current) { pins.forEach(function (q) { q.el.style.animation = 'none'; }); svg.appendChild(p.el); centreOn(p.x); }  // keep the lit pin on top of its neighbours, and in view on a phone
+  /* ── zoom: trackpad pinch (or ⌘/Ctrl + scroll) zooms where the pointer is; drag to move; double-click zooms in ── */
+  var MAXZ = 6, vb = { x: 0, y: 0, w: W, h: H };
+  var zoomUI = document.createElement('div'); zoomUI.className = 'zoom';
+  zoomUI.innerHTML = '<button type="button" data-z="in" aria-label="Zoom in">+</button><button type="button" data-z="out" aria-label="Zoom out">−</button><button type="button" data-z="reset" aria-label="Show the whole map">⟲</button>';
+  box.appendChild(zoomUI);
+  function clamp() {
+    vb.w = Math.min(W, Math.max(W / MAXZ, vb.w)); vb.h = vb.w * H / W;
+    vb.x = Math.min(W - vb.w, Math.max(0, vb.x)); vb.y = Math.min(H - vb.h, Math.max(0, vb.y));
   }
-  PINS.forEach(function (row, k) {
-    var p = pins.filter(function (q) { return q.k === k; })[0];
-    var li = document.createElement('li'), b = document.createElement('button');
-    b.type = 'button'; b.textContent = row[0]; b.setAttribute('aria-pressed', 'false');
-    if (/Europe/.test(row[0])) { b.className = 'region'; }
-    b.addEventListener('click', function () { select(p, b); });
-    p.btn = b;
-    li.appendChild(b); list.appendChild(li);
+  function apply() {
+    clamp();
+    svg.setAttribute('viewBox', vb.x.toFixed(1) + ' ' + vb.y.toFixed(1) + ' ' + vb.w.toFixed(1) + ' ' + vb.h.toFixed(1));
+    var z = W / vb.w, k = Math.pow(z, -0.75);  // pins grow a little, not as much as the land
+    pins.forEach(function (p) { p.inner.setAttribute('transform', 'translate(' + p.x + ' ' + p.y + ') scale(' + k.toFixed(3) + ')'); });
+    zoomUI.querySelector('[data-z="out"]').disabled = z <= 1.001;
+    zoomUI.querySelector('[data-z="reset"]').disabled = z <= 1.001;
+    zoomUI.querySelector('[data-z="in"]').disabled = z >= MAXZ - 0.001;
+  }
+  function svgPoint(cx, cy) {
+    var r = svg.getBoundingClientRect();
+    return { x: vb.x + (cx - r.left) / r.width * vb.w, y: vb.y + (cy - r.top) / r.height * vb.h, fx: (cx - r.left) / r.width, fy: (cy - r.top) / r.height };
+  }
+  function zoomAt(factor, cx, cy) {
+    var r = svg.getBoundingClientRect();
+    if (cx === undefined) { cx = r.left + r.width / 2; cy = r.top + r.height / 2; }
+    var pt = svgPoint(cx, cy);
+    vb.w = vb.w / factor; clamp();
+    vb.x = pt.x - pt.fx * vb.w; vb.y = pt.y - pt.fy * vb.h;
+    apply();
+  }
+  var animTimer = null;
+  function zoomSmooth(factor, cx, cy) {
+    if (reduce) { zoomAt(factor, cx, cy); return; }
+    var steps = 10, f = Math.pow(factor, 1 / steps), n = 0;
+    clearInterval(animTimer);
+    animTimer = setInterval(function () { zoomAt(f, cx, cy); if (++n >= steps) { clearInterval(animTimer); } }, 16);
+  }
+  svg.addEventListener('wheel', function (e) {
+    if (!(e.ctrlKey || e.metaKey)) { return; }  // a plain scroll keeps scrolling the page
+    e.preventDefault();
+    zoomAt(Math.exp(-e.deltaY * (e.ctrlKey && !e.metaKey ? 0.012 : 0.004)), e.clientX, e.clientY);
+  }, { passive: false });
+  var gScale = 1;  // Safari's trackpad pinch
+  svg.addEventListener('gesturestart', function (e) { e.preventDefault(); gScale = 1; });
+  svg.addEventListener('gesturechange', function (e) { e.preventDefault(); zoomAt(e.scale / gScale, e.clientX, e.clientY); gScale = e.scale; });
+  svg.addEventListener('dblclick', function (e) { e.preventDefault(); zoomSmooth(2, e.clientX, e.clientY); });
+  var drag = null;
+  svg.addEventListener('pointerdown', function (e) {
+    if (e.pointerType !== 'mouse' || W / vb.w <= 1.001) { return; }
+    drag = { x: e.clientX, y: e.clientY, vx: vb.x, vy: vb.y };
+    svg.setPointerCapture(e.pointerId); svg.classList.add('grabbing');
   });
-  pins.forEach(function (p) {
-    p.el.addEventListener('click', function () { select(p, p.btn); });
-    p.el.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); select(p, p.btn); } });
+  svg.addEventListener('pointermove', function (e) {
+    if (!drag) { return; }
+    var r = svg.getBoundingClientRect();
+    vb.x = drag.vx - (e.clientX - drag.x) / r.width * vb.w; vb.y = drag.vy - (e.clientY - drag.y) / r.height * vb.h; apply();
   });
+  function endDrag() { drag = null; svg.classList.remove('grabbing'); }
+  svg.addEventListener('pointerup', endDrag); svg.addEventListener('pointercancel', endDrag);
+  zoomUI.addEventListener('click', function (e) {
+    var b = e.target.closest('button'); if (!b) { return; }
+    var z = b.getAttribute('data-z');
+    if (z === 'in') { zoomSmooth(2); } else if (z === 'out') { zoomSmooth(0.5); } else { zoomSmooth(vb.w ? vb.w / W : 1); }
+  });
+  apply();
 })();
 </script>
 </body>
