@@ -64,7 +64,7 @@ a{color:#17171F}a:hover{color:#D13A28}
 .frise-line::before{content:"";position:absolute;left:5px;top:6px;bottom:6px;border-left:1.5px dashed #A9ACBA}
 .frise-step{position:relative;display:flex;flex-direction:column;gap:1px;animation:friseIn .4s cubic-bezier(.2,.8,.2,1) both}
 .frise-dot{position:absolute;left:-22px;top:3px;width:12px;height:12px;box-sizing:border-box;border-radius:50%;background:#FFFFFF;border:1.5px solid #17171F}
-.frise-step:last-child .frise-dot{background:#3B5BB8;border-color:#3B5BB8}
+.frise-step:first-child .frise-dot{background:#3B5BB8;border-color:#3B5BB8}
 .frise-year{font-family:"Anton",Impact,sans-serif;font-weight:400;font-size:15px;line-height:1.1;color:#3B5BB8}
 .frise-name{font-size:14px;line-height:1.3}
 .frise-school{font-size:13px;font-weight:400;line-height:1.35;color:#4A4A57}
@@ -600,13 +600,13 @@ function fallbackCopy(txt) { try { var t = document.createElement('textarea'); t
 function closeIntroFn() { self.setState({ intro: false, copied: false }, function () { try { document.body.style.overflow = ''; } catch (err) {} }); }
 var HELLO_LINKS = { hello_gmail: 'https://mail.google.com/mail/?view=cm&fs=1&to=' + encodeURIComponent('safaa.elouafi.am@gmail.com') + '&su=' + encodeURIComponent('Hello Safaa'), hello_mail: 'mailto:safaa.elouafi.am@gmail.com?subject=' + encodeURIComponent('Hello Safaa'), hello_linkedin: 'https://www.linkedin.com/in/safaa-el-ouafi/en/' };
 /* STUDIED: the "Studied" line of the intro block. Fill in  school  when you want it shown (left empty = not shown). */
-/* STUDIED: the frise, oldest first. school is optional (left empty = not shown); no years by choice. */
+/* STUDIED: the frise, most recent first. school is optional (left empty = not shown); no years by choice. */
 var STUDIED = [
-{ name: 'Education Sciences', school: 'Université Toulouse-Le Mirail', year: '' },
-{ name: 'Language Didactics', school: 'Université du Maine', year: '' },
-{ name: 'User Research', school: 'Cousto', year: '' },
+{ name: 'Advanced Product Design', school: 'The Design Crew', year: '' },
 { name: 'Data Analysis', school: 'Le Wagon', year: '' },
-{ name: 'Advanced Product Design', school: 'The Design Crew', year: '' }
+{ name: 'User Research', school: 'Cousto', year: '' },
+{ name: 'Language Didactics', school: 'Université du Maine', year: '' },
+{ name: 'Education Sciences', school: 'Université Toulouse-Le Mirail', year: '' }
 ];
 /* USES: the toolbox constellation. Add a tool with its name and an SVG logo saved in assets/tools/. */
 var USES = [
