@@ -81,7 +81,8 @@
         {
           "type": "list",
           "items": [
-            "Mentees supported in their reconversion [ADD]"
+            "Mentees completed their course on OpenClassrom",
+            "They got hired and started their new tech life!"
           ]
         }
       ]
@@ -94,7 +95,7 @@
         {
           "type": "text",
           "style": "quote",
-          "text": "Paying forward what bootcamps taught me."
+          "text": "Making an impact on my fellow women's lives."
         }
       ]
     },
@@ -106,7 +107,7 @@
         {
           "type": "text",
           "style": "plain",
-          "text": "[ADD]"
+          "text": "Build up on every mentor/mentee's experience to create a solid foundation new cohorts can access."
         }
       ]
     },
