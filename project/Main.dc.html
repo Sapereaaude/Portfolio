@@ -1366,8 +1366,8 @@ prevRow: function () { rowScroll(id, -1); }, nextRow: function () { rowScroll(id
 ] : [{ head: '', hasHead: false, more: false, rowId: 'row-all', cls: '', style: GRID, items: results }]);
 
 var photos = [
-{ title: 'The subtle art of looking like art', sub: 'France · Observation', img: '/photos/looking-fine.jpg', noImg: false, alt: '', btnId: 'open-looking', n: 5, open: function () { openSeries('looking'); } },
-{ title: 'Looking down', sub: 'Connections', img: '/photos/down-stairs.jpg', noImg: false, alt: '', btnId: 'open-down', n: 4, open: function () { openSeries('down'); } },
+{ title: 'The subtle art of looking like art', sub: 'France · Observation', img: '/photos/looking-fine.jpg', noImg: false, alt: '', btnId: 'open-looking', n: 13, open: function () { openSeries('looking'); } },
+{ title: 'Looking down', sub: 'Des connexions', img: '/photos/down-stairs.jpg', noImg: false, alt: '', btnId: 'open-down', n: 4, open: function () { openSeries('down'); } },
 { title: 'The aftermath', sub: 'China · what the meal leaves behind', img: '/photos/aftermath-turquoise.jpg', noImg: false, alt: '', btnId: 'open-aftermath', n: 4, open: function () { openSeries('aftermath'); } },
 { title: 'Bismillah, c’est les ténèbres', sub: '2026', img: '/photos/tenebres-colonnade.jpg', noImg: false, alt: '', btnId: 'open-tenebres', n: 7, open: function () { openSeries('tenebres'); } }
 ].concat(items.filter(function (it) { return it.vis === 'photo'; }).map(function (it) {
@@ -1384,8 +1384,16 @@ looking: { t1: 'The subtle art of ', t2: 'looking like art', sub: 'In a room ful
 { src: '/photos/looking-blue.jpg', w: 1400, h: 1400, alt: 'A woman in a red coat sits on a bench, facing a large blue painting crossed by a single red stroke.' },
 { src: '/photos/looking-red.jpg', w: 1400, h: 1400, alt: 'A man in a patchwork knit sweater stands beside a huge red monochrome canvas.' },
 { src: '/photos/looking-white.jpg', w: 1400, h: 1400, alt: 'A woman in a patterned coat and a green beret stands near an all-white canvas.' },
-{ src: '/photos/looking-portraits.jpg', w: 1080, h: 1049, alt: 'A bald man seen from behind stands between two old portraits of bald, bearded men on a red wall, while a girl takes a photo.' }] },
-down: { t1: 'Looking ', t2: 'down', sub: 'Connections.', imgs: [
+{ src: '/photos/looking-portraits.jpg', w: 1080, h: 1049, alt: 'A bald man seen from behind stands between two old portraits of bald, bearded men on a red wall, while a girl takes a photo.' },
+{ src: '/photos/looking-albers.jpg', w: 1086, h: 1400, alt: 'A woman in a navy blazer and teal trousers, hands behind her back, studies a square painting of a black square in green and turquoise.' },
+{ src: '/photos/looking-green.jpg', w: 1179, h: 1400, alt: 'A young woman, hand over her mouth, stands lost in thought before a large green and grey striped canvas.' },
+{ src: '/photos/looking-frame.jpg', w: 1034, h: 1400, alt: 'Seen from behind, a man in a brown jacket leans so close to a small framed painting on a teal wall that his head fills it.' },
+{ src: '/photos/looking-sketches.jpg', w: 937, h: 1400, alt: 'Three women, two blonde and one red-haired, stand together before a wall of framed pencil drawings of dancers.' },
+{ src: '/photos/looking-wallpaper.jpg', w: 933, h: 1400, alt: 'A man scratches his head before a drawing of a face, hung on a wall of mismatched vintage floral wallpapers.' },
+{ src: '/photos/looking-orange.jpg', w: 1050, h: 1400, alt: 'A blurred woman in a black hat and long blue dress walks past a large orange abstract painting.' },
+{ src: '/photos/looking-black.jpg', w: 1400, h: 1286, alt: 'A woman looks at her phone as she walks past a huge black-and-white abstract canvas, while another stands close to it.' },
+{ src: '/photos/looking-bend.jpg', w: 1050, h: 1400, alt: 'An older man in a flat cap and checked shirt bends forward, hands clasped behind his back, to look closely at a framed painting.' }] },
+down: { t1: 'Looking ', t2: 'down', sub: 'Des connexions.', imgs: [
 { src: '/photos/down-stairs.jpg', w: 1080, h: 1052, alt: 'People on a staircase in front of a colourful mural, each one bent over a phone or a book.' },
 { src: '/photos/down-boulevard.jpg', w: 1080, h: 1049, alt: 'A man in a beige trench coat checks his phone on a boulevard, next to a yellow post box covered in graffiti. On a bench behind him, a woman does the same.' },
 { src: '/photos/down-metro.jpg', w: 1080, h: 1060, alt: 'Seen from above in the metro: four passengers sitting back to back, two on their phones, two reading books.' },
