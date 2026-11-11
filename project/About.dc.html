@@ -74,6 +74,15 @@ a{color:#17171F}a:hover{color:#D13A28}
 @keyframes usesOut{from{opacity:0;transform:rotate(calc(var(--a) - 90deg)) translateX(0)}to{opacity:1;transform:rotate(var(--a)) translateX(var(--r))}}
 @keyframes usesSpin{to{transform:rotate(360deg)}}
 @media (prefers-reduced-motion: reduce){.uses-sky,.uses-arm,.uses-orbit,.uses-unspin{animation:none}}
+.about-me{flex:0 1 clamp(220px, 26vw, 320px);position:relative;margin:0;aspect-ratio:4/5;-webkit-mask:url("data:image/svg+xml;utf8,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 400 500%27%3E%3Cfilter id=%27b%27 x=%27-20%%27 y=%27-20%%27 width=%27140%%27 height=%27140%%27%3E%3CfeGaussianBlur stdDeviation=%2714%27/%3E%3C/filter%3E%3Cpath filter=%27url(%23b)%27 fill=%27white%27 d=%27M58 52 C120 18 214 30 286 26 C352 22 372 78 366 150 C360 214 380 262 372 330 C364 404 360 452 292 470 C226 488 170 462 108 472 C46 482 30 430 34 364 C38 300 22 248 30 182 C38 118 14 78 58 52 Z%27/%3E%3C/svg%3E") center/100% 100% no-repeat;mask:url("data:image/svg+xml;utf8,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 400 500%27%3E%3Cfilter id=%27b%27 x=%27-20%%27 y=%27-20%%27 width=%27140%%27 height=%27140%%27%3E%3CfeGaussianBlur stdDeviation=%2714%27/%3E%3C/filter%3E%3Cpath filter=%27url(%23b)%27 fill=%27white%27 d=%27M58 52 C120 18 214 30 286 26 C352 22 372 78 366 150 C360 214 380 262 372 330 C364 404 360 452 292 470 C226 488 170 462 108 472 C46 482 30 430 34 364 C38 300 22 248 30 182 C38 118 14 78 58 52 Z%27/%3E%3C/svg%3E") center/100% 100% no-repeat}
+.about-me img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:0;animation:about-me 15s ease-in-out infinite}
+.about-me img:nth-child(1){opacity:1;animation-delay:0s}.about-me img:nth-child(2){animation-delay:5s}.about-me img:nth-child(3){animation-delay:10s}
+@keyframes about-me{0%{opacity:0;transform:scale(1.03)}6%,33%{opacity:1;transform:scale(1)}40%,100%{opacity:0;transform:scale(1)}}
+.about-me img:nth-child(1){animation-name:about-me-first}
+@keyframes about-me-first{0%,33%{opacity:1}40%,93%{opacity:0}100%{opacity:1}}
+@media (max-width: 700px){.about-me{flex-basis:min(78vw, 320px);margin:0 auto}}
+@media (prefers-reduced-motion: reduce){.about-me img{animation:none;opacity:0}.about-me img:nth-child(1){opacity:1}}
+
 </style>
 </helmet>
 <div style="position: relative; background: #FFFFFF; color: #17171F; font-family: 'Figtree', sans-serif; overflow: hidden">
@@ -147,12 +156,19 @@ a{color:#17171F}a:hover{color:#D13A28}
 <div style="font-family: 'Anton', Impact, sans-serif; font-size: 72px; line-height: 1; color: {{accent}}">§01</div>
 <div style="margin-top: 8px">Who I am</div>
 </div>
-<div style="flex: 999 1 560px; min-width: 0">
+<div style="flex: 999 1 560px; min-width: 0; display: flex; flex-wrap: wrap; align-items: flex-start; gap: 32px 48px">
+<div style="flex: 999 1 420px; min-width: 0">
 <h2 style="margin: 0 0 24px; font-family: 'Anton', Impact, sans-serif; font-weight: 400; font-size: clamp(40px, 5vw, 68px); line-height: 1; text-transform: uppercase; text-wrap: balance">I started as a teacher. <span style="color: {{accent}}">I never stopped listening</span><span style="color: #D13A28">.</span></h2>
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px 40px; font-size: 19px; line-height: 1.6">
 <p style="margin: 0; text-wrap: pretty">Seven years teaching languages, to three-year-olds and to engineers at Thales. Then Amman: first the French Embassy, then running the Jordan programme of a coding bootcamp that trained refugees, Syrian, Yemeni, Iraqi and Palestinian, to become software engineers.</p>
 <p style="margin: 0; text-wrap: pretty">Kuala Lumpur, Singapore, Simplon in Paris, then tech: Algolia, Alan, Decathlon. Different rooms, one thread. Understand where someone really is before deciding where to take them. That was teaching. It turned out to be research.</p>
 </div>
+</div>
+<figure class="about-me" aria-label="Three portraits of me, one after the other">
+<img src="/photos/about-portrait-bw.jpg" alt="Me, smiling, in black and white." width="720" height="900" decoding="async">
+<img src="/photos/about-portrait-blue.jpg" alt="Me taking a mirror selfie in a museum room washed in blue light." width="720" height="900" decoding="async" loading="lazy">
+<img src="/photos/about-portrait-drawn.jpg" alt="A drawing of me: curly hair, one spiral eye, a flat mouth." width="720" height="900" decoding="async" loading="lazy">
+</figure>
 </div>
 </section>
 
