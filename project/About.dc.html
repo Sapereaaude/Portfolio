@@ -45,16 +45,22 @@ a{color:#17171F}a:hover{color:#D13A28}
 .star-link .star{transition:transform .2s ease}
 .star-link:hover .star,.star-link:focus-visible .star{transform:scale(1.12)}
 @media (max-width: 700px){.series-row{display:grid !important;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 12px !important;overflow:visible !important;scroll-snap-type:none !important}.series-card{flex:none !important;min-width:0}}
-.uses-ico{position:absolute;width:36px;height:36px;margin:-18px 0 0 -18px;padding:7px;box-sizing:border-box;border:none;border-radius:50%;background:#FFFFFF;box-shadow:0 0 0 1px #E3E3EA;cursor:default;animation:usesIn .5s cubic-bezier(.2,.8,.2,1) both}
+.uses-sky{position:absolute;left:50%;width:300px;height:300px;margin:-150px 0 0 -150px;z-index:30;border-radius:50%;background:#FFFFFF;box-shadow:0 0 0 1.5px #17171F,0 24px 60px rgba(23,23,31,.18);animation:usesSky .35s cubic-bezier(.2,.8,.2,1) both}
+.uses-orbit{position:absolute;inset:0;animation:usesSpin 90s linear infinite}
+.uses-arm{position:absolute;left:50%;top:50%;width:0;height:0;transform:rotate(var(--a)) translateX(var(--r));animation:usesOut .6s cubic-bezier(.2,.9,.25,1.15) both}
+.uses-up{position:absolute;transform:rotate(calc(-1 * var(--a)))}
+.uses-unspin{position:absolute;animation:usesSpin 90s linear infinite reverse}
+.uses-sky:hover .uses-orbit,.uses-sky:hover .uses-unspin,.uses-sky.hold .uses-orbit,.uses-sky.hold .uses-unspin{animation-play-state:paused}
+.uses-ico{position:absolute;left:-17px;top:-17px;width:34px;height:34px;padding:7px;box-sizing:border-box;border:none;border-radius:50%;background:#FFFFFF;box-shadow:0 0 0 1px #E3E3EA;cursor:default}
 .uses-ico img{display:block;width:100%;height:100%;object-fit:contain}
 .uses-tip{position:absolute;left:50%;bottom:calc(100% + 6px);transform:translateX(-50%);padding:3px 8px;border-radius:999px;background:#17171F;color:#FFFFFF;font:700 11px/1.4 'Figtree',sans-serif;letter-spacing:.02em;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .15s ease;z-index:2}
 .uses-ico:hover .uses-tip,.uses-ico:focus-visible .uses-tip,.uses-ico.on .uses-tip{opacity:1}
 .uses-ico:hover,.uses-ico.on{box-shadow:0 0 0 1.5px #17171F;z-index:3}
-.uses-l .uses-tip{left:0;transform:none}.uses-r .uses-tip{left:auto;right:0;transform:none}
-.uses-line{stroke-dasharray:3 4;animation:usesFade .6s ease both}
-@keyframes usesIn{from{opacity:0;transform:scale(.3) rotate(-20deg)}to{opacity:1;transform:none}}
-@keyframes usesFade{from{opacity:0}to{opacity:1}}
-@media (prefers-reduced-motion: reduce){.uses-ico,.uses-line{animation:none}}
+.uses-sun{position:absolute;left:50%;top:50%;width:52px;height:52px;margin:-26px 0 0 -26px;display:flex;align-items:center;justify-content:center;border:none;border-radius:50%;color:#FFFFFF;cursor:pointer}
+@keyframes usesSky{from{opacity:0;transform:scale(.6)}to{opacity:1;transform:none}}
+@keyframes usesOut{from{opacity:0;transform:rotate(calc(var(--a) - 90deg)) translateX(0)}to{opacity:1;transform:rotate(var(--a)) translateX(var(--r))}}
+@keyframes usesSpin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion: reduce){.uses-sky,.uses-arm,.uses-orbit,.uses-unspin{animation:none}}
 </style>
 </helmet>
 <div style="position: relative; background: #FFFFFF; color: #17171F; font-family: 'Figtree', sans-serif; overflow: hidden">
@@ -80,7 +86,7 @@ a{color:#17171F}a:hover{color:#D13A28}
 <h1 style="margin: 0; font-family: 'Anton', Impact, sans-serif; font-weight: 400; font-size: clamp(76px, 14vw, 216px); line-height: 0.86; letter-spacing: -0.01em; text-transform: uppercase">Safaa<br>El Ouafi<span style="color: #D13A28">.</span></h1>
 <p style="margin: 28px 0 0; max-width: 720px; font-size: clamp(22px, 2.4vw, 32px); line-height: 1.25; font-family: 'Newsreader', Georgia, serif; font-style: italic; text-wrap: balance">User Experience Researcher. Former teacher. Professional noticer of how you use the coffee machine.</p>
 </div>
-<dl style="flex: 1 1 430px; margin: 0; display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 10px 16px; font-family: 'Figtree', sans-serif; font-weight: 700; font-size: 13px; line-height: 1.45; border-top: 1px solid #E3E3EA; padding-top: 14px">
+<dl style="flex: 1 1 430px; margin: 0; position: relative; display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 10px 16px; font-family: 'Figtree', sans-serif; font-weight: 700; font-size: 13px; line-height: 1.45; border-top: 1px solid #E3E3EA; padding-top: 14px">
 <dt style="text-transform: uppercase; color: #4A4A57">Based</dt><dd style="margin: 0">Paris <span style="font-weight: 400; color: #4A4A57">(open to the world)</span></dd>
 <dt style="text-transform: uppercase; color: #4A4A57">Speaks</dt><dd style="margin: 0">FR · EN · AR · ES</dd>
 <dt style="text-transform: uppercase; color: #4A4A57">Does</dt><dd style="margin: 0"><span style="white-space: nowrap">Generative research,</span> <span style="white-space: nowrap">Mixed methods, ResearchOps</span></dd>
@@ -89,10 +95,13 @@ a{color:#17171F}a:hover{color:#D13A28}
 <dt style="text-transform: uppercase; color: #4A4A57">Uses</dt><dd style="margin: 0"><button type="button" aria-expanded="{{usesAria}}" aria-controls="uses-sky" aria-label="Show the tools I use" style="{{usesBtn}}"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round" stroke-linecap="round"><path d="M3 9h18v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"></path><path d="M8 9V6a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v3"></path><path d="M3 13h18M10 13v2h4v-2"></path></svg></button></dd>
 </div>
 <sc-if value="{{usesOpen}}" hint-placeholder-val="{{ false }}">
-<dd id="uses-sky" style="grid-column: 1 / -1; margin: 0">
-<div role="list" aria-label="Tools I use" style="{{usesSky}}">
-<svg aria-hidden="true" class="uses-line" viewBox="{{usesBox}}" preserveAspectRatio="none" style="position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible"><polyline points="{{usesPts}}" fill="none" stroke="#A9ACBA" stroke-width="1" vector-effect="non-scaling-stroke"></polyline></svg>
-<sc-for list="{{uses}}" as="u" hint-placeholder-count="12"><button type="button" role="listitem" class="{{u.cls}}" aria-label="{{u.name}}" onClick="{{u.tap}}" style="{{u.style}}"><img src="{{u.icon}}" alt="" width="22" height="22"><span class="uses-tip" aria-hidden="true">{{u.name}}</span></button></sc-for>
+<dd id="uses-sky" style="margin: 0; position: absolute; left: 0; right: 0; top: 0; height: 0">
+<div class="{{usesSkyCls}}" role="dialog" aria-label="Tools I use" style="top: {{usesTop}}px" onClick="{{usesSkyClick}}">
+<svg aria-hidden="true" width="300" height="300" viewBox="0 0 300 300" style="position: absolute; inset: 0"><circle cx="150" cy="150" r="72" fill="none" stroke="#C9CCDA" stroke-dasharray="3 5"></circle><circle cx="150" cy="150" r="124" fill="none" stroke="#C9CCDA" stroke-dasharray="3 5"></circle></svg>
+<div class="uses-orbit">
+<sc-for list="{{uses}}" as="u" hint-placeholder-count="12"><div class="uses-arm" style="{{u.arm}}"><div class="uses-up"><div class="uses-unspin"><button type="button" class="{{u.cls}}" aria-label="{{u.name}}" onClick="{{u.tap}}"><img src="{{u.icon}}" alt="" width="20" height="20"><span class="uses-tip" aria-hidden="true">{{u.name}}</span></button></div></div></div></sc-for>
+</div>
+<button type="button" id="uses-sun" class="uses-sun" aria-label="Close the tools" onClick="{{toggleUses}}" style="background: {{accent}}"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round" stroke-linecap="round"><path d="M3 9h18v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"></path><path d="M8 9V6a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v3"></path><path d="M3 13h18M10 13v2h4v-2"></path></svg></button>
 </div>
 </dd>
 </sc-if>
@@ -480,6 +489,13 @@ constructor(props) {
 super(props);
 this.state = { slide: 0, lb: null, shot: null, cta: false, pigeon: false, refer: false, intro: false, copied: false, studied: false, uses: false, tool: null };
 }
+componentDidMount() {
+var self = this;
+this._usesOut = function (e) { if (self.state.uses && !(e.target && e.target.closest && (e.target.closest('.uses-sky') || e.target.closest('[aria-controls="uses-sky"]')))) { self.setState({ uses: false, tool: null }); } };
+this._usesKey = function (e) { if (e.key === 'Escape' && self.state.uses) { self.setState({ uses: false, tool: null }); } };
+try { document.addEventListener('click', this._usesOut); document.addEventListener('keydown', this._usesKey); } catch (err) {}
+}
+componentWillUnmount() { try { document.removeEventListener('click', this._usesOut); document.removeEventListener('keydown', this._usesKey); } catch (err) {} }
 renderVals() {
 var self = this;
 var accent = this.props.accent ?? '#3B5BB8';
@@ -584,26 +600,29 @@ var USES = [
 { name: 'Amplitude', icon: '/tools/amplitude.svg' }
 ];
 var usesOpen = !!this.state.uses;
-/* organic layout: a loose grid, every other row shifted, a small fixed jitter per logo (never enough to touch a neighbour) */
-var UC = 4, UROW = 58, UPAD = 26, uRows = Math.ceil(USES.length / UC), usesH = uRows * UROW + 8;
+/* solar system: two orbits around the toolbox, the inner one first; spins slowly, pauses on hover or tap */
+var uInner = Math.min(5, USES.length), uOuter = USES.length - uInner;
 var uPos = USES.map(function (t, i) {
-var r = Math.floor(i / UC), c = r % 2 ? UC - 1 - (i % UC) : i % UC;
-var jx = (((i * 37) % 11) - 5) / 5 * 0.14, jy = (((i * 53) % 13) - 6) / 6 * 0.16;
-var x = (c + 0.5 + (r % 2 ? 0.22 : -0.12) + jx) / (UC + 0.1) * 100;
-return { x: Math.max(6, Math.min(94, x)), y: UPAD + r * UROW + jy * UROW, c: c };
+var inner = i < uInner, k = inner ? i : i - uInner, n = inner ? uInner : uOuter;
+return { a: Math.round((inner ? -90 : -64) + k * 360 / Math.max(n, 1)), r: inner ? 72 : 124 };
 });
 var studiedOpen = !!this.state.studied;
 return {
 usesOpen: usesOpen, usesAria: usesOpen ? 'true' : 'false',
 usesBtn: 'display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; margin: -6px 0; padding: 0; border: none; background: none; color: ' + (usesOpen ? accent : '#17171F') + '; cursor: pointer',
-toggleUses: function () { self.setState({ uses: !self.state.uses, tool: null }); },
-usesSky: 'position: relative; height: ' + usesH + 'px; margin: 4px 0 2px',
-usesBox: '0 0 100 ' + usesH,
-usesPts: uPos.map(function (p) { return p.x.toFixed(2) + ',' + p.y.toFixed(1); }).join(' '),
+toggleUses: function (e) {
+var top = self.state.usesTop || 0;
+try { var row = document.querySelector('[aria-controls="uses-sky"]'); var dl = row && row.closest('dl'); if (row && dl) { var rr = row.getBoundingClientRect(), dr = dl.getBoundingClientRect(); top = rr.top - dr.top + rr.height / 2; } } catch (err) {}
+try { if (e && e.stopPropagation) { e.stopPropagation(); } } catch (err) {}
+self.setState({ uses: !self.state.uses, tool: null, usesTop: Math.round(top) });
+},
+usesTop: this.state.usesTop || 0,
+usesSkyCls: 'uses-sky' + (this.state.tool !== null && this.state.tool !== undefined ? ' hold' : ''),
+usesSkyClick: function (e) { try { e.stopPropagation(); } catch (err) {} },
 uses: USES.map(function (t, i) {
 var p = uPos[i], on = self.state.tool === i;
-return { name: t.name, icon: t.icon, cls: 'uses-ico' + (p.x < 18 ? ' uses-l' : (p.x > 82 ? ' uses-r' : '')) + (on ? ' on' : ''),
-style: 'left: ' + p.x.toFixed(2) + '%; top: ' + p.y.toFixed(1) + 'px; animation-delay: ' + (i * 45) + 'ms',
+return { name: t.name, icon: t.icon, cls: 'uses-ico' + (on ? ' on' : ''),
+arm: '--a: ' + p.a + 'deg; --r: ' + p.r + 'px; animation-delay: ' + (60 + i * 40) + 'ms',
 tap: function (e) { try { e.stopPropagation(); } catch (err) {} self.setState({ tool: on ? null : i }); } };
 }),
 studiedOpen: studiedOpen, studiedAria: studiedOpen ? 'true' : 'false',
