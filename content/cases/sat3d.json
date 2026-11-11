@@ -1,14 +1,4 @@
 {
-  "id": "sat3d",
-  "page_title": "A monthly pulse on 3D tools",
-  "draft_banner": true,
-  "header": {
-    "eyebrow": "Decathlon · 2025",
-    "title": "A monthly pulse on 3D tools",
-    "question": "Are bike designers, engineers and 3D modellers happy with their tools, month after month?",
-    "background": "#F2F2F5",
-    "illustration": "<div aria-hidden=\"true\" style=\"flex: 0 1 300px; min-width: 200px; aspect-ratio: 196 / 150\">\n<svg sc-camel-view-box=\"44 8 196 150\" style=\"width: 100%; height: 100%; display: block\">\n<circle cx=\"170\" cy=\"74\" r=\"56\" fill=\"#FFFFFF\" opacity=\"0.7\"></circle>\n<rect x=\"110\" y=\"30\" width=\"100\" height=\"90\" rx=\"12\" fill=\"#FFFFFF\" stroke=\"#17171F\" stroke-width=\"1.2\"></rect>\n<rect x=\"110\" y=\"30\" width=\"100\" height=\"20\" rx=\"10\" fill=\"{{accent}}\"></rect><rect x=\"110\" y=\"40\" width=\"100\" height=\"10\" fill=\"{{accent}}\"></rect>\n<circle cx=\"130\" cy=\"26\" r=\"4\" fill=\"#17171F\"></circle><circle cx=\"190\" cy=\"26\" r=\"4\" fill=\"#17171F\"></circle>\n<rect x=\"122\" y=\"62\" width=\"10\" height=\"10\" rx=\"2.5\" fill=\"{{accent}}\"></rect><rect x=\"138\" y=\"64\" width=\"54\" height=\"6\" rx=\"3\" fill=\"#17171F\" opacity=\"0.4\"></rect>\n<rect x=\"122\" y=\"80\" width=\"10\" height=\"10\" rx=\"2.5\" fill=\"{{accent}}\"></rect><rect x=\"138\" y=\"82\" width=\"44\" height=\"6\" rx=\"3\" fill=\"#17171F\" opacity=\"0.4\"></rect>\n<rect x=\"122\" y=\"98\" width=\"10\" height=\"10\" rx=\"2.5\" fill=\"#FFFFFF\" stroke=\"#17171F\"></rect><rect x=\"138\" y=\"100\" width=\"50\" height=\"6\" rx=\"3\" fill=\"#17171F\" opacity=\"0.4\"></rect>\n<circle cx=\"88\" cy=\"110\" r=\"10\" fill=\"#D13A28\"></circle>\n</svg>\n</div>\n"
-  },
   "facts": [
     {
       "label": "Role",
@@ -27,9 +17,16 @@
       "value": "User research & ResearchOps"
     }
   ],
+  "page_title": "A monthly pulse on 3D tools",
   "threads": true,
-  "before_main": "\n",
-  "decisions": true,
+  "draft_banner": true,
+  "header": {
+    "eyebrow": "Decathlon · 2025",
+    "title": "A monthly pulse on 3D tools",
+    "question": "Are bike designers, engineers and 3D modellers happy with their tools, month after month?",
+    "background": "accent",
+    "illustration": "<div aria-hidden=\"true\" style=\"flex: 0 1 300px; min-width: 200px; aspect-ratio: 196 / 150\">\n<svg sc-camel-view-box=\"44 8 196 150\" style=\"width: 100%; height: 100%; display: block\">\n<circle cx=\"170\" cy=\"74\" r=\"56\" fill=\"#FFFFFF\" opacity=\"0.7\"></circle>\n<rect x=\"110\" y=\"30\" width=\"100\" height=\"90\" rx=\"12\" fill=\"#FFFFFF\" stroke=\"#17171F\" stroke-width=\"1.2\"></rect>\n<rect x=\"110\" y=\"30\" width=\"100\" height=\"20\" rx=\"10\" fill=\"{{accent}}\"></rect><rect x=\"110\" y=\"40\" width=\"100\" height=\"10\" fill=\"{{accent}}\"></rect>\n<circle cx=\"130\" cy=\"26\" r=\"4\" fill=\"#17171F\"></circle><circle cx=\"190\" cy=\"26\" r=\"4\" fill=\"#17171F\"></circle>\n<rect x=\"122\" y=\"62\" width=\"10\" height=\"10\" rx=\"2.5\" fill=\"{{accent}}\"></rect><rect x=\"138\" y=\"64\" width=\"54\" height=\"6\" rx=\"3\" fill=\"#17171F\" opacity=\"0.4\"></rect>\n<rect x=\"122\" y=\"80\" width=\"10\" height=\"10\" rx=\"2.5\" fill=\"{{accent}}\"></rect><rect x=\"138\" y=\"82\" width=\"44\" height=\"6\" rx=\"3\" fill=\"#17171F\" opacity=\"0.4\"></rect>\n<rect x=\"122\" y=\"98\" width=\"10\" height=\"10\" rx=\"2.5\" fill=\"#FFFFFF\" stroke=\"#17171F\"></rect><rect x=\"138\" y=\"100\" width=\"50\" height=\"6\" rx=\"3\" fill=\"#17171F\" opacity=\"0.4\"></rect>\n<circle cx=\"88\" cy=\"110\" r=\"10\" fill=\"#D13A28\"></circle>\n</svg>\n</div>\n"
+  },
   "sections": [
     {
       "title": "The context",
@@ -142,7 +139,37 @@
       ]
     }
   ],
+  "card": {
+    "vis": "monthly",
+    "a": "With a product designer: a monthly survey, one week to answer, one week to analyse, then a one-hour workshop to decide what to fix.",
+    "meta": "Decathlon · 2025",
+    "m": [
+      "quant"
+    ],
+    "pts": [
+      "One week to answer, one to analyse",
+      "A one-hour workshop to decide the fixes",
+      "Run every month with a product designer"
+    ],
+    "sc": [
+      "evaluative",
+      "tactical"
+    ],
+    "q": "Are bike designers, engineers and 3D modellers happy with their tools, month after month?",
+    "jobs": [
+      "research",
+      "built"
+    ],
+    "title": "A monthly pulse on 3D tools",
+    "who": [
+      "researcher",
+      "designer",
+      "pm",
+      "hiring"
+    ]
+  },
   "after_sections": "",
+  "behind_decisions": [],
   "prev": {
     "id": "plm",
     "label": "Idea to recycling",
@@ -153,34 +180,7 @@
     "label": "Usability, readable in one glance",
     "follow_title": false
   },
-  "card": {
-    "pts": [
-      "One week to answer, one to analyse",
-      "A one-hour workshop to decide the fixes",
-      "Run every month with a product designer"
-    ],
-    "vis": "monthly",
-    "meta": "Decathlon · 2025",
-    "title": "A monthly pulse on 3D tools",
-    "q": "Are bike designers, engineers and 3D modellers happy with their tools, month after month?",
-    "a": "With a product designer: a monthly survey, one week to answer, one week to analyse, then a one-hour workshop to decide what to fix.",
-    "jobs": [
-      "research",
-      "built"
-    ],
-    "who": [
-      "researcher",
-      "designer",
-      "pm",
-      "hiring"
-    ],
-    "m": [
-      "quant"
-    ],
-    "sc": [
-      "evaluative",
-      "tactical"
-    ]
-  },
-  "behind_decisions": []
+  "decisions": true,
+  "before_main": "\n",
+  "id": "sat3d"
 }
