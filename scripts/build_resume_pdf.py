@@ -1,4 +1,4 @@
-"""Makes assets/Safaa_El_Ouafi_Resume.pdf from the built resume page (one A4 page, same design).
+"""Makes a designed PDF of the resume page (one A4 page, same design), kept in export/ for sending by hand.
 
 Run after editing the resume, with the site served locally:
     python3 scripts/build_site.py && (cd site && python3 -m http.server 8765 &) && python3 scripts/build_resume_pdf.py
@@ -9,7 +9,7 @@ import asyncio, base64, os, sys
 from playwright.async_api import async_playwright
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-OUT = os.path.join(ROOT, 'assets', 'Safaa_El_Ouafi_Resume.pdf')
+OUT = os.path.join(ROOT, 'export', 'Safaa_El_Ouafi_Resume_Designed.pdf')  # not published: the download is the plain version (build_resume_ats.py)
 URL = sys.argv[1] if len(sys.argv) > 1 else 'http://localhost:8765/resume'
 FONT_DIR = os.environ.get('FONT_DIR')
 FACES = [('Anton', 'anton', 400, 'normal'), ('Figtree', 'figtree', 400, 'normal'), ('Figtree', 'figtree', 600, 'normal'), ('Figtree', 'figtree', 700, 'normal'),
