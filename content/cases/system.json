@@ -1,14 +1,4 @@
 {
-  "id": "system",
-  "page_title": "A research system for 5 teams",
-  "draft_banner": true,
-  "header": {
-    "eyebrow": "Decathlon · 2023–24",
-    "title": "A research system for 5 teams",
-    "question": "How do five product teams stop losing what they learn about users?",
-    "background": "#F2F2F5",
-    "illustration": "<div aria-hidden=\"true\" style=\"flex: 0 1 300px; min-width: 200px; aspect-ratio: 196 / 150\">\n<svg sc-camel-view-box=\"44 8 196 150\" style=\"width: 100%; height: 100%; display: block\">\n<circle cx=\"170\" cy=\"72\" r=\"56\" fill=\"#FFFFFF\" opacity=\"0.7\"></circle>\n<rect x=\"118\" y=\"60\" width=\"96\" height=\"64\" rx=\"10\" fill=\"#FFFFFF\" stroke=\"#D5D7E0\" stroke-width=\"1.2\" transform=\"rotate(8 166 92)\"></rect>\n<rect x=\"108\" y=\"46\" width=\"96\" height=\"64\" rx=\"10\" fill=\"#FFFFFF\" stroke=\"#17171F\" stroke-width=\"1.2\"></rect>\n<rect x=\"120\" y=\"60\" width=\"50\" height=\"6\" rx=\"3\" fill=\"#17171F\"></rect><rect x=\"120\" y=\"72\" width=\"70\" height=\"6\" rx=\"3\" fill=\"#17171F\" opacity=\"0.25\"></rect><rect x=\"120\" y=\"84\" width=\"60\" height=\"6\" rx=\"3\" fill=\"#17171F\" opacity=\"0.25\"></rect>\n<rect x=\"196\" y=\"30\" width=\"34\" height=\"14\" rx=\"7\" fill=\"{{accent}}\"></rect><rect x=\"84\" y=\"94\" width=\"30\" height=\"14\" rx=\"7\" fill=\"#D13A28\"></rect><rect x=\"200\" y=\"122\" width=\"26\" height=\"14\" rx=\"7\" fill=\"#17171F\"></rect>\n</svg>\n</div>\n"
-  },
   "facts": [
     {
       "label": "Role",
@@ -27,9 +17,16 @@
       "value": "User research & ResearchOps"
     }
   ],
+  "page_title": "A research system for 5 teams",
   "threads": true,
-  "before_main": "\n",
-  "decisions": true,
+  "draft_banner": true,
+  "header": {
+    "eyebrow": "Decathlon · 2023–24",
+    "title": "A living research system for 5 teams",
+    "question": "How do five product teams stop losing what they learn about users?",
+    "background": "#EEF1FA",
+    "illustration": "<div aria-hidden=\"true\" style=\"flex: 0 1 300px; min-width: 200px; aspect-ratio: 196 / 150\">\n<svg sc-camel-view-box=\"44 8 196 150\" style=\"width: 100%; height: 100%; display: block\">\n<circle cx=\"170\" cy=\"72\" r=\"56\" fill=\"#FFFFFF\" opacity=\"0.7\"></circle>\n<rect x=\"118\" y=\"60\" width=\"96\" height=\"64\" rx=\"10\" fill=\"#FFFFFF\" stroke=\"#D5D7E0\" stroke-width=\"1.2\" transform=\"rotate(8 166 92)\"></rect>\n<rect x=\"108\" y=\"46\" width=\"96\" height=\"64\" rx=\"10\" fill=\"#FFFFFF\" stroke=\"#17171F\" stroke-width=\"1.2\"></rect>\n<rect x=\"120\" y=\"60\" width=\"50\" height=\"6\" rx=\"3\" fill=\"#17171F\"></rect><rect x=\"120\" y=\"72\" width=\"70\" height=\"6\" rx=\"3\" fill=\"#17171F\" opacity=\"0.25\"></rect><rect x=\"120\" y=\"84\" width=\"60\" height=\"6\" rx=\"3\" fill=\"#17171F\" opacity=\"0.25\"></rect>\n<rect x=\"196\" y=\"30\" width=\"34\" height=\"14\" rx=\"7\" fill=\"{{accent}}\"></rect><rect x=\"84\" y=\"94\" width=\"30\" height=\"14\" rx=\"7\" fill=\"#D13A28\"></rect><rect x=\"200\" y=\"122\" width=\"26\" height=\"14\" rx=\"7\" fill=\"#17171F\"></rect>\n</svg>\n</div>\n"
+  },
   "sections": [
     {
       "title": "The context",
@@ -142,7 +139,39 @@
       ]
     }
   ],
+  "card": {
+    "vis": "repo",
+    "a": "A 3-week study on how teams collect user knowledge, then one atomic research repository, a monthly Research Grooming before sprint planning, and weekly office hours.",
+    "meta": "Decathlon · 2023–24",
+    "tldr": true,
+    "tldrPriority": 2,
+    "m": [
+      "mixed"
+    ],
+    "pts": [
+      "A 3-week study on how teams use user knowledge",
+      "One atomic research repository",
+      "A monthly Research Grooming before sprints"
+    ],
+    "sc": [
+      "generative",
+      "strategic"
+    ],
+    "q": "How do five product teams stop losing what they learn about users?",
+    "jobs": [
+      "built",
+      "research"
+    ],
+    "title": "A research system for 5 teams",
+    "who": [
+      "hiring",
+      "researcher",
+      "pm",
+      "founder"
+    ]
+  },
   "after_sections": "",
+  "behind_decisions": [],
   "prev": {
     "id": "vizcom",
     "label": "After the demo effect",
@@ -153,36 +182,7 @@
     "label": "How products get chosen",
     "follow_title": false
   },
-  "card": {
-    "tldr": true,
-    "tldrPriority": 2,
-    "pts": [
-      "A 3-week study on how teams use user knowledge",
-      "One atomic research repository",
-      "A monthly Research Grooming before sprints"
-    ],
-    "vis": "repo",
-    "meta": "Decathlon · 2023–24",
-    "title": "A research system for 5 teams",
-    "q": "How do five product teams stop losing what they learn about users?",
-    "a": "A 3-week study on how teams collect user knowledge, then one atomic research repository, a monthly Research Grooming before sprint planning, and weekly office hours.",
-    "jobs": [
-      "built",
-      "research"
-    ],
-    "who": [
-      "hiring",
-      "researcher",
-      "pm",
-      "founder"
-    ],
-    "m": [
-      "mixed"
-    ],
-    "sc": [
-      "generative",
-      "strategic"
-    ]
-  },
-  "behind_decisions": []
+  "decisions": true,
+  "before_main": "\n",
+  "id": "system"
 }
