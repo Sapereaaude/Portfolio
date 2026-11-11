@@ -85,7 +85,7 @@ html.search-intro .home-sentence [data-pick="outcome"] .pick{animation-delay:1.8
 .peek-row::-webkit-scrollbar{display:none}
 .peek-row>.card{flex:0 0 calc(50% - 8px);min-width:0;max-height:250px;scroll-snap-align:start}
 .peek-row>.card::before{content:"";position:absolute;left:0;right:0;bottom:0;height:96px;background:linear-gradient(rgba(255,255,255,0),#FFFFFF 88%);pointer-events:none;z-index:2}
-@media (max-width: 700px){.peek-row>.card{flex-basis:86%}}
+@media (max-width: 700px){.peek-row>.card{flex-basis:86%}.og-arrows{display:none !important}}
 .slides{scrollbar-width:none;overscroll-behavior-x:contain}
 .slides::-webkit-scrollbar{display:none}
 @media (max-width: 700px){.photo-row{display:grid !important;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 12px !important;overflow:visible !important;scroll-snap-type:none !important}.photo-card{flex:none !important;min-width:0}}
@@ -364,7 +364,7 @@ html.search-intro .home-sentence [data-pick="outcome"] .pick{animation-delay:1.8
 <sc-if value="{{showGridBar}}" hint-placeholder-val="{{ false }}">
 <div style="margin: 18px 0 16px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 20px">
 <p style="margin: 0; font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #4A4A57">{{resultLine}}</p>
-<sc-if value="{{isOutside}}" hint-placeholder-val="{{ false }}"><div role="group" aria-label="Side project categories" style="flex: 1 1 100%; display: flex; flex-wrap: wrap; gap: 8px"><sc-for list="{{ogPills}}" as="c" hint-placeholder-count="3"><button type="button" aria-pressed="{{c.pressed}}" onClick="{{c.pick}}" style="{{c.style}}">{{c.label}}</button></sc-for></div></sc-if>
+<sc-if value="{{isOutside}}" hint-placeholder-val="{{ false }}"><div style="flex: 1 1 100%; display: flex; align-items: center; justify-content: space-between; gap: 12px"><div role="group" aria-label="Side project categories" style="display: flex; flex-wrap: wrap; gap: 8px; min-width: 0"><sc-for list="{{ogPills}}" as="c" hint-placeholder-count="3"><button type="button" aria-pressed="{{c.pressed}}" onClick="{{c.pick}}" style="{{c.style}}">{{c.label}}</button></sc-for></div><sc-if value="{{ogMore}}" hint-placeholder-val="{{ false }}"><div class="og-arrows" style="flex: none; display: flex; gap: 8px"><button type="button" onClick="{{ogPrev}}" aria-label="Previous projects" style="display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 50%; border: 1px solid #17171F; background: #FFFFFF; color: #17171F; cursor: pointer"><svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"></path></svg></button><button type="button" onClick="{{ogNext}}" aria-label="More projects" style="display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 50%; border: 1px solid #17171F; background: #FFFFFF; color: #17171F; cursor: pointer"><svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"></path></svg></button></div></sc-if></div></sc-if>
 </div>
 </sc-if>
 <sc-if value="{{isResults}}" hint-placeholder-val="{{ true }}"><div style="height: 16px"></div></sc-if>
@@ -1357,9 +1357,10 @@ return r;
 
 var GRID = 'display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 520px), 1fr)); gap: 16px';
 var og = Math.min(s.og || 0, Math.max(0, groupDefs.length - 1));
-var ogPills = isOutside ? groupDefs.map(function (g, gi) { var on = gi === og; return { label: g.label, pressed: on ? 'true' : 'false', style: chipStyle(on, 1) + ' white-space: nowrap;', pick: function () { self.setState({ og: gi }); } }; }) : [];
+var ogPills = isOutside ? groupDefs.map(function (g, gi) { var on = gi === og; return { label: g.label, pressed: on ? 'true' : 'false', style: chipStyle(on, 1) + ' white-space: nowrap;', pick: function () { self.setState({ og: gi }, function () { var el = document.getElementById('row-side'); if (el) { el.scrollLeft = 0; } }); } }; }) : [];
+var ogMore = isOutside && groupDefs[og] && groupDefs[og].n > 2;
 var groups = isOutside ? groupDefs.filter(function (g, gi) { return gi === og; }).map(function (g) {
-return { head: '', hasHead: false, more: false, rowId: 'row-side', cls: '', style: GRID, items: results.slice(g.from, g.from + g.n) };
+return { head: '', hasHead: false, more: false, rowId: 'row-side', cls: 'peek-row', style: 'display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 2px 0', items: results.slice(g.from, g.from + g.n) };
 }) : (tldrN ? [
 { head: '', hasHead: false, more: false, rowId: 'row-tldr', cls: 'tldr-row', style: GRID.replace('auto-fill', 'auto-fit') + '; padding: 0 clamp(14px, 2.6vw, 28px) clamp(14px, 2.6vw, 28px); background: #17171F; border-radius: 0 0 24px 24px', items: results.slice(0, tldrN) },
 { head: '', hasHead: false, more: false, rowId: 'row-all', cls: '', style: GRID + '; margin-top: clamp(24px, 3vw, 36px)', items: results.slice(tldrN) }
@@ -1522,7 +1523,7 @@ sideKnob: 'position: absolute; top: 3px; left: ' + (s.side ? '19px' : '3px') + '
 results: results,
 hasResults: results.length > 0,
 noResults: results.length === 0,
-resultLine: resultLine, ogPills: ogPills, groups: groups, resultCount: resultCount, resultSuffix: resultSuffix,
+resultLine: resultLine, ogPills: ogPills, ogMore: !!ogMore, ogPrev: function () { rowScroll('row-side', -1); }, ogNext: function () { rowScroll('row-side', 1); }, groups: groups, resultCount: resultCount, resultSuffix: resultSuffix,
 ctaTitle: outcome.title,
 ctaButton: outcome.button,
 ctaChat: outcome.id === 'chat', ctaNotChat: outcome.id !== 'chat'
