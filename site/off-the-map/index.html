@@ -17,7 +17,7 @@ a{color:#17171F}a:hover{color:#3B5BB8}
 .top{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-bottom:14px;border-bottom:1px solid #E3E3EA;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
 .top a{text-decoration:none;white-space:nowrap}
 .eyebrow{margin:clamp(28px,5vw,56px) 0 0;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#D13A28}
-h1{margin:10px 0 0;font-family:Anton,Impact,sans-serif;font-weight:400;font-size:clamp(48px,9vw,120px);line-height:.95;text-transform:uppercase}
+h1{margin:clamp(28px,5vw,56px) 0 0;font-family:Anton,Impact,sans-serif;font-weight:400;font-size:clamp(48px,9vw,120px);line-height:.95;text-transform:uppercase}
 h1 span{color:#D13A28}
 .sub{margin:14px 0 0;max-width:760px;text-wrap:balance;font-family:Newsreader,Georgia,serif;font-style:italic;font-size:clamp(20px,2.4vw,28px);line-height:1.3;text-wrap:pretty}
 .map{position:relative;margin:clamp(12px,3vw,32px) 0 0}
@@ -28,39 +28,42 @@ h1 span{color:#D13A28}
 .zoom{position:absolute;right:0;top:0;display:flex;gap:6px;z-index:2}
 .zoom button{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;padding:0;border:1px solid #D5D7E0;border-radius:50%;background:#FFFFFF;color:#17171F;font:700 16px/1 Figtree,sans-serif;cursor:pointer;transition:border-color .15s ease}
 .zoom button:hover{border-color:#17171F}.zoom button[disabled]{opacity:.4;cursor:default}
-@media (max-width:760px){.zoom,.legend .pinch{display:none}}
+@media (max-width:760px){.zoom,.pinch{display:none}}
 .legend{display:flex;flex-wrap:wrap;align-items:center;gap:10px 24px;margin:18px 0 0;padding:0;list-style:none;font-size:13px;font-weight:600;color:#4A4A57}
+.pinch{margin:8px 0 0;font-size:12px;color:#4A4A57}
 .legend li{display:inline-flex;align-items:center;gap:8px;white-space:nowrap}
 .legend i{display:inline-block;width:11px;height:11px;border-radius:50%}
-.legend .been{background:#D13A28;border:2px solid #FFFFFF;box-shadow:0 0 0 1px #D13A28}
-.legend .wish{background:#FFFFFF;border:2px solid #D13A28}
-.legend .land{width:14px;height:8px;border-radius:50%;background:#3B5BB8}.legend .wishland{background:#F2C7C0}
+.legend .land{width:14px;height:8px;border-radius:50%;background:#3B5BB8}.legend .wishland{background:#E9A398}
 .map svg{display:block;width:100%;height:auto;overflow:hidden;border-radius:18px}
 .dot{transition:fill .25s ease}
-.pin{pointer-events:none}
-.pin.wish .head{fill:#FFFFFF;stroke:#D13A28;stroke-width:2}
-.pin.wish .stem{stroke-dasharray:2 3}
-.pin .stem{stroke:#17171F;stroke-width:1.4}
-.pin .head{fill:#D13A28;stroke:#FFFFFF;stroke-width:2}
-.pin .base{fill:rgba(23,23,31,.18)}
-.note{margin:18px 0 0;font-size:13px;color:#4A4A57}
+.food{position:absolute;z-index:3;display:flex;flex-direction:column;gap:6px;padding:12px 16px 13px;border:1.5px solid #17171F;border-radius:14px;background:#FFFFFF;box-shadow:0 12px 28px rgba(23,23,31,.16);pointer-events:none;animation:food-in .16s ease-out both;white-space:nowrap}
+.food[hidden]{display:none}
+.food::after{content:"";position:absolute;left:50%;bottom:-7px;width:12px;height:12px;margin-left:-6px;background:#FFFFFF;border-right:1.5px solid #17171F;border-bottom:1.5px solid #17171F;transform:rotate(45deg)}
+.food-k{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#3B5BB8}
+.food.wish .food-k{color:#D13A28}
+.food-d{display:flex;align-items:center;gap:8px;font-family:Newsreader,Georgia,serif;font-style:italic;font-size:21px;line-height:1.15}
+.food-e{font-style:normal;font-size:22px}
+@keyframes food-in{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion: reduce){.food{animation:none}}
+.uub{max-width:620px;margin:clamp(40px,6vw,72px) 0 0;padding:16px 0 0;border-top:1px dashed #A9ACBA;display:flex;flex-direction:column;gap:6px}
+.uub span{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#D13A28}
+.uub-1{margin:0;font-family:Newsreader,Georgia,serif;font-style:italic;font-size:20px;line-height:1.3;text-wrap:balance}
+.uub-2{margin:0;font-size:14px;line-height:1.55;color:#4A4A57;text-wrap:pretty}
 @keyframes rise{from{opacity:0}to{opacity:1}}
-@keyframes drop{from{opacity:0;transform:translateY(-18px)}to{opacity:1;transform:none}}
 .dot{animation:rise .6s ease-out both}
-.pin{animation:drop .5s cubic-bezier(.2,.9,.3,1.2) both}
-@media (prefers-reduced-motion: reduce){.dot,.pin{animation:none}.pin .head{transition:none}}
+@media (prefers-reduced-motion: reduce){.dot{animation:none}}
 </style>
 </head>
 <body>
 <div class="wrap">
 <nav class="top"><a href="/about">← About me</a><span>You found the paper plane</span></nav>
-<p class="eyebrow">Unexpected user behaviour · 03</p>
 <h1>Off the map<span>.</span></h1>
 <p class="sub">Where I’ve been, and where I’d like to go next.</p>
-<div class="map" id="map" role="img" aria-label="An isometric dot map of the world. The countries I have been to are blue, with a red pin on each place I have been. Pale red countries and open pins mark my bucket list: overland from Paris to Kashgar, Svaneti in Georgia, Rome, Naples, Athens, Mexico, Argentina, eastern Canada, Iceland, Nepal, New Zealand, Benin, Algeria, Senegal, Côte d’Ivoire, Iran, Cuba, Japan, Cambodia and Laos."></div>
+<div class="map" id="map" role="img" aria-label="An isometric dot map of the world. The countries I have been to are blue; the ones I am going to are pale red: Mexico, Argentina, eastern Canada, Iceland, Nepal, New Zealand, Benin, Algeria, Senegal, Côte d’Ivoire, Iran, Cuba, Japan, Cambodia, Laos and Georgia."></div>
 <p class="hint" aria-hidden="true">← Swipe the map →</p>
-<ul class="legend"><li><i class="land"></i>Countries I’ve been to</li><li><i class="land wishland"></i>Countries on my list</li><li><i class="been"></i>Been there</li><li><i class="wish"></i>Bucket list</li><li class="pinch">Pinch or ⌘ + scroll to zoom, drag to move</li></ul>
-<p class="note">So far. The plane is still flying.</p>
+<ul class="legend"><li><i class="land"></i>Countries I’ve been to</li><li><i class="land wishland"></i>Countries I’m going to</li></ul>
+<p class="pinch">Tap a country to see what I ate there. Pinch or ⌘ + scroll to zoom, drag to move.</p>
+<aside class="uub" aria-label="Unexpected user behaviour 03"><span>Unexpected user behaviour · 03</span><p class="uub-1">You’re one of the 0.01% who click on icons.</p><p class="uub-2">Or you know how easter eggs work. Can you find the other&nbsp;one?</p></aside>
 </div>
 <script src="/off-the-map/dots.js"></script>
 <script>
@@ -71,34 +74,18 @@ h1 span{color:#D13A28}
   var EUROPE = ['Spain', 'Portugal', 'Italy', 'Germany', 'Belgium', 'Netherlands', 'Luxembourg', 'Switzerland', 'Austria', 'United Kingdom', 'Ireland',
     'Denmark', 'Sweden', 'Norway', 'Finland', 'Poland', 'Czechia', 'Slovakia', 'Hungary', 'Slovenia', 'Croatia', 'Bosnia and Herz.',
     'Serbia', 'Montenegro', 'Albania', 'Macedonia', 'North Macedonia', 'Greece', 'Bulgaria', 'Romania', 'Estonia', 'Latvia', 'Lithuania', 'Malta', 'Cyprus'];
-  var BEEN = [  // lon, lat: one pin per place
-    [2.35, 48.86], [13.4, 50.5], [-6.84, 33.97], [10.86, 33.8], [35.93, 31.95], [35.2, 31.9], [35.5, 33.89], [51.53, 25.29],
-    [46.72, 24.69], [28.98, 41.01], [104.07, 30.67], [105.85, 21.03], [100.5, 13.75], [101.69, 3.14], [103.82, 1.35], [106.85, -6.2],
-    [-122.42, 37.77], [-80.19, 25.76]
-  ];
+  var SMALL_BEEN = [[35.5, 33.89, 'Lebanon'], [35.2, 31.9, 'Palestine'], [51.53, 25.29, 'Qatar'], [103.82, 1.35, 'Singapore']];  // Lebanon, Palestine, Qatar, Singapore: too small for the grid, one dot each
   var WISH_COUNTRIES = ['Mexico', 'Argentina', 'Iceland', 'Nepal', 'New Zealand', 'Benin', 'Algeria', 'Senegal', "Côte d'Ivoire", 'Iran', 'Cuba', 'Japan', 'Cambodia', 'Laos', 'Georgia'];
-  var WISH = [  // bucket list pins
-    [75.99, 39.47],  // Kashgar, overland from Paris
-    [42.54, 43.05],  // Svaneti, Georgia
-    [12.5, 41.9], [14.27, 40.85], [23.73, 37.98],  // Rome, Naples, Athens
-    [-99.13, 19.43],  // Mexico
-    [-58.38, -34.6],  // Argentina
-    [-71.21, 46.81],  // Eastern Canada (Québec)
-    [-21.94, 64.15],  // Iceland
-    [85.32, 27.72],  // Nepal
-    [174.78, -41.29],  // New Zealand
-    [2.42, 6.37],  // Benin
-    [3.06, 36.75],  // Algeria
-    [-17.47, 14.72],  // Senegal
-    [-4.01, 5.36],  // Côte d'Ivoire
-    [51.39, 35.69],  // Iran
-    [-82.37, 23.11],  // Cuba
-    [139.69, 35.69],  // Japan
-    [104.92, 11.56],  // Cambodia
-    [102.13, 19.89]  // Laos
-  ];
+  var FOOD = {  // country: [emoji, dish]. Been there → "What I ate there"; on the list → "What I'm gonna eat there"
+    'China': ['🍜', 'Dan dan noodles'],
+    'Morocco': ['🥧', 'Chicken bastilla'],
+    'Lebanon': ['🌯', 'Shawarma'],
+    'Japan': ['🍜', 'Ramen'],
+    'Mexico': ['🌮', 'Tacos al pastor']
+  };
+  var EAST_CANADA = { lonMin: -80, lonMax: -52, latMin: 43, latMax: 54 };  // Québec and the Maritimes, not the whole of Canada
 
-  var G = window.PLACES_GRID, ACCENT = '#3B5BB8', LAND = '#D5D7E0', WISHLAND = '#F2C7C0';
+  var G = window.PLACES_GRID, ACCENT = '#3B5BB8', LAND = '#D5D7E0', WISHLAND = '#E9A398';
   var reduce = false;
   try { reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
   var visited = {};
@@ -114,9 +101,17 @@ h1 span{color:#D13A28}
   var pts = [];
   for (var i = 0; i < G.dots.length; i += 3) {
     var p = proj((G.dots[i] + 0.5) * CELL, (G.dots[i + 1] + 0.5) * CELL);
-    var nm = G.names[G.dots[i + 2]];
-    pts.push({ x: p[0], y: p[1], on: !!visited[nm], wish: !visited[nm] && !!wished[nm], col: G.dots[i] });
+    var nm = G.names[G.dots[i + 2]], lon = G.dots[i] * G.step - 180 + G.step / 2, lat = G.top - G.dots[i + 1] * G.step;
+    var east = nm === 'Canada' && lon >= EAST_CANADA.lonMin && lon <= EAST_CANADA.lonMax && lat >= EAST_CANADA.latMin && lat <= EAST_CANADA.latMax;
+    pts.push({ x: p[0], y: p[1], on: !!visited[nm], wish: !visited[nm] && (!!wished[nm] || east), col: G.dots[i], c: G.dots[i], r: G.dots[i + 1], name: east ? 'Eastern Canada' : nm });
   }
+  SMALL_BEEN.forEach(function (ll) {  // light the nearest cell, or add one
+    var c = Math.round((ll[0] + 180) / G.step - 0.5), r = Math.round((G.top - ll[1]) / G.step);
+    var hit = pts.filter(function (q) { return q.c === c && q.r === r; })[0];
+    if (hit) { hit.on = true; hit.wish = false; hit.name = ll[2]; return; }
+    var p2 = proj((c + 0.5) * CELL, (r + 0.5) * CELL);
+    pts.push({ x: p2[0], y: p2[1], on: true, wish: false, col: c, c: c, r: r, name: ll[2] });
+  });
   var minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity;
   pts.forEach(function (q) { minX = Math.min(minX, q.x); maxX = Math.max(maxX, q.x); minY = Math.min(minY, q.y); maxY = Math.max(maxY, q.y); });
   var PAD = 40, TOPPAD = 60;
@@ -135,21 +130,6 @@ h1 span{color:#D13A28}
   });
   svg.innerHTML = '<g>' + dots + '</g>';
 
-  var pins = BEEN.map(function (p) { return { lon: p[0], lat: p[1], wish: false }; })
-    .concat(WISH.map(function (p) { return { lon: p[0], lat: p[1], wish: true }; }))
-    .map(function (p) { var q = fromLonLat(p.lon, p.lat); p.x = +sx(q[0]); p.y = +sy(q[1]); return p; })
-    .sort(function (a, b) { return a.y - b.y; });
-  var STEM = 26, pinLayer = document.createElementNS(NS, 'g');
-  pins.forEach(function (p, n) {
-    var g = document.createElementNS(NS, 'g');
-    g.setAttribute('class', 'pin' + (p.wish ? ' wish' : ''));
-    g.style.animationDelay = reduce ? '0s' : (1 + n * 0.05).toFixed(2) + 's';
-    var inner = document.createElementNS(NS, 'g');
-    inner.innerHTML = '<ellipse class="base" cx="0" cy="0" rx="4" ry="2.2"></ellipse><line class="stem" x1="0" y1="0" x2="0" y2="' + (-STEM) + '"></line><circle class="head" cx="0" cy="' + (-STEM) + '" r="5.5"></circle>';
-    g.appendChild(inner); p.inner = inner;
-    pinLayer.appendChild(g);
-  });
-  svg.appendChild(pinLayer);
   var box = document.getElementById('map');
   svg.removeAttribute('aria-hidden'); svg.setAttribute('role', 'img'); svg.setAttribute('aria-label', box.getAttribute('aria-label'));
   box.removeAttribute('role'); box.removeAttribute('aria-label');
@@ -168,8 +148,7 @@ h1 span{color:#D13A28}
   function apply() {
     clamp();
     svg.setAttribute('viewBox', vb.x.toFixed(1) + ' ' + vb.y.toFixed(1) + ' ' + vb.w.toFixed(1) + ' ' + vb.h.toFixed(1));
-    var z = W / vb.w, k = Math.pow(z, -0.75);  // pins grow a little, not as much as the land
-    pins.forEach(function (p) { p.inner.setAttribute('transform', 'translate(' + p.x + ' ' + p.y + ') scale(' + k.toFixed(3) + ')'); });
+    var z = W / vb.w;
     zoomUI.querySelector('[data-z="out"]').disabled = z <= 1.001;
     zoomUI.querySelector('[data-z="reset"]').disabled = z <= 1.001;
     zoomUI.querySelector('[data-z="in"]').disabled = z >= MAXZ - 0.001;
@@ -211,6 +190,7 @@ h1 span{color:#D13A28}
   svg.addEventListener('pointermove', function (e) {
     if (!drag) { return; }
     var r = svg.getBoundingClientRect();
+    tip.hidden = true;
     vb.x = drag.vx - (e.clientX - drag.x) / r.width * vb.w; vb.y = drag.vy - (e.clientY - drag.y) / r.height * vb.h; apply();
   });
   function endDrag() { drag = null; svg.classList.remove('grabbing'); }
@@ -220,6 +200,44 @@ h1 span{color:#D13A28}
     var z = b.getAttribute('data-z');
     if (z === 'in') { zoomSmooth(2); } else if (z === 'out') { zoomSmooth(0.5); } else { zoomSmooth(vb.w ? vb.w / W : 1); }
   });
+  /* ── tap a country: what I ate there / what I'm gonna eat there ── */
+  var tip = document.createElement('div'); tip.className = 'food'; tip.hidden = true; tip.setAttribute('role', 'status');
+  box.appendChild(tip);
+  function dotAt(cx, cy) {
+    var pt = svgPoint(cx, cy), best = null, bd = Infinity;
+    for (var n = 0; n < pts.length; n++) {
+      var q = pts[n], dx = (+sx(q.x)) - pt.x, dy = ((+sy(q.y)) - pt.y) / SQ, d = dx * dx + dy * dy;
+      if (d < bd) { bd = d; best = q; }
+    }
+    return bd <= CELL * CELL * 1.2 ? best : null;
+  }
+  function foodOf(q) { return q && (q.on || q.wish) && FOOD[q.name] ? FOOD[q.name] : null; }
+  function showFood(q, cx, cy) {
+    var f = foodOf(q);
+    if (!f) { tip.hidden = true; return; }
+    tip.innerHTML = '<span class="food-k">' + (q.on ? 'What I ate there' : 'What I’m gonna eat there') + '</span><span class="food-d"><span class="food-e" aria-hidden="true">' + f[0] + '</span>' + f[1] + '</span>';
+    tip.classList.toggle('wish', !q.on);
+    tip.hidden = false;
+    var r = box.getBoundingClientRect(), x = cx - r.left + box.scrollLeft, y = cy - r.top;
+    var w = tip.offsetWidth, maxX = box.scrollLeft + box.clientWidth - w - 8;
+    tip.style.left = Math.max(box.scrollLeft + 8, Math.min(maxX, x - w / 2)) + 'px';
+    tip.style.top = Math.max(8, y - tip.offsetHeight - 14) + 'px';
+  }
+  var down = null;
+  svg.addEventListener('pointerdown', function (e) { down = { x: e.clientX, y: e.clientY }; });
+  svg.addEventListener('click', function (e) {
+    if (down && Math.abs(e.clientX - down.x) + Math.abs(e.clientY - down.y) > 6) { return; }  // that was a drag
+    showFood(dotAt(e.clientX, e.clientY), e.clientX, e.clientY);
+  });
+  svg.addEventListener('pointermove', function (e) {
+    if (e.pointerType !== 'mouse' || drag) { return; }
+    svg.style.cursor = foodOf(dotAt(e.clientX, e.clientY)) ? 'pointer' : '';
+  });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { tip.hidden = true; } });
+  document.addEventListener('click', function (e) { if (!svg.contains(e.target) && !tip.contains(e.target)) { tip.hidden = true; } });
+  ['wheel', 'gesturechange'].forEach(function (t) { svg.addEventListener(t, function () { tip.hidden = true; }); });
+  box.addEventListener('scroll', function () { tip.hidden = true; }, { passive: true });
+
   apply();
 })();
 </script>
