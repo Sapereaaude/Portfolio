@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Not found · Safaa El Ouafi</title>
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Figtree:wght@400;600;700&family=Newsreader:ital,opsz,wght@1,6..72,400&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;background:#FFFFFF;color:#17171F;font-family:Figtree,system-ui,sans-serif}
+a{color:#17171F}
+:focus-visible{outline:3px solid #3B5BB8;outline-offset:2px}
+.wrap{max-width:1280px;margin:0 auto;padding:20px clamp(20px,4vw,56px) 56px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-bottom:14px;border-bottom:1px solid #E3E3EA;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.top a{text-decoration:none;white-space:nowrap}.top a:hover{color:#3B5BB8}
+.grid{display:flex;flex-wrap:wrap;align-items:flex-start;gap:32px clamp(32px,5vw,72px);margin-top:clamp(32px,6vw,72px)}
+.head{flex:1 1 420px;min-width:0}
+h1{margin:0;font-family:Anton,Impact,sans-serif;font-weight:400;font-size:clamp(88px,16vw,200px);line-height:.86;color:#3B5BB8}
+h1 span{color:#D13A28}
+.lead{margin:20px 0 0;max-width:560px;font-family:Newsreader,Georgia,serif;font-style:italic;font-size:clamp(24px,3vw,36px);line-height:1.2;text-wrap:balance}
+.notes{flex:1 1 380px;min-width:0;max-width:560px;position:relative;padding:22px 24px 20px;border:1.5px solid #17171F;border-radius:18px;background:#FFFFFF;
+  background-image:repeating-linear-gradient(to bottom,transparent 0,transparent 31px,#EEF1FA 31px,#EEF1FA 32px);background-position:0 52px;transform:rotate(-1deg)}
+.notes-h{display:flex;justify-content:space-between;gap:12px;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#D13A28}
+.notes-h time{color:#4A4A57;letter-spacing:.06em;white-space:nowrap}
+dl{display:grid;grid-template-columns:max-content minmax(0,1fr);gap:0 16px;margin:14px 0 0;font-size:15px;line-height:32px}
+dt{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#4A4A57;line-height:32px}
+dd{margin:0;min-width:0;overflow-wrap:anywhere;text-wrap:pretty}
+dd code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;padding:2px 6px;border-radius:6px;background:#F2F2F5}
+.hl{background:linear-gradient(transparent 55%,rgba(209,58,40,.22) 55%);padding:0 2px}
+.sev{display:inline-flex;gap:4px;vertical-align:-1px}.sev i{width:10px;height:10px;border-radius:50%;background:#D5D7E0}.sev i.on{background:#D13A28}
+.quote{margin:10px 0 0;font-family:Newsreader,Georgia,serif;font-style:italic;font-size:17px;line-height:1.4;color:#4A4A57}
+.next{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.btn{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:0 22px;border-radius:999px;font-size:15px;font-weight:700;text-decoration:none;white-space:nowrap}
+.btn.main{background:#3B5BB8;color:#FFFFFF}.btn.main:hover{background:#17171F}
+.btn.alt{border:1px solid #17171F}.btn.alt:hover{background:#EEF1FA}
+@media (max-width:520px){.notes{transform:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav class="top"><a href="/">Safaa El Ouafi.</a><span>Field notes</span></nav>
+<div class="grid">
+<div class="head">
+<h1>404<span>.</span></h1>
+<p class="lead">This page doesn’t exist. Neither does the average&nbsp;user.</p>
+<div class="next"><a class="btn main" href="/">Back to the portfolio</a><a class="btn alt" href="/#search">Search my work</a></div>
+</div>
+<section class="notes" aria-label="Research notes about this visit">
+<div class="notes-h"><span>Observation · P404</span><time id="when"></time></div>
+<dl>
+<dt>Task</dt><dd>Reach <code id="path">this page</code></dd>
+<dt>Expected</dt><dd>A page</dd>
+<dt>Observed</dt><dd><span class="hl">Nothing. Participant stayed&nbsp;calm.</span></dd>
+<dt>Severity</dt><dd><span class="sev" aria-label="Severity 1 out of 4"><i class="on"></i><i></i><i></i><i></i></span> Cosmetic, mostly&nbsp;existential</dd>
+<dt>Hypotheses</dt><dd>Old link, a typo, or pure curiosity</dd>
+<dt>Next step</dt><dd>Offer two ways out. Fix the link if it’s mine.</dd>
+</dl>
+<p class="quote">“Users don’t get lost. Paths do.” — my notebook, probably</p>
+</section>
+</div>
+</div>
+<script>
+(function () {
+  var p = location.pathname + location.search;
+  document.getElementById('path').textContent = p.length > 48 ? p.slice(0, 46) + '…' : p;
+  var d = new Date(), pad = function (n) { return (n < 10 ? '0' : '') + n; };
+  var t = document.getElementById('when');
+  t.textContent = d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate()) + ' · ' + pad(d.getHours()) + ':' + pad(d.getMinutes());
+  t.setAttribute('datetime', d.toISOString());
+})();
+</script>
+</body>
+</html>

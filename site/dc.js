@@ -263,6 +263,19 @@
     setTimeout(onScroll, 1200);
   })();
 
+  /* Unexpected user behaviour · 04: a note for whoever opens the developer console. */
+  (function consoleHello() {
+    if (window.__consoleHello || !window.console || !console.log) { return; }
+    window.__consoleHello = true;
+    try {
+      console.log(
+        '%cUnexpected user behaviour · 04%c\n\n%cHi, curious developer.%c\n%cYou inspect things. So do I.%c\n\nIf you read source code for fun, we should probably talk.\n→ safaa.elouafi.am@gmail.com\n→ https://www.linkedin.com/in/safaa-el-ouafi/en/',
+        'color:#D13A28;font:700 11px Figtree,sans-serif;letter-spacing:.14em;text-transform:uppercase', '',
+        'color:#3B5BB8;font:400 28px Anton,Impact,sans-serif;text-transform:uppercase', '',
+        'color:#17171F;font:italic 16px Newsreader,Georgia,serif', 'color:#4A4A57;font:13px Figtree,sans-serif');
+    } catch (err) {}
+  })();
+
   /* Visitors who arrive through the Dust page keep a way back to it on every other page. */
   (function dustTrail() {
     var onDust = /^\/dust(\/|$)/.test(location.pathname);

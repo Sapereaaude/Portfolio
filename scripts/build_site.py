@@ -320,9 +320,7 @@ def main():
     if os.path.isdir(uploads):
         shutil.copytree(uploads, os.path.join(OUT, 'uploads'), dirs_exist_ok=True)
         optimise(os.path.join(OUT, 'uploads'))
-    open(os.path.join(OUT, '404.html'), 'w', encoding='utf-8').write(
-        '<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Not found | Safaa El Ouafi</title></head>'
-        '<body style="margin:0;font-family:system-ui,sans-serif;padding:48px 24px"><h1>Nothing in that drawer.</h1><p><a href="/">Back to the portfolio</a></p></body></html>')
+    shutil.copy(os.path.join(ROOT, 'assets', '404.html'), os.path.join(OUT, '404.html'))  # field notes on a missing page
     print('built', count, 'pages')
 
 
