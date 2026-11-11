@@ -310,6 +310,8 @@ def main():
     shutil.copytree(os.path.join(ROOT, 'assets', 'tools'), os.path.join(OUT, 'tools'), dirs_exist_ok=True)
     shutil.copy(os.path.join(ROOT, 'assets', 'tldr.js'), os.path.join(OUT, 'tldr.js'))
     shutil.copy(os.path.join(ROOT, 'assets', 'home-motion.js'), os.path.join(OUT, 'home-motion.js'))
+    # hidden page behind the paper plane on About (no link elsewhere, not indexed)
+    shutil.copytree(os.path.join(ROOT, 'assets', 'places'), os.path.join(OUT, 'off-the-map'), dirs_exist_ok=True)
     shutil.copy(os.path.join(ROOT, 'assets', 'tldr-episode.js'), os.path.join(OUT, 'tldr-episode.js'))
     # the Content Studio (/admin): only its own page loads the CMS
     shutil.copytree(os.path.join(ROOT, 'assets', 'admin'), os.path.join(OUT, 'admin'), dirs_exist_ok=True)

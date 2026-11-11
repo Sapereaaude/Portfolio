@@ -73,6 +73,7 @@ a{color:#17171F}a:hover{color:#D13A28}
 @keyframes usesSky{from{opacity:0;transform:scale(.6)}to{opacity:1;transform:none}}
 @keyframes usesOut{from{opacity:0;transform:rotate(calc(var(--a) - 90deg)) translateX(0)}to{opacity:1;transform:rotate(var(--a)) translateX(var(--r))}}
 @keyframes usesSpin{to{transform:rotate(360deg)}}
+.plane-egg svg{transition:transform .25s ease}.plane-egg:hover svg,.plane-egg:focus-visible svg{transform:translate(2px,-2px) rotate(-8deg)}
 @media (prefers-reduced-motion: reduce){.uses-sky,.uses-arm,.uses-orbit,.uses-unspin{animation:none}}
 </style>
 </helmet>
@@ -100,7 +101,7 @@ a{color:#17171F}a:hover{color:#D13A28}
 <p style="margin: 28px 0 0; max-width: 720px; font-size: clamp(22px, 2.4vw, 32px); line-height: 1.25; font-family: 'Newsreader', Georgia, serif; font-style: italic; text-wrap: balance">User Experience Researcher. Former teacher. Professional noticer of how you use the coffee machine.</p>
 </div>
 <dl style="flex: 1 1 430px; margin: 0; position: relative; display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 10px 16px; font-family: 'Figtree', sans-serif; font-weight: 700; font-size: 13px; line-height: 1.45; border-top: 1px solid #E3E3EA; padding-top: 14px">
-<dt style="text-transform: uppercase; color: #4A4A57">Based</dt><dd style="margin: 0">Paris <span style="font-weight: 400; color: #4A4A57">(open to the world)</span><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#3B5BB8" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round" style="display: inline-block; margin-left: 6px; vertical-align: -2px"><path d="M21.5 3 2.8 10.4l7.2 2.8 2.8 7.3z"></path><path d="M21.5 3 10 13.2"></path></svg></dd>
+<dt style="text-transform: uppercase; color: #4A4A57">Based</dt><dd style="margin: 0">Paris <span style="font-weight: 400; color: #4A4A57">(open to the world)</span><a href="/off-the-map" class="plane-egg" aria-label="Where I have been" style="display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; margin: -7px 0 -7px 0; vertical-align: -2px; text-decoration: none"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#3B5BB8" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round" style="display: block"><path d="M21.5 3 2.8 10.4l7.2 2.8 2.8 7.3z"></path><path d="M21.5 3 10 13.2"></path></svg></a></dd>
 <dt style="text-transform: uppercase; color: #4A4A57">Speaks</dt><dd style="margin: 0">FR · EN · AR · ES</dd>
 <dt style="text-transform: uppercase; color: #4A4A57">Does</dt><dd style="margin: 0"><span style="white-space: nowrap">Generative research,</span> <span style="white-space: nowrap">Mixed methods, ResearchOps</span></dd>
 <dt style="text-transform: uppercase; color: #4A4A57">Explores</dt><dd style="margin: 0">Psychology, Human–AI interaction</dd>
