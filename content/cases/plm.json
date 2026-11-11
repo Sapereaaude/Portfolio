@@ -1,14 +1,4 @@
 {
-  "id": "plm",
-  "page_title": "Idea to recycling",
-  "draft_banner": true,
-  "header": {
-    "eyebrow": "Decathlon · 2023–25",
-    "title": "Idea to recycling",
-    "question": "How do more than a thousand engineers keep a product’s life in order, from idea to recycling?",
-    "background": "accent",
-    "illustration": "<div aria-hidden=\"true\" style=\"flex: 0 1 300px; min-width: 200px; aspect-ratio: 196 / 150\">\n<svg sc-camel-view-box=\"44 8 196 150\" style=\"width: 100%; height: 100%; display: block\">\n<circle cx=\"150\" cy=\"70\" r=\"46\" fill=\"none\" stroke=\"#FFFFFF\" stroke-width=\"10\" opacity=\"0.35\"></circle>\n<path d=\"M150 24 A46 46 0 1 1 104 70\" fill=\"none\" stroke=\"#FFFFFF\" stroke-width=\"10\" stroke-linecap=\"round\"></path>\n<path d=\"M96 60 l8 12 10 -10\" fill=\"none\" stroke=\"#FFFFFF\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n<circle cx=\"150\" cy=\"24\" r=\"9\" fill=\"#D13A28\" stroke=\"#FFFFFF\" stroke-width=\"2\"></circle>\n<rect x=\"134\" y=\"58\" width=\"32\" height=\"24\" rx=\"4\" fill=\"#FFFFFF\"></rect><path d=\"M134 66 h32\" stroke=\"{{accent}}\" stroke-width=\"2\"></path>\n</svg>\n</div>\n"
-  },
   "facts": [
     {
       "label": "Role",
@@ -27,9 +17,16 @@
       "value": "User research & ResearchOps"
     }
   ],
+  "page_title": "Idea to recycling",
   "threads": true,
-  "before_main": "\n",
-  "decisions": true,
+  "draft_banner": true,
+  "header": {
+    "eyebrow": "Decathlon · 2023–25",
+    "title": "Product Lifecycle",
+    "question": "How do more than a thousand engineers keep a product’s life in order, from idea to recycling?",
+    "background": "accent",
+    "illustration": "<div aria-hidden=\"true\" style=\"flex: 0 1 300px; min-width: 200px; aspect-ratio: 196 / 150\">\n<svg sc-camel-view-box=\"44 8 196 150\" style=\"width: 100%; height: 100%; display: block\">\n<circle cx=\"150\" cy=\"70\" r=\"46\" fill=\"none\" stroke=\"#FFFFFF\" stroke-width=\"10\" opacity=\"0.35\"></circle>\n<path d=\"M150 24 A46 46 0 1 1 104 70\" fill=\"none\" stroke=\"#FFFFFF\" stroke-width=\"10\" stroke-linecap=\"round\"></path>\n<path d=\"M96 60 l8 12 10 -10\" fill=\"none\" stroke=\"#FFFFFF\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n<circle cx=\"150\" cy=\"24\" r=\"9\" fill=\"#D13A28\" stroke=\"#FFFFFF\" stroke-width=\"2\"></circle>\n<rect x=\"134\" y=\"58\" width=\"32\" height=\"24\" rx=\"4\" fill=\"#FFFFFF\"></rect><path d=\"M134 66 h32\" stroke=\"{{accent}}\" stroke-width=\"2\"></path>\n</svg>\n</div>\n"
+  },
   "sections": [
     {
       "title": "The context",
@@ -141,7 +138,37 @@
       ]
     }
   ],
+  "card": {
+    "vis": "plm",
+    "a": "Research on how engineers maintain the lifecycle of a product, inside a huge programme with Dassault: components, bills of materials, data trust, versioning, access rights, eco-design. [ADD WHAT IT CHANGED]",
+    "meta": "Decathlon · 2023–25",
+    "m": [
+      "mixed"
+    ],
+    "pts": [
+      "1,000+ engineers, one product lifecycle",
+      "From the idea to recycling",
+      "A huge programme with Dassault"
+    ],
+    "sc": [
+      "generative",
+      "strategic"
+    ],
+    "q": "How do more than a thousand engineers keep a product’s life in order, from idea to recycling?",
+    "jobs": [
+      "research",
+      "built"
+    ],
+    "title": "Idea to recycling",
+    "who": [
+      "pm",
+      "researcher",
+      "hiring",
+      "founder"
+    ]
+  },
   "after_sections": "",
+  "behind_decisions": [],
   "prev": {
     "id": "prio",
     "label": "How products get chosen",
@@ -152,34 +179,7 @@
     "label": "A monthly pulse on 3D tools",
     "follow_title": false
   },
-  "card": {
-    "pts": [
-      "1,000+ engineers, one product lifecycle",
-      "From the idea to recycling",
-      "A huge programme with Dassault"
-    ],
-    "vis": "plm",
-    "meta": "Decathlon · 2023–25",
-    "title": "Idea to recycling",
-    "q": "How do more than a thousand engineers keep a product’s life in order, from idea to recycling?",
-    "a": "Research on how engineers maintain the lifecycle of a product, inside a huge programme with Dassault: components, bills of materials, data trust, versioning, access rights, eco-design. [ADD WHAT IT CHANGED]",
-    "jobs": [
-      "research",
-      "built"
-    ],
-    "who": [
-      "pm",
-      "researcher",
-      "hiring",
-      "founder"
-    ],
-    "m": [
-      "mixed"
-    ],
-    "sc": [
-      "generative",
-      "strategic"
-    ]
-  },
-  "behind_decisions": []
+  "decisions": true,
+  "before_main": "\n",
+  "id": "plm"
 }
