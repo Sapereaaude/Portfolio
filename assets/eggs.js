@@ -122,6 +122,11 @@
     '.egg-ins li{padding-left:14px;border-left:3px solid #3B5BB8}' +
     '.egg-ins p{margin:0;font:italic 18px/1.35 Newsreader,Georgia,serif}' +
     '.egg-ins small{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#4A4A57}' +
+    '.egg-box{margin:18px 0 0;padding:14px 16px 16px;border:1.5px solid #17171F;border-radius:14px;background:#FFFFFF}' +
+    '.egg-box-h{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:2px 16px;margin:0 0 8px}' +
+    '.egg-box-h small{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#4A4A57;white-space:nowrap}' +
+    '.egg-box p{margin:6px 0 0;font:italic 18px/1.35 Newsreader,Georgia,serif;text-wrap:pretty}' +
+    '.egg-box p b{margin-right:8px;font:700 11px/1 Figtree,system-ui,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#3B5BB8;white-space:nowrap}' +
     '.egg-foot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;margin-top:22px}' +
     '.egg-foot p{margin:0;font-size:12px;color:#4A4A57}' +
     '.egg-btn{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 20px;border:1.5px solid #17171F;border-radius:999px;background:#FFFFFF;color:#17171F;font:700 14px/1 Figtree,sans-serif;text-decoration:none;white-space:nowrap;cursor:pointer}' +
@@ -216,14 +221,28 @@
     if (ins.length < 3) { ins.push(['Clicked a full stop. Nobody clicks full stops.', 'Outlier (n=1)']); }
     if (food && ins.length < 3) { ins.push(['Food came up. It always does.', 'Recurring theme']); }
 
+    /* the insight: two lines, who you are and how it went. Learnings stay factual, this one doesn't. */
+    var who, how, m = Math.round(total / 60000);
+    if (pages.some(function (p) { return p.g === 'intent'; })) { who = 'Came in through the Dust page. Subtle. Nobody will guess where you&nbsp;work.'; }
+    else if (groups.person + groups.curious > groups.work) { who = 'Came for the researcher, stayed for the human. Classic scope&nbsp;creep.'; }
+    else if (cases >= 3) { who = 'Reads the methodology section. Voluntarily. There are dozens of&nbsp;us.'; }
+    else { who = 'Work first, small talk never. Efficient, mildly suspicious of&nbsp;fun.'; }
+    if (m >= 10) { how = m + ' minutes on a portfolio. Longer than most readouts, and you stayed&nbsp;awake.'; }
+    else if (pages.some(function (p) { return p.n >= 2; })) { how = 'Went back to a page already read. Great content or lost user. Logging “great&nbsp;content”.'; }
+    else if (pages.length >= 6) { how = pages.length + ' pages in ' + mins(total) + '. Skimming is a research method, I’m&nbsp;told.'; }
+    else { how = pages.length + ' pages, one clicked full stop. Task success: 100%. Task:&nbsp;unclear.'; }
+    var box = '<div class="egg-box"><div class="egg-box-h"><span class="egg-k">Insight</span><small>Confidence: unreasonably high</small></div>' +
+      '<p><b>Profile</b>' + who + '</p><p><b>Experience</b>' + how + '</p></div>';
+
     var MAIL = 'safaa.elouafi.am@gmail.com', SUBJECT = 'I was P1 in your study';
     var veil = modal(
       '<span class="egg-k">Unexpected user behaviour · 05</span>' +
       '<h2 id="egg-t">I ran a study on you<span>.</span></h2>' +
       '<p class="egg-lead">Wow, you really dig everywhere. Well, so do&nbsp;I.</p>' +
       '<div class="egg-meta"><span>Participant <b>P1 (you)</b></span><span>Method <b>unmoderated, n=1</b></span><span>Duration <b>' + mins(total) + '</b></span><span>Pages <b>' + pages.length + '</b></span></div>' +
+      box +
       '<h3>Affinity map of your visit</h3><div class="egg-board">' + board + '</div>' +
-      '<h3>Insights</h3><ul class="egg-ins">' + ins.slice(0, 3).map(function (i) { return '<li><p>' + i[0] + '</p><small>Confidence: low (n=1) · ' + i[1] + '</small></li>'; }).join('') + '</ul>' +
+      '<h3>Learnings</h3><ul class="egg-ins">' + ins.slice(0, 3).map(function (i) { return '<li><p>' + i[0] + '</p><small>Confidence: low (n=1) · ' + i[1] + '</small></li>'; }).join('') + '</ul>' +
       '<p class="egg-rec">Recommendation: follow up with a moderated session. This report stays in your&nbsp;browser.</p>' +
       '<div class="egg-foot"><span></span><button type="button" class="egg-btn main" data-talk aria-expanded="false" aria-controls="egg-stars">Let’s talk</button></div>' +
       '<div class="egg-stars" id="egg-stars" role="group" aria-label="Pick one" hidden>' +
