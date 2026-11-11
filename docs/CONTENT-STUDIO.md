@@ -43,6 +43,8 @@ Le canevas Claude Design ne sert plus de source pour les études de cas : une mo
 4. **Save** = brouillon (onglet **Workflow**, colonne Drafts). Le site public ne bouge pas.
 5. Statut **Ready**, puis **Publish** : commit sur GitHub, déploiement Vercel en ~1 minute.
 
+**Tout publier d'un coup** : quand des études de cas sont en *Ready*, un bouton noir **Publish all Ready** apparaît en bas à droite (sauf dans l'éditeur). Il publie toute la colonne Ready en un seul commit sur `main`, donc un seul déploiement. Chaque PR est marquée « merged » et sa branche supprimée. Une étude de cas dont le fichier a aussi changé ailleurs n'est pas touchée : elle reste en Ready, à publier depuis l'éditeur (`assets/admin/publish-ready.js`).
+
 Statuts : *Published* (en ligne), *Draft / In review / Ready* (modifications non publiées). Decap affiche un message en cas d'échec de publication et prévient avant de quitter une page non enregistrée.
 
 ## Revenir en arrière
