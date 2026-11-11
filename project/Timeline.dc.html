@@ -215,9 +215,20 @@ var next = function () {
 i += 1;
 if (i >= self._tourIds.length) { self.stopTour(); return; }
 self.choose(self._tourIds[i], null, true);
+self.revealStop(i);
 self._tour = setTimeout(next, dwell(self._tourIds[i]));
 };
+this.revealStop(0);
 this._tour = setTimeout(next, dwell(this._tourIds[0]) + 400);
+}
+revealStop(i) {
+/* on narrow screens the line scrolls sideways: bring the stop the tour is on into view, without moving the page vertically */
+try { window.setTimeout(function () {
+var sc = document.querySelector('.tl-sticky'); var btns = sc ? sc.querySelectorAll('.tl-btn') : []; var el = btns[i];
+if (!sc || !el || sc.scrollWidth <= sc.clientWidth) { return; }
+var li = el.parentNode; var left = li.offsetLeft + li.offsetWidth / 2 - sc.clientWidth / 2;
+sc.scrollTo({ left: Math.max(0, left), behavior: 'smooth' });
+}, 60); } catch (err) {}
 }
 stopTour() {
 var self = this;
