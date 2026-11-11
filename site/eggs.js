@@ -11,8 +11,18 @@
   try { reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
 
   /* ── the visit log ── */
-  function load() { try { return JSON.parse(sessionStorage.getItem(KEY) || 'null') || { start: Date.now(), visits: [] }; } catch (e) { return { start: Date.now(), visits: [] }; } }
-  function save(log) { try { sessionStorage.setItem(KEY, JSON.stringify(log)); } catch (e) {} }
+  var IDLE = 45 * 60 * 1000;
+  function store() { try { localStorage.setItem('_t', '1'); localStorage.removeItem('_t'); return localStorage; } catch (e) { try { return sessionStorage; } catch (e2) { return null; } } }
+  var ST = store();
+  function get(k) { try { return ST ? ST.getItem(k) : null; } catch (e) { return null; } }
+  function set(k, v) { try { if (ST) { ST.setItem(k, v); } } catch (e) {} }
+  function load() {
+    var fresh = { start: Date.now(), last: Date.now(), visits: [] }, l = null;
+    try { l = JSON.parse(get(KEY) || 'null'); } catch (e) {}
+    if (!l || !l.visits || Date.now() - (l.last || l.start) > IDLE) { set('study-seen', ''); return fresh; }  // a new visit
+    return l;
+  }
+  function save(log) { log.last = Date.now(); set(KEY, JSON.stringify(log)); }
   function where() {
     var p = location.pathname.replace(/\/+$/, '') || '/', st = {};
     try { st = JSON.parse(sessionStorage.getItem('se-portfolio-v3') || '{}') || {}; } catch (e) {}
@@ -39,6 +49,7 @@
   var log = load(), current = null;
   function tick() {
     var w = where(), now = Date.now();
+    try { var st2 = JSON.parse(get(KEY) || 'null'); if (st2 && st2.visits && st2.visits.length > log.visits.length && st2.start <= log.start) { log = st2; current = null; } } catch (e) {}
     if (!current || current.k !== w.k) {
       current = { k: w.k, label: w.label, g: w.g, t0: now, t1: now };
       log.visits.push(current);
@@ -54,7 +65,7 @@
     var seen = {}; log.visits.forEach(function (x) { seen[x.k] = 1; });
     return Object.keys(seen).length >= 3 && Date.now() - log.start >= 90000;
   }
-  function studySeen() { try { return sessionStorage.getItem('study-seen') === '1'; } catch (e) { return false; } }
+  function studySeen() { return get('study-seen') === '1'; }
   /* once the study is ready, the full stop of About me / Off the clock winks: square, round, square */
   function wink() {
     if (document.fonts && document.fonts.status !== 'loaded') { return; }
@@ -116,6 +127,24 @@
     '.egg-btn{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 20px;border:1.5px solid #17171F;border-radius:999px;background:#FFFFFF;color:#17171F;font:700 14px/1 Figtree,sans-serif;text-decoration:none;white-space:nowrap;cursor:pointer}' +
     '.egg-btn.main{background:#3B5BB8;border-color:#3B5BB8;color:#FFFFFF}.egg-btn.main:hover{background:#17171F;border-color:#17171F}' +
     '.egg-btn[disabled]{opacity:.4;cursor:default}' +
+    '.egg-rec{margin:20px 0 0;font-size:12px;color:#4A4A57}' +
+    '.egg-link{padding:8px 0;border:none;background:none;color:#17171F;font:600 13px/1.2 Figtree,sans-serif;text-decoration:underline;text-underline-offset:3px;white-space:nowrap;cursor:pointer}' +
+    '.egg-link:hover{color:#3B5BB8}' +
+    '.egg-foot{margin-top:14px}' +
+    '.egg-stars{position:relative;width:250px;height:112px;margin:6px 0 0 auto}.egg-stars[hidden],.egg-fb[hidden]{display:none}' +
+    '.egg-stars svg{position:absolute;inset:0;width:250px;height:96px;overflow:visible}' +
+    '.egg-star{position:absolute;display:flex;flex-direction:column;align-items:center;gap:4px;width:52px;margin:-26px 0 0 -26px;color:#17171F;text-decoration:none;font:600 11px/1 Figtree,sans-serif}' +
+    '.egg-star b,.egg-star svg{display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box;width:52px;height:52px;border:1px solid #17171F;border-radius:50%;background:#FFFFFF;box-shadow:0 6px 16px rgba(23,23,31,.18);font:800 18px/1 Figtree,sans-serif;transition:transform .15s ease}' +
+    '.egg-star svg{position:static;padding:14px}' +
+    '.egg-star:hover b,.egg-star:hover svg{transform:translateY(-3px)}' +
+    '.egg-fb{margin-top:10px;padding:16px;border-radius:14px;background:#EEF1FA}' +
+    '.egg-fb h3{margin:0 0 10px;color:#17171F}' +
+    '.egg-scale{display:flex;gap:8px}' +
+    '.egg-scale button{flex:1 1 0;min-height:44px;border:1.5px solid #17171F;border-radius:999px;background:#FFFFFF;color:#17171F;font:700 15px/1 Figtree,sans-serif;cursor:pointer}' +
+    '.egg-scale button[aria-checked="true"]{background:#3B5BB8;border-color:#3B5BB8;color:#FFFFFF}' +
+    '.egg-ends{display:flex;justify-content:space-between;margin-top:6px;font-size:12px;color:#4A4A57}' +
+    '.egg-fb textarea{display:block;width:100%;box-sizing:border-box;margin-top:12px;padding:10px 12px;border:1px solid #A9ACBA;border-radius:10px;background:#FFFFFF;color:#17171F;font:400 15px/1.45 Figtree,sans-serif;resize:vertical}' +
+    '.egg-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}' +
     '.egg-form{display:flex;flex-direction:column;gap:10px;margin:16px 0 0}' +
     '.egg-form label{display:flex;gap:10px;align-items:flex-start;cursor:pointer;font-size:15px;line-height:1.4}' +
     '.egg-form input{width:18px;height:18px;margin:1px 0 0;accent-color:#3B5BB8;flex:none}' +
@@ -195,25 +224,66 @@
     if (ins.length < 3) { ins.push(['Clicked a full stop. Nobody clicks full stops.', 'Outlier (n=1)']); }
     if (food && ins.length < 3) { ins.push(['Food came up. It always does.', 'Recurring theme']); }
 
-    modal(
+    var MAIL = 'safaa.elouafi.am@gmail.com', SUBJECT = 'I was P1 in your study';
+    var veil = modal(
       '<span class="egg-k">Unexpected user behaviour · 05</span>' +
       '<h2 id="egg-t">I ran a study on you<span>.</span></h2>' +
+      '<p class="egg-lead">Wow, you really dig everywhere. Well, so do&nbsp;I.</p>' +
       '<div class="egg-meta"><span>Participant <b>P1 (you)</b></span><span>Method <b>unmoderated, n=1</b></span><span>Duration <b>' + mins(total) + '</b></span><span>Pages <b>' + pages.length + '</b></span></div>' +
       '<h3>Affinity map of your visit</h3><div class="egg-board">' + board + '</div>' +
       '<h3>Insights</h3><ul class="egg-ins">' + ins.slice(0, 3).map(function (i) { return '<li><p>' + i[0] + '</p><small>Confidence: low (n=1) · ' + i[1] + '</small></li>'; }).join('') + '</ul>' +
-      '<div class="egg-foot"><p>Recommendation: follow up with a moderated session. Nothing left your browser.</p>' +
-      '<a class="egg-btn main" href="mailto:safaa.elouafi.am@gmail.com?subject=' + encodeURIComponent('I was P1 in your study') + '">Book the follow-up</a></div>');
+      '<p class="egg-rec">Recommendation: follow up with a moderated session. Nothing left your browser.</p>' +
+      '<div class="egg-foot"><button type="button" class="egg-link" data-fb aria-expanded="false" aria-controls="egg-fb">Share your feedback</button>' +
+      '<button type="button" class="egg-btn main" data-talk aria-expanded="false" aria-controls="egg-stars">Let’s talk</button></div>' +
+      '<div class="egg-stars" id="egg-stars" role="group" aria-label="Pick an app" hidden>' +
+        '<svg aria-hidden="true" viewBox="0 0 250 96"><path d="M30 60 L110 28 L190 66" fill="none" stroke="rgba(23,23,31,.35)" stroke-width="1.5" stroke-dasharray="3 5"></path></svg>' +
+        '<a class="egg-star" style="left:30px;top:60px" target="_blank" rel="noopener" aria-label="Gmail" href="https://mail.google.com/mail/?view=cm&fs=1&to=' + encodeURIComponent(MAIL) + '&su=' + encodeURIComponent(SUBJECT) + '"><b>G</b><span>Gmail</span></a>' +
+        '<a class="egg-star" style="left:110px;top:28px" aria-label="Mail" href="mailto:' + MAIL + '?subject=' + encodeURIComponent(SUBJECT) + '"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5.5" width="18" height="13" rx="2"></rect><path d="M3.5 7l8.5 6 8.5-6"></path></svg><span>Mail</span></a>' +
+        '<a class="egg-star" style="left:190px;top:66px" target="_blank" rel="noopener" aria-label="LinkedIn" href="https://www.linkedin.com/in/safaa-el-ouafi/en/"><b>in</b><span>LinkedIn</span></a>' +
+      '</div>' +
+      '<form class="egg-fb" id="egg-fb" hidden><h3 id="egg-fb-q">How was this portfolio, overall?</h3>' +
+        '<div class="egg-scale" role="radiogroup" aria-labelledby="egg-fb-q">' + [1, 2, 3, 4, 5].map(function (n) { return '<button type="button" role="radio" aria-checked="false" data-n="' + n + '">' + n + '</button>'; }).join('') + '</div>' +
+        '<div class="egg-ends"><span>Not for me</span><span>Loved it</span></div>' +
+        '<label class="egg-sr" for="egg-fb-t">Your comment</label><textarea id="egg-fb-t" rows="3" placeholder="What worked, what didn’t, what you expected…"></textarea>' +
+        '<div class="egg-foot"><p>Opens your email, nothing is sent behind your back.</p><button type="submit" class="egg-btn" disabled>Send feedback</button></div></form>');
+    var talk = veil.querySelector('[data-talk]'), stars = veil.querySelector('.egg-stars'), fbBtn = veil.querySelector('[data-fb]'), fb = veil.querySelector('.egg-fb');
+    function show(btn, box, on) { box.hidden = !on; btn.setAttribute('aria-expanded', String(on)); }
+    talk.addEventListener('click', function () { var on = stars.hidden; show(fbBtn, fb, false); show(talk, stars, on); if (on) { stars.scrollIntoView({ block: 'nearest' }); } });
+    fbBtn.addEventListener('click', function () { var on = fb.hidden; show(talk, stars, false); show(fbBtn, fb, on); if (on) { fb.scrollIntoView({ block: 'nearest' }); } });
+    var score = 0, send = fb.querySelector('[type="submit"]');
+    Array.prototype.forEach.call(fb.querySelectorAll('.egg-scale button'), function (bn) {
+      bn.addEventListener('click', function () {
+        score = +bn.getAttribute('data-n'); send.disabled = false;
+        Array.prototype.forEach.call(fb.querySelectorAll('.egg-scale button'), function (o) { o.setAttribute('aria-checked', String(o === bn)); });
+      });
+    });
+    fb.addEventListener('submit', function (e) {
+      e.preventDefault(); if (!score) { return; }
+      var txt = fb.querySelector('textarea').value.trim();
+      location.href = 'mailto:' + MAIL + '?subject=' + encodeURIComponent('Feedback on your portfolio: ' + score + '/5') + '&body=' + encodeURIComponent('Satisfaction: ' + score + '/5\n\n' + (txt || '(no comment)') + '\n\nSent from the study on uxrsafaaelouafi.vercel.app');
+    });
+  }
+  function redDot(e) {
+    var t = e.target;
+    if (!t || t.nodeType !== 1) { return null; }
+    function isDot(sp) { return sp.textContent.trim() === '.' && !sp.children.length && (sp.classList.contains('egg-wink') || getComputedStyle(sp).color === 'rgb(209, 58, 40)'); }
+    if (t.tagName === 'SPAN' && isDot(t) && t.closest('h1, h2')) { return t; }
+    var h = t.closest('h1, h2'); if (!h) { return null; }
+    var dots = Array.prototype.filter.call(h.querySelectorAll('span'), isDot);
+    for (var i = 0; i < dots.length; i++) {  // a finger is not a cursor: 28px around the full stop is close enough
+      var r = dots[i].getBoundingClientRect(), cy = r.bottom - Math.min(r.height, r.width * 1.2) / 2, cx = r.left + r.width / 2;
+      if (Math.abs(e.clientX - cx) <= 28 && Math.abs(e.clientY - cy) <= 28) { return dots[i]; }
+    }
+    return null;
   }
   document.addEventListener('click', function (e) {
-    var t = e.target;
-    if (!t || t.nodeType !== 1 || t.textContent.trim() !== '.' || !t.closest('h1, h2')) { return; }
-    var c = getComputedStyle(t).color;
-    if (c !== 'rgb(209, 58, 40)' && !t.classList.contains('egg-wink')) { return; }
+    var t = redDot(e);
+    if (!t) { return; }
     e.preventDefault(); e.stopPropagation();
     tick();
     var seen = {}; log.visits.forEach(function (x) { seen[x.k] = 1; });
     var n = Object.keys(seen).length, secs = Math.round((Date.now() - log.start) / 1000);
-    if (n >= 3 && secs >= 90) { try { sessionStorage.setItem('study-seen', '1'); } catch (er) {} wink(); study(); return; }
+    if (n >= 3 && secs >= 90) { set('study-seen', '1'); wink(); study(); return; }
     var r = t.getBoundingClientRect();
     toast('<b>Unexpected user behaviour · 05</b><p>You clicked a full stop. Interesting. Not enough data yet to say&nbsp;why.</p><small>n=1 · ' + n + (n === 1 ? ' page' : ' pages') + ' · ' + (secs < 60 ? secs + ' s' : Math.round(secs / 60) + ' min') + '. Look around a bit more, then try&nbsp;again.</small>', r.left + r.width / 2, r.top, 5200);
   }, true);
