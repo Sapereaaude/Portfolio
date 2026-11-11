@@ -1,14 +1,4 @@
 {
-  "id": "algo_academy",
-  "page_title": "Algolia Academy",
-  "draft_banner": true,
-  "header": {
-    "eyebrow": "Algolia · Instructional design",
-    "title": "Algolia Academy",
-    "question": "How do partners become certified Algolia experts?",
-    "background": "#EEF1FA",
-    "illustration": "<div aria-hidden=\"true\" style=\"flex: 0 1 300px; min-width: 200px; aspect-ratio: 196 / 150\">\n<svg sc-camel-view-box=\"44 8 196 150\" style=\"width: 100%; height: 100%; display: block\">\n<circle cx=\"150\" cy=\"70\" r=\"54\" fill=\"#FFFFFF\" opacity=\"0.7\"></circle>\n<rect x=\"100\" y=\"34\" width=\"104\" height=\"72\" rx=\"8\" fill=\"#FFFFFF\" stroke=\"#17171F\" stroke-width=\"1.2\"></rect>\n<rect x=\"114\" y=\"48\" width=\"56\" height=\"7\" rx=\"3.5\" fill=\"#17171F\"></rect><rect x=\"114\" y=\"62\" width=\"76\" height=\"5\" rx=\"2.5\" fill=\"#17171F\" opacity=\"0.3\"></rect><rect x=\"114\" y=\"72\" width=\"60\" height=\"5\" rx=\"2.5\" fill=\"#17171F\" opacity=\"0.3\"></rect>\n<circle cx=\"190\" cy=\"104\" r=\"16\" fill=\"{{accent}}\"></circle><path d=\"M182 118 l-4 18 12 -7 12 7 -4 -18\" fill=\"{{accent}}\"></path><path d=\"M184 104 l4 4 8 -8\" stroke=\"#FFFFFF\" stroke-width=\"2.4\" fill=\"none\"></path>\n</svg>\n</div>\n"
-  },
   "facts": [
     {
       "label": "Role",
@@ -27,9 +17,16 @@
       "value": "Instructional design"
     }
   ],
+  "page_title": "Algolia Academy",
   "threads": true,
-  "before_main": "\n",
-  "decisions": true,
+  "draft_banner": true,
+  "header": {
+    "eyebrow": "Algolia · Instructional design",
+    "title": "Algolia Academy",
+    "question": "How do partners become certified Algolia experts?",
+    "background": "accent",
+    "illustration": "<div aria-hidden=\"true\" style=\"flex: 0 1 300px; min-width: 200px; aspect-ratio: 196 / 150\">\n<svg sc-camel-view-box=\"44 8 196 150\" style=\"width: 100%; height: 100%; display: block\">\n<circle cx=\"150\" cy=\"70\" r=\"54\" fill=\"#FFFFFF\" opacity=\"0.7\"></circle>\n<rect x=\"100\" y=\"34\" width=\"104\" height=\"72\" rx=\"8\" fill=\"#FFFFFF\" stroke=\"#17171F\" stroke-width=\"1.2\"></rect>\n<rect x=\"114\" y=\"48\" width=\"56\" height=\"7\" rx=\"3.5\" fill=\"#17171F\"></rect><rect x=\"114\" y=\"62\" width=\"76\" height=\"5\" rx=\"2.5\" fill=\"#17171F\" opacity=\"0.3\"></rect><rect x=\"114\" y=\"72\" width=\"60\" height=\"5\" rx=\"2.5\" fill=\"#17171F\" opacity=\"0.3\"></rect>\n<circle cx=\"190\" cy=\"104\" r=\"16\" fill=\"{{accent}}\"></circle><path d=\"M182 118 l-4 18 12 -7 12 7 -4 -18\" fill=\"{{accent}}\"></path><path d=\"M184 104 l4 4 8 -8\" stroke=\"#FFFFFF\" stroke-width=\"2.4\" fill=\"none\"></path>\n</svg>\n</div>\n"
+  },
   "sections": [
     {
       "title": "The context",
@@ -141,7 +138,32 @@
       ]
     }
   ],
+  "card": {
+    "vis": "academy",
+    "a": "As instructional designer, I designed the curricula for CSMs, sales and onboarding, and the Algolia Academy with its partner certifications. I worked with product teams like Magento and Crawler on content specific to their products.",
+    "meta": "Algolia · Instructional design",
+    "m": [],
+    "pts": [
+      "Curricula for CSMs, sales and onboarding",
+      "An academy with partner certifications",
+      "Content tailored to Magento, Crawler…"
+    ],
+    "sc": [],
+    "q": "How do partners become certified Algolia experts?",
+    "jobs": [
+      "built",
+      "career"
+    ],
+    "title": "Algolia Academy",
+    "who": [
+      "hiring",
+      "founder",
+      "pm",
+      "designer"
+    ]
+  },
   "after_sections": "",
+  "behind_decisions": [],
   "prev": {
     "id": "clear",
     "label": "Alan Clear",
@@ -152,29 +174,7 @@
     "label": "The customer learning journey",
     "follow_title": false
   },
-  "card": {
-    "pts": [
-      "Curricula for CSMs, sales and onboarding",
-      "An academy with partner certifications",
-      "Content tailored to Magento, Crawler…"
-    ],
-    "vis": "academy",
-    "meta": "Algolia · Instructional design",
-    "title": "Algolia Academy",
-    "q": "How do partners become certified Algolia experts?",
-    "a": "As instructional designer, I designed the curricula for CSMs, sales and onboarding, and the Algolia Academy with its partner certifications. I worked with product teams like Magento and Crawler on content specific to their products.",
-    "jobs": [
-      "built",
-      "career"
-    ],
-    "who": [
-      "hiring",
-      "founder",
-      "pm",
-      "designer"
-    ],
-    "m": [],
-    "sc": []
-  },
-  "behind_decisions": []
+  "decisions": true,
+  "before_main": "\n",
+  "id": "algo_academy"
 }
