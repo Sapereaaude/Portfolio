@@ -266,7 +266,14 @@
   /* Visitors who arrive through the Dust page keep a way back to it on every other page. */
   (function dustTrail() {
     var onDust = /^\/dust(\/|$)/.test(location.pathname);
-    try { if (onDust) { sessionStorage.setItem('via-dust', '1'); } } catch (err) {}
+    /* The trail only lasts while the visitor clicks through the site from the Dust page. Typing the
+       address, a bookmark or a link from elsewhere (no referrer from this site) starts a plain visit. */
+    var fromHere = false;
+    try { fromHere = !!document.referrer && new URL(document.referrer).origin === location.origin; } catch (err) {}
+    try {
+      if (onDust) { sessionStorage.setItem('via-dust', '1'); }
+      else if (!fromHere) { sessionStorage.removeItem('via-dust'); }
+    } catch (err) {}
     var via = false;
     try { via = sessionStorage.getItem('via-dust') === '1'; } catch (err) {}
     if (onDust || !via) { return; }
