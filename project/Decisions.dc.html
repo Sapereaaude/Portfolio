@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<title>Behind the decisions — shared component</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Figtree:ital,wght@0,400;0,600;0,700;1,400&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400;1,6..72,500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FFFFFF}
+a{color:#17171F}a:hover{color:#3B5BB8}
+</style>
+</helmet>
+<div style="color: #17171F; font-family: 'Figtree', sans-serif">
+<sc-if value="{{show}}" hint-placeholder-val="{{ true }}">
+<section aria-labelledby="h-decisions" style="padding: 26px 0; border-top: 1px solid #E3E3EA">
+<aside style="display: flex; flex-direction: column; gap: 18px; padding: clamp(18px, 3vw, 28px); border: 1.5px solid #17171F; border-radius: 18px; background: #FFFFFF">
+<h2 id="h-decisions" style="margin: 0; display: flex; align-items: center; gap: 8px; font-family: 'Anton', Impact, sans-serif; font-weight: 400; font-size: 24px; line-height: 1.1; text-transform: uppercase; white-space: nowrap"><span aria-hidden="true" style="flex: none; width: 10px; height: 10px; border-radius: 50%; background: #D13A28"></span>Behind the decisions</h2>
+<sc-for list="{{items}}" as="d" hint-placeholder-count="1">
+<div style="{{d.style}}">
+<p style="margin: 0; font-family: 'Newsreader', Georgia, serif; font-style: italic; font-size: clamp(20px, 2vw, 24px); line-height: 1.3; text-wrap: balance">{{d.decision}}</p>
+<dl style="margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 14px 28px">
+<sc-if value="{{d.hasWhy}}" hint-placeholder-val="{{ true }}"><div><dt style="font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #4A4A57">Why</dt><dd style="margin: 6px 0 0; font-size: 16px; line-height: 1.55; text-wrap: pretty">{{d.why}}</dd></div></sc-if>
+<sc-if value="{{d.hasAlt}}" hint-placeholder-val="{{ true }}"><div><dt style="font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #4A4A57">Alternatives considered</dt><dd style="margin: 6px 0 0; font-size: 16px; line-height: 1.55; text-wrap: pretty">{{d.alternatives}}</dd></div></sc-if>
+<sc-if value="{{d.hasTrade}}" hint-placeholder-val="{{ true }}"><div><dt style="font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #4A4A57">Trade-offs</dt><dd style="margin: 6px 0 0; font-size: 16px; line-height: 1.55; text-wrap: pretty">{{d.tradeoffs}}</dd></div></sc-if>
+</dl>
+</div>
+</sc-for>
+</aside>
+</section>
+</sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script="" data-props="{&quot;pid&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;cassandre&quot;}, &quot;accent&quot;: {&quot;editor&quot;: &quot;color&quot;, &quot;default&quot;: &quot;#3B5BB8&quot;, &quot;options&quot;: [&quot;#3B5BB8&quot;, &quot;#2A3F8F&quot;, &quot;#17171F&quot;]}, &quot;$preview&quot;: {&quot;width&quot;: 1120, &quot;height&quot;: 520}}">
+class Component extends DCLogic {
+renderVals() {
+var pid = this.props.pid ?? 'cassandre';
+/* BEHIND THE DECISIONS: one optional entry per project, written by Safaa only.
+   A project that is not listed here shows nothing. Each entry is a list of decisions (one or two is plenty):
+   'cassandre': [
+     { decision: 'The decision, in one sentence.',
+       why: 'Why I made it.',                             (optional)
+       alternatives: 'What I considered, or ruled out.',  (optional)
+       tradeoffs: 'What it cost, the constraints.' }      (optional)
+   ],
+*/
+var DECISIONS = {
+};
+var list = DECISIONS[pid] || [];
+var items = list.filter(function (d) { return d && d.decision; }).map(function (d, i) {
+return { decision: d.decision, why: d.why || '', alternatives: d.alternatives || '', tradeoffs: d.tradeoffs || '',
+hasWhy: !!d.why, hasAlt: !!d.alternatives, hasTrade: !!d.tradeoffs,
+style: 'display: flex; flex-direction: column; gap: 14px;' + (i ? ' padding-top: 18px; border-top: 1px dashed #A9ACBA;' : '') };
+});
+return { accent: this.props.accent ?? '#3B5BB8', items: items, show: items.length > 0 };
+}
+}
+</script>
+
+
+</body></html>

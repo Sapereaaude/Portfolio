@@ -14,7 +14,7 @@ LINKEDIN = 'https://www.linkedin.com/in/safaa-el-ouafi/en/'
 SITE = 'https://uxrsafaaelouafi.vercel.app'
 
 ROUTES = {'Main': '', 'Timeline': 'timeline', 'About': 'about', 'Resume': 'resume', 'Dust': 'dust', 'DustLetter': 'dust/letter'}
-COMPONENTS = {'Connections'}  # imported by other pages, not a page of its own
+COMPONENTS = {'Connections', 'Decisions'}  # imported by other pages, not a page of its own
 DEFAULT_DESC = "Safaa El Ouafi, User Experience Researcher. Different jobs, same obsession: I build systems that help people learn, decide, and improve."
 DUST_DESC = "A User Experience Researcher's journey through learning, product research and AI, and why Dust feels like the place where those paths meet."
 
