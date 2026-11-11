@@ -348,6 +348,13 @@ a{color:#17171F}a:hover{color:#D13A28}
 <figcaption style="margin-top: 12px"><strong style="display: block; font-size: clamp(17px, 1.55vw, 20px); line-height: 1.2; font-family: 'Newsreader', Georgia, serif; font-style: italic; font-weight: 600; text-wrap: balance">The subtle art of looking like art</strong><span style="display: block; margin-top: 4px; font-family: 'Figtree', sans-serif; font-weight: 700; font-size: 11px; line-height: 1.4; letter-spacing: 0.04em; text-transform: uppercase; text-wrap: balance">France · Observation</span></figcaption>
 </figure>
 <figure class="series-card" style="margin: 0">
+<button type="button" id="open-down" class="series-cover" onClick="{{openDown}}" aria-label="Open the series Looking down, 4 photos" style="position: relative; display: block; width: 100%; padding: 0; border: none; border-radius: 16px; overflow: hidden; cursor: zoom-in; background: #FFFFFF; aspect-ratio: 4 / 5">
+<img src="/photos/down-stairs.jpg" alt="" width="1080" height="1052" loading="lazy" style="display: block; width: 100%; height: 100%; object-fit: cover">
+<span aria-hidden="true" style="position: absolute; top: 10px; right: 10px; display: inline-flex; align-items: center; gap: 5px; padding: 5px 9px 5px 7px; border-radius: 999px; background: rgba(23, 23, 31, 0.72); color: #FFFFFF; font-family: 'Figtree', sans-serif; font-size: 12px; font-weight: 700"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linejoin="round"><rect x="7" y="3" width="14" height="14" rx="2"></rect><path d="M3 7v12a2 2 0 0 0 2 2h12"></path></svg>4</span>
+</button>
+<figcaption style="margin-top: 12px"><strong style="display: block; font-size: clamp(17px, 1.55vw, 20px); line-height: 1.2; font-family: 'Newsreader', Georgia, serif; font-style: italic; font-weight: 600; text-wrap: balance">Looking down</strong><span style="display: block; margin-top: 4px; font-family: 'Figtree', sans-serif; font-weight: 700; font-size: 11px; line-height: 1.4; letter-spacing: 0.04em; text-transform: uppercase; text-wrap: balance">Connections</span></figcaption>
+</figure>
+<figure class="series-card" style="margin: 0">
 <button type="button" id="open-tenebres" class="series-cover" onClick="{{openTenebres}}" aria-label="Open the series Bismillah, c’est les ténèbres, 7 photos" style="position: relative; display: block; width: 100%; padding: 0; border: none; border-radius: 16px; overflow: hidden; cursor: zoom-in; background: #FFFFFF; aspect-ratio: 4 / 5">
 <img src="/photos/tenebres-colonnade.jpg" alt="" width="1050" height="1400" loading="lazy" style="display: block; width: 100%; height: 100%; object-fit: cover">
 <span aria-hidden="true" style="position: absolute; top: 10px; right: 10px; display: inline-flex; align-items: center; gap: 5px; padding: 5px 9px 5px 7px; border-radius: 999px; background: rgba(23, 23, 31, 0.72); color: #FFFFFF; font-family: 'Figtree', sans-serif; font-size: 12px; font-weight: 700"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linejoin="round"><rect x="7" y="3" width="14" height="14" rx="2"></rect><path d="M3 7v12a2 2 0 0 0 2 2h12"></path></svg>7</span>
@@ -531,6 +538,11 @@ looking: { t1: 'The subtle art of ', t2: 'looking like art', sub: 'In a room ful
 { src: '/photos/looking-red.jpg', w: 1400, h: 1400, alt: 'A man in a patchwork knit sweater stands beside a huge red monochrome canvas.' },
 { src: '/photos/looking-white.jpg', w: 1400, h: 1400, alt: 'A woman in a patterned coat and a green beret stands near an all-white canvas.' },
 { src: '/photos/looking-portraits.jpg', w: 1080, h: 1049, alt: 'A bald man seen from behind stands between two old portraits of bald, bearded men on a red wall, while a girl takes a photo.' }] },
+down: { t1: 'Looking ', t2: 'down', sub: 'Connections.', imgs: [
+{ src: '/photos/down-stairs.jpg', w: 1080, h: 1052, alt: 'People on a staircase in front of a colourful mural, each one bent over a phone or a book.' },
+{ src: '/photos/down-boulevard.jpg', w: 1080, h: 1049, alt: 'A man in a beige trench coat checks his phone on a boulevard, next to a yellow post box covered in graffiti. On a bench behind him, a woman does the same.' },
+{ src: '/photos/down-metro.jpg', w: 1080, h: 1060, alt: 'Seen from above in the metro: four passengers sitting back to back, two on their phones, two reading books.' },
+{ src: '/photos/down-mural.jpg', w: 965, h: 1400, alt: 'Four men sit apart on benches under a huge painted mural, each looking down at his phone, pigeons at their feet.' }] },
 aftermath: { t1: 'The ', t2: 'aftermath', sub: 'Everyone has left. The bowls are still talking.', imgs: [
 { src: '/photos/aftermath-turquoise.jpg', w: 1073, h: 1400, alt: 'Seen from above, a turquoise crate overflowing with plates, cups and black chopsticks on grey paving.' },
 { src: '/photos/aftermath-chili.jpg', w: 1054, h: 1400, alt: 'Two white trays of used bowls, chilli oil and bamboo skewers on the pavement, next to a yellow wet-floor sign.' },
@@ -692,6 +704,7 @@ prev: function () { goTo(current - 1); },
 next: function () { goTo(current + 1); },
 openLooking: function () { openSeries('looking'); },
 openAftermath: function () { openSeries('aftermath'); },
+openDown: function () { openSeries('down'); },
 openTenebres: function () { openSeries('tenebres'); },
 openHabitation: function () { openSeries('habitation'); },
 openMsemmen: function () { openSeries('msemmen'); },

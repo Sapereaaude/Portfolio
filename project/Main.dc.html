@@ -1367,6 +1367,7 @@ prevRow: function () { rowScroll(id, -1); }, nextRow: function () { rowScroll(id
 
 var photos = [
 { title: 'The subtle art of looking like art', sub: 'France · Observation', img: '/photos/looking-fine.jpg', noImg: false, alt: '', btnId: 'open-looking', n: 5, open: function () { openSeries('looking'); } },
+{ title: 'Looking down', sub: 'Connections', img: '/photos/down-stairs.jpg', noImg: false, alt: '', btnId: 'open-down', n: 4, open: function () { openSeries('down'); } },
 { title: 'The aftermath', sub: 'China · what the meal leaves behind', img: '/photos/aftermath-turquoise.jpg', noImg: false, alt: '', btnId: 'open-aftermath', n: 4, open: function () { openSeries('aftermath'); } },
 { title: 'Bismillah, c’est les ténèbres', sub: '2026', img: '/photos/tenebres-colonnade.jpg', noImg: false, alt: '', btnId: 'open-tenebres', n: 7, open: function () { openSeries('tenebres'); } }
 ].concat(items.filter(function (it) { return it.vis === 'photo'; }).map(function (it) {
@@ -1374,7 +1375,7 @@ if (it.id === 'ph1') { return { title: it.title, sub: 'Pantone 15‑1340 · Mo
 if (it.id === 'ph4') { return { title: it.title, sub: 'Tunisie, un Shabbat', img: '/photos/village-door-arch.jpg', noImg: false, alt: '', btnId: 'open-village', n: 9, open: function () { openSeries('village'); } }; }
 if (it.id === 'ph3') { return { title: it.title, sub: 'Paris', img: '/photos/habitation-window.jpg', noImg: false, alt: '', btnId: 'open-habitation', n: 3, open: function () { openSeries('habitation'); } }; }
 return { title: it.title, sub: it.pts.join(' · '), img: '', noImg: true, alt: 'Photograph to add: ' + it.title }; }));
-var PH_ORDER = ['open-looking', 'open-tenebres', 'open-msemmen', 'open-village', 'open-habitation', 'open-aftermath'];
+var PH_ORDER = ['open-looking', 'open-down', 'open-tenebres', 'open-msemmen', 'open-village', 'open-habitation', 'open-aftermath'];
 photos.sort(function (a, b) { return PH_ORDER.indexOf(a.btnId) - PH_ORDER.indexOf(b.btnId); });
 
 var SERIES = {
@@ -1384,6 +1385,11 @@ looking: { t1: 'The subtle art of ', t2: 'looking like art', sub: 'In a room ful
 { src: '/photos/looking-red.jpg', w: 1400, h: 1400, alt: 'A man in a patchwork knit sweater stands beside a huge red monochrome canvas.' },
 { src: '/photos/looking-white.jpg', w: 1400, h: 1400, alt: 'A woman in a patterned coat and a green beret stands near an all-white canvas.' },
 { src: '/photos/looking-portraits.jpg', w: 1080, h: 1049, alt: 'A bald man seen from behind stands between two old portraits of bald, bearded men on a red wall, while a girl takes a photo.' }] },
+down: { t1: 'Looking ', t2: 'down', sub: 'Connections.', imgs: [
+{ src: '/photos/down-stairs.jpg', w: 1080, h: 1052, alt: 'People on a staircase in front of a colourful mural, each one bent over a phone or a book.' },
+{ src: '/photos/down-boulevard.jpg', w: 1080, h: 1049, alt: 'A man in a beige trench coat checks his phone on a boulevard, next to a yellow post box covered in graffiti. On a bench behind him, a woman does the same.' },
+{ src: '/photos/down-metro.jpg', w: 1080, h: 1060, alt: 'Seen from above in the metro: four passengers sitting back to back, two on their phones, two reading books.' },
+{ src: '/photos/down-mural.jpg', w: 965, h: 1400, alt: 'Four men sit apart on benches under a huge painted mural, each looking down at his phone, pigeons at their feet.' }] },
 aftermath: { t1: 'The ', t2: 'aftermath', sub: 'Everyone has left. The bowls are still talking.', imgs: [
 { src: '/photos/aftermath-turquoise.jpg', w: 1073, h: 1400, alt: 'Seen from above, a turquoise crate overflowing with plates, cups and black chopsticks on grey paving.' },
 { src: '/photos/aftermath-chili.jpg', w: 1054, h: 1400, alt: 'Two white trays of used bowls, chilli oil and bamboo skewers on the pavement, next to a yellow wet-floor sign.' },
