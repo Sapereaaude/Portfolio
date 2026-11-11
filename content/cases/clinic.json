@@ -1,14 +1,10 @@
 {
-  "id": "clinic",
-  "page_title": "Alan Clinic",
-  "draft_banner": false,
-  "header": {
-    "eyebrow": "Alan · 2021–22",
-    "title": "Alan Clinic",
-    "question": "How do we make a medical chat the bridge between patients and health professionals?",
-    "background": "#EEF1FA",
-    "illustration": "<div aria-hidden=\"true\" style=\"flex: 0 1 300px; min-width: 200px; aspect-ratio: 196 / 150\">\n<svg sc-camel-view-box=\"44 8 196 150\" style=\"width: 100%; height: 100%; display: block\">\n<circle cx=\"70\" cy=\"70\" r=\"22\" fill=\"{{accent}}\"></circle><circle cx=\"200\" cy=\"70\" r=\"22\" fill=\"#17171F\"></circle>\n<path d=\"M98 70 C 120 40, 150 40, 172 70\" fill=\"none\" stroke=\"#17171F\" stroke-width=\"1.2\" stroke-dasharray=\"3 4\"></path>\n<rect x=\"104\" y=\"64\" width=\"62\" height=\"34\" rx=\"14\" fill=\"#FFFFFF\" stroke=\"#17171F\" stroke-width=\"1.2\"></rect><path d=\"M126 98 l6 10 6 -10\" fill=\"#FFFFFF\" stroke=\"#17171F\" stroke-width=\"1.2\"></path>\n<path d=\"M128 81 h14 M135 74 v14\" stroke=\"#D13A28\" stroke-width=\"3\" stroke-linecap=\"round\"></path>\n</svg>\n</div>\n"
-  },
+  "top_images": [
+    {
+      "src": "/photos/screen-alan-clinic.jpg",
+      "alt": "Three Alan app screens: a three-minute prevention check-up, a personalised well-being score, and the Alan Clinic tab to talk to a doctor by message or video."
+    }
+  ],
   "facts": [
     {
       "label": "Role",
@@ -27,16 +23,16 @@
       "value": "User research & ResearchOps"
     }
   ],
+  "page_title": "Alan Clinic",
   "threads": true,
-  "before_main": "\n<figure style=\"margin: 24px 0 8px; padding: clamp(16px, 3vw, 28px); border-radius: 22px; background: #F5F6FA; border: 1px solid #E3E3EA\">\n<div style=\"display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: clamp(12px, 3vw, 32px)\"><img src=\"/photos/screen-alan-clinic.jpg\" alt=\"Three Alan app screens: a three-minute prevention check-up, a personalised well-being score, and the Alan Clinic tab to talk to a doctor by message or video.\" width=\"1000\" height=\"660\" loading=\"lazy\" style=\"display: block; height: clamp(260px, 42vw, 520px); width: auto; max-width: 100%; border-radius: 14px; box-shadow: 0 10px 28px rgba(23, 23, 31, 0.12)\"></div>\n<figcaption style=\"margin-top: 14px; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #4A4A57; text-align: center\">Alan Clinic</figcaption>\n</figure>\n",
-  "top_images": [
-    {
-      "src": "/photos/screen-alan-clinic.jpg",
-      "alt": "Three Alan app screens: a three-minute prevention check-up, a personalised well-being score, and the Alan Clinic tab to talk to a doctor by message or video."
-    }
-  ],
-  "top_caption": "Alan Clinic",
-  "decisions": true,
+  "draft_banner": false,
+  "header": {
+    "eyebrow": "Alan · 2021–22",
+    "title": "Alan Clinic",
+    "question": "How do we make a medical chat the bridge between patients and health professionals?",
+    "background": "accent",
+    "illustration": "<div aria-hidden=\"true\" style=\"flex: 0 1 300px; min-width: 200px; aspect-ratio: 196 / 150\">\n<svg sc-camel-view-box=\"44 8 196 150\" style=\"width: 100%; height: 100%; display: block\">\n<circle cx=\"70\" cy=\"70\" r=\"22\" fill=\"{{accent}}\"></circle><circle cx=\"200\" cy=\"70\" r=\"22\" fill=\"#17171F\"></circle>\n<path d=\"M98 70 C 120 40, 150 40, 172 70\" fill=\"none\" stroke=\"#17171F\" stroke-width=\"1.2\" stroke-dasharray=\"3 4\"></path>\n<rect x=\"104\" y=\"64\" width=\"62\" height=\"34\" rx=\"14\" fill=\"#FFFFFF\" stroke=\"#17171F\" stroke-width=\"1.2\"></rect><path d=\"M126 98 l6 10 6 -10\" fill=\"#FFFFFF\" stroke=\"#17171F\" stroke-width=\"1.2\"></path>\n<path d=\"M128 81 h14 M135 74 v14\" stroke=\"#D13A28\" stroke-width=\"3\" stroke-linecap=\"round\"></path>\n</svg>\n</div>\n"
+  },
   "sections": [
     {
       "title": "The context",
@@ -140,7 +136,40 @@
       ]
     }
   ],
+  "card": {
+    "vis": "clinic",
+    "a": "Research on how Alan members adopt and engage with Alan Clinic, its different use cases, and how the medical chat could become an ally between patients and their health professionals. [ADD WHAT IT CHANGED]",
+    "meta": "Alan · 2021–22",
+    "tldr": true,
+    "tldrPriority": 3,
+    "m": [
+      "qual"
+    ],
+    "pts": [
+      "Mapped the use cases of a medical chat",
+      "What makes members come back",
+      "The chat as a bridge, not a gatekeeper"
+    ],
+    "sc": [
+      "generative",
+      "strategic"
+    ],
+    "q": "How do we make a medical chat the bridge between patients and health professionals?",
+    "jobs": [
+      "research",
+      "built"
+    ],
+    "title": "Alan Clinic",
+    "who": [
+      "founder",
+      "pm",
+      "hiring",
+      "researcher",
+      "designer"
+    ]
+  },
   "after_sections": "",
+  "behind_decisions": [],
   "prev": {
     "id": "superpowers",
     "label": "Superpowers Directory",
@@ -151,37 +180,8 @@
     "label": "Alan Mind",
     "follow_title": false
   },
-  "card": {
-    "tldr": true,
-    "tldrPriority": 3,
-    "pts": [
-      "Mapped the use cases of a medical chat",
-      "What makes members come back",
-      "The chat as a bridge, not a gatekeeper"
-    ],
-    "vis": "clinic",
-    "meta": "Alan · 2021–22",
-    "title": "Alan Clinic",
-    "q": "How do we make a medical chat the bridge between patients and health professionals?",
-    "a": "Research on how Alan members adopt and engage with Alan Clinic, its different use cases, and how the medical chat could become an ally between patients and their health professionals. [ADD WHAT IT CHANGED]",
-    "jobs": [
-      "research",
-      "built"
-    ],
-    "who": [
-      "founder",
-      "pm",
-      "hiring",
-      "researcher",
-      "designer"
-    ],
-    "m": [
-      "qual"
-    ],
-    "sc": [
-      "generative",
-      "strategic"
-    ]
-  },
-  "behind_decisions": []
+  "decisions": true,
+  "before_main": "\n<figure style=\"margin: 24px 0 8px; padding: clamp(16px, 3vw, 28px); border-radius: 22px; background: #F5F6FA; border: 1px solid #E3E3EA\">\n<div style=\"display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: clamp(12px, 3vw, 32px)\"><img src=\"/photos/screen-alan-clinic.jpg\" alt=\"Three Alan app screens: a three-minute prevention check-up, a personalised well-being score, and the Alan Clinic tab to talk to a doctor by message or video.\" width=\"1000\" height=\"660\" loading=\"lazy\" style=\"display: block; height: clamp(260px, 42vw, 520px); width: auto; max-width: 100%; border-radius: 14px; box-shadow: 0 10px 28px rgba(23, 23, 31, 0.12)\"></div>\n<figcaption style=\"margin-top: 14px; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #4A4A57; text-align: center\">Alan Clinic</figcaption>\n</figure>\n",
+  "id": "clinic",
+  "top_caption": "Alan Clinic"
 }
