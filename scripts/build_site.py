@@ -206,6 +206,8 @@ a{{color:#17171F}}a:hover{{color:#3B5BB8}}
 :focus-visible{{outline:3px solid #3B5BB8;outline-offset:2px}}
 a[aria-current="page"]:hover{{color:#FFFFFF}}
 {extra}</style>
+<script>window.va = window.va || function () {{ (window.vaq = window.vaq || []).push(arguments); }};</script>
+<script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body>
 <div id="app"></div>
