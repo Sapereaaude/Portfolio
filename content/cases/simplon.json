@@ -1,14 +1,4 @@
 {
-  "id": "simplon",
-  "page_title": "Kuala Lumpur, Singapore, Paris",
-  "draft_banner": true,
-  "header": {
-    "eyebrow": "2018",
-    "title": "Kuala Lumpur, Singapore, Paris",
-    "question": "How do learners leave a bootcamp with a job?",
-    "background": "#EEF1FA",
-    "illustration": "<div aria-hidden=\"true\" style=\"flex: 0 1 300px; min-width: 200px; aspect-ratio: 196 / 150\">\n<svg sc-camel-view-box=\"44 8 196 150\" style=\"width: 100%; height: 100%; display: block\">\n<circle cx=\"152\" cy=\"72\" r=\"54\" fill=\"#FFFFFF\" opacity=\"0.7\"></circle>\n<rect x=\"110\" y=\"56\" width=\"84\" height=\"58\" rx=\"8\" fill=\"{{accent}}\"></rect>\n<path d=\"M138 56 v-8 a6 6 0 0 1 6 -6 h16 a6 6 0 0 1 6 6 v8\" fill=\"none\" stroke=\"#17171F\" stroke-width=\"3\"></path>\n<rect x=\"110\" y=\"78\" width=\"84\" height=\"6\" fill=\"#17171F\" opacity=\"0.25\"></rect>\n<circle cx=\"208\" cy=\"48\" r=\"12\" fill=\"#D13A28\"></circle><path d=\"M202 48 l4 4 8 -8\" stroke=\"#FFFFFF\" stroke-width=\"2.4\" fill=\"none\"></path>\n</svg>\n</div>\n"
-  },
   "facts": [
     {
       "label": "Role",
@@ -27,9 +17,16 @@
       "value": "Programme management"
     }
   ],
+  "page_title": "Kuala Lumpur, Singapore, Paris",
   "threads": false,
-  "before_main": "\n",
-  "decisions": true,
+  "draft_banner": true,
+  "header": {
+    "eyebrow": "2018",
+    "title": "managing coding bootcamps ",
+    "question": "But make it around the world (Jordan, Singapore, Paris)",
+    "background": "accent",
+    "illustration": "<div aria-hidden=\"true\" style=\"flex: 0 1 300px; min-width: 200px; aspect-ratio: 196 / 150\">\n<svg sc-camel-view-box=\"44 8 196 150\" style=\"width: 100%; height: 100%; display: block\">\n<circle cx=\"152\" cy=\"72\" r=\"54\" fill=\"#FFFFFF\" opacity=\"0.7\"></circle>\n<rect x=\"110\" y=\"56\" width=\"84\" height=\"58\" rx=\"8\" fill=\"{{accent}}\"></rect>\n<path d=\"M138 56 v-8 a6 6 0 0 1 6 -6 h16 a6 6 0 0 1 6 6 v8\" fill=\"none\" stroke=\"#17171F\" stroke-width=\"3\"></path>\n<rect x=\"110\" y=\"78\" width=\"84\" height=\"6\" fill=\"#17171F\" opacity=\"0.25\"></rect>\n<circle cx=\"208\" cy=\"48\" r=\"12\" fill=\"#D13A28\"></circle><path d=\"M202 48 l4 4 8 -8\" stroke=\"#FFFFFF\" stroke-width=\"2.4\" fill=\"none\"></path>\n</svg>\n</div>\n"
+  },
   "sections": [
     {
       "title": "The context",
@@ -123,7 +120,32 @@
       ]
     }
   ],
+  "card": {
+    "vis": "job",
+    "a": "At Next Academy, then at Simplon: hiring partnerships with Orange, Microsoft, Capgemini, Malakoff Humanis, Accenture and Apple.",
+    "hl": [
+      3
+    ],
+    "meta": "2018",
+    "m": [],
+    "pts": [
+      "Next Academy in Kuala Lumpur and Singapore",
+      "Hiring partnerships at Simplon",
+      "Orange, Microsoft, Apple and more"
+    ],
+    "sc": [],
+    "q": "How do learners leave a bootcamp with a job?",
+    "jobs": [
+      "career"
+    ],
+    "title": "Kuala Lumpur, Singapore, Paris",
+    "who": [
+      "hiring",
+      "curious"
+    ]
+  },
   "after_sections": "",
+  "behind_decisions": [],
   "prev": {
     "id": "programme",
     "label": "Better from cohort to cohort",
@@ -134,29 +156,7 @@
     "label": "Teacher, then instructional designer",
     "follow_title": false
   },
-  "card": {
-    "pts": [
-      "Next Academy in Kuala Lumpur and Singapore",
-      "Hiring partnerships at Simplon",
-      "Orange, Microsoft, Apple and more"
-    ],
-    "vis": "job",
-    "hl": [
-      3
-    ],
-    "meta": "2018",
-    "title": "Kuala Lumpur, Singapore, Paris",
-    "q": "How do learners leave a bootcamp with a job?",
-    "a": "At Next Academy, then at Simplon: hiring partnerships with Orange, Microsoft, Capgemini, Malakoff Humanis, Accenture and Apple.",
-    "jobs": [
-      "career"
-    ],
-    "who": [
-      "hiring",
-      "curious"
-    ],
-    "m": [],
-    "sc": []
-  },
-  "behind_decisions": []
+  "decisions": true,
+  "before_main": "\n",
+  "id": "simplon"
 }

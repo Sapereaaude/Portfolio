@@ -1,14 +1,4 @@
 {
-  "id": "aiid",
-  "page_title": "AI in Design",
-  "draft_banner": true,
-  "header": {
-    "eyebrow": "Decathlon · 2025",
-    "title": "AI in Design",
-    "question": "How do industrial designers really bring AI into their creative work?",
-    "background": "#EEF1FA",
-    "illustration": "<div aria-hidden=\"true\" style=\"flex: 0 1 300px; min-width: 200px; aspect-ratio: 196 / 150\">\n<svg sc-camel-view-box=\"44 8 196 150\" style=\"width: 100%; height: 100%; display: block\">\n<circle cx=\"168\" cy=\"70\" r=\"58\" fill=\"#FFFFFF\" opacity=\"0.7\"></circle>\n<rect x=\"96\" y=\"34\" width=\"124\" height=\"78\" rx=\"10\" fill=\"#FFFFFF\" stroke=\"#17171F\" stroke-width=\"1.2\" transform=\"rotate(-4 158 73)\"></rect>\n<g transform=\"rotate(-4 158 73)\"><rect x=\"108\" y=\"48\" width=\"56\" height=\"7\" rx=\"3.5\" fill=\"#17171F\"></rect><rect x=\"108\" y=\"60\" width=\"40\" height=\"7\" rx=\"3.5\" fill=\"{{accent}}\"></rect><rect x=\"108\" y=\"82\" width=\"28\" height=\"18\" rx=\"5\" fill=\"{{accent}}\"></rect><rect x=\"140\" y=\"82\" width=\"28\" height=\"18\" rx=\"5\" fill=\"#EEF1FA\"></rect><rect x=\"172\" y=\"82\" width=\"28\" height=\"18\" rx=\"5\" fill=\"#D13A28\"></rect></g>\n<circle cx=\"214\" cy=\"128\" r=\"9\" fill=\"#D13A28\"></circle><circle cx=\"80\" cy=\"118\" r=\"5\" fill=\"{{accent}}\"></circle>\n</svg>\n</div>\n"
-  },
   "facts": [
     {
       "label": "Role",
@@ -27,9 +17,16 @@
       "value": "User research & ResearchOps"
     }
   ],
+  "page_title": "AI in Design",
   "threads": true,
-  "before_main": "\n",
-  "decisions": true,
+  "draft_banner": true,
+  "header": {
+    "eyebrow": "Decathlon · 2025",
+    "title": "AI in Design",
+    "question": "How do industrial designers really bring AI into their creative work?",
+    "background": "accent",
+    "illustration": "<div aria-hidden=\"true\" style=\"flex: 0 1 300px; min-width: 200px; aspect-ratio: 196 / 150\">\n<svg sc-camel-view-box=\"44 8 196 150\" style=\"width: 100%; height: 100%; display: block\">\n<circle cx=\"168\" cy=\"70\" r=\"58\" fill=\"#FFFFFF\" opacity=\"0.7\"></circle>\n<rect x=\"96\" y=\"34\" width=\"124\" height=\"78\" rx=\"10\" fill=\"#FFFFFF\" stroke=\"#17171F\" stroke-width=\"1.2\" transform=\"rotate(-4 158 73)\"></rect>\n<g transform=\"rotate(-4 158 73)\"><rect x=\"108\" y=\"48\" width=\"56\" height=\"7\" rx=\"3.5\" fill=\"#17171F\"></rect><rect x=\"108\" y=\"60\" width=\"40\" height=\"7\" rx=\"3.5\" fill=\"{{accent}}\"></rect><rect x=\"108\" y=\"82\" width=\"28\" height=\"18\" rx=\"5\" fill=\"{{accent}}\"></rect><rect x=\"140\" y=\"82\" width=\"28\" height=\"18\" rx=\"5\" fill=\"#EEF1FA\"></rect><rect x=\"172\" y=\"82\" width=\"28\" height=\"18\" rx=\"5\" fill=\"#D13A28\"></rect></g>\n<circle cx=\"214\" cy=\"128\" r=\"9\" fill=\"#D13A28\"></circle><circle cx=\"80\" cy=\"118\" r=\"5\" fill=\"{{accent}}\"></circle>\n</svg>\n</div>\n"
+  },
   "sections": [
     {
       "title": "The context",
@@ -146,7 +143,41 @@
       ]
     }
   ],
+  "card": {
+    "vis": "slide",
+    "a": "A community survey with heatmaps by seniority, profiles like \"self-taught explorers\" and \"curious but blocked\", then interviews. The barrier wasn’t the tech, it was not knowing which tool to use. So the project became a programme: licences, training, a sandbox. Presented to 300–400 designers.",
+    "meta": "Decathlon · 2025",
+    "tldr": true,
+    "tldrPriority": 5,
+    "m": [
+      "mixed"
+    ],
+    "pts": [
+      "Survey + heatmaps by seniority",
+      "Profiles: self-taught explorers, curious but blocked",
+      "Became a programme, shared with 300–400 designers"
+    ],
+    "sc": [
+      "generative",
+      "strategic"
+    ],
+    "q": "How do industrial designers really bring AI into their creative work?",
+    "jobs": [
+      "built",
+      "research",
+      "ai"
+    ],
+    "title": "AI in Design",
+    "who": [
+      "hiring",
+      "designer",
+      "pm",
+      "founder",
+      "researcher"
+    ]
+  },
   "after_sections": "",
+  "behind_decisions": [],
   "prev": {
     "id": "papier",
     "label": "Le papier mâché",
@@ -157,38 +188,7 @@
     "label": "After the demo effect",
     "follow_title": false
   },
-  "card": {
-    "tldr": true,
-    "tldrPriority": 5,
-    "pts": [
-      "Survey + heatmaps by seniority",
-      "Profiles: self-taught explorers, curious but blocked",
-      "Became a programme, shared with 300–400 designers"
-    ],
-    "vis": "slide",
-    "meta": "Decathlon · 2025",
-    "title": "AI in Design",
-    "q": "How do industrial designers really bring AI into their creative work?",
-    "a": "A community survey with heatmaps by seniority, profiles like \"self-taught explorers\" and \"curious but blocked\", then interviews. The barrier wasn’t the tech, it was not knowing which tool to use. So the project became a programme: licences, training, a sandbox. Presented to 300–400 designers.",
-    "jobs": [
-      "built",
-      "research",
-      "ai"
-    ],
-    "who": [
-      "hiring",
-      "designer",
-      "pm",
-      "founder",
-      "researcher"
-    ],
-    "m": [
-      "mixed"
-    ],
-    "sc": [
-      "generative",
-      "strategic"
-    ]
-  },
-  "behind_decisions": []
+  "decisions": true,
+  "before_main": "\n",
+  "id": "aiid"
 }

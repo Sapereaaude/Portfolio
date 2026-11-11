@@ -1,14 +1,4 @@
 {
-  "id": "teach",
-  "page_title": "Teacher, then instructional designer",
-  "draft_banner": true,
-  "header": {
-    "eyebrow": "2008–2016",
-    "title": "Teacher, then instructional designer",
-    "question": "What did teaching teach me?",
-    "background": "#F2F2F5",
-    "illustration": "<div aria-hidden=\"true\" style=\"flex: 0 1 300px; min-width: 200px; aspect-ratio: 196 / 150\">\n<svg sc-camel-view-box=\"44 8 196 150\" style=\"width: 100%; height: 100%; display: block\">\n<rect x=\"94\" y=\"28\" width=\"132\" height=\"86\" rx=\"6\" fill=\"#17171F\"></rect>\n<text x=\"112\" y=\"66\" font-family=\"Newsreader, serif\" font-size=\"26\" fill=\"#FFFFFF\">Aa</text>\n<text x=\"196\" y=\"66\" font-family=\"Newsreader, serif\" font-size=\"26\" fill=\"#FFFFFF\">أ</text>\n<path d=\"M112 86 q20 -8 40 0 t40 0\" fill=\"none\" stroke=\"{{accent}}\" stroke-width=\"2\"></path>\n<rect x=\"140\" y=\"114\" width=\"40\" height=\"5\" rx=\"2\" fill=\"#D13A28\"></rect>\n</svg>\n</div>\n"
-  },
   "facts": [
     {
       "label": "Role",
@@ -27,9 +17,16 @@
       "value": "Teaching"
     }
   ],
+  "page_title": "Teacher, then instructional designer",
   "threads": true,
-  "before_main": "\n",
-  "decisions": true,
+  "draft_banner": true,
+  "header": {
+    "eyebrow": "2008–2016",
+    "title": "Teach, Learn, Teach",
+    "question": "Moving from teaching to designing learning systems",
+    "background": "accent",
+    "illustration": "<div aria-hidden=\"true\" style=\"flex: 0 1 300px; min-width: 200px; aspect-ratio: 196 / 150\">\n<svg sc-camel-view-box=\"44 8 196 150\" style=\"width: 100%; height: 100%; display: block\">\n<rect x=\"94\" y=\"28\" width=\"132\" height=\"86\" rx=\"6\" fill=\"#17171F\"></rect>\n<text x=\"112\" y=\"66\" font-family=\"Newsreader, serif\" font-size=\"26\" fill=\"#FFFFFF\">Aa</text>\n<text x=\"196\" y=\"66\" font-family=\"Newsreader, serif\" font-size=\"26\" fill=\"#FFFFFF\">أ</text>\n<path d=\"M112 86 q20 -8 40 0 t40 0\" fill=\"none\" stroke=\"{{accent}}\" stroke-width=\"2\"></path>\n<rect x=\"140\" y=\"114\" width=\"40\" height=\"5\" rx=\"2\" fill=\"#D13A28\"></rect>\n</svg>\n</div>\n"
+  },
   "sections": [
     {
       "title": "The context",
@@ -112,7 +109,33 @@
       ]
     }
   ],
+  "card": {
+    "vis": "chalk",
+    "a": "Arabic, then French, to children and adults, employees in companies and pupils in state schools, from three-year-olds to engineers at Thales. Then French teacher and coordinator at the French Embassy in Amman, also working with the Institut français. Understand where someone really is before deciding where to take them. That turned out to be research.",
+    "hl": [
+      0,
+      1
+    ],
+    "meta": "2008–2016",
+    "m": [],
+    "pts": [
+      "Arabic, then French",
+      "From three-year-olds to engineers at Thales",
+      "Then the French Embassy in Amman"
+    ],
+    "sc": [],
+    "q": "What did teaching teach me?",
+    "jobs": [
+      "career"
+    ],
+    "title": "Teacher, then instructional designer",
+    "who": [
+      "curious",
+      "hiring"
+    ]
+  },
   "after_sections": "",
+  "behind_decisions": [],
   "prev": {
     "id": "simplon",
     "label": "Kuala Lumpur, Singapore, Paris",
@@ -123,30 +146,7 @@
     "label": "French teacher & coordinator",
     "follow_title": false
   },
-  "card": {
-    "pts": [
-      "Arabic, then French",
-      "From three-year-olds to engineers at Thales",
-      "Then the French Embassy in Amman"
-    ],
-    "vis": "chalk",
-    "hl": [
-      0,
-      1
-    ],
-    "meta": "2008–2016",
-    "title": "Teacher, then instructional designer",
-    "q": "What did teaching teach me?",
-    "a": "Arabic, then French, to children and adults, employees in companies and pupils in state schools, from three-year-olds to engineers at Thales. Then French teacher and coordinator at the French Embassy in Amman, also working with the Institut français. Understand where someone really is before deciding where to take them. That turned out to be research.",
-    "jobs": [
-      "career"
-    ],
-    "who": [
-      "curious",
-      "hiring"
-    ],
-    "m": [],
-    "sc": []
-  },
-  "behind_decisions": []
+  "decisions": true,
+  "before_main": "\n",
+  "id": "teach"
 }

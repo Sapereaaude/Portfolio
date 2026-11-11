@@ -1,14 +1,4 @@
 {
-  "id": "bsf",
-  "page_title": "Bibliothèques Sans Frontières",
-  "draft_banner": true,
-  "header": {
-    "eyebrow": "Volunteering · 2019–21",
-    "title": "Bibliothèques Sans Frontières",
-    "question": "Giving time to libraries without borders.",
-    "background": "#EEF1FA",
-    "illustration": "<div aria-hidden=\"true\" style=\"flex: 0 1 300px; min-width: 200px; aspect-ratio: 196 / 150\">\n<svg sc-camel-view-box=\"44 8 196 150\" style=\"width: 100%; height: 100%; display: block\">\n<circle cx=\"150\" cy=\"72\" r=\"54\" fill=\"#FFFFFF\" opacity=\"0.7\"></circle>\n<rect x=\"100\" y=\"112\" width=\"110\" height=\"6\" rx=\"3\" fill=\"#17171F\"></rect>\n<rect x=\"108\" y=\"58\" width=\"14\" height=\"54\" rx=\"2\" fill=\"{{accent}}\"></rect><rect x=\"124\" y=\"66\" width=\"12\" height=\"46\" rx=\"2\" fill=\"#D13A28\"></rect><rect x=\"138\" y=\"52\" width=\"16\" height=\"60\" rx=\"2\" fill=\"#17171F\"></rect><rect x=\"156\" y=\"70\" width=\"12\" height=\"42\" rx=\"2\" fill=\"{{accent}}\" opacity=\"0.5\"></rect>\n<rect x=\"176\" y=\"62\" width=\"14\" height=\"50\" rx=\"2\" fill=\"#FFFFFF\" stroke=\"#17171F\" transform=\"rotate(14 183 87)\"></rect>\n<circle cx=\"214\" cy=\"44\" r=\"12\" fill=\"none\" stroke=\"{{accent}}\" stroke-width=\"2\"></circle><path d=\"M202 44 h24 M214 32 c6 8 6 16 0 24 c-6 -8 -6 -16 0 -24\" fill=\"none\" stroke=\"{{accent}}\" stroke-width=\"1.5\"></path>\n</svg>\n</div>\n"
-  },
   "facts": [
     {
       "label": "Role",
@@ -27,9 +17,16 @@
       "value": "Mentoring & side projects"
     }
   ],
+  "page_title": "Bibliothèques Sans Frontières",
   "threads": false,
-  "before_main": "\n",
-  "decisions": true,
+  "draft_banner": true,
+  "header": {
+    "eyebrow": "Volunteering · 2019–21",
+    "title": "Bibliothèques Sans Frontières",
+    "question": "Giving time to libraries without borders.",
+    "background": "#FBEAE8",
+    "illustration": "<div aria-hidden=\"true\" style=\"flex: 0 1 300px; min-width: 200px; aspect-ratio: 196 / 150\">\n<svg sc-camel-view-box=\"44 8 196 150\" style=\"width: 100%; height: 100%; display: block\">\n<circle cx=\"150\" cy=\"72\" r=\"54\" fill=\"#FFFFFF\" opacity=\"0.7\"></circle>\n<rect x=\"100\" y=\"112\" width=\"110\" height=\"6\" rx=\"3\" fill=\"#17171F\"></rect>\n<rect x=\"108\" y=\"58\" width=\"14\" height=\"54\" rx=\"2\" fill=\"{{accent}}\"></rect><rect x=\"124\" y=\"66\" width=\"12\" height=\"46\" rx=\"2\" fill=\"#D13A28\"></rect><rect x=\"138\" y=\"52\" width=\"16\" height=\"60\" rx=\"2\" fill=\"#17171F\"></rect><rect x=\"156\" y=\"70\" width=\"12\" height=\"42\" rx=\"2\" fill=\"{{accent}}\" opacity=\"0.5\"></rect>\n<rect x=\"176\" y=\"62\" width=\"14\" height=\"50\" rx=\"2\" fill=\"#FFFFFF\" stroke=\"#17171F\" transform=\"rotate(14 183 87)\"></rect>\n<circle cx=\"214\" cy=\"44\" r=\"12\" fill=\"none\" stroke=\"{{accent}}\" stroke-width=\"2\"></circle><path d=\"M202 44 h24 M214 32 c6 8 6 16 0 24 c-6 -8 -6 -16 0 -24\" fill=\"none\" stroke=\"{{accent}}\" stroke-width=\"1.5\"></path>\n</svg>\n</div>\n"
+  },
   "sections": [
     {
       "title": "The context",
@@ -107,7 +104,29 @@
       ]
     }
   ],
+  "card": {
+    "vis": "library",
+    "a": "Volunteer at Bibliothèques Sans Frontières while working at Algolia.",
+    "meta": "Volunteering · 2019–21",
+    "m": [],
+    "pts": [
+      "Volunteer",
+      "During my Algolia years"
+    ],
+    "sc": [],
+    "q": "Giving time to libraries without borders.",
+    "jobs": [
+      "career",
+      "built"
+    ],
+    "title": "Bibliothèques Sans Frontières",
+    "who": [
+      "curious",
+      "founder"
+    ]
+  },
   "after_sections": "",
+  "behind_decisions": [],
   "prev": {
     "id": "sistech",
     "label": "Mentoring at Sistech",
@@ -118,26 +137,7 @@
     "label": "A game to learn Arabic",
     "follow_title": false
   },
-  "card": {
-    "pts": [
-      "Volunteer",
-      "During my Algolia years"
-    ],
-    "vis": "library",
-    "meta": "Volunteering · 2019–21",
-    "title": "Bibliothèques Sans Frontières",
-    "q": "Giving time to libraries without borders.",
-    "a": "Volunteer at Bibliothèques Sans Frontières while working at Algolia.",
-    "jobs": [
-      "career",
-      "built"
-    ],
-    "who": [
-      "curious",
-      "founder"
-    ],
-    "m": [],
-    "sc": []
-  },
-  "behind_decisions": []
+  "decisions": true,
+  "before_main": "\n",
+  "id": "bsf"
 }

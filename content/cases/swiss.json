@@ -1,14 +1,4 @@
 {
-  "id": "swiss",
-  "page_title": "The ten-question Swiss knife",
-  "draft_banner": true,
-  "header": {
-    "eyebrow": "AI-assisted research",
-    "title": "The ten-question Swiss knife",
-    "question": "How do you analyse interviews faster without losing rigour?",
-    "background": "#FBEAE8",
-    "illustration": "<div aria-hidden=\"true\" style=\"flex: 0 1 300px; min-width: 200px; aspect-ratio: 196 / 150\">\n<svg sc-camel-view-box=\"44 8 196 150\" style=\"width: 100%; height: 100%; display: block\">\n<circle cx=\"168\" cy=\"74\" r=\"56\" fill=\"#FFFFFF\" opacity=\"0.7\"></circle>\n<rect x=\"116\" y=\"24\" width=\"84\" height=\"104\" rx=\"8\" fill=\"#FFFFFF\" stroke=\"#17171F\" stroke-width=\"1.2\"></rect>\n<rect x=\"140\" y=\"18\" width=\"36\" height=\"12\" rx=\"4\" fill=\"#17171F\"></rect>\n<g><rect x=\"128\" y=\"44\" width=\"8\" height=\"8\" rx=\"2\" fill=\"{{accent}}\"></rect><rect x=\"142\" y=\"45\" width=\"46\" height=\"5\" rx=\"2.5\" fill=\"#17171F\" opacity=\"0.35\"></rect>\n<rect x=\"128\" y=\"60\" width=\"8\" height=\"8\" rx=\"2\" fill=\"{{accent}}\"></rect><rect x=\"142\" y=\"61\" width=\"38\" height=\"5\" rx=\"2.5\" fill=\"#17171F\" opacity=\"0.35\"></rect>\n<rect x=\"128\" y=\"76\" width=\"8\" height=\"8\" rx=\"2\" fill=\"#D13A28\"></rect><rect x=\"142\" y=\"77\" width=\"42\" height=\"5\" rx=\"2.5\" fill=\"#17171F\" opacity=\"0.35\"></rect>\n<rect x=\"128\" y=\"92\" width=\"8\" height=\"8\" rx=\"2\" fill=\"{{accent}}\"></rect><rect x=\"142\" y=\"93\" width=\"30\" height=\"5\" rx=\"2.5\" fill=\"#17171F\" opacity=\"0.35\"></rect></g>\n<circle cx=\"200\" cy=\"118\" r=\"18\" fill=\"none\" stroke=\"#17171F\" stroke-width=\"3\"></circle><path d=\"M213 131 l12 12\" stroke=\"#17171F\" stroke-width=\"4\" stroke-linecap=\"round\"></path>\n</svg>\n</div>\n"
-  },
   "facts": [
     {
       "label": "Role",
@@ -27,9 +17,16 @@
       "value": "User research & ResearchOps"
     }
   ],
+  "page_title": "The ten-question Swiss knife",
   "threads": true,
-  "before_main": "\n",
-  "decisions": true,
+  "draft_banner": true,
+  "header": {
+    "eyebrow": "AI-assisted research",
+    "title": "The ten-question UXR Swiss knife",
+    "question": "How do you analyse interviews faster without losing rigour?",
+    "background": "#EEF1FA",
+    "illustration": "<div aria-hidden=\"true\" style=\"flex: 0 1 300px; min-width: 200px; aspect-ratio: 196 / 150\">\n<svg sc-camel-view-box=\"44 8 196 150\" style=\"width: 100%; height: 100%; display: block\">\n<circle cx=\"168\" cy=\"74\" r=\"56\" fill=\"#FFFFFF\" opacity=\"0.7\"></circle>\n<rect x=\"116\" y=\"24\" width=\"84\" height=\"104\" rx=\"8\" fill=\"#FFFFFF\" stroke=\"#17171F\" stroke-width=\"1.2\"></rect>\n<rect x=\"140\" y=\"18\" width=\"36\" height=\"12\" rx=\"4\" fill=\"#17171F\"></rect>\n<g><rect x=\"128\" y=\"44\" width=\"8\" height=\"8\" rx=\"2\" fill=\"{{accent}}\"></rect><rect x=\"142\" y=\"45\" width=\"46\" height=\"5\" rx=\"2.5\" fill=\"#17171F\" opacity=\"0.35\"></rect>\n<rect x=\"128\" y=\"60\" width=\"8\" height=\"8\" rx=\"2\" fill=\"{{accent}}\"></rect><rect x=\"142\" y=\"61\" width=\"38\" height=\"5\" rx=\"2.5\" fill=\"#17171F\" opacity=\"0.35\"></rect>\n<rect x=\"128\" y=\"76\" width=\"8\" height=\"8\" rx=\"2\" fill=\"#D13A28\"></rect><rect x=\"142\" y=\"77\" width=\"42\" height=\"5\" rx=\"2.5\" fill=\"#17171F\" opacity=\"0.35\"></rect>\n<rect x=\"128\" y=\"92\" width=\"8\" height=\"8\" rx=\"2\" fill=\"{{accent}}\"></rect><rect x=\"142\" y=\"93\" width=\"30\" height=\"5\" rx=\"2.5\" fill=\"#17171F\" opacity=\"0.35\"></rect></g>\n<circle cx=\"200\" cy=\"118\" r=\"18\" fill=\"none\" stroke=\"#17171F\" stroke-width=\"3\"></circle><path d=\"M213 131 l12 12\" stroke=\"#17171F\" stroke-width=\"4\" stroke-linecap=\"round\"></path>\n</svg>\n</div>\n"
+  },
   "sections": [
     {
       "title": "The context",
@@ -141,7 +138,37 @@
       ]
     }
   ],
+  "card": {
+    "vis": "sheet",
+    "a": "Ten questions every transcript must answer, from context and workarounds to emotional cues, surprises and gaps. AI runs them, a human decides what matters.",
+    "meta": "AI-assisted research",
+    "m": [
+      "qual"
+    ],
+    "pts": [
+      "Ten questions every transcript must answer",
+      "AI runs them, a human decides",
+      "Faster, and still rigorous"
+    ],
+    "sc": [
+      "tactical"
+    ],
+    "q": "How do you analyse interviews faster without losing rigour?",
+    "jobs": [
+      "research",
+      "ai",
+      "built"
+    ],
+    "title": "The ten-question Swiss knife",
+    "company": "Decathlon",
+    "who": [
+      "researcher",
+      "designer",
+      "pm"
+    ]
+  },
   "after_sections": "",
+  "behind_decisions": [],
   "prev": {
     "id": "agents",
     "label": "A small pantheon of agents",
@@ -152,34 +179,7 @@
     "label": "One community, four cities",
     "follow_title": false
   },
-  "card": {
-    "company": "Decathlon",
-    "pts": [
-      "Ten questions every transcript must answer",
-      "AI runs them, a human decides",
-      "Faster, and still rigorous"
-    ],
-    "vis": "sheet",
-    "meta": "AI-assisted research",
-    "title": "The ten-question Swiss knife",
-    "q": "How do you analyse interviews faster without losing rigour?",
-    "a": "Ten questions every transcript must answer, from context and workarounds to emotional cues, surprises and gaps. AI runs them, a human decides what matters.",
-    "jobs": [
-      "research",
-      "ai",
-      "built"
-    ],
-    "who": [
-      "researcher",
-      "designer",
-      "pm"
-    ],
-    "m": [
-      "qual"
-    ],
-    "sc": [
-      "tactical"
-    ]
-  },
-  "behind_decisions": []
+  "decisions": true,
+  "before_main": "\n",
+  "id": "swiss"
 }

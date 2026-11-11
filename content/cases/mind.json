@@ -1,14 +1,14 @@
 {
-  "id": "mind",
-  "page_title": "Alan Mind",
-  "draft_banner": false,
-  "header": {
-    "eyebrow": "Alan · 2021–22",
-    "title": "Alan Mind",
-    "question": "How can an app help destigmatise therapy?",
-    "background": "#FBEAE8",
-    "illustration": "<div aria-hidden=\"true\" style=\"flex: 0 1 300px; min-width: 200px; aspect-ratio: 196 / 150\">\n<svg sc-camel-view-box=\"44 8 196 150\" style=\"width: 100%; height: 100%; display: block\">\n<path d=\"M150 130 v-22 c-26 -2 -40 -22 -40 -46 c0 -26 22 -44 48 -44 c28 0 46 20 46 44 c0 8 4 14 8 20 l-8 4 v14 c0 6 -4 8 -10 8 h-8 v22z\" fill=\"#FFFFFF\" stroke=\"#17171F\" stroke-width=\"1.2\"></path>\n<circle cx=\"150\" cy=\"54\" r=\"12\" fill=\"{{accent}}\"></circle><rect x=\"164\" y=\"40\" width=\"26\" height=\"10\" rx=\"5\" fill=\"#D13A28\"></rect><circle cx=\"178\" cy=\"68\" r=\"7\" fill=\"#17171F\"></circle><rect x=\"134\" y=\"72\" width=\"20\" height=\"10\" rx=\"5\" fill=\"{{accent}}\" opacity=\"0.45\"></rect>\n</svg>\n</div>\n"
-  },
+  "top_images": [
+    {
+      "src": "/photos/screen-alan-mind.jpg",
+      "alt": "Alan Mind app store screen: Mental health made simple, with a mental health score."
+    },
+    {
+      "src": "/photos/screen-alan-mind-insights.jpg",
+      "alt": "Alan Mind insights screen: a week of moods and the areas of life behind them."
+    }
+  ],
   "facts": [
     {
       "label": "Role",
@@ -27,20 +27,16 @@
       "value": "User research & ResearchOps"
     }
   ],
+  "page_title": "Alan Mind",
   "threads": true,
-  "before_main": "\n<figure style=\"margin: 24px 0 8px; padding: clamp(16px, 3vw, 28px); border-radius: 22px; background: #F5F6FA; border: 1px solid #E3E3EA\">\n<div style=\"display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: clamp(12px, 3vw, 32px)\"><img src=\"/photos/screen-alan-mind.jpg\" alt=\"Alan Mind app store screen: Mental health made simple, with a mental health score.\" width=\"643\" height=\"1392\" loading=\"lazy\" style=\"display: block; height: clamp(260px, 42vw, 520px); width: auto; max-width: 100%; border-radius: 14px; box-shadow: 0 10px 28px rgba(23, 23, 31, 0.12)\"><img src=\"/photos/screen-alan-mind-insights.jpg\" alt=\"Alan Mind insights screen: a week of moods and the areas of life behind them.\" width=\"643\" height=\"1392\" loading=\"lazy\" style=\"display: block; height: clamp(260px, 42vw, 520px); width: auto; max-width: 100%; border-radius: 14px; box-shadow: 0 10px 28px rgba(23, 23, 31, 0.12)\"></div>\n<figcaption style=\"margin-top: 14px; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #4A4A57; text-align: center\">Alan Mind</figcaption>\n</figure>\n",
-  "top_images": [
-    {
-      "src": "/photos/screen-alan-mind.jpg",
-      "alt": "Alan Mind app store screen: Mental health made simple, with a mental health score."
-    },
-    {
-      "src": "/photos/screen-alan-mind-insights.jpg",
-      "alt": "Alan Mind insights screen: a week of moods and the areas of life behind them."
-    }
-  ],
-  "top_caption": "Alan Mind",
-  "decisions": true,
+  "draft_banner": false,
+  "header": {
+    "eyebrow": "Alan · 2021–22",
+    "title": "Alan Mind",
+    "question": "How can an app help destigmatise therapy?",
+    "background": "accent",
+    "illustration": "<div aria-hidden=\"true\" style=\"flex: 0 1 300px; min-width: 200px; aspect-ratio: 196 / 150\">\n<svg sc-camel-view-box=\"44 8 196 150\" style=\"width: 100%; height: 100%; display: block\">\n<path d=\"M150 130 v-22 c-26 -2 -40 -22 -40 -46 c0 -26 22 -44 48 -44 c28 0 46 20 46 44 c0 8 4 14 8 20 l-8 4 v14 c0 6 -4 8 -10 8 h-8 v22z\" fill=\"#FFFFFF\" stroke=\"#17171F\" stroke-width=\"1.2\"></path>\n<circle cx=\"150\" cy=\"54\" r=\"12\" fill=\"{{accent}}\"></circle><rect x=\"164\" y=\"40\" width=\"26\" height=\"10\" rx=\"5\" fill=\"#D13A28\"></rect><circle cx=\"178\" cy=\"68\" r=\"7\" fill=\"#17171F\"></circle><rect x=\"134\" y=\"72\" width=\"20\" height=\"10\" rx=\"5\" fill=\"{{accent}}\" opacity=\"0.45\"></rect>\n</svg>\n</div>\n"
+  },
   "sections": [
     {
       "title": "The context",
@@ -139,7 +135,41 @@
       ]
     }
   ],
+  "card": {
+    "vis": "mind",
+    "a": "Studying the mental models of the French population around therapy, to shape how Alan Mind could make seeking help feel normal. [ADD WHAT IT CHANGED]",
+    "meta": "Alan · 2021–22",
+    "tldr": true,
+    "tldrPriority": 4,
+    "m": [
+      "qual"
+    ],
+    "pts": [
+      "Mental models of therapy in France",
+      "What stops people from going",
+      "How the app can lower the barrier"
+    ],
+    "sc": [
+      "generative",
+      "strategic"
+    ],
+    "q": "How can an app help destigmatise therapy?",
+    "jobs": [
+      "research",
+      "built"
+    ],
+    "title": "Alan Mind",
+    "who": [
+      "founder",
+      "researcher",
+      "pm",
+      "hiring",
+      "designer",
+      "curious"
+    ]
+  },
   "after_sections": "",
+  "behind_decisions": [],
   "prev": {
     "id": "clinic",
     "label": "Alan Clinic",
@@ -150,38 +180,8 @@
     "label": "Alan Clear",
     "follow_title": false
   },
-  "card": {
-    "tldr": true,
-    "tldrPriority": 4,
-    "pts": [
-      "Mental models of therapy in France",
-      "What stops people from going",
-      "How the app can lower the barrier"
-    ],
-    "vis": "mind",
-    "meta": "Alan · 2021–22",
-    "title": "Alan Mind",
-    "q": "How can an app help destigmatise therapy?",
-    "a": "Studying the mental models of the French population around therapy, to shape how Alan Mind could make seeking help feel normal. [ADD WHAT IT CHANGED]",
-    "jobs": [
-      "research",
-      "built"
-    ],
-    "who": [
-      "founder",
-      "researcher",
-      "pm",
-      "hiring",
-      "designer",
-      "curious"
-    ],
-    "m": [
-      "qual"
-    ],
-    "sc": [
-      "generative",
-      "strategic"
-    ]
-  },
-  "behind_decisions": []
+  "decisions": true,
+  "before_main": "\n<figure style=\"margin: 24px 0 8px; padding: clamp(16px, 3vw, 28px); border-radius: 22px; background: #F5F6FA; border: 1px solid #E3E3EA\">\n<div style=\"display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: clamp(12px, 3vw, 32px)\"><img src=\"/photos/screen-alan-mind.jpg\" alt=\"Alan Mind app store screen: Mental health made simple, with a mental health score.\" width=\"643\" height=\"1392\" loading=\"lazy\" style=\"display: block; height: clamp(260px, 42vw, 520px); width: auto; max-width: 100%; border-radius: 14px; box-shadow: 0 10px 28px rgba(23, 23, 31, 0.12)\"><img src=\"/photos/screen-alan-mind-insights.jpg\" alt=\"Alan Mind insights screen: a week of moods and the areas of life behind them.\" width=\"643\" height=\"1392\" loading=\"lazy\" style=\"display: block; height: clamp(260px, 42vw, 520px); width: auto; max-width: 100%; border-radius: 14px; box-shadow: 0 10px 28px rgba(23, 23, 31, 0.12)\"></div>\n<figcaption style=\"margin-top: 14px; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #4A4A57; text-align: center\">Alan Mind</figcaption>\n</figure>\n",
+  "id": "mind",
+  "top_caption": "Alan Mind"
 }

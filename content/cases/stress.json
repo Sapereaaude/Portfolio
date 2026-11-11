@@ -1,14 +1,4 @@
 {
-  "id": "stress",
-  "page_title": "Stress &amp; success",
-  "draft_banner": true,
-  "header": {
-    "eyebrow": "RBK Jordan · 2017–18",
-    "title": "Stress & success",
-    "question": "Can measuring bootcamp students’ stress reveal what helps them succeed?",
-    "background": "#FBEAE8",
-    "illustration": "<div aria-hidden=\"true\" style=\"flex: 0 1 300px; min-width: 200px; aspect-ratio: 196 / 150\">\n<svg sc-camel-view-box=\"44 8 196 150\" style=\"width: 100%; height: 100%; display: block\">\n<circle cx=\"150\" cy=\"66\" r=\"54\" fill=\"#FFFFFF\" opacity=\"0.75\"></circle>\n<path d=\"M70 80 h34 l10 -26 14 50 12 -40 10 16 h60\" fill=\"none\" stroke=\"#D13A28\" stroke-width=\"3\" stroke-linejoin=\"round\" stroke-linecap=\"round\"></path>\n<circle cx=\"210\" cy=\"80\" r=\"7\" fill=\"{{accent}}\"></circle>\n<path d=\"M206 40 l6 -10 6 10\" fill=\"none\" stroke=\"{{accent}}\" stroke-width=\"2.5\" stroke-linecap=\"round\"></path>\n</svg>\n</div>\n"
-  },
   "facts": [
     {
       "label": "Role",
@@ -27,9 +17,16 @@
       "value": "Programme management"
     }
   ],
+  "page_title": "Stress &amp; success",
   "threads": true,
-  "before_main": "\n",
-  "decisions": true,
+  "draft_banner": true,
+  "header": {
+    "eyebrow": "RBK Jordan · 2017–18",
+    "title": "Stress & success",
+    "question": "Can measuring bootcamp students’ stress reveal what helps them succeed?",
+    "background": "accent",
+    "illustration": "<div aria-hidden=\"true\" style=\"flex: 0 1 300px; min-width: 200px; aspect-ratio: 196 / 150\">\n<svg sc-camel-view-box=\"44 8 196 150\" style=\"width: 100%; height: 100%; display: block\">\n<circle cx=\"150\" cy=\"66\" r=\"54\" fill=\"#FFFFFF\" opacity=\"0.75\"></circle>\n<path d=\"M70 80 h34 l10 -26 14 50 12 -40 10 16 h60\" fill=\"none\" stroke=\"#D13A28\" stroke-width=\"3\" stroke-linejoin=\"round\" stroke-linecap=\"round\"></path>\n<circle cx=\"210\" cy=\"80\" r=\"7\" fill=\"{{accent}}\"></circle>\n<path d=\"M206 40 l6 -10 6 10\" fill=\"none\" stroke=\"{{accent}}\" stroke-width=\"2.5\" stroke-linecap=\"round\"></path>\n</svg>\n</div>\n"
+  },
   "sections": [
     {
       "title": "The context",
@@ -141,7 +138,38 @@
       ]
     }
   ],
+  "card": {
+    "vis": "stress",
+    "a": "Measuring the stress of learners during an intensive coding bootcamp, to identify success criteria and adapt their conditions. [ADD METHOD AND FINDINGS]",
+    "meta": "RBK Jordan · 2017–18",
+    "m": [
+      "quant"
+    ],
+    "pts": [
+      "Measuring learners’ stress",
+      "Looking for what predicts success",
+      "Adapting conditions to help them through"
+    ],
+    "sc": [
+      "generative",
+      "strategic"
+    ],
+    "q": "Can measuring bootcamp students’ stress reveal what helps them succeed?",
+    "jobs": [
+      "research",
+      "career",
+      "built"
+    ],
+    "title": "Stress & success",
+    "who": [
+      "researcher",
+      "founder",
+      "curious",
+      "hiring"
+    ]
+  },
   "after_sections": "",
+  "behind_decisions": [],
   "prev": {
     "id": "rbk",
     "label": "Refugees to software engineers",
@@ -152,35 +180,7 @@
     "label": "Better from cohort to cohort",
     "follow_title": false
   },
-  "card": {
-    "pts": [
-      "Measuring learners’ stress",
-      "Looking for what predicts success",
-      "Adapting conditions to help them through"
-    ],
-    "vis": "stress",
-    "meta": "RBK Jordan · 2017–18",
-    "title": "Stress & success",
-    "q": "Can measuring bootcamp students’ stress reveal what helps them succeed?",
-    "a": "Measuring the stress of learners during an intensive coding bootcamp, to identify success criteria and adapt their conditions. [ADD METHOD AND FINDINGS]",
-    "jobs": [
-      "research",
-      "career",
-      "built"
-    ],
-    "who": [
-      "researcher",
-      "founder",
-      "curious",
-      "hiring"
-    ],
-    "m": [
-      "quant"
-    ],
-    "sc": [
-      "generative",
-      "strategic"
-    ]
-  },
-  "behind_decisions": []
+  "decisions": true,
+  "before_main": "\n",
+  "id": "stress"
 }

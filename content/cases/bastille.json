@@ -1,14 +1,10 @@
 {
-  "id": "bastille",
-  "page_title": "Bastille",
-  "draft_banner": true,
-  "header": {
-    "eyebrow": "Side project · 2026",
-    "title": "Bastille",
-    "question": "How do we help French citizens vote with full awareness, not by reflex?",
-    "background": "#EEF1FA",
-    "illustration": "<div aria-hidden=\"true\" style=\"flex: 0 1 300px; min-width: 200px; aspect-ratio: 196 / 150\">\n<svg sc-camel-view-box=\"44 8 196 150\" style=\"width: 100%; height: 100%; display: block\">\n<circle cx=\"166\" cy=\"74\" r=\"58\" fill=\"#FFFFFF\" opacity=\"0.7\"></circle>\n<rect x=\"130\" y=\"18\" width=\"66\" height=\"122\" rx=\"14\" fill=\"#FFFFFF\" stroke=\"#17171F\" stroke-width=\"1.2\"></rect>\n<rect x=\"140\" y=\"36\" width=\"46\" height=\"60\" rx=\"8\" fill=\"#FFFFFF\" stroke=\"#17171F\" transform=\"rotate(10 163 66)\"></rect>\n<g transform=\"rotate(10 163 66)\"><rect x=\"147\" y=\"48\" width=\"30\" height=\"5\" rx=\"2.5\" fill=\"#17171F\"></rect><rect x=\"147\" y=\"58\" width=\"24\" height=\"5\" rx=\"2.5\" fill=\"#17171F\"></rect><rect x=\"147\" y=\"68\" width=\"28\" height=\"5\" rx=\"2.5\" fill=\"#17171F\"></rect></g>\n<circle cx=\"150\" cy=\"118\" r=\"8\" fill=\"#D13A28\"></circle><circle cx=\"176\" cy=\"118\" r=\"8\" fill=\"{{accent}}\"></circle>\n<path d=\"M210 60 l12 0 M216 54 l6 6 -6 6\" stroke=\"{{accent}}\" stroke-width=\"2\" fill=\"none\"></path>\n</svg>\n</div>\n"
-  },
+  "top_images": [
+    {
+      "src": "/photos/screen-bastille.jpg",
+      "alt": "The Bastille prototype: a proposal card about housing, with buttons to react"
+    }
+  ],
   "facts": [
     {
       "label": "Role",
@@ -27,16 +23,16 @@
       "value": "Mentoring & side projects"
     }
   ],
+  "page_title": "Bastille",
   "threads": false,
-  "before_main": "\n<figure style=\"margin: 20px 0 0; padding: clamp(20px, 3vw, 36px); border-radius: 22px; background: #F4F4F7; display: flex; flex-direction: column; align-items: center; gap: 14px\">\n<img src=\"/photos/screen-bastille.jpg\" alt=\"The Bastille prototype: a proposal card about housing, with buttons to react\" loading=\"lazy\" style=\"display: block; width: min(320px, 100%); height: auto; border-radius: 22px; border: 1px solid #E3E3EA; box-shadow: 0 18px 40px rgba(23,23,31,0.14)\">\n<figcaption style=\"max-width: 420px; text-align: center; font-family: 'Newsreader', Georgia, serif; font-style: italic; font-size: 17px; line-height: 1.4; color: #4A4A57; text-wrap: balance\">Bastille, the swipe screen: one proposal at a time, four ways to react.</figcaption>\n</figure>\n",
-  "top_images": [
-    {
-      "src": "/photos/screen-bastille.jpg",
-      "alt": "The Bastille prototype: a proposal card about housing, with buttons to react"
-    }
-  ],
-  "top_caption": "Bastille, the swipe screen: one proposal at a time, four ways to react.",
-  "decisions": true,
+  "draft_banner": true,
+  "header": {
+    "eyebrow": "Side project · 2026",
+    "title": "Bastille",
+    "question": "How do we help French citizens vote with full awareness, not by reflex?",
+    "background": "#FBEAE8",
+    "illustration": "<div aria-hidden=\"true\" style=\"flex: 0 1 300px; min-width: 200px; aspect-ratio: 196 / 150\">\n<svg sc-camel-view-box=\"44 8 196 150\" style=\"width: 100%; height: 100%; display: block\">\n<circle cx=\"166\" cy=\"74\" r=\"58\" fill=\"#FFFFFF\" opacity=\"0.7\"></circle>\n<rect x=\"130\" y=\"18\" width=\"66\" height=\"122\" rx=\"14\" fill=\"#FFFFFF\" stroke=\"#17171F\" stroke-width=\"1.2\"></rect>\n<rect x=\"140\" y=\"36\" width=\"46\" height=\"60\" rx=\"8\" fill=\"#FFFFFF\" stroke=\"#17171F\" transform=\"rotate(10 163 66)\"></rect>\n<g transform=\"rotate(10 163 66)\"><rect x=\"147\" y=\"48\" width=\"30\" height=\"5\" rx=\"2.5\" fill=\"#17171F\"></rect><rect x=\"147\" y=\"58\" width=\"24\" height=\"5\" rx=\"2.5\" fill=\"#17171F\"></rect><rect x=\"147\" y=\"68\" width=\"28\" height=\"5\" rx=\"2.5\" fill=\"#17171F\"></rect></g>\n<circle cx=\"150\" cy=\"118\" r=\"8\" fill=\"#D13A28\"></circle><circle cx=\"176\" cy=\"118\" r=\"8\" fill=\"{{accent}}\"></circle>\n<path d=\"M210 60 l12 0 M216 54 l6 6 -6 6\" stroke=\"{{accent}}\" stroke-width=\"2\" fill=\"none\"></path>\n</svg>\n</div>\n"
+  },
   "sections": [
     {
       "title": "The context",
@@ -124,7 +120,35 @@
       ]
     }
   ],
+  "card": {
+    "vis": "bastille",
+    "a": "Swipe anonymised measures taken from official programmes for the 2027 French election. The matching never invents a position. Built with Claude, now in Lovable.",
+    "meta": "Side project · 2026",
+    "m": [],
+    "pts": [
+      "Swipe ideas, not candidates",
+      "Measures sourced from official programmes",
+      "Mini-games to learn without a lecture"
+    ],
+    "sc": [
+      "generative"
+    ],
+    "q": "How do we help French citizens vote with full awareness, not by reflex?",
+    "jobs": [
+      "side",
+      "built",
+      "ai"
+    ],
+    "title": "Bastille",
+    "who": [
+      "founder",
+      "designer",
+      "pm",
+      "curious"
+    ]
+  },
   "after_sections": "",
+  "behind_decisions": [],
   "prev": {
     "id": "tracking",
     "label": "Tracking Bad",
@@ -135,32 +159,8 @@
     "label": "Le Palier",
     "follow_title": false
   },
-  "card": {
-    "pts": [
-      "Swipe ideas, not candidates",
-      "Measures sourced from official programmes",
-      "Mini-games to learn without a lecture"
-    ],
-    "vis": "bastille",
-    "meta": "Side project · 2026",
-    "title": "Bastille",
-    "q": "How do we help French citizens vote with full awareness, not by reflex?",
-    "a": "Swipe anonymised measures taken from official programmes for the 2027 French election. The matching never invents a position. Built with Claude, now in Lovable.",
-    "jobs": [
-      "side",
-      "built",
-      "ai"
-    ],
-    "who": [
-      "founder",
-      "designer",
-      "pm",
-      "curious"
-    ],
-    "m": [],
-    "sc": [
-      "generative"
-    ]
-  },
-  "behind_decisions": []
+  "decisions": true,
+  "before_main": "\n<figure style=\"margin: 20px 0 0; padding: clamp(20px, 3vw, 36px); border-radius: 22px; background: #F4F4F7; display: flex; flex-direction: column; align-items: center; gap: 14px\">\n<img src=\"/photos/screen-bastille.jpg\" alt=\"The Bastille prototype: a proposal card about housing, with buttons to react\" loading=\"lazy\" style=\"display: block; width: min(320px, 100%); height: auto; border-radius: 22px; border: 1px solid #E3E3EA; box-shadow: 0 18px 40px rgba(23,23,31,0.14)\">\n<figcaption style=\"max-width: 420px; text-align: center; font-family: 'Newsreader', Georgia, serif; font-style: italic; font-size: 17px; line-height: 1.4; color: #4A4A57; text-wrap: balance\">Bastille, the swipe screen: one proposal at a time, four ways to react.</figcaption>\n</figure>\n",
+  "id": "bastille",
+  "top_caption": "Bastille, the swipe screen: one proposal at a time, four ways to react."
 }
