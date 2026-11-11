@@ -14,7 +14,7 @@ PDF = 'Safaa_El_Ouafi_Cover_Letter_Dust.pdf'
 RESUME_PDF = 'Safaa_El_Ouafi_Resume.pdf'  # made by scripts/build_resume_pdf.py (run it after editing the resume)
 EMAIL = 'safaa.elouafi.am@gmail.com'
 LINKEDIN = 'https://www.linkedin.com/in/safaa-el-ouafi/en/'
-SITE = 'https://uxrsafaaelouafi.vercel.app'
+SITE = 'https://safaaelouafi.com'
 
 ROUTES = {'Main': '', 'Timeline': 'timeline', 'About': 'about', 'Resume': 'resume', 'Dust': 'dust', 'DustLetter': 'dust/letter'}
 COMPONENTS = {'Connections', 'Decisions'}  # imported by other pages, not a page of its own
