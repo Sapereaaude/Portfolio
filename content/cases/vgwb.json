@@ -28,9 +28,9 @@
   "draft_banner": true,
   "header": {
     "eyebrow": "Video Games Without Borders · 2017–22",
-    "title": "A game to learn Arabic",
+    "title": "Serious Game Design for Social Impact",
     "question": "How do refugee children out of school learn to read Arabic?",
-    "background": "#EEF1FA",
+    "background": "accent",
     "illustration": "<div aria-hidden=\"true\" style=\"flex: 0 1 300px; min-width: 200px; aspect-ratio: 196 / 150\">\n<svg sc-camel-view-box=\"44 8 196 150\" style=\"width: 100%; height: 100%; display: block\">\n<circle cx=\"156\" cy=\"70\" r=\"54\" fill=\"#FFFFFF\" opacity=\"0.7\"></circle>\n<path d=\"M112 70 a22 22 0 0 1 22 -22 h44 a22 22 0 0 1 22 22 l6 30 a12 12 0 0 1 -22 8 l-10 -14 h-36 l-10 14 a12 12 0 0 1 -22 -8z\" fill=\"#FFFFFF\" stroke=\"#17171F\" stroke-width=\"1.2\"></path>\n<path d=\"M132 66 v16 M124 74 h16\" stroke=\"#17171F\" stroke-width=\"3\" stroke-linecap=\"round\"></path>\n<circle cx=\"178\" cy=\"68\" r=\"5\" fill=\"{{accent}}\"></circle><circle cx=\"190\" cy=\"80\" r=\"5\" fill=\"#D13A28\"></circle>\n<text x=\"210\" y=\"44\" font-family=\"Newsreader, serif\" font-size=\"26\" fill=\"{{accent}}\">ع</text>\n</svg>\n</div>\n"
   },
   "sections": [
@@ -42,7 +42,7 @@
         {
           "type": "text",
           "style": "plain",
-          "text": "Millions of Syrian refugee children were out of school, with no way to learn to read in their own language."
+          "text": "Millions of Syrian refugee children were out of school, with no way to learn to read in their own language. In a context of low or no connection, how do we make literacy available and fun to all?"
         }
       ]
     },
@@ -54,8 +54,8 @@
         {
           "type": "list",
           "items": [
-            "Develop a game to learn Arabic",
-            "Make it work in camp conditions"
+            "How might we make learning accessible?",
+            "How might we make learning fun enough to distract from camp conditions?"
           ]
         }
       ]
@@ -69,7 +69,8 @@
           "type": "list",
           "items": [
             "Educational game design",
-            "Pedagogical input"
+            "Pedagogical input",
+            "Test and report"
           ]
         }
       ]
@@ -82,7 +83,8 @@
         {
           "type": "list",
           "items": [
-            "Antura and the Letters: a free, open-source game, playable offline, to learn to read Arabic."
+            "We went from a static game that \"stores\" rigid reading skills in Arabic to an innovative method that is flexible to all languages.",
+            "A game that adapts to the player's conditions."
           ]
         }
       ]
@@ -108,6 +110,11 @@
           "type": "text",
           "style": "plain",
           "text": "[ADD]"
+        },
+        {
+          "type": "text",
+          "style": "plain",
+          "text": "I would spend more time with the kids in various contexts (newcomers in camps, kids on the run, ...)"
         }
       ]
     },
