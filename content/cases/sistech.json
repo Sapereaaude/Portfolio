@@ -30,7 +30,7 @@
     "eyebrow": "Volunteering · 2018–22",
     "title": "Mentoring Refugee Women into tech careers",
     "question": "How do refugee women move into tech jobs in France?",
-    "background": "accent",
+    "background": "#FBEAE8",
     "illustration": "<div aria-hidden=\"true\" style=\"flex: 0 1 300px; min-width: 200px; aspect-ratio: 196 / 150\">\n<svg sc-camel-view-box=\"44 8 196 150\" style=\"width: 100%; height: 100%; display: block\">\n<circle cx=\"150\" cy=\"72\" r=\"54\" fill=\"#FFFFFF\" opacity=\"0.7\"></circle>\n<path d=\"M100 124 h30 v-22 h30 v-22 h30 v-22 h28\" fill=\"none\" stroke=\"#17171F\" stroke-width=\"2\"></path>\n<circle cx=\"146\" cy=\"66\" r=\"10\" fill=\"{{accent}}\"></circle><path d=\"M136 100 v-12 a10 10 0 0 1 20 0 v12\" fill=\"{{accent}}\"></path>\n<circle cx=\"204\" cy=\"38\" r=\"8\" fill=\"#D13A28\"></circle>\n<path d=\"M162 72 q20 -24 36 -30\" fill=\"none\" stroke=\"#D13A28\" stroke-width=\"1.5\" stroke-dasharray=\"3 4\"></path>\n</svg>\n</div>\n"
   },
   "sections": [
