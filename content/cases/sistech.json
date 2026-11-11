@@ -1,14 +1,10 @@
 {
-  "id": "sistech",
-  "page_title": "Mentoring at Sistech",
-  "draft_banner": true,
-  "header": {
-    "eyebrow": "Volunteering · 2018–22",
-    "title": "Mentoring at Sistech",
-    "question": "How do refugee women move into tech jobs in France?",
-    "background": "#F2F2F5",
-    "illustration": "<div aria-hidden=\"true\" style=\"flex: 0 1 300px; min-width: 200px; aspect-ratio: 196 / 150\">\n<svg sc-camel-view-box=\"44 8 196 150\" style=\"width: 100%; height: 100%; display: block\">\n<circle cx=\"150\" cy=\"72\" r=\"54\" fill=\"#FFFFFF\" opacity=\"0.7\"></circle>\n<path d=\"M100 124 h30 v-22 h30 v-22 h30 v-22 h28\" fill=\"none\" stroke=\"#17171F\" stroke-width=\"2\"></path>\n<circle cx=\"146\" cy=\"66\" r=\"10\" fill=\"{{accent}}\"></circle><path d=\"M136 100 v-12 a10 10 0 0 1 20 0 v12\" fill=\"{{accent}}\"></path>\n<circle cx=\"204\" cy=\"38\" r=\"8\" fill=\"#D13A28\"></circle>\n<path d=\"M162 72 q20 -24 36 -30\" fill=\"none\" stroke=\"#D13A28\" stroke-width=\"1.5\" stroke-dasharray=\"3 4\"></path>\n</svg>\n</div>\n"
-  },
+  "top_images": [
+    {
+      "src": "/uploads/illustration2-_-sistech-x-justinechanal-1.png",
+      "alt": "Illustration of women collaborating at work"
+    }
+  ],
   "facts": [
     {
       "label": "Role",
@@ -27,9 +23,16 @@
       "value": "Mentoring & side projects"
     }
   ],
+  "page_title": "Mentoring at Sistech",
   "threads": false,
-  "before_main": "\n",
-  "decisions": true,
+  "draft_banner": true,
+  "header": {
+    "eyebrow": "Volunteering · 2018–22",
+    "title": "Mentoring at Sistech",
+    "question": "How do refugee women move into tech jobs in France?",
+    "background": "#F2F2F5",
+    "illustration": "<div aria-hidden=\"true\" style=\"flex: 0 1 300px; min-width: 200px; aspect-ratio: 196 / 150\">\n<svg sc-camel-view-box=\"44 8 196 150\" style=\"width: 100%; height: 100%; display: block\">\n<circle cx=\"150\" cy=\"72\" r=\"54\" fill=\"#FFFFFF\" opacity=\"0.7\"></circle>\n<path d=\"M100 124 h30 v-22 h30 v-22 h30 v-22 h28\" fill=\"none\" stroke=\"#17171F\" stroke-width=\"2\"></path>\n<circle cx=\"146\" cy=\"66\" r=\"10\" fill=\"{{accent}}\"></circle><path d=\"M136 100 v-12 a10 10 0 0 1 20 0 v12\" fill=\"{{accent}}\"></path>\n<circle cx=\"204\" cy=\"38\" r=\"8\" fill=\"#D13A28\"></circle>\n<path d=\"M162 72 q20 -24 36 -30\" fill=\"none\" stroke=\"#D13A28\" stroke-width=\"1.5\" stroke-dasharray=\"3 4\"></path>\n</svg>\n</div>\n"
+  },
   "sections": [
     {
       "title": "The context",
@@ -119,7 +122,32 @@
       ]
     }
   ],
+  "card": {
+    "vis": "mentor",
+    "a": "I mentored women in Sistech’s Boost programme, which helps refugee and displaced women retrain toward tech and digital jobs in France.",
+    "meta": "Volunteering · 2018–22",
+    "m": [],
+    "pts": [
+      "Mentor in the Boost programme",
+      "Refugee and displaced women",
+      "Toward tech and digital jobs in France"
+    ],
+    "sc": [],
+    "q": "How do refugee women move into tech jobs in France?",
+    "jobs": [
+      "career",
+      "built",
+      "looking"
+    ],
+    "title": "Mentoring at Sistech",
+    "who": [
+      "curious",
+      "founder",
+      "hiring"
+    ]
+  },
   "after_sections": "",
+  "behind_decisions": [],
   "prev": {
     "id": "workshops",
     "label": "Cultural cooking workshops",
@@ -130,29 +158,7 @@
     "label": "Bibliothèques Sans Frontières",
     "follow_title": false
   },
-  "card": {
-    "pts": [
-      "Mentor in the Boost programme",
-      "Refugee and displaced women",
-      "Toward tech and digital jobs in France"
-    ],
-    "vis": "mentor",
-    "meta": "Volunteering · 2018–22",
-    "title": "Mentoring at Sistech",
-    "q": "How do refugee women move into tech jobs in France?",
-    "a": "I mentored women in Sistech’s Boost programme, which helps refugee and displaced women retrain toward tech and digital jobs in France.",
-    "jobs": [
-      "career",
-      "built",
-      "looking"
-    ],
-    "who": [
-      "curious",
-      "founder",
-      "hiring"
-    ],
-    "m": [],
-    "sc": []
-  },
-  "behind_decisions": []
+  "decisions": true,
+  "before_main": "\n",
+  "id": "sistech"
 }
