@@ -1,14 +1,4 @@
 {
-  "id": "rbk",
-  "page_title": "Refugees to software engineers",
-  "draft_banner": true,
-  "header": {
-    "eyebrow": "RBK Jordan · 2017–18",
-    "title": "Refugees to software engineers",
-    "question": "Can a bootcamp turn refugees into software engineers?",
-    "background": "accent",
-    "illustration": "<div aria-hidden=\"true\" style=\"flex: 0 1 300px; min-width: 200px; aspect-ratio: 196 / 150\">\n<svg sc-camel-view-box=\"44 8 196 150\" style=\"width: 100%; height: 100%; display: block\">\n<rect x=\"104\" y=\"112\" width=\"40\" height=\"22\" fill=\"#FFFFFF\"></rect><rect x=\"144\" y=\"92\" width=\"40\" height=\"42\" fill=\"#FFFFFF\"></rect><rect x=\"184\" y=\"72\" width=\"40\" height=\"62\" fill=\"#FFFFFF\"></rect>\n<path d=\"M108 100 l16 -7 16 7 -16 7z\" fill=\"{{accent}}\"></path><path d=\"M148 80 l16 -7 16 7 -16 7z\" fill=\"#D13A28\"></path><path d=\"M188 60 l16 -7 16 7 -16 7z\" fill=\"#17171F\"></path>\n<circle cx=\"204\" cy=\"30\" r=\"8\" fill=\"#D13A28\" opacity=\"0.6\"></circle>\n</svg>\n</div>\n"
-  },
   "facts": [
     {
       "label": "Role",
@@ -27,9 +17,16 @@
       "value": "Programme management"
     }
   ],
+  "page_title": "Refugees to software engineers",
   "threads": true,
-  "before_main": "\n",
-  "decisions": true,
+  "draft_banner": true,
+  "header": {
+    "eyebrow": "RBK Jordan · 2017–18",
+    "title": "From Refugees to software engineers",
+    "question": "Can a bootcamp turn refugees into software engineers?",
+    "background": "accent",
+    "illustration": "<div aria-hidden=\"true\" style=\"flex: 0 1 300px; min-width: 200px; aspect-ratio: 196 / 150\">\n<svg sc-camel-view-box=\"44 8 196 150\" style=\"width: 100%; height: 100%; display: block\">\n<rect x=\"104\" y=\"112\" width=\"40\" height=\"22\" fill=\"#FFFFFF\"></rect><rect x=\"144\" y=\"92\" width=\"40\" height=\"42\" fill=\"#FFFFFF\"></rect><rect x=\"184\" y=\"72\" width=\"40\" height=\"62\" fill=\"#FFFFFF\"></rect>\n<path d=\"M108 100 l16 -7 16 7 -16 7z\" fill=\"{{accent}}\"></path><path d=\"M148 80 l16 -7 16 7 -16 7z\" fill=\"#D13A28\"></path><path d=\"M188 60 l16 -7 16 7 -16 7z\" fill=\"#17171F\"></path>\n<circle cx=\"204\" cy=\"30\" r=\"8\" fill=\"#D13A28\" opacity=\"0.6\"></circle>\n</svg>\n</div>\n"
+  },
   "sections": [
     {
       "title": "The context",
@@ -141,7 +138,34 @@
       ]
     }
   ],
+  "card": {
+    "vis": "grads",
+    "a": "I audited and rebuilt the programme, led educators across three cohorts, added English and digital literacy from employer feedback, and ran 1:1s, speaking circles and restorative justice circles. The one I’m proudest of.",
+    "meta": "RBK Jordan · 2017–18",
+    "tldr": true,
+    "tldrPriority": 6,
+    "m": [],
+    "pts": [
+      "Rebuilt the programme after a rough first cohort",
+      "3 cohorts of about 30",
+      "1:1s, speaking and restorative justice circles"
+    ],
+    "sc": [],
+    "q": "Can a bootcamp turn refugees into software engineers?",
+    "jobs": [
+      "career",
+      "built"
+    ],
+    "title": "Refugees to software engineers",
+    "who": [
+      "hiring",
+      "founder",
+      "curious",
+      "pm"
+    ]
+  },
   "after_sections": "",
+  "behind_decisions": [],
   "prev": {
     "id": "algo_personas",
     "label": "Learner personas",
@@ -152,31 +176,7 @@
     "label": "Stress & success",
     "follow_title": false
   },
-  "card": {
-    "tldr": true,
-    "tldrPriority": 6,
-    "pts": [
-      "Rebuilt the programme after a rough first cohort",
-      "3 cohorts of about 30",
-      "1:1s, speaking and restorative justice circles"
-    ],
-    "vis": "grads",
-    "meta": "RBK Jordan · 2017–18",
-    "title": "Refugees to software engineers",
-    "q": "Can a bootcamp turn refugees into software engineers?",
-    "a": "I audited and rebuilt the programme, led educators across three cohorts, added English and digital literacy from employer feedback, and ran 1:1s, speaking circles and restorative justice circles. The one I’m proudest of.",
-    "jobs": [
-      "career",
-      "built"
-    ],
-    "who": [
-      "hiring",
-      "founder",
-      "curious",
-      "pm"
-    ],
-    "m": [],
-    "sc": []
-  },
-  "behind_decisions": []
+  "decisions": true,
+  "before_main": "\n",
+  "id": "rbk"
 }
