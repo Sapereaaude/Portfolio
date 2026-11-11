@@ -131,7 +131,7 @@
     '.egg-foot{margin-top:14px}' +
     '.egg-stars{position:relative;width:250px;height:112px;margin:6px 0 0 auto}.egg-stars[hidden]{display:none}' +
     '.egg-stars svg{position:absolute;inset:0;width:250px;height:96px;overflow:visible}' +
-    '.egg-star{position:absolute;display:flex;flex-direction:column;align-items:center;gap:4px;width:52px;margin:-26px 0 0 -26px;color:#17171F;text-decoration:none;font:600 11px/1 Figtree,sans-serif}' +
+    '.egg-star{position:absolute;display:flex;flex-direction:column;align-items:center;gap:4px;width:52px;margin:-26px 0 0 -26px;padding:0;border:none;background:none;color:#17171F;text-decoration:none;font:600 11px/1 Figtree,sans-serif;white-space:nowrap;cursor:pointer}' +
     '.egg-star b,.egg-star svg{display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box;width:52px;height:52px;border:1px solid #17171F;border-radius:50%;background:#FFFFFF;box-shadow:0 6px 16px rgba(23,23,31,.18);font:800 18px/1 Figtree,sans-serif;transition:transform .15s ease}' +
     '.egg-star svg{position:static;padding:14px}' +
     '.egg-star:hover b,.egg-star:hover svg{transform:translateY(-3px)}' +
@@ -224,13 +224,18 @@
       '<h3>Insights</h3><ul class="egg-ins">' + ins.slice(0, 3).map(function (i) { return '<li><p>' + i[0] + '</p><small>Confidence: low (n=1) · ' + i[1] + '</small></li>'; }).join('') + '</ul>' +
       '<p class="egg-rec">Recommendation: follow up with a moderated session. This report stays in your&nbsp;browser.</p>' +
       '<div class="egg-foot"><span></span><button type="button" class="egg-btn main" data-talk aria-expanded="false" aria-controls="egg-stars">Let’s talk</button></div>' +
-      '<div class="egg-stars" id="egg-stars" role="group" aria-label="Pick an app" hidden>' +
-        '<svg aria-hidden="true" viewBox="0 0 250 96"><path d="M30 60 L110 28 L190 66" fill="none" stroke="rgba(23,23,31,.35)" stroke-width="1.5" stroke-dasharray="3 5"></path></svg>' +
-        '<a class="egg-star" style="left:30px;top:60px" target="_blank" rel="noopener" aria-label="Gmail" href="https://mail.google.com/mail/?view=cm&fs=1&to=' + encodeURIComponent(MAIL) + '&su=' + encodeURIComponent(SUBJECT) + '"><b>G</b><span>Gmail</span></a>' +
-        '<a class="egg-star" style="left:110px;top:28px" aria-label="Mail" href="mailto:' + MAIL + '?subject=' + encodeURIComponent(SUBJECT) + '"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5.5" width="18" height="13" rx="2"></rect><path d="M3.5 7l8.5 6 8.5-6"></path></svg><span>Mail</span></a>' +
-        '<a class="egg-star" style="left:190px;top:66px" target="_blank" rel="noopener" aria-label="LinkedIn" href="https://www.linkedin.com/in/safaa-el-ouafi/en/"><b>in</b><span>LinkedIn</span></a>' +
+      '<div class="egg-stars" id="egg-stars" role="group" aria-label="Pick one" hidden>' +
+        '<svg aria-hidden="true" viewBox="0 0 250 96"><path d="M62 56 L188 34" fill="none" stroke="rgba(23,23,31,.35)" stroke-width="1.5" stroke-dasharray="3 5"></path></svg>' +
+        '<button type="button" class="egg-star" data-copy style="left:62px;top:56px" aria-label="Copy my email address"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5.5" width="18" height="13" rx="2"></rect><path d="M3.5 7l8.5 6 8.5-6"></path></svg><span>Copy email</span></button>' +
+        '<a class="egg-star" style="left:188px;top:34px" target="_blank" rel="noopener" aria-label="LinkedIn, opens in a new tab" href="https://www.linkedin.com/in/safaa-el-ouafi/en/"><b>in</b><span>LinkedIn</span></a>' +
       '</div>');
     var talk = veil.querySelector('[data-talk]'), stars = veil.querySelector('.egg-stars');
+    var cp = veil.querySelector('[data-copy]'), cpLabel = cp.querySelector('span'), cpTimer = null;
+    cp.addEventListener('click', function () {
+      function done(ok) { cpLabel.textContent = ok ? 'Copied' : MAIL; clearTimeout(cpTimer); if (ok) { cpTimer = setTimeout(function () { cpLabel.textContent = 'Copy email'; }, 1800); } }
+      if (navigator.clipboard && navigator.clipboard.writeText) { navigator.clipboard.writeText(MAIL).then(function () { done(true); }, function () { done(false); }); }
+      else { done(false); }
+    });
     talk.addEventListener('click', function () {
       var on = stars.hidden; stars.hidden = !on; talk.setAttribute('aria-expanded', String(on));
       if (on) { stars.scrollIntoView({ block: 'nearest' }); }
@@ -260,6 +265,21 @@
     var r = t.getBoundingClientRect();
     toast('<b>Unexpected user behaviour · 05</b><p>You clicked a full stop. Interesting. Not enough data yet to say&nbsp;why.</p><small>n=1 · ' + n + (n === 1 ? ' page' : ' pages') + ' · ' + (secs < 60 ? secs + ' s' : Math.round(secs / 60) + ' min') + '. Look around a bit more, then try&nbsp;again.</small>', r.left + r.width / 2, r.top, 5200);
   }, true);
+
+  /* ── Say hello constellations, site-wide: the mail star copies my address ── */
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest && e.target.closest('[data-copy-email]');
+    if (!b) { return; }
+    var label = b.querySelector('span:last-child'), MAILTO = 'safaa.elouafi.am@gmail.com';
+    function done(ok) {
+      if (!label) { return; }
+      label.textContent = ok ? 'Copied' : MAILTO;
+      if (!ok) { label.style.textTransform = 'none'; label.style.whiteSpace = 'nowrap'; return; }
+      clearTimeout(b.__t); b.__t = setTimeout(function () { label.textContent = 'Copy email'; }, 1800);
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) { navigator.clipboard.writeText(MAILTO).then(function () { done(true); }, function () { done(false); }); }
+    else { done(false); }
+  });
 
   /* ── 06 · Consent first ── */
   var lastXY = [window.innerWidth / 2, window.innerHeight / 2];
