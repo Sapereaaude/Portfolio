@@ -1,14 +1,4 @@
 {
-  "id": "prio",
-  "page_title": "How products get chosen",
-  "draft_banner": true,
-  "header": {
-    "eyebrow": "Decathlon · 2025",
-    "title": "How products get chosen",
-    "question": "Who really decides which products get developed?",
-    "background": "#EEF1FA",
-    "illustration": "<div aria-hidden=\"true\" style=\"flex: 0 1 300px; min-width: 200px; aspect-ratio: 196 / 150\">\n<svg sc-camel-view-box=\"44 8 196 150\" style=\"width: 100%; height: 100%; display: block\">\n<circle cx=\"168\" cy=\"74\" r=\"56\" fill=\"#FFFFFF\" opacity=\"0.7\"></circle>\n<rect x=\"140\" y=\"26\" width=\"70\" height=\"96\" rx=\"6\" fill=\"#FFFFFF\" stroke=\"#D5D7E0\" stroke-width=\"1.2\" transform=\"rotate(8 175 74)\"></rect>\n<rect x=\"128\" y=\"22\" width=\"70\" height=\"96\" rx=\"6\" fill=\"#FFFFFF\" stroke=\"#17171F\" stroke-width=\"1.2\"></rect>\n<rect x=\"128\" y=\"22\" width=\"70\" height=\"6\" fill=\"{{accent}}\"></rect>\n<rect x=\"138\" y=\"40\" width=\"44\" height=\"6\" rx=\"3\" fill=\"#17171F\"></rect><rect x=\"138\" y=\"52\" width=\"34\" height=\"6\" rx=\"3\" fill=\"#17171F\"></rect>\n<rect x=\"138\" y=\"72\" width=\"50\" height=\"4\" rx=\"2\" fill=\"#17171F\" opacity=\"0.25\"></rect><rect x=\"138\" y=\"82\" width=\"40\" height=\"4\" rx=\"2\" fill=\"#17171F\" opacity=\"0.25\"></rect>\n<path d=\"M92 120 q30 -4 46 -26\" fill=\"none\" stroke=\"#D13A28\" stroke-width=\"2\"></path><path d=\"M132 92 l7 1 -2 7\" fill=\"none\" stroke=\"#D13A28\" stroke-width=\"2\"></path>\n</svg>\n</div>\n"
-  },
   "facts": [
     {
       "label": "Role",
@@ -27,9 +17,16 @@
       "value": "User research & ResearchOps"
     }
   ],
+  "page_title": "How products get chosen",
   "threads": true,
-  "before_main": "\n",
-  "decisions": true,
+  "draft_banner": true,
+  "header": {
+    "eyebrow": "Decathlon · 2025",
+    "title": "How your new pair of shoes come to life",
+    "question": "Who really decides which products get developed?",
+    "background": "accent",
+    "illustration": "<div aria-hidden=\"true\" style=\"flex: 0 1 300px; min-width: 200px; aspect-ratio: 196 / 150\">\n<svg sc-camel-view-box=\"44 8 196 150\" style=\"width: 100%; height: 100%; display: block\">\n<circle cx=\"168\" cy=\"74\" r=\"56\" fill=\"#FFFFFF\" opacity=\"0.7\"></circle>\n<rect x=\"140\" y=\"26\" width=\"70\" height=\"96\" rx=\"6\" fill=\"#FFFFFF\" stroke=\"#D5D7E0\" stroke-width=\"1.2\" transform=\"rotate(8 175 74)\"></rect>\n<rect x=\"128\" y=\"22\" width=\"70\" height=\"96\" rx=\"6\" fill=\"#FFFFFF\" stroke=\"#17171F\" stroke-width=\"1.2\"></rect>\n<rect x=\"128\" y=\"22\" width=\"70\" height=\"6\" fill=\"{{accent}}\"></rect>\n<rect x=\"138\" y=\"40\" width=\"44\" height=\"6\" rx=\"3\" fill=\"#17171F\"></rect><rect x=\"138\" y=\"52\" width=\"34\" height=\"6\" rx=\"3\" fill=\"#17171F\"></rect>\n<rect x=\"138\" y=\"72\" width=\"50\" height=\"4\" rx=\"2\" fill=\"#17171F\" opacity=\"0.25\"></rect><rect x=\"138\" y=\"82\" width=\"40\" height=\"4\" rx=\"2\" fill=\"#17171F\" opacity=\"0.25\"></rect>\n<path d=\"M92 120 q30 -4 46 -26\" fill=\"none\" stroke=\"#D13A28\" stroke-width=\"2\"></path><path d=\"M132 92 l7 1 -2 7\" fill=\"none\" stroke=\"#D13A28\" stroke-width=\"2\"></path>\n</svg>\n</div>\n"
+  },
   "sections": [
     {
       "title": "The context",
@@ -141,7 +138,37 @@
       ]
     }
   ],
+  "card": {
+    "vis": "report",
+    "a": "Interviews with sports leaders, PMOs and product managers, analysed with atomic research, then a second round with product engineers on how they actually plan.",
+    "meta": "Decathlon · 2025",
+    "m": [
+      "qual"
+    ],
+    "pts": [
+      "Sports leaders, PMOs and PMs interviewed",
+      "Analysed with atomic research",
+      "Then: how engineers actually plan"
+    ],
+    "sc": [
+      "generative",
+      "strategic"
+    ],
+    "q": "Who really decides which products get developed?",
+    "jobs": [
+      "research",
+      "built"
+    ],
+    "title": "How products get chosen",
+    "who": [
+      "pm",
+      "researcher",
+      "hiring",
+      "founder"
+    ]
+  },
   "after_sections": "",
+  "behind_decisions": [],
   "prev": {
     "id": "system",
     "label": "A research system for 5 teams",
@@ -152,34 +179,7 @@
     "label": "Idea to recycling",
     "follow_title": false
   },
-  "card": {
-    "pts": [
-      "Sports leaders, PMOs and PMs interviewed",
-      "Analysed with atomic research",
-      "Then: how engineers actually plan"
-    ],
-    "vis": "report",
-    "meta": "Decathlon · 2025",
-    "title": "How products get chosen",
-    "q": "Who really decides which products get developed?",
-    "a": "Interviews with sports leaders, PMOs and product managers, analysed with atomic research, then a second round with product engineers on how they actually plan.",
-    "jobs": [
-      "research",
-      "built"
-    ],
-    "who": [
-      "pm",
-      "researcher",
-      "hiring",
-      "founder"
-    ],
-    "m": [
-      "qual"
-    ],
-    "sc": [
-      "generative",
-      "strategic"
-    ]
-  },
-  "behind_decisions": []
+  "decisions": true,
+  "before_main": "\n",
+  "id": "prio"
 }
