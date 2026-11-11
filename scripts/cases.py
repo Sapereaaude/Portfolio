@@ -240,6 +240,8 @@ def generate():
 # ---------------------------------------------------------------- the search card and Behind the decisions
 MAIN = os.path.join(PROJECT, 'Main.dc.html')
 DUST = os.path.join(PROJECT, 'Dust.dc.html')
+CONNECTIONS = os.path.join(PROJECT, 'Connections.dc.html')
+TIMELINE = os.path.join(PROJECT, 'Timeline.dc.html')
 # The card takes its colour from the case's header colour, so changing one changes the other.
 HEADER_TONE = {'#EEF1FA': 'blue', '#FBEAE8': 'red', '#F2F2F5': 'grey', 'accent': 'solid'}
 DECISIONS_FILE = os.path.join(PROJECT, 'Decisions.dc.html')
@@ -278,24 +280,61 @@ def with_tone(line, tone):
     return re.sub(r"^(\{ id: '\w+')", lambda m: m.group(1) + (", tone: '%s'" % tone if tone else ''), line, count=1)
 
 
+def card_of(c, pid):
+    """The search card as shown everywhere. The case header is the source of truth for the title,
+    the question, the eyebrow and the colour; the rest comes from the card fields."""
+    h = c.get('header') or {}
+    card = dict(c.get('card') or {})
+    card.pop('tone', None)
+    for hk, ck in (('title', 'title'), ('question', 'q'), ('eyebrow', 'meta')):
+        v = (h.get(hk) or '').strip()
+        if v:
+            card[ck] = v
+    card['id'] = pid
+    return card
+
+
 def write_cards(cases):
-    for path, rewrite in ((MAIN, True), (DUST, False)):
+    # home, Search my work, threads (Main) and the Dust page: the same card list
+    for path in (MAIN, DUST):
         src = open(path, encoding='utf-8').read()
         a, b, lines = item_lines(src)
         for i, line in enumerate(lines):
             m = re.match(r"\{ id: '(\w+)'", line)
-            if not m or m.group(1) not in cases:
+            if not m or m.group(1) not in cases or not cases[m.group(1)].get('card'):
                 continue
             c = cases[m.group(1)]
-            if rewrite and c.get('card'):
-                card = dict(c['card'])
-                card['id'] = m.group(1)
-                card.pop('tone', None)
-                line = card_line(card) + (',' if line.rstrip().endswith(',') else '')
+            line = card_line(card_of(c, m.group(1))) + (',' if line.rstrip().endswith(',') else '')
             lines[i] = with_tone(line, tone_of(c))
         out = src[:a] + '\n'.join(lines) + src[b:]
         if out != src:
             open(path, 'w', encoding='utf-8').write(out)
+    # "This connects to" titles on the case pages
+    src = open(CONNECTIONS, encoding='utf-8').read()
+    m = re.search(r'var TITLES = (\{.*?\});\n', src, re.S)
+    if m:
+        titles = json.loads(m.group(1))
+        for pid in titles:
+            if pid in cases:
+                titles[pid] = card_of(cases[pid], pid).get('title', titles[pid])
+        out = src[:m.start(1)] + json.dumps(titles, ensure_ascii=False) + src[m.end(1):]
+        if out != src:
+            open(CONNECTIONS, 'w', encoding='utf-8').write(out)
+    # the career timeline: each company's projects
+    src = open(TIMELINE, encoding='utf-8').read()
+    m = re.search(r'var COMPANIES = (\[.*?\]);\n', src, re.S)
+    if m:
+        companies = json.loads(m.group(1))
+        for co in companies:
+            for pr in co.get('projects', []):
+                if pr.get('id') in cases and cases[pr['id']].get('card'):
+                    card = card_of(cases[pr['id']], pr['id'])
+                    for tk, ck in (('t', 'title'), ('m', 'meta'), ('q', 'q'), ('p', 'pts'), ('a', 'a')):
+                        if card.get(ck):
+                            pr[tk] = card[ck]
+        out = src[:m.start(1)] + json.dumps(companies, ensure_ascii=False) + src[m.end(1):]
+        if out != src:
+            open(TIMELINE, 'w', encoding='utf-8').write(out)
 
 
 def write_decisions(cases):

@@ -43,17 +43,15 @@
     editor: { preview: true },
     fields: [
       hidden('id'),
-      { name: 'header', label: 'Header', widget: 'object', collapsed: false, fields: [
-        str('title', 'Title'),
-        str('question', 'Subtitle (the question)'),
-        str('eyebrow', 'Eyebrow', 'The small line above the title, e.g. “Alan · 2021–22”.'),
-        { name: 'background', label: 'Header colour', widget: 'select', options: [
+      { name: 'header', label: 'Header', widget: 'object', collapsed: false, hint: 'Title, subtitle, eyebrow and colour are also used for this case’s card everywhere on the site (home, Search my work, threads, timeline, Dust, “This connects to”).', fields: [
+        str('title', 'Title', 'Also the card title, everywhere.'),
+        str('question', 'Subtitle (the question)', 'Also the card question, everywhere.'),
+        str('eyebrow', 'Eyebrow', 'The small line above the title, e.g. “Alan · 2021–22”. Also on the card.'),
+        { name: 'background', label: 'Header colour', widget: 'select', hint: 'The card takes the same colour.', options: [
           { label: 'Blue tint', value: '#EEF1FA' }, { label: 'Red tint', value: '#FBEAE8' }, { label: 'Grey tint', value: '#F2F2F5' }, { label: 'Solid blue', value: 'accent' }] },
         hidden('illustration')] },
-      { name: 'card', label: 'Search card (Search my work)', widget: 'object', collapsed: true, fields: [
-        str('title', 'Card title'),
-        str('meta', 'Card eyebrow'),
-        str('q', 'Card question'),
+      { name: 'card', label: 'Card (description, points, filters)', widget: 'object', collapsed: true, hint: 'The card’s title, question, eyebrow and colour come from the Header above.', fields: [
+        hidden('title'), hidden('meta'), hidden('q'),
         { name: 'a', label: 'Short description', widget: 'text' },
         { name: 'pts', label: 'Key points on the card', widget: 'list', field: str('pt', 'Point') },
         tags('jobs', 'Intents', [
@@ -62,6 +60,13 @@
         tags('who', 'Personas it speaks to', [
           { label: 'Hiring manager', value: 'hiring' }, { label: 'Product designer', value: 'designer' }, { label: 'Product manager', value: 'pm' },
           { label: 'Founder', value: 'founder' }, { label: 'Fellow researcher', value: 'researcher' }, { label: 'Curious human', value: 'curious' }]),
+        tags('rtype', 'Research type (shown on the card, next to Threads)', [
+          { label: 'Strategic research', value: 'strategic' }, { label: 'Tactical research', value: 'tactical' },
+          { label: 'Generative research', value: 'generative' }, { label: 'Evaluative research', value: 'evaluative' },
+          { label: 'Exploratory research', value: 'exploratory' }, { label: 'Usability', value: 'usability' },
+          { label: 'Diary study', value: 'diary' }, { label: 'Survey', value: 'survey' }, { label: 'Interviews', value: 'interviews' },
+          { label: 'Continuous discovery', value: 'discovery' }, { label: 'Benchmark', value: 'benchmark' }, { label: 'Workshop', value: 'workshop' }],
+          'Leave empty to show nothing. Not used by the search filters.'),
         tags('m', 'Methods', [{ label: 'Qualitative', value: 'qual' }, { label: 'Quantitative', value: 'quant' }, { label: 'Mixed methods', value: 'mixed' }]),
         tags('sc', 'Research scope', [
           { label: 'Generative', value: 'generative' }, { label: 'Evaluative', value: 'evaluative' }, { label: 'Strategic', value: 'strategic' }, { label: 'Tactical', value: 'tactical' }]),

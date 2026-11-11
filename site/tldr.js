@@ -74,19 +74,25 @@
     '.tldr-soon{margin:14px 0 0;padding-top:12px;border-top:1px dashed #A9ACBA;font-size:13px;color:#4A4A57}',
     '.tldr-transcript{margin-top:12px;max-height:min(40vh, 260px);overflow:auto;padding:12px 14px;border-radius:12px;background:#EEF1FA;font-size:15px;line-height:1.55}',
     '.tldr-transcript p{margin:0 0 10px}.tldr-transcript p:last-child{margin:0}',
-    '.tldr-icon{flex:none;display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;padding:0;border:1px solid #D5D7E0;border-radius:50%;background:#FFFFFF;color:#17171F;text-decoration:none;cursor:pointer;transition:border-color .15s ease,background-color .15s ease,color .15s ease}',
+    '.tldr-tools{display:flex;align-items:center;gap:8px;margin-left:auto}',
+    '.tldr-pop{position:relative}',
+    '.tldr-icon{flex:none;display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;padding:0;border:1px solid #D5D7E0;border-radius:50%;background:#FFFFFF;color:#17171F;font:700 12.5px/1 "Figtree",sans-serif;text-decoration:none;cursor:pointer;transition:border-color .15s ease,background-color .15s ease,color .15s ease}',
     '.tldr-icon:hover{border-color:#17171F}',
     '.tldr-icon[aria-expanded="true"]{border-color:#17171F;background:#17171F;color:#FFFFFF}',
     '.tldr-icon[aria-disabled="true"]{opacity:.45;pointer-events:none}',
-    '.tldr-share{margin-top:14px;padding:14px;border-radius:12px;background:#EEF1FA}',
-    '.tldr-share[hidden]{display:none}',
-    '.tldr-msg{margin:0;font-family:"Newsreader",Georgia,serif;font-style:italic;font-size:19px;line-height:1.35;text-wrap:pretty}',
-    '.tldr-msg a{color:#17171F;text-decoration:underline;text-decoration-color:#D13A28;text-decoration-thickness:2px;text-underline-offset:3px}',
-    '.tldr-msg a:hover{color:#3B5BB8}',
-    '.tldr-acts{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}',
-    '.tldr-act{min-height:36px;padding:0 14px;border:1px solid #17171F;border-radius:999px;background:#FFFFFF;color:#17171F;font:700 12.5px/1 "Figtree",sans-serif;white-space:nowrap;cursor:pointer}',
-    '.tldr-act.main{background:#17171F;color:#FFFFFF}',
-    '.tldr-act.main:hover{background:#3B5BB8;border-color:#3B5BB8}',
+    '.tldr-rate{width:auto;min-width:52px;padding:0 10px;gap:4px;border-radius:999px;font-variant-numeric:tabular-nums}',
+    '.tldr-rate svg{transition:transform .15s ease}',
+    '.tldr-rate[aria-expanded="true"] svg{transform:rotate(180deg)}',
+    '.tldr-menu{position:absolute;z-index:2;top:calc(100% + 6px);left:0;display:flex;flex-direction:column;gap:4px;padding:6px;border:1.5px solid #17171F;border-radius:16px;background:#FFFFFF;animation:tldrIn .14s ease-out both}',
+    '.tldr-menu[hidden],.tldr-stars[hidden]{display:none}',
+    '.tldr-menu .tldr-speed{min-width:64px}',
+    '.tldr-stars{position:relative;width:232px;height:86px;margin:10px -8px 0 auto;pointer-events:none;animation:tldrIn .16s ease-out both}',
+    '.tldr-stars svg.tldr-arc{position:absolute;inset:0;overflow:visible}',
+    '.tldr-star{position:absolute;display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;margin:-22px 0 0 -22px;padding:0;border:1.5px solid #17171F;border-radius:50%;background:#FFFFFF;color:#17171F;font:800 15px/1 "Figtree",sans-serif;text-decoration:none;cursor:pointer;pointer-events:auto;transition:background-color .15s ease,color .15s ease,transform .15s ease}',
+    '.tldr-star:hover,.tldr-star:focus-visible{background:#3B5BB8;border-color:#3B5BB8;color:#FFFFFF;transform:scale(1.06)}',
+    '.tldr-star.done{background:#17171F;color:#FFFFFF}',
+    '.tldr-star-tip{position:absolute;right:0;top:calc(100% - 4px);font:700 11px/1 "Figtree",sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#3B5BB8;white-space:nowrap}',
+    '@media (prefers-reduced-motion: reduce){.tldr-menu,.tldr-stars{animation:none}.tldr-star,.tldr-rate svg{transition:none}}',
     '.tldr-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}'
   ].join('\n');
   var st = document.createElement('style'); st.textContent = css; document.head.appendChild(st);
@@ -97,6 +103,11 @@
 
   var ICON_DL = '<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11M7 10.5l5 5 5-5M5 19.5h14"></path></svg>';
   var ICON_SEND = '<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 3L10.2 13.8M21 3l-6.6 18-4.2-7.2L3 9.6z"></path></svg>';
+  var ICON_CHEV = '<svg aria-hidden="true" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg>';
+  var ICON_WA = '<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l1.2-3.9A8.2 8.2 0 1 1 8 18.9z"></path><path d="M9.2 8.6c.2 2.8 3.1 5.6 5.9 6l1.1-1.4-1.8-1-.8.9c-1-.4-2.3-1.6-2.8-2.8l.9-.8-1-1.8z" fill="currentColor" stroke-width="1"></path></svg>';
+  var ICON_MAIL = '<svg aria-hidden="true" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5.5" width="18" height="13" rx="2"></rect><path d="M3.5 7l8.5 6 8.5-6"></path></svg>';
+  var ICON_COPY = '<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8.5" y="8.5" width="12" height="12" rx="2.5"></rect><path d="M15.5 8.5V6a2.5 2.5 0 0 0-2.5-2.5H6A2.5 2.5 0 0 0 3.5 6v7A2.5 2.5 0 0 0 6 15.5h2.5"></path></svg>';
+  var ICON_OK = '<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>';
   var SHARE_URL = 'https://uxrsafaaelouafi.vercel.app/';
   var SHARE_BEFORE = 'Hey, listen to this ', SHARE_WORD = 'profile', SHARE_AFTER = ', you might be interested.';
 
@@ -145,20 +156,29 @@
         '</div>' +
         '<div class="tldr-time"><span class="tldr-cur" aria-hidden="true">0:00</span><button type="button" class="tldr-tip" tabindex="-1" aria-hidden="true"></button><span class="tldr-dur" aria-hidden="true">' + (READY ? '0:00' : '–:––') + '</span></div>' +
       '</div>' +
-      '<a class="tldr-icon tldr-dl" href="' + esc(EP.src || '#') + '" download="Safaa El Ouafi - TL;DR.mp3" aria-label="Download the episode"' + (READY ? '' : ' aria-disabled="true" tabindex="-1"') + '>' + ICON_DL + '</a>' +
-      '<button type="button" class="tldr-icon tldr-send" aria-label="Send this portfolio to someone" aria-expanded="false" aria-controls="tldr-share">' + ICON_SEND + '</button>' +
-    '</div>' +
-    '<div class="tldr-share" id="tldr-share" hidden>' +
-      '<p class="tldr-msg">' + esc(SHARE_BEFORE) + '<a href="' + SHARE_URL + '">' + esc(SHARE_WORD) + '</a>' + esc(SHARE_AFTER) + '</p>' +
-      '<div class="tldr-acts"><button type="button" class="tldr-act main tldr-copy">Copy message</button>' +
-      (navigator.share ? '<button type="button" class="tldr-act tldr-native">Send via…</button>' : '') + '</div>' +
     '</div>' +
     '<div class="tldr-foot">' +
-      '<div class="tldr-speeds" role="group" aria-label="Playback speed">' +
-        SPEEDS.map(function (s) { return '<button type="button" class="tldr-speed" data-rate="' + s + '" aria-pressed="' + (s === rate) + '"' + (READY ? '' : ' disabled') + '>' + s + '×</button>'; }).join('') +
+      '<div class="tldr-pop">' +
+        '<button type="button" class="tldr-icon tldr-rate" aria-haspopup="true" aria-expanded="false" aria-controls="tldr-menu" aria-label="Playback speed: ' + rate + '×"' + (READY ? '' : ' disabled') + '><span>' + rate + '×</span>' + ICON_CHEV + '</button>' +
+        '<div class="tldr-menu" id="tldr-menu" role="group" aria-label="Playback speed" hidden>' +
+          SPEEDS.map(function (s) { return '<button type="button" class="tldr-speed" data-rate="' + s + '" aria-pressed="' + (s === rate) + '">' + s + '×</button>'; }).join('') +
+        '</div>' +
       '</div>' +
       (hasTranscript ? '<button type="button" class="tldr-link" aria-expanded="false" aria-controls="tldr-transcript">Read transcript</button>' : '') +
+      '<div class="tldr-tools">' +
+        '<a class="tldr-icon tldr-dl" href="' + esc(EP.src || '#') + '" download="Safaa El Ouafi - TL;DR.mp3" aria-label="Download the episode" title="Download"' + (READY ? '' : ' aria-disabled="true" tabindex="-1"') + '>' + ICON_DL + '</a>' +
+        '<div class="tldr-pop">' +
+          '<button type="button" class="tldr-icon tldr-send" aria-label="Send this portfolio to someone" title="Send" aria-expanded="false" aria-controls="tldr-stars">' + ICON_SEND + '</button>' +
+        '</div>' +
+      '</div>' +
     '</div>' +
+    '<div class="tldr-stars" id="tldr-stars" role="group" aria-label="Send via" hidden>' +
+            '<svg class="tldr-arc" aria-hidden="true" viewBox="0 0 232 84" preserveAspectRatio="none"><path d="M24 30 Q 80 74 124 62 T 214 22" fill="none" stroke="#A9ACBA" stroke-width="1.5" stroke-dasharray="2 5" stroke-linecap="round"></path></svg>' +
+            '<a class="tldr-star" data-via="linkedin" target="_blank" rel="noopener" style="left:24px;top:30px" aria-label="Share on LinkedIn" title="LinkedIn">in</a>' +
+            '<a class="tldr-star" data-via="whatsapp" target="_blank" rel="noopener" style="left:84px;top:62px" aria-label="Send on WhatsApp" title="WhatsApp">' + ICON_WA + '</a>' +
+            '<a class="tldr-star" data-via="mail" style="left:150px;top:58px" aria-label="Send by email" title="Mail">' + ICON_MAIL + '</a>' +
+            '<button type="button" class="tldr-star" data-via="copy" style="left:206px;top:22px" aria-label="Copy the message with the link" title="Copy">' + ICON_COPY + '</button>' +
+          '</div>' +
     (READY ? '' : '<p class="tldr-soon">The episode is being recorded. Come back soon to press\u00a0play.</p>') +
     (hasTranscript ? '<div class="tldr-transcript" id="tldr-transcript" role="region" aria-label="Transcript" tabindex="0" hidden>' + EP.transcript.map(function (p) { return '<p>' + esc(p) + '</p>'; }).join('') + '</div>' : '') +
     '<span class="tldr-sr" aria-live="polite"></span>';
@@ -288,6 +308,9 @@
       if (audio) { audio.playbackRate = rate; }
       Array.prototype.forEach.call(panel.querySelectorAll('.tldr-speed'), function (o) { o.setAttribute('aria-pressed', String(o === b)); });
       live.textContent = 'Speed ' + rate + '×';
+      rateBtn.firstChild.textContent = rate + '×';
+      rateBtn.setAttribute('aria-label', 'Playback speed: ' + rate + '×');
+      toggle(rateBtn, rateMenu, false); rateBtn.focus();
       save();
     });
   });
@@ -302,21 +325,43 @@
     });
   }
 
-  /* ── send: a ready-made message, "profile" linked to the portfolio ── */
-  var sendBtn = panel.querySelector('.tldr-send'), shareBox = panel.querySelector('.tldr-share');
-  var copyBtn = panel.querySelector('.tldr-copy'), nativeBtn = panel.querySelector('.tldr-native');
-  var plain = SHARE_BEFORE + SHARE_WORD + SHARE_AFTER + ' ' + SHARE_URL;
-  var rich = esc(SHARE_BEFORE) + '<a href="' + SHARE_URL + '">' + esc(SHARE_WORD) + '</a>' + esc(SHARE_AFTER);
-  sendBtn.addEventListener('click', function () {
-    var open = shareBox.hidden;
-    shareBox.hidden = !open;
-    sendBtn.setAttribute('aria-expanded', String(open));
+  /* ── speed: one pill, the other choices on demand ── */
+  var rateBtn = panel.querySelector('.tldr-rate'), rateMenu = panel.querySelector('.tldr-menu');
+  var sendBtn = panel.querySelector('.tldr-send'), stars = panel.querySelector('.tldr-stars');
+  function toggle(btn, box, open) {
+    if (open === undefined) { open = box.hidden; }
+    box.hidden = !open; btn.setAttribute('aria-expanded', String(open));
+    if (open) { if (btn === rateBtn) { toggle(sendBtn, stars, false); } else { toggle(rateBtn, rateMenu, false); } }
+  }
+  rateBtn.addEventListener('click', function () { toggle(rateBtn, rateMenu); });
+  sendBtn.addEventListener('click', function () { toggle(sendBtn, stars); });
+  document.addEventListener('click', function (e) {
+    if (!rateMenu.hidden && !rateMenu.parentNode.contains(e.target)) { toggle(rateBtn, rateMenu, false); }
+    if (!stars.hidden && !stars.contains(e.target) && !sendBtn.contains(e.target)) { toggle(sendBtn, stars, false); }
   });
-  var copyTimer = null;
+  panel.addEventListener('keydown', function (e) {
+    if (e.key !== 'Escape') { return; }
+    if (!rateMenu.hidden) { toggle(rateBtn, rateMenu, false); rateBtn.focus(); e.stopPropagation(); }
+    else if (!stars.hidden) { toggle(sendBtn, stars, false); sendBtn.focus(); e.stopPropagation(); }
+  }, true);
+
+  /* ── send: LinkedIn, WhatsApp, mail, copy. "profile" is the link to the portfolio ── */
+  var msg = SHARE_BEFORE + SHARE_WORD + SHARE_AFTER;
+  var plain = msg + ' ' + SHARE_URL;
+  var rich = esc(SHARE_BEFORE) + '<a href="' + SHARE_URL + '">' + esc(SHARE_WORD) + '</a>' + esc(SHARE_AFTER);
+  var enc = encodeURIComponent;
+  var via = {
+    linkedin: 'https://www.linkedin.com/sharing/share-offsite/?url=' + enc(SHARE_URL),
+    whatsapp: 'https://wa.me/?text=' + enc(plain),
+    mail: 'mailto:?subject=' + enc('A portfolio you might like') + '&body=' + enc(SHARE_BEFORE + SHARE_WORD + ' (' + SHARE_URL + ')' + SHARE_AFTER)
+  };
+  Array.prototype.forEach.call(stars.querySelectorAll('a.tldr-star'), function (a) { a.href = via[a.getAttribute('data-via')]; });
+  var copyBtn = stars.querySelector('[data-via="copy"]'), copyTimer = null;
   function copied(ok) {
-    copyBtn.textContent = ok ? 'Copied' : 'Copy failed';
-    live.textContent = ok ? 'Message copied' : 'The message could not be copied';
-    clearTimeout(copyTimer); copyTimer = setTimeout(function () { copyBtn.textContent = 'Copy message'; }, 1800);
+    copyBtn.innerHTML = ok ? ICON_OK : ICON_COPY;
+    copyBtn.classList.toggle('done', ok);
+    live.textContent = ok ? 'Message copied, with the link' : 'The message could not be copied';
+    clearTimeout(copyTimer); copyTimer = setTimeout(function () { copyBtn.innerHTML = ICON_COPY; copyBtn.classList.remove('done'); }, 1600);
   }
   copyBtn.addEventListener('click', function () {
     var cb = navigator.clipboard;
@@ -327,11 +372,6 @@
       cb.writeText(plain).then(function () { copied(true); }, function () { copied(false); });
     } else { copied(false); }
   });
-  if (nativeBtn) {
-    nativeBtn.addEventListener('click', function () {
-      navigator.share({ title: 'Safaa El Ouafi', text: SHARE_BEFORE + SHARE_WORD + SHARE_AFTER, url: SHARE_URL }).catch(function () {});
-    });
-  }
 
   /* ── open / close ── */
   function navBtn() { return document.querySelector('.tldr-btn'); }
