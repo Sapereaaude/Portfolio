@@ -36,10 +36,20 @@ h1 span{color:#D13A28}
 .legend .land{width:14px;height:8px;border-radius:50%;background:#3B5BB8}.legend .wishland{background:#E9A398}
 .map svg{display:block;width:100%;height:auto;overflow:hidden;border-radius:18px}
 .dot{transition:fill .25s ease}
+.pin{cursor:pointer;outline:none;animation:drop .5s cubic-bezier(.2,.9,.3,1.2) both}
+.pin .stem{stroke:#17171F;stroke-width:1.4}
+.pin .head{fill:#D13A28;stroke:#FFFFFF;stroke-width:2;transition:r .15s ease}
+.pin.wish .head{fill:#FFFFFF;stroke:#D13A28;stroke-width:2}
+.pin.wish .stem{stroke-dasharray:2 3}
+.pin .base{fill:rgba(23,23,31,.18)}
+.pin .hit{fill:transparent}
+.pin:hover .head,.pin:focus-visible .head,.pin.on .head{r:7.5}
+@keyframes drop{from{opacity:0;transform:translateY(-18px)}to{opacity:1;transform:none}}
 .food{position:absolute;z-index:3;display:flex;flex-direction:column;gap:6px;padding:12px 16px 13px;border:1.5px solid #17171F;border-radius:14px;background:#FFFFFF;box-shadow:0 12px 28px rgba(23,23,31,.16);pointer-events:none;animation:food-in .16s ease-out both;white-space:nowrap}
 .food[hidden]{display:none}
-.food::after{content:"";position:absolute;left:50%;bottom:-7px;width:12px;height:12px;margin-left:-6px;background:#FFFFFF;border-right:1.5px solid #17171F;border-bottom:1.5px solid #17171F;transform:rotate(45deg)}
-.food-k{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#3B5BB8}
+.food::after{content:"";position:absolute;left:var(--arrow, 50%);bottom:-7px;width:12px;height:12px;margin-left:-6px;background:#FFFFFF;border-right:1.5px solid #17171F;border-bottom:1.5px solid #17171F;transform:rotate(45deg)}
+.food-k{display:flex;align-items:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#3B5BB8}
+.food-f{font-size:20px;letter-spacing:0}
 .food.wish .food-k{color:#D13A28}
 .food-d{display:flex;align-items:center;gap:8px;font-family:Newsreader,Georgia,serif;font-style:italic;font-size:21px;line-height:1.15}
 .food-e{font-style:normal;font-size:22px}
@@ -51,7 +61,7 @@ h1 span{color:#D13A28}
 .uub-2{margin:0;font-size:14px;line-height:1.55;color:#4A4A57;text-wrap:pretty}
 @keyframes rise{from{opacity:0}to{opacity:1}}
 .dot{animation:rise .6s ease-out both}
-@media (prefers-reduced-motion: reduce){.dot{animation:none}}
+@media (prefers-reduced-motion: reduce){.dot,.pin{animation:none}.pin .head{transition:none}}
 </style>
 </head>
 <body>
@@ -62,7 +72,7 @@ h1 span{color:#D13A28}
 <div class="map" id="map" role="img" aria-label="An isometric dot map of the world. The countries I have been to are blue; the ones I am going to are pale red: Mexico, Argentina, eastern Canada, Iceland, Nepal, New Zealand, Benin, Algeria, Senegal, Côte d’Ivoire, Iran, Cuba, Japan, Cambodia, Laos and Georgia."></div>
 <p class="hint" aria-hidden="true">← Swipe the map →</p>
 <ul class="legend"><li><i class="land"></i>Countries I’ve been to</li><li><i class="land wishland"></i>Countries I’m going to</li></ul>
-<p class="pinch">Tap a country to see what I ate there. Pinch or ⌘ + scroll to zoom, drag to move.</p>
+<p class="pinch">Pinch or ⌘ + scroll to zoom, drag to move.</p>
 <aside class="uub" aria-label="Unexpected user behaviour 03"><span>Unexpected user behaviour · 03</span><p class="uub-1">You’re one of the 0.01% who click on icons.</p><p class="uub-2">Or you know how easter eggs work. Can you find the other&nbsp;one?</p></aside>
 </div>
 <script src="/off-the-map/dots.js"></script>
@@ -76,13 +86,21 @@ h1 span{color:#D13A28}
     'Serbia', 'Montenegro', 'Albania', 'Macedonia', 'North Macedonia', 'Greece', 'Bulgaria', 'Romania', 'Estonia', 'Latvia', 'Lithuania', 'Malta', 'Cyprus'];
   var SMALL_BEEN = [[35.5, 33.89, 'Lebanon'], [35.2, 31.9, 'Palestine'], [51.53, 25.29, 'Qatar'], [103.82, 1.35, 'Singapore']];  // Lebanon, Palestine, Qatar, Singapore: too small for the grid, one dot each
   var WISH_COUNTRIES = ['Mexico', 'Argentina', 'Iceland', 'Nepal', 'New Zealand', 'Benin', 'Algeria', 'Senegal', "Côte d'Ivoire", 'Iran', 'Cuba', 'Japan', 'Cambodia', 'Laos', 'Georgia'];
-  var FOOD = {  // country: [emoji, dish]. Been there → "What I ate there"; on the list → "What I'm gonna eat there"
-    'China': ['🍜', 'Dan dan noodles'],
-    'Morocco': ['🥧', 'Chicken bastilla'],
-    'Lebanon': ['🌯', 'Shawarma'],
-    'Japan': ['🍜', 'Ramen'],
-    'Mexico': ['🌮', 'Tacos al pastor']
-  };
+  var PINS = [  // lon, lat, flag, emoji, dish, on my list?  Been there: full red pin. On my list: open pin.
+    [2.35, 48.86, '🇫🇷', '🧀', 'Very old Comté'], [-6.84, 33.97, '🇲🇦', '🥧', 'Chicken bastilla'], [10.86, 33.8, '🇹🇳', '🐟', 'Grilled fish in Djerba'],
+    [35.93, 31.95, '🇯🇴', '🍮', 'Knafeh'], [35.2, 31.9, '🇵🇸', '🫓', 'Msakhen'], [35.5, 33.89, '🇱🇧', '🌯', 'Shawarma'],
+    [51.53, 25.29, '🇶🇦', '🍚', 'Machboos'], [46.72, 24.69, '🇸🇦', '🍚', 'Kabsa'], [28.98, 41.01, '🇹🇷', '🥯', 'Simit'],
+    [104.07, 30.67, '🇨🇳', '🍜', 'Dan dan noodles'], [105.85, 21.03, '🇻🇳', '🥖', 'Bánh mì'], [100.5, 13.75, '🇹🇭', '🌶️', 'Pad kra prao'],
+    [101.69, 3.14, '🇲🇾', '🍛', 'Nasi lemak'], [103.82, 1.35, '🇸🇬', '🍗', 'Chicken rice'], [106.85, -6.2, '🇮🇩', '🍛', 'Tofu rendang'],
+    [-122.42, 37.77, '🇺🇸'], [-80.19, 25.76, '🇺🇸'],
+    [-99.13, 19.43, '🇲🇽', '🌮', 'Tacos al pastor', 1], [-58.38, -34.6, '🇦🇷', '🥟', 'Empanadas', 1], [-71.21, 46.81, '🇨🇦', '🍁', 'Maple taffy on snow', 1],
+    [-21.94, 64.15, '🇮🇸', '🥛', 'Skyr', 1], [85.32, 27.72, '🇳🇵', '🥟', 'Momos', 1], [174.78, -41.29, '🇳🇿', '🍦', 'Hokey pokey ice cream', 1],
+    [2.42, 6.37, '🇧🇯', '🍲', 'Amiwo', 1], [3.06, 36.75, '🇩🇿', '🍲', 'Chakhchoukha', 1], [-17.47, 14.72, '🇸🇳', '🐟', 'Thiéboudienne', 1],
+    [-4.01, 5.36, '🇨🇮', '🐟', 'Attiéké and grilled fish', 1], [51.39, 35.69, '🇮🇷', '🍚', 'Tahdig', 1], [-82.37, 23.11, '🇨🇺', '🍛', 'Moros y cristianos', 1],
+    [139.69, 35.69, '🇯🇵', '🍜', 'Ramen', 1], [104.92, 11.56, '🇰🇭', '🐟', 'Fish amok', 1], [102.13, 19.89, '🇱🇦', '🍚', 'Sticky rice and larb', 1],
+    [42.54, 43.05, '🇬🇪', '🧀', 'Khachapuri', 1], [75.99, 39.47, '🇨🇳', '🍜', 'Laghman', 1],
+    [12.5, 41.9, '🇮🇹', '🍝', 'Cacio e pepe', 1], [14.27, 40.85, '🇮🇹', '🍕', 'Pizza margherita', 1], [23.73, 37.98, '🇬🇷', '🥬', 'Spanakopita', 1]
+  ];
   var EAST_CANADA = { lonMin: -80, lonMax: -52, latMin: 43, latMax: 54 };  // Québec and the Maritimes, not the whole of Canada
 
   var G = window.PLACES_GRID, ACCENT = '#3B5BB8', LAND = '#D5D7E0', WISHLAND = '#E9A398';
@@ -149,6 +167,7 @@ h1 span{color:#D13A28}
     clamp();
     svg.setAttribute('viewBox', vb.x.toFixed(1) + ' ' + vb.y.toFixed(1) + ' ' + vb.w.toFixed(1) + ' ' + vb.h.toFixed(1));
     var z = W / vb.w;
+    placePins();
     zoomUI.querySelector('[data-z="out"]').disabled = z <= 1.001;
     zoomUI.querySelector('[data-z="reset"]').disabled = z <= 1.001;
     zoomUI.querySelector('[data-z="in"]').disabled = z >= MAXZ - 0.001;
@@ -183,14 +202,14 @@ h1 span{color:#D13A28}
   svg.addEventListener('dblclick', function (e) { e.preventDefault(); zoomSmooth(2, e.clientX, e.clientY); });
   var drag = null;
   svg.addEventListener('pointerdown', function (e) {
-    if (e.pointerType !== 'mouse' || W / vb.w <= 1.001) { return; }
+    if (e.pointerType !== 'mouse' || W / vb.w <= 1.001 || e.target.closest('.pin')) { return; }
     drag = { x: e.clientX, y: e.clientY, vx: vb.x, vy: vb.y };
     svg.setPointerCapture(e.pointerId); svg.classList.add('grabbing');
   });
   svg.addEventListener('pointermove', function (e) {
     if (!drag) { return; }
     var r = svg.getBoundingClientRect();
-    tip.hidden = true;
+    hideTip();
     vb.x = drag.vx - (e.clientX - drag.x) / r.width * vb.w; vb.y = drag.vy - (e.clientY - drag.y) / r.height * vb.h; apply();
   });
   function endDrag() { drag = null; svg.classList.remove('grabbing'); }
@@ -200,43 +219,61 @@ h1 span{color:#D13A28}
     var z = b.getAttribute('data-z');
     if (z === 'in') { zoomSmooth(2); } else if (z === 'out') { zoomSmooth(0.5); } else { zoomSmooth(vb.w ? vb.w / W : 1); }
   });
-  /* ── tap a country: what I ate there / what I'm gonna eat there ── */
+  /* ── pins: full = been there, open = on my list. Tap one: the flag, and what I ate (or will eat) there ── */
+  var STEM = 24, pinLayer = document.createElementNS(NS, 'g'), pins = PINS.map(function (r) {
+    var q = fromLonLat(r[0], r[1]);
+    return { x: +sx(q[0]), y: +sy(q[1]), flag: r[2], emoji: r[3], dish: r[4], wish: !!r[5] };
+  }).sort(function (a, b) { return a.y - b.y; });
+  pins.forEach(function (p, n) {
+    var g = document.createElementNS(NS, 'g');
+    g.setAttribute('class', 'pin' + (p.wish ? ' wish' : ''));
+    g.setAttribute('tabindex', '0'); g.setAttribute('role', 'button');
+    g.setAttribute('aria-label', p.dish ? (p.wish ? 'What I’m gonna eat there' : 'What I ate there') : 'Been there');
+    g.style.animationDelay = reduce ? '0s' : (1 + n * 0.04).toFixed(2) + 's';
+    var inner = document.createElementNS(NS, 'g');
+    inner.innerHTML = '<ellipse class="base" cx="0" cy="0" rx="4" ry="2.2"></ellipse><line class="stem" x1="0" y1="0" x2="0" y2="' + (-STEM) + '"></line><circle class="head" cx="0" cy="' + (-STEM) + '" r="5.5"></circle><circle class="hit" cx="0" cy="' + (-STEM / 2) + '" r="13"></circle>';
+    g.appendChild(inner); p.inner = inner; p.el = g;
+    pinLayer.appendChild(g);
+  });
+  svg.appendChild(pinLayer);
+  function placePins() {
+    var k = Math.pow(W / vb.w, -0.75);  // pins grow a little when zoomed, not as much as the land
+    pins.forEach(function (p) { p.inner.setAttribute('transform', 'translate(' + p.x + ' ' + p.y + ') scale(' + k.toFixed(3) + ')'); });
+  }
+
   var tip = document.createElement('div'); tip.className = 'food'; tip.hidden = true; tip.setAttribute('role', 'status');
   box.appendChild(tip);
-  function dotAt(cx, cy) {
-    var pt = svgPoint(cx, cy), best = null, bd = Infinity;
-    for (var n = 0; n < pts.length; n++) {
-      var q = pts[n], dx = (+sx(q.x)) - pt.x, dy = ((+sy(q.y)) - pt.y) / SQ, d = dx * dx + dy * dy;
-      if (d < bd) { bd = d; best = q; }
-    }
-    return bd <= CELL * CELL * 1.2 ? best : null;
-  }
-  function foodOf(q) { return q && (q.on || q.wish) && FOOD[q.name] ? FOOD[q.name] : null; }
-  function showFood(q, cx, cy) {
-    var f = foodOf(q);
-    if (!f) { tip.hidden = true; return; }
-    tip.innerHTML = '<span class="food-k">' + (q.on ? 'What I ate there' : 'What I’m gonna eat there') + '</span><span class="food-d"><span class="food-e" aria-hidden="true">' + f[0] + '</span>' + f[1] + '</span>';
-    tip.classList.toggle('wish', !q.on);
-    tip.hidden = false;
-    var r = box.getBoundingClientRect(), x = cx - r.left + box.scrollLeft, y = cy - r.top;
-    var w = tip.offsetWidth, maxX = box.scrollLeft + box.clientWidth - w - 8;
-    tip.style.left = Math.max(box.scrollLeft + 8, Math.min(maxX, x - w / 2)) + 'px';
-    tip.style.top = Math.max(8, y - tip.offsetHeight - 14) + 'px';
+  var open = null;
+  function hideTip() { tip.hidden = true; if (open) { open.el.classList.remove('on'); open = null; } }
+  function showTip(p) {
+    if (open === p) { hideTip(); return; }
+    hideTip();
+    tip.innerHTML = '<span class="food-k"><span class="food-f" aria-hidden="true">' + p.flag + '</span>' + (p.dish ? (p.wish ? 'What I’m gonna eat there' : 'What I ate there') : 'Been there') + '</span>' +
+      (p.dish ? '<span class="food-d"><span class="food-e" aria-hidden="true">' + p.emoji + '</span>' + p.dish + '</span>' : '');
+    tip.classList.toggle('wish', p.wish);
+    tip.hidden = false; open = p; p.el.classList.add('on');
+    var head = p.el.querySelector('.head').getBoundingClientRect(), r = box.getBoundingClientRect();
+    var x = head.left + head.width / 2 - r.left + box.scrollLeft, y = head.top - r.top;
+    var w = tip.offsetWidth, minX = box.scrollLeft + 8, maxX = box.scrollLeft + box.clientWidth - w - 8;
+    var left = Math.max(minX, Math.min(maxX, x - w / 2));
+    tip.style.left = left + 'px';
+    tip.style.top = Math.max(8, y - tip.offsetHeight - 12) + 'px';
+    tip.style.setProperty('--arrow', Math.max(16, Math.min(w - 16, x - left)) + 'px');
   }
   var down = null;
-  svg.addEventListener('pointerdown', function (e) { down = { x: e.clientX, y: e.clientY }; });
-  svg.addEventListener('click', function (e) {
-    if (down && Math.abs(e.clientX - down.x) + Math.abs(e.clientY - down.y) > 6) { return; }  // that was a drag
-    showFood(dotAt(e.clientX, e.clientY), e.clientX, e.clientY);
+  pins.forEach(function (p) {
+    p.el.addEventListener('pointerdown', function (e) { down = { x: e.clientX, y: e.clientY }; });
+    p.el.addEventListener('click', function (e) {
+      e.stopPropagation();
+      if (down && Math.abs(e.clientX - down.x) + Math.abs(e.clientY - down.y) > 6) { return; }
+      showTip(p);
+    });
+    p.el.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); showTip(p); } });
   });
-  svg.addEventListener('pointermove', function (e) {
-    if (e.pointerType !== 'mouse' || drag) { return; }
-    svg.style.cursor = foodOf(dotAt(e.clientX, e.clientY)) ? 'pointer' : '';
-  });
-  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { tip.hidden = true; } });
-  document.addEventListener('click', function (e) { if (!svg.contains(e.target) && !tip.contains(e.target)) { tip.hidden = true; } });
-  ['wheel', 'gesturechange'].forEach(function (t) { svg.addEventListener(t, function () { tip.hidden = true; }); });
-  box.addEventListener('scroll', function () { tip.hidden = true; }, { passive: true });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { hideTip(); } });
+  document.addEventListener('click', function (e) { if (!tip.contains(e.target) && !(open && open.el.contains(e.target))) { hideTip(); } });
+  ['wheel', 'gesturechange'].forEach(function (t) { svg.addEventListener(t, hideTip); });
+  box.addEventListener('scroll', hideTip, { passive: true });
 
   apply();
 })();
