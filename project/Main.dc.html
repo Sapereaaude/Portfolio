@@ -758,16 +758,6 @@ html.search-intro .home-sentence [data-pick="outcome"] .pick{animation-delay:1.8
 </svg>
 </sc-if>
 
-<sc-if value="{{r.v.oasis}}" hint-placeholder-val="{{ false }}">
-<svg viewBox="44 8 196 150" style="position: absolute; inset: 0; width: 100%; height: 100%; display: block">
-<circle cx="166" cy="74" r="58" fill="#FFFFFF" opacity="0.7"></circle>
-<path d="M110 120 L140 40 L190 56 L222 118 Z" fill="#FFFFFF" stroke="#D5D7E0" stroke-width="1.2"></path>
-<path d="M166 30 c-14 0 -22 10 -22 22 c0 16 22 38 22 38 s22 -22 22 -38 c0 -12 -8 -22 -22 -22z" fill="{{accent}}"></path>
-<path d="M166 42 c-5 7 -8 11 -8 15 a8 8 0 0 0 16 0 c0 -4 -3 -8 -8 -15z" fill="#FFFFFF"></path>
-<circle cx="130" cy="104" r="5" fill="{{accent}}" opacity="0.6"></circle><circle cx="204" cy="104" r="5" fill="{{accent}}" opacity="0.6"></circle><circle cx="214" cy="40" r="10" fill="#D13A28" opacity="0.7"></circle>
-</svg>
-</sc-if>
-
 <sc-if value="{{r.v.book}}" hint-placeholder-val="{{ false }}">
 <svg viewBox="44 8 196 150" style="position: absolute; inset: 0; width: 100%; height: 100%; display: block">
 <circle cx="168" cy="72" r="56" fill="#FFFFFF" opacity="0.7"></circle>
@@ -876,15 +866,6 @@ html.search-intro .home-sentence [data-pick="outcome"] .pick{animation-delay:1.8
 <rect x="116" y="34" width="62" height="84" rx="10" fill="{{accent}}" transform="rotate(-10 147 76)"></rect>
 <rect x="150" y="34" width="62" height="84" rx="10" fill="#FFFFFF" stroke="#17171F" stroke-width="1.2" transform="rotate(8 181 76)"></rect>
 <text x="181" y="86" text-anchor="middle" font-family="Anton, sans-serif" font-size="26" fill="#D13A28" transform="rotate(8 181 76)">?</text>
-</svg>
-</sc-if>
-<sc-if value="{{r.v.oasis}}" hint-placeholder-val="{{ false }}">
-<svg viewBox="44 8 196 150" style="position: absolute; inset: 0; width: 100%; height: 100%; display: block">
-<circle cx="166" cy="74" r="58" fill="#FFFFFF" opacity="0.7"></circle>
-<path d="M110 120 L140 40 L190 56 L222 118 Z" fill="#FFFFFF" stroke="#D5D7E0" stroke-width="1.2"></path>
-<path d="M166 30 c-14 0 -22 10 -22 22 c0 16 22 38 22 38 s22 -22 22 -38 c0 -12 -8 -22 -22 -22z" fill="{{accent}}"></path>
-<path d="M166 42 c-5 7 -8 11 -8 15 a8 8 0 0 0 16 0 c0 -4 -3 -8 -8 -15z" fill="#FFFFFF"></path>
-<circle cx="130" cy="104" r="5" fill="{{accent}}" opacity="0.6"></circle><circle cx="204" cy="104" r="5" fill="{{accent}}" opacity="0.6"></circle><circle cx="214" cy="40" r="10" fill="#D13A28" opacity="0.7"></circle>
 </svg>
 </sc-if>
 </sc-if>
@@ -1176,7 +1157,6 @@ var items = [
 { id: 'bastille', tone: 'red', vis: 'bastille', a: 'Swipe anonymised measures taken from official programmes for the 2027 French election. The matching never invents a position. Built with Claude, now in Lovable.', meta: 'Side project · 2026', m: [], pts: ['Swipe ideas, not candidates', 'Measures sourced from official programmes', 'Mini-games to learn without a lecture'], sc: ['generative'], q: 'How do we help French citizens vote with full awareness, not by reflex?', jobs: ['side', 'built', 'ai'], title: 'Bastille', who: ['founder', 'designer', 'pm', 'curious'] },
 { id: 'palier', tone: 'red', vis: 'palier', a: 'An app for the people of one building to pass on what matters: I need a pet sitter, there will be works, I am throwing a party, I have your parcel. No numbers or emails exchanged.', meta: 'Side project', m: [], pts: ['No phone numbers, no emails', 'Pet sitter, works, a party next door', '“I have your parcel”'], sc: ['generative'], q: 'How can neighbours in the same building talk without sharing their contact details?', jobs: ['side', 'built'], title: 'Le Palier', who: ['designer', 'founder', 'pm', 'curious'] },
 { id: 'askip', tone: 'red', vis: 'askip', a: 'One card a day. Your answer is revealed only once your partner has played too.', meta: 'Side project · 2026', appName: 'ASKIP', m: [], pts: ['One card a day', 'Answers revealed when both have played'], sc: [], q: 'A BeReal but for couples', jobs: ['side', 'built'], title: 'Askip <3', who: ['designer', 'founder', 'curious'] },
-{ id: 'oasis', tone: 'red', vis: 'oasis', a: 'A free map of cool places and water fountains for heatwaves. Public utility, no catch.', meta: 'Side project · 2026', appName: 'OASIS SPOT', m: [], pts: ['Cool places and water fountains', 'Free, public utility'], sc: [], q: 'Where can I cool down when the city is boiling?', jobs: ['side', 'built'], title: 'Oasis Spot', who: ['designer', 'founder', 'curious'] },
 { id: 'papier', tone: 'red', pts: ['One book, one recipe tested', 'One reflective text'], vis: 'book', quote: 'Le papier mâché', meta: 'Instagram · 2026', title: 'Le papier mâché', q: 'What if cookbooks were reviewed like poetry?', a: 'One book, one recipe tested, one reflective text. I collect cookbooks; someone had to read them properly.', jobs: ['side', 'built'], who: ['curious'], m: [], sc: [] },
 { id: 'programme', tone: 'solid', vis: 'loop', a: 'Each cohort teaches you how to run the next one, if you listen.', meta: 'Programme manager · RBK, Next Academy, Simplon', m: [], pts: ['Set up the programmes', 'Improved them from one cohort to the next', 'Learners and employers at the centre'], sc: [], q: 'How does a bootcamp get better with every cohort?', jobs: ['career', 'built'], title: 'Better from cohort to cohort', who: ['hiring', 'founder', 'curious'] },
 { id: 'cassandre', tone: 'solid', vis: 'sheet', a: 'A UX pretesting tool for developers and product teams. Test what you can. Research what you can’t.', meta: 'Side project · prototype · 2026', tldr: true, tldrPriority: 1, m: [], pts: ['Predictable UX issues, checked before human research', 'HCI knowledge, accessibility criteria, heuristics', 'A prototype, not a validated product'], sc: ['evaluative'], q: 'Test what you can. Research what you can’t.', jobs: ['side', 'ai', 'built'], title: 'Cassandre', who: ['founder', 'researcher', 'pm', 'designer', 'hiring'] },
@@ -1193,13 +1173,13 @@ var items = [
 { id: 'ph4', pts: ['Djerba, 2026', 'Absence, then life coming back'], vis: 'photo', meta: 'Djerba · 2026', title: 'Le village s’endort', q: 'Can absence be a portrait?', a: 'The Jewish quarter at the end of shabbat: closed doors, then children, lights and prayers coming back.', jobs: ['photo'], who: ['curious', 'designer'], m: [], sc: [] }
 ];
 
-var CASES = ['aiid', 'vizcom', 'system', 'prio', 'plm', 'sat3d', 'usab', 'agents', 'swiss', 'community', 'superpowers', 'clinic', 'mind', 'clear', 'algo_academy', 'algo_journey', 'algo_personas', 'rbk', 'stress', 'programme', 'simplon', 'teach', 'embassy', 'workshops', 'sistech', 'bsf', 'vgwb', 'daradam', 'tracking', 'bastille', 'palier', 'askip', 'oasis', 'papier', 'cassandre', 'quechua'];
-var SIDE = ['cassandre', 'sistech', 'vgwb', 'daradam', 'bsf', 'workshops', 'bastille', 'palier', 'askip', 'oasis', 'papier', 'tracking'];
-var PHASES = {'teach': ['teaching'], 'rbk': ['pm'], 'stress': ['pm'], 'programme': ['pm'], 'cassandre': ['side'], 'simplon': ['pm'], 'algo_academy': ['id'], 'algo_journey': ['id'], 'algo_personas': ['id'], 'aiid': ['research'], 'vizcom': ['research'], 'system': ['research'], 'podcast': ['research'], 'prio': ['research'], 'plm': ['research'], 'sat3d': ['research'], 'usab': ['research'], 'agents': ['research'], 'swiss': ['research'], 'community': ['research'], 'superpowers': ['research', 'side'], 'clinic': ['research'], 'mind': ['research'], 'clear': ['research'], 'tech': ['research'], 'sistech': ['side'], 'vgwb': ['side'], 'daradam': ['side'], 'bsf': ['side'], 'workshops': ['side'], 'bastille': ['side'], 'palier': ['side'], 'askip': ['side'], 'oasis': ['side'], 'papier': ['side'], 'tracking': ['side'], 'quechua': ['research']};
-var DOC = {"agents": 2, "aiid": 3, "algo_academy": 1.53, "algo_journey": 1.5, "algo_personas": 1.78, "askip": 0.92, "bastille": 2.77, "bsf": 0, "cassandre": 6, "clear": 2.08, "clinic": 5.95, "community": 1.12, "daradam": 0, "embassy": 0, "mind": 5.78, "oasis": 1.0, "palier": 0.93, "papier": 0, "plm": 2.0, "prio": 2, "programme": 0.75, "quechua": 3.48, "rbk": 1.55, "sat3d": 1.8, "simplon": 0.53, "sistech": 4.82, "stress": 1.13, "superpowers": 0.75, "swiss": 1.57, "system": 2, "teach": 1.43, "tracking": 2.9, "usab": 1.35, "vgwb": 3.75, "vizcom": 2, "workshops": 1.88};
+var CASES = ['aiid', 'vizcom', 'system', 'prio', 'plm', 'sat3d', 'usab', 'agents', 'swiss', 'community', 'superpowers', 'clinic', 'mind', 'clear', 'algo_academy', 'algo_journey', 'algo_personas', 'rbk', 'stress', 'programme', 'simplon', 'teach', 'embassy', 'workshops', 'sistech', 'bsf', 'vgwb', 'daradam', 'tracking', 'bastille', 'palier', 'askip', 'papier', 'cassandre', 'quechua'];
+var SIDE = ['cassandre', 'sistech', 'vgwb', 'daradam', 'bsf', 'workshops', 'bastille', 'palier', 'askip', 'papier', 'tracking'];
+var PHASES = {'teach': ['teaching'], 'rbk': ['pm'], 'stress': ['pm'], 'programme': ['pm'], 'cassandre': ['side'], 'simplon': ['pm'], 'algo_academy': ['id'], 'algo_journey': ['id'], 'algo_personas': ['id'], 'aiid': ['research'], 'vizcom': ['research'], 'system': ['research'], 'podcast': ['research'], 'prio': ['research'], 'plm': ['research'], 'sat3d': ['research'], 'usab': ['research'], 'agents': ['research'], 'swiss': ['research'], 'community': ['research'], 'superpowers': ['research', 'side'], 'clinic': ['research'], 'mind': ['research'], 'clear': ['research'], 'tech': ['research'], 'sistech': ['side'], 'vgwb': ['side'], 'daradam': ['side'], 'bsf': ['side'], 'workshops': ['side'], 'bastille': ['side'], 'palier': ['side'], 'askip': ['side'], 'papier': ['side'], 'tracking': ['side'], 'quechua': ['research']};
+var DOC = {"agents": 2, "aiid": 3, "algo_academy": 1.53, "algo_journey": 1.5, "algo_personas": 1.78, "askip": 0.92, "bastille": 2.77, "bsf": 0, "cassandre": 6, "clear": 2.08, "clinic": 5.95, "community": 1.12, "daradam": 0, "embassy": 0, "mind": 5.78, "palier": 0.93, "papier": 0, "plm": 2.0, "prio": 2, "programme": 0.75, "quechua": 3.48, "rbk": 1.55, "sat3d": 1.8, "simplon": 0.53, "sistech": 4.82, "stress": 1.13, "superpowers": 0.75, "swiss": 1.57, "system": 2, "teach": 1.43, "tracking": 2.9, "usab": 1.35, "vgwb": 3.75, "vizcom": 2, "workshops": 1.88};
 var stopsDefUnused = [{ y: '2008', l: 'Teaching' }, { y: '2015', l: 'Amman' }, { y: '2017', l: 'RBK' }, { y: '2018', l: 'Asia · Simplon' }, { y: '2019', l: 'Algolia' }, { y: '2021', l: 'Alan' }, { y: '2023', l: 'Decathlon' }];
-var visKeys = ['pot', 'library', 'mentor', 'chalk', 'job', 'balance', 'doc', 'home', 'speech', 'loop', 'academy', 'journey', 'personas', 'game', 'cubes', 'palier', 'clinic', 'mind', 'clear', 'plm', 'stress', 'tracking', 'slide', 'finding', 'repo', 'report', 'monthly', 'chat', 'sheet', 'channel', 'tiers', 'matchscreen', 'bastille', 'grads', 'timeline', 'quote', 'askip', 'oasis', 'book', 'photo', 'podcast', 'tent'];
-var tones = { pot: 'red', library: 'blue', mentor: 'grey', chalk: 'grey', job: 'blue', balance: 'grey', doc: 'blue', home: 'red', speech: 'blue', loop: 'grey', academy: 'blue', journey: 'grey', personas: 'red', game: 'blue', cubes: 'red', palier: 'grey', clinic: 'blue', mind: 'red', clear: 'grey', plm: 'solid', stress: 'red', tracking: 'blue', slide: 'blue', finding: 'red', repo: 'grey', report: 'blue', monthly: 'grey', chat: 'blue', sheet: 'red', channel: 'blue', tiers: 'grey', matchscreen: 'red', bastille: 'blue', grads: 'solid', timeline: 'grey', quote: 'blue', askip: 'red', oasis: 'blue', book: 'red', photo: 'grey', tent: 'red' };
+var visKeys = ['pot', 'library', 'mentor', 'chalk', 'job', 'balance', 'doc', 'home', 'speech', 'loop', 'academy', 'journey', 'personas', 'game', 'cubes', 'palier', 'clinic', 'mind', 'clear', 'plm', 'stress', 'tracking', 'slide', 'finding', 'repo', 'report', 'monthly', 'chat', 'sheet', 'channel', 'tiers', 'matchscreen', 'bastille', 'grads', 'timeline', 'quote', 'askip', 'book', 'photo', 'podcast', 'tent'];
+var tones = { pot: 'red', library: 'blue', mentor: 'grey', chalk: 'grey', job: 'blue', balance: 'grey', doc: 'blue', home: 'red', speech: 'blue', loop: 'grey', academy: 'blue', journey: 'grey', personas: 'red', game: 'blue', cubes: 'red', palier: 'grey', clinic: 'blue', mind: 'red', clear: 'grey', plm: 'solid', stress: 'red', tracking: 'blue', slide: 'blue', finding: 'red', repo: 'grey', report: 'blue', monthly: 'grey', chat: 'blue', sheet: 'red', channel: 'blue', tiers: 'grey', matchscreen: 'red', bastille: 'blue', grads: 'solid', timeline: 'grey', quote: 'blue', askip: 'red', book: 'red', photo: 'grey', tent: 'red' };
 var RTYPES = { strategic: 'Strategic', tactical: 'Tactical', generative: 'Generative', evaluative: 'Evaluative', exploratory: 'Exploratory', usability: 'Usability', diary: 'Diary study', survey: 'Survey', interviews: 'Interviews', discovery: 'Continuous discovery', benchmark: 'Benchmark', workshop: 'Workshop' };
 var RTAG_STYLE = 'display: inline-flex; align-items: center; min-height: 34px; box-sizing: border-box; padding: 6px 12px; border-radius: 999px; background: #F2F2F5; color: #4A4A57; font-family: Figtree, sans-serif; font-size: 12.5px; font-weight: 600; white-space: nowrap;';
 function rtagsOf(it) { return (it.rtype || []).map(function (k) { return { label: RTYPES[k] || k, style: RTAG_STYLE }; }); }
@@ -1361,7 +1341,7 @@ pool = theme.order.map(function (id) { return byId[id]; }).filter(function (it) 
 resultLine = pool.length + ' projects on this thread';
 } else if (isOutside) {
 var GROUPS = [
-{ label: 'ADHD made me do it', shots: true, ids: ['bastille', 'palier', 'askip', 'tracking', 'oasis'] },
+{ label: 'ADHD made me do it', shots: true, ids: ['bastille', 'palier', 'askip', 'tracking'] },
 { label: 'Make my work life easier', shots: true, ids: ['cassandre'] },
 { label: 'Support others', ids: ['sistech', 'vgwb', 'daradam', 'bsf', 'workshops'] }
 ];
@@ -1376,7 +1356,7 @@ resultLine = '';
 
 var tldrN = tldr.length;
 pool = tldr.concat(pool);
-var SHOT_SRC = { bastille: '/photos/screen-bastille.jpg', tracking: '/photos/screen-tracking.jpg', askip: '/photos/screen-askip.jpg', palier: '/photos/screen-palier.jpg', oasis: '/photos/screen-oasis.jpg', cassandre: '/photos/screen-cassandre.jpg' };
+var SHOT_SRC = { bastille: '/photos/screen-bastille.jpg', tracking: '/photos/screen-tracking.jpg', askip: '/photos/screen-askip.jpg', palier: '/photos/screen-palier.jpg', cassandre: '/photos/screen-cassandre.jpg' };
 var results = pool.map(function (it, i) {
 var v = {}; visKeys.forEach(function (k) { v[k] = it.vis === k; });
 var hl = it.hl || [];
