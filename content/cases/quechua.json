@@ -1,0 +1,152 @@
+{
+  "id": "quechua",
+  "page_title": "The forgotten users",
+  "draft_banner": false,
+  "header": {
+    "eyebrow": "Decathlon · photo series · 2025",
+    "title": "The forgotten users",
+    "question": "Who really lives in a 2‑second tent?",
+    "background": "#FBEAE8",
+    "illustration": "<div aria-hidden=\"true\" style=\"flex: 0 1 300px; min-width: 200px; aspect-ratio: 196 / 150\">\n<svg sc-camel-view-box=\"44 8 196 150\" style=\"width: 100%; height: 100%; display: block\">\n<circle cx=\"168\" cy=\"80\" r=\"56\" fill=\"#FFFFFF\" opacity=\"0.7\"></circle>\n<path d=\"M110 122 H226\" stroke=\"#17171F\" stroke-width=\"1.2\" stroke-linecap=\"round\"></path>\n<path d=\"M114 122 C122 72 146 50 168 50 C190 50 214 72 222 122 Z\" fill=\"#FFFFFF\" stroke=\"#17171F\" stroke-width=\"1.2\"></path>\n<path d=\"M168 50 C158 70 154 94 152 122 M168 50 C178 70 182 94 184 122\" fill=\"none\" stroke=\"#D5D7E0\" stroke-width=\"1.2\"></path>\n<path d=\"M156 122 C158 104 162 96 168 96 C174 96 178 104 180 122 Z\" fill=\"#17171F\"></path>\n<path d=\"M104 52 V40 H116 M220 40 H232 V52 M104 122 V134 H116 M220 134 H232 V122\" fill=\"none\" stroke=\"#D13A28\" stroke-width=\"2\" stroke-linecap=\"round\"></path>\n</svg>\n</div>\n"
+  },
+  "facts": [
+    {
+      "label": "Role",
+      "value": "Researcher, photographer"
+    },
+    {
+      "label": "When",
+      "value": "2025"
+    },
+    {
+      "label": "With",
+      "value": "Solo"
+    },
+    {
+      "label": "Phase",
+      "value": "User research & ResearchOps"
+    }
+  ],
+  "threads": false,
+  "before_main": "\n",
+  "decisions": true,
+  "sections": [
+    {
+      "title": "The context",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "text",
+          "style": "plain",
+          "text": "Quechua’s designers asked me to help redesign the 2‑second tent, the one that pops open when you throw it. On paper, its users are campers and hikers."
+        }
+      ]
+    },
+    {
+      "title": "The question",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Who actually lives in this tent?",
+            "Designed as an escape. For some, it’s a refuge.",
+            "Outdoor, but make it indoor."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "What I did",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Photographed about twenty 2‑second tents in the city, used by homeless people and migrants",
+            "Followed the thread to other Decathlon products that help people get through the street: delivery riders’ bikes, thermal gloves"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "The series",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "custom",
+          "html": "<div role=\"img\" aria-label=\"Photographs to add: the 2‑second tent series\" style=\"aspect-ratio: 5 / 2; max-width: 640px; border-radius: 16px; background: #F2F2F5; border: 1px dashed #A9ACBA; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; letter-spacing: 0.14em; color: #4A4A57\">[PHOTOS]</div>"
+        }
+      ]
+    },
+    {
+      "title": "What changed",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "text",
+          "style": "plain",
+          "text": "Nothing, officially: it wasn’t the direction the team wanted to take. The question is still open."
+        }
+      ]
+    },
+    {
+      "title": "What I’d do next",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "text",
+          "style": "plain",
+          "text": "Hand out disposable cameras through an NGO, so the people who live in these tents can photograph their own use. Then show it to designers under one title: <span style=\"font-family: Newsreader, Georgia, serif; font-style: italic; font-size: 1.15em\">We are users too.</span>"
+        }
+      ]
+    }
+  ],
+  "after_sections": "",
+  "prev": {
+    "id": "cassandre",
+    "label": "Cassandre",
+    "follow_title": false
+  },
+  "next": {
+    "id": "aiid",
+    "label": "AI in Design",
+    "follow_title": false
+  },
+  "card": {
+    "tldr": true,
+    "tldrPriority": 8,
+    "pts": [
+      "The 2‑second tent, used as a home",
+      "Escape for some, refuge for others"
+    ],
+    "vis": "tent",
+    "meta": "Decathlon · photo series · 2025",
+    "title": "The forgotten users",
+    "q": "Who really lives in a 2‑second tent?",
+    "a": "Asked to help redesign Quechua’s pop-up tent, I photographed the users nobody designs for: homeless people and migrants.",
+    "jobs": [
+      "research",
+      "photo"
+    ],
+    "who": [
+      "researcher",
+      "designer",
+      "hiring",
+      "curious"
+    ],
+    "m": [
+      "qual"
+    ],
+    "sc": [
+      "generative"
+    ]
+  },
+  "behind_decisions": []
+}

@@ -1,0 +1,158 @@
+{
+  "id": "vgwb",
+  "page_title": "A game to learn Arabic",
+  "draft_banner": true,
+  "header": {
+    "eyebrow": "Video Games Without Borders · 2017–20",
+    "title": "A game to learn Arabic",
+    "question": "How do refugee children out of school learn to read Arabic?",
+    "background": "#EEF1FA",
+    "illustration": "<div aria-hidden=\"true\" style=\"flex: 0 1 300px; min-width: 200px; aspect-ratio: 196 / 150\">\n<svg sc-camel-view-box=\"44 8 196 150\" style=\"width: 100%; height: 100%; display: block\">\n<circle cx=\"156\" cy=\"70\" r=\"54\" fill=\"#FFFFFF\" opacity=\"0.7\"></circle>\n<path d=\"M112 70 a22 22 0 0 1 22 -22 h44 a22 22 0 0 1 22 22 l6 30 a12 12 0 0 1 -22 8 l-10 -14 h-36 l-10 14 a12 12 0 0 1 -22 -8z\" fill=\"#FFFFFF\" stroke=\"#17171F\" stroke-width=\"1.2\"></path>\n<path d=\"M132 66 v16 M124 74 h16\" stroke=\"#17171F\" stroke-width=\"3\" stroke-linecap=\"round\"></path>\n<circle cx=\"178\" cy=\"68\" r=\"5\" fill=\"{{accent}}\"></circle><circle cx=\"190\" cy=\"80\" r=\"5\" fill=\"#D13A28\"></circle>\n<text x=\"210\" y=\"44\" font-family=\"Newsreader, serif\" font-size=\"26\" fill=\"{{accent}}\">ع</text>\n</svg>\n</div>\n"
+  },
+  "facts": [
+    {
+      "label": "Role",
+      "value": "Contributor"
+    },
+    {
+      "label": "When",
+      "value": "2017–20"
+    },
+    {
+      "label": "With",
+      "value": "Video Games Without Borders × Cologne Game Lab"
+    },
+    {
+      "label": "Phase",
+      "value": "Mentoring & side projects"
+    }
+  ],
+  "threads": false,
+  "before_main": "\n",
+  "decisions": true,
+  "sections": [
+    {
+      "title": "The context",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "text",
+          "style": "plain",
+          "text": "Millions of Syrian refugee children were out of school, with no way to learn to read in their own language."
+        }
+      ]
+    },
+    {
+      "title": "The question",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Develop a game to learn Arabic",
+            "Make it work in camp conditions"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "What I did",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Educational game design",
+            "Pedagogical input"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "What changed",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Antura and the Letters: a free, open-source game, playable offline, to learn to read Arabic."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "What I liked",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "text",
+          "style": "quote",
+          "text": "Mixing pedagogy and play."
+        }
+      ]
+    },
+    {
+      "title": "What I’d change",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "text",
+          "style": "plain",
+          "text": "[ADD]"
+        }
+      ]
+    },
+    {
+      "title": "Sources",
+      "long_title": false,
+      "wrap": "plain",
+      "blocks": [
+        {
+          "type": "custom",
+          "html": "<ul style=\"margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 8px\"><li style=\"display: flex; gap: 10px; align-items: baseline\"><span aria-hidden=\"true\" style=\"flex: none; width: 6px; height: 6px; border-radius: 50%; background: {{accent}}; transform: translateY(-2px)\"></span><a href=\"https://colognegamelab.de/research/research-projects/the-antura-initiative/pilot-project-antura-and-the-letters-arabic/\" target=\"_blank\" rel=\"noopener\" style=\"color: #17171F\">Cologne Game Lab — Antura and the Letters (Arabic)</a></li><li style=\"display: flex; gap: 10px; align-items: baseline\"><span aria-hidden=\"true\" style=\"flex: none; width: 6px; height: 6px; border-radius: 50%; background: {{accent}}; transform: translateY(-2px)\"></span><a href=\"https://gamesforchange.org/?p=449\" target=\"_blank\" rel=\"noopener\" style=\"color: #17171F\">Games for Change — Antura and the Letters</a></li><li style=\"display: flex; gap: 10px; align-items: baseline\"><span aria-hidden=\"true\" style=\"flex: none; width: 6px; height: 6px; border-radius: 50%; background: {{accent}}; transform: translateY(-2px)\"></span><a href=\"https://solve.mit.edu/solutions/4882\" target=\"_blank\" rel=\"noopener\" style=\"color: #17171F\">MIT Solve — Antura & the Letters</a></li></ul>"
+        }
+      ]
+    }
+  ],
+  "after_sections": "",
+  "prev": {
+    "id": "bsf",
+    "label": "Bibliothèques Sans Frontières",
+    "follow_title": false
+  },
+  "next": {
+    "id": "daradam",
+    "label": "Cubes that teach Arabic",
+    "follow_title": false
+  },
+  "card": {
+    "pts": [
+      "Antura and the Letters, a free reading game",
+      "Video Games Without Borders × Cologne Game Lab",
+      "For refugee children out of school"
+    ],
+    "vis": "game",
+    "meta": "Video Games Without Borders · 2017–20",
+    "title": "A game to learn Arabic",
+    "q": "How do refugee children out of school learn to read Arabic?",
+    "a": "With Video Games Without Borders and the Cologne Game Lab, I helped build Antura and the Letters, a free game that teaches refugee children to read Arabic, no school and no internet needed.",
+    "jobs": [
+      "career",
+      "built"
+    ],
+    "who": [
+      "curious",
+      "designer",
+      "founder"
+    ],
+    "m": [],
+    "sc": []
+  },
+  "behind_decisions": []
+}

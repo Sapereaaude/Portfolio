@@ -14,6 +14,10 @@ website is generated from them into `site/`.
 - `scripts/build_site.py` — rebuilds `site/` from `project/` (`python3 scripts/build_site.py`). It also refreshes `var DOC` in `Main.dc.html`: how well each case is documented, which the search uses to rank results.
 - `vercel.json` — tells Vercel to serve `site/` as is, with no build step (preset: Other).
 
+## Case studies are content
+
+Each case study lives in `content/cases/<id>.json` and is edited from `/admin` (Decap CMS). `scripts/cases.py` writes `project/Case-*.dc.html` from those files on every build, so don't edit the case pages directly. Setup and daily use: `docs/CONTENT-STUDIO.md`.
+
 ## What is here
 
 - `project/Main.dc.html` — home: the three thematic journeys, the jobs-to-be-done search, Outside the job title. Holds the project records.

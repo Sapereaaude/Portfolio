@@ -1,0 +1,155 @@
+{
+  "id": "workshops",
+  "page_title": "Cultural cooking workshops",
+  "draft_banner": true,
+  "header": {
+    "eyebrow": "Founder · 2011",
+    "title": "Cultural cooking workshops",
+    "question": "Can cooking together bring cultures closer?",
+    "background": "#FBEAE8",
+    "illustration": "<div aria-hidden=\"true\" style=\"flex: 0 1 300px; min-width: 200px; aspect-ratio: 196 / 150\">\n<svg sc-camel-view-box=\"44 8 196 150\" style=\"width: 100%; height: 100%; display: block\">\n<circle cx=\"150\" cy=\"70\" r=\"54\" fill=\"#FFFFFF\" opacity=\"0.7\"></circle>\n<path d=\"M108 76 h88 v24 a20 20 0 0 1 -20 20 h-48 a20 20 0 0 1 -20 -20z\" fill=\"{{accent}}\"></path>\n<rect x=\"100\" y=\"70\" width=\"104\" height=\"8\" rx=\"4\" fill=\"#17171F\"></rect>\n<path d=\"M132 58 q-6 -10 0 -20 M152 58 q-6 -10 0 -20 M172 58 q-6 -10 0 -20\" fill=\"none\" stroke=\"#D13A28\" stroke-width=\"2.5\" stroke-linecap=\"round\"></path>\n</svg>\n</div>\n"
+  },
+  "facts": [
+    {
+      "label": "Role",
+      "value": "Founder"
+    },
+    {
+      "label": "When",
+      "value": "2011"
+    },
+    {
+      "label": "With",
+      "value": "Cultural and food professionals"
+    },
+    {
+      "label": "Phase",
+      "value": "Mentoring & side projects"
+    }
+  ],
+  "threads": false,
+  "before_main": "\n",
+  "decisions": true,
+  "sections": [
+    {
+      "title": "The context",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "text",
+          "style": "plain",
+          "text": "Cooking is one of the fastest ways to meet another culture."
+        }
+      ]
+    },
+    {
+      "title": "The question",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Create intercultural cooking-and-culture workshops",
+            "Reach children, adults and companies",
+            "Fund the project"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "What I did",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Workshop design",
+            "Partnerships with professionals",
+            "Business plans and funding applications"
+          ]
+        },
+        {
+          "type": "custom",
+          "html": "<figure style=\"margin: 20px 0 0; padding: 20px; border-radius: 16px; background: #F7F8FC; border: 1px solid #E3E3EA\">\n<ol style=\"margin: 0; padding: 0; list-style: none\"><li style=\"display: flex; gap: 14px\">\n<div style=\"display: flex; flex-direction: column; align-items: center\"><span style=\"width: 14px; height: 14px; border-radius: 50%; background: #FFFFFF; border: 2px solid {{accent}}; flex: none\"></span><span style=\"flex: 1 1 auto; width: 2px; background: #D5D7E0; min-height: 28px\"></span></div>\n<div style=\"padding-bottom: 14px\"><span style=\"display: block; font-family: 'Anton', Impact, sans-serif; font-size: 18px; text-transform: uppercase\">2011</span><span style=\"font-size: 14px; color: #4A4A57\">Workshop programme created</span></div>\n</li><li style=\"display: flex; gap: 14px\">\n<div style=\"display: flex; flex-direction: column; align-items: center\"><span style=\"width: 14px; height: 14px; border-radius: 50%; background: #FFFFFF; border: 2px solid {{accent}}; flex: none\"></span><span style=\"flex: 1 1 auto; width: 2px; background: #D5D7E0; min-height: 28px\"></span></div>\n<div style=\"padding-bottom: 14px\"><span style=\"display: block; font-family: 'Anton', Impact, sans-serif; font-size: 18px; text-transform: uppercase\">Design</span><span style=\"font-size: 14px; color: #4A4A57\">A culture, a dish, a story</span></div>\n</li><li style=\"display: flex; gap: 14px\">\n<div style=\"display: flex; flex-direction: column; align-items: center\"><span style=\"width: 14px; height: 14px; border-radius: 50%; background: #FFFFFF; border: 2px solid {{accent}}; flex: none\"></span><span style=\"flex: 1 1 auto; width: 2px; background: #D5D7E0; min-height: 28px\"></span></div>\n<div style=\"padding-bottom: 14px\"><span style=\"display: block; font-family: 'Anton', Impact, sans-serif; font-size: 18px; text-transform: uppercase\">Funding</span><span style=\"font-size: 14px; color: #4A4A57\">Grants and private money</span></div>\n</li><li style=\"display: flex; gap: 14px\">\n<div style=\"display: flex; flex-direction: column; align-items: center\"><span style=\"width: 14px; height: 14px; border-radius: 50%; background: {{accent}}; border: 2px solid {{accent}}; flex: none\"></span></div>\n<div style=\"padding-bottom: 14px\"><span style=\"display: block; font-family: 'Anton', Impact, sans-serif; font-size: 18px; text-transform: uppercase\">Audiences</span><span style=\"font-size: 14px; color: #4A4A57\">Children, adults, works councils</span></div>\n</li></ol>\n<figcaption style=\"margin-top: 14px; font-size: 12px; font-weight: 600; color: #4A4A57\">How the workshops came to life</figcaption>\n</figure>"
+        }
+      ]
+    },
+    {
+      "title": "What changed",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Workshops for children, adults and works councils",
+            "Funding from grants and private money"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "What I liked",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "text",
+          "style": "quote",
+          "text": "Seeing strangers become curious about each other over a dish."
+        }
+      ]
+    },
+    {
+      "title": "What I’d change",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "text",
+          "style": "plain",
+          "text": "Write down the recipes and stories as I went."
+        }
+      ]
+    }
+  ],
+  "after_sections": "",
+  "prev": {
+    "id": "embassy",
+    "label": "French teacher & coordinator",
+    "follow_title": false
+  },
+  "next": {
+    "id": "sistech",
+    "label": "Mentoring at Sistech",
+    "follow_title": false
+  },
+  "card": {
+    "pts": [
+      "Created in 2011",
+      "For children, adults and companies",
+      "Funded with grants and private money"
+    ],
+    "vis": "pot",
+    "meta": "Founder · 2011",
+    "title": "Cultural cooking workshops",
+    "q": "Can cooking together bring cultures closer?",
+    "a": "In 2011 I created a programme of intercultural cooking-and-culture workshops for children, adults and companies. I designed them, brought in cultural and food professionals, and wrote the business plans and funding applications.",
+    "jobs": [
+      "side",
+      "built",
+      "career"
+    ],
+    "who": [
+      "curious",
+      "founder",
+      "designer"
+    ],
+    "m": [],
+    "sc": []
+  },
+  "behind_decisions": []
+}

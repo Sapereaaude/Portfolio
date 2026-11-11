@@ -1,0 +1,152 @@
+{
+  "id": "teach",
+  "page_title": "Teacher, then instructional designer",
+  "draft_banner": true,
+  "header": {
+    "eyebrow": "2008–2016",
+    "title": "Teacher, then instructional designer",
+    "question": "What did teaching teach me?",
+    "background": "#F2F2F5",
+    "illustration": "<div aria-hidden=\"true\" style=\"flex: 0 1 300px; min-width: 200px; aspect-ratio: 196 / 150\">\n<svg sc-camel-view-box=\"44 8 196 150\" style=\"width: 100%; height: 100%; display: block\">\n<rect x=\"94\" y=\"28\" width=\"132\" height=\"86\" rx=\"6\" fill=\"#17171F\"></rect>\n<text x=\"112\" y=\"66\" font-family=\"Newsreader, serif\" font-size=\"26\" fill=\"#FFFFFF\">Aa</text>\n<text x=\"196\" y=\"66\" font-family=\"Newsreader, serif\" font-size=\"26\" fill=\"#FFFFFF\">أ</text>\n<path d=\"M112 86 q20 -8 40 0 t40 0\" fill=\"none\" stroke=\"{{accent}}\" stroke-width=\"2\"></path>\n<rect x=\"140\" y=\"114\" width=\"40\" height=\"5\" rx=\"2\" fill=\"#D13A28\"></rect>\n</svg>\n</div>\n"
+  },
+  "facts": [
+    {
+      "label": "Role",
+      "value": "Teacher & instructional designer"
+    },
+    {
+      "label": "When",
+      "value": "2008–15"
+    },
+    {
+      "label": "With",
+      "value": "Children, adults, companies, state schools"
+    },
+    {
+      "label": "Phase",
+      "value": "Teaching"
+    }
+  ],
+  "threads": true,
+  "before_main": "\n",
+  "decisions": true,
+  "sections": [
+    {
+      "title": "The context",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "text",
+          "style": "plain",
+          "text": "Arabic, then French, to three-year-olds and to engineers at Thales."
+        }
+      ]
+    },
+    {
+      "title": "The question",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Teach languages to very different learners",
+            "Design courses adapted to each",
+            "Understand where each learner really is"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "What I did",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Course and curriculum design",
+            "Observation of learners",
+            "Constant adaptation"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "What changed",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Years of learners of all ages",
+            "The foundation of my research practice"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "What I liked",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "text",
+          "style": "quote",
+          "text": "Understanding where someone is before deciding where to take them."
+        }
+      ]
+    },
+    {
+      "title": "What I’d change",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "text",
+          "style": "plain",
+          "text": "Nothing. It made me who I am."
+        }
+      ]
+    }
+  ],
+  "after_sections": "",
+  "prev": {
+    "id": "simplon",
+    "label": "Kuala Lumpur, Singapore, Paris",
+    "follow_title": false
+  },
+  "next": {
+    "id": "embassy",
+    "label": "French teacher & coordinator",
+    "follow_title": false
+  },
+  "card": {
+    "pts": [
+      "Arabic, then French",
+      "From three-year-olds to engineers at Thales",
+      "Then the French Embassy in Amman"
+    ],
+    "vis": "chalk",
+    "hl": [
+      0,
+      1
+    ],
+    "meta": "2008–2016",
+    "title": "Teacher, then instructional designer",
+    "q": "What did teaching teach me?",
+    "a": "Arabic, then French, to children and adults, employees in companies and pupils in state schools, from three-year-olds to engineers at Thales. Then French teacher and coordinator at the French Embassy in Amman, also working with the Institut français. Understand where someone really is before deciding where to take them. That turned out to be research.",
+    "jobs": [
+      "career"
+    ],
+    "who": [
+      "curious",
+      "hiring"
+    ],
+    "m": [],
+    "sc": []
+  },
+  "behind_decisions": []
+}

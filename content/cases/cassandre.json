@@ -1,0 +1,169 @@
+{
+  "id": "cassandre",
+  "page_title": "Cassandre",
+  "draft_banner": false,
+  "header": {
+    "eyebrow": "Side project · prototype · 2026",
+    "title": "Cassandre",
+    "question": "Test what you can. Research what you can’t.",
+    "background": "#FBEAE8",
+    "illustration": "<div aria-hidden=\"true\" style=\"flex: 0 1 300px; min-width: 200px; aspect-ratio: 196 / 150\">\n<svg sc-camel-view-box=\"44 8 196 150\" style=\"width: 100%; height: 100%; display: block\">\n<circle cx=\"168\" cy=\"74\" r=\"56\" fill=\"#FFFFFF\" opacity=\"0.7\"></circle>\n<rect x=\"116\" y=\"24\" width=\"84\" height=\"104\" rx=\"8\" fill=\"#FFFFFF\" stroke=\"#17171F\" stroke-width=\"1.2\"></rect>\n<rect x=\"140\" y=\"18\" width=\"36\" height=\"12\" rx=\"4\" fill=\"#17171F\"></rect>\n<g><rect x=\"128\" y=\"44\" width=\"8\" height=\"8\" rx=\"2\" fill=\"{{accent}}\"></rect><rect x=\"142\" y=\"45\" width=\"46\" height=\"5\" rx=\"2.5\" fill=\"#17171F\" opacity=\"0.35\"></rect>\n<rect x=\"128\" y=\"60\" width=\"8\" height=\"8\" rx=\"2\" fill=\"{{accent}}\"></rect><rect x=\"142\" y=\"61\" width=\"38\" height=\"5\" rx=\"2.5\" fill=\"#17171F\" opacity=\"0.35\"></rect>\n<rect x=\"128\" y=\"76\" width=\"8\" height=\"8\" rx=\"2\" fill=\"#D13A28\"></rect><rect x=\"142\" y=\"77\" width=\"42\" height=\"5\" rx=\"2.5\" fill=\"#17171F\" opacity=\"0.35\"></rect>\n<rect x=\"128\" y=\"92\" width=\"8\" height=\"8\" rx=\"2\" fill=\"{{accent}}\"></rect><rect x=\"142\" y=\"93\" width=\"30\" height=\"5\" rx=\"2.5\" fill=\"#17171F\" opacity=\"0.35\"></rect></g>\n<circle cx=\"200\" cy=\"118\" r=\"18\" fill=\"none\" stroke=\"#17171F\" stroke-width=\"3\"></circle><path d=\"M213 131 l12 12\" stroke=\"#17171F\" stroke-width=\"4\" stroke-linecap=\"round\"></path>\n</svg>\n</div>\n"
+  },
+  "facts": [
+    {
+      "label": "Role",
+      "value": "Concept, research, prototype"
+    },
+    {
+      "label": "When",
+      "value": "2026"
+    },
+    {
+      "label": "Stage",
+      "value": "Prototype, not a validated product"
+    },
+    {
+      "label": "For",
+      "value": "Developers and product teams"
+    }
+  ],
+  "threads": true,
+  "before_main": "\n<figure style=\"margin: 20px 0 0; padding: clamp(20px, 3vw, 36px); border-radius: 22px; background: #F4F4F7; display: flex; flex-direction: column; align-items: center; gap: 14px\">\n<img src=\"/photos/screen-cassandre.jpg\" alt=\"The Cassandre prototype listing findings grouped by experience, with critical and to-decide tags\" loading=\"lazy\" style=\"display: block; width: min(320px, 100%); height: auto; border-radius: 22px; border: 1px solid #E3E3EA; box-shadow: 0 18px 40px rgba(23,23,31,0.14)\">\n<figcaption style=\"max-width: 420px; text-align: center; font-family: 'Newsreader', Georgia, serif; font-style: italic; font-size: 17px; line-height: 1.4; color: #4A4A57; text-wrap: balance\">Cassandre, researcher view on a demo app: findings grouped by experience, still to decide.</figcaption>\n</figure>\n",
+  "top_images": [
+    {
+      "src": "/photos/screen-cassandre.jpg",
+      "alt": "The Cassandre prototype listing findings grouped by experience, with critical and to-decide tags"
+    }
+  ],
+  "top_caption": "Cassandre, researcher view on a demo app: findings grouped by experience, still to decide.",
+  "decisions": true,
+  "sections": [
+    {
+      "title": "The context",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "text",
+          "style": "plain",
+          "text": "Why spend human intelligence on problems we already know how to identify? Cassandre is where that question ended up, after years of writing methods down, teaching them, then turning them into tools and assistants."
+        }
+      ]
+    },
+    {
+      "title": "The question",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Which UX issues are predictable enough to be caught before involving human participants?",
+            "What should stay with human research, whatever the tooling?"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "What it does",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "text",
+          "style": "plain",
+          "text": "A UX pretesting tool. It aims to identify predictable UX issues before involving human participants, using:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Established HCI knowledge",
+            "Accessibility criteria",
+            "Heuristics",
+            "Verifiable interaction checks"
+          ]
+        },
+        {
+          "type": "text",
+          "style": "plain",
+          "text": "The goal is not to replace human research. It is to reserve it for the questions that need human understanding: needs, motivations, mental models, product value, real-world behaviour and changing contexts."
+        }
+      ]
+    },
+    {
+      "title": "What it is not",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Automated checks can verify certain conditions. That is all they verify.",
+            "Other findings are presented as evidence-based UX risks or hypotheses.",
+            "It does not claim to simulate real human behaviour.",
+            "It is a prototype, not a validated commercial product."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "What remains unknown",
+      "long_title": true,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "text",
+          "style": "plain",
+          "text": "How well it works. There are no performance metrics or results to show yet, and I won’t invent any."
+        },
+        {
+          "type": "text",
+          "style": "note",
+          "text": "To complete as the prototype gets tested."
+        }
+      ]
+    }
+  ],
+  "after_sections": "",
+  "prev": {
+    "id": "papier",
+    "label": "Le papier mâché",
+    "follow_title": false
+  },
+  "next": {
+    "id": "quechua",
+    "label": "The forgotten users",
+    "follow_title": false
+  },
+  "card": {
+    "tldr": true,
+    "tldrPriority": 1,
+    "pts": [
+      "Predictable UX issues, checked before human research",
+      "HCI knowledge, accessibility criteria, heuristics",
+      "A prototype, not a validated product"
+    ],
+    "vis": "sheet",
+    "meta": "Side project · prototype · 2026",
+    "title": "Cassandre",
+    "q": "Which UX problems can be caught before involving a single participant?",
+    "a": "A UX pretesting tool for developers and product teams. Test what you can. Research what you can’t.",
+    "jobs": [
+      "side",
+      "ai",
+      "built"
+    ],
+    "who": [
+      "founder",
+      "researcher",
+      "pm",
+      "designer",
+      "hiring"
+    ],
+    "m": [],
+    "sc": [
+      "evaluative"
+    ]
+  },
+  "behind_decisions": []
+}

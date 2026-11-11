@@ -1,0 +1,144 @@
+{
+  "id": "daradam",
+  "page_title": "Cubes that teach Arabic",
+  "draft_banner": true,
+  "header": {
+    "eyebrow": "Dar Adam · 2017–20",
+    "title": "Cubes that teach Arabic",
+    "question": "Can a game of cubes teach a language and a culture?",
+    "background": "#FBEAE8",
+    "illustration": "<div aria-hidden=\"true\" style=\"flex: 0 1 300px; min-width: 200px; aspect-ratio: 196 / 150\">\n<svg sc-camel-view-box=\"44 8 196 150\" style=\"width: 100%; height: 100%; display: block\">\n<g stroke=\"#17171F\" stroke-width=\"1.2\">\n<rect x=\"104\" y=\"80\" width=\"40\" height=\"40\" rx=\"6\" fill=\"#FFFFFF\"></rect><rect x=\"150\" y=\"80\" width=\"40\" height=\"40\" rx=\"6\" fill=\"{{accent}}\"></rect><rect x=\"127\" y=\"36\" width=\"40\" height=\"40\" rx=\"6\" fill=\"#FFFFFF\" transform=\"rotate(-8 147 56)\"></rect><rect x=\"196\" y=\"80\" width=\"40\" height=\"40\" rx=\"6\" fill=\"#D13A28\" opacity=\"0.85\"></rect>\n</g>\n<text x=\"124\" y=\"108\" text-anchor=\"middle\" font-family=\"Newsreader, serif\" font-size=\"22\" fill=\"#17171F\">ب</text>\n<text x=\"147\" y=\"64\" text-anchor=\"middle\" font-family=\"Newsreader, serif\" font-size=\"22\" fill=\"#17171F\" transform=\"rotate(-8 147 56)\">أ</text>\n<text x=\"170\" y=\"108\" text-anchor=\"middle\" font-family=\"Newsreader, serif\" font-size=\"22\" fill=\"#FFFFFF\">ت</text>\n</svg>\n</div>\n"
+  },
+  "facts": [
+    {
+      "label": "Role",
+      "value": "Contributor"
+    },
+    {
+      "label": "When",
+      "value": "2017–20"
+    },
+    {
+      "label": "With",
+      "value": "Dar Adam"
+    },
+    {
+      "label": "Phase",
+      "value": "Mentoring & side projects"
+    }
+  ],
+  "threads": false,
+  "before_main": "\n",
+  "decisions": true,
+  "sections": [
+    {
+      "title": "The context",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "text",
+          "style": "plain",
+          "text": "Learning Arabic and its culture can start with your hands."
+        }
+      ]
+    },
+    {
+      "title": "The question",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Design cube games for language and culture"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "What I did",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Contribution to game design"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "What changed",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Educational cube games [ADD]"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "What I liked",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "text",
+          "style": "quote",
+          "text": "Tangible learning."
+        }
+      ]
+    },
+    {
+      "title": "What I’d change",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "text",
+          "style": "plain",
+          "text": "[ADD]"
+        }
+      ]
+    }
+  ],
+  "after_sections": "",
+  "prev": {
+    "id": "vgwb",
+    "label": "A game to learn Arabic",
+    "follow_title": false
+  },
+  "next": {
+    "id": "tracking",
+    "label": "Tracking Bad",
+    "follow_title": false
+  },
+  "card": {
+    "pts": [
+      "Educational cube games",
+      "Arabic language and culture",
+      "Contributed to the design"
+    ],
+    "vis": "cubes",
+    "meta": "Dar Adam · 2017–20",
+    "title": "Cubes that teach Arabic",
+    "q": "Can a game of cubes teach a language and a culture?",
+    "a": "I contributed to the design of Dar Adam’s educational games: cube games to learn the Arabic language and culture.",
+    "jobs": [
+      "career",
+      "built"
+    ],
+    "who": [
+      "curious",
+      "designer"
+    ],
+    "m": [],
+    "sc": []
+  },
+  "behind_decisions": []
+}

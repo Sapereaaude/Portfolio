@@ -1,0 +1,144 @@
+{
+  "id": "papier",
+  "page_title": "Le papier mâché",
+  "draft_banner": true,
+  "header": {
+    "eyebrow": "Instagram · 2026",
+    "title": "Le papier mâché",
+    "question": "What if cookbooks were reviewed like poetry?",
+    "background": "#FBEAE8",
+    "illustration": "<div aria-hidden=\"true\" style=\"flex: 0 1 300px; min-width: 200px; aspect-ratio: 196 / 150\">\n<svg sc-camel-view-box=\"44 8 196 150\" style=\"width: 100%; height: 100%; display: block\">\n<circle cx=\"168\" cy=\"72\" r=\"56\" fill=\"#FFFFFF\" opacity=\"0.7\"></circle>\n<path d=\"M110 50 q30 -14 58 0 v70 q-28 -14 -58 0z\" fill=\"#FFFFFF\" stroke=\"#17171F\" stroke-width=\"1.2\"></path>\n<path d=\"M168 50 q28 -14 58 0 v70 q-30 -14 -58 0z\" fill=\"#FFFFFF\" stroke=\"#17171F\" stroke-width=\"1.2\"></path>\n<rect x=\"120\" y=\"64\" width=\"36\" height=\"4\" rx=\"2\" fill=\"#17171F\" opacity=\"0.35\"></rect><rect x=\"120\" y=\"74\" width=\"30\" height=\"4\" rx=\"2\" fill=\"#17171F\" opacity=\"0.35\"></rect>\n<circle cx=\"197\" cy=\"78\" r=\"14\" fill=\"#D13A28\" opacity=\"0.85\"></circle><circle cx=\"197\" cy=\"78\" r=\"6\" fill=\"#FFFFFF\"></circle>\n</svg>\n</div>\n"
+  },
+  "facts": [
+    {
+      "label": "Role",
+      "value": "Author"
+    },
+    {
+      "label": "When",
+      "value": "2026"
+    },
+    {
+      "label": "With",
+      "value": "Solo"
+    },
+    {
+      "label": "Phase",
+      "value": "Mentoring & side projects"
+    }
+  ],
+  "threads": false,
+  "before_main": "\n",
+  "decisions": true,
+  "sections": [
+    {
+      "title": "The context",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "text",
+          "style": "plain",
+          "text": "Cookbooks are literature too."
+        }
+      ]
+    },
+    {
+      "title": "The question",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Review cookbooks poetically",
+            "Cook one recipe from each"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "What I did",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Instagram carousels and reflective texts"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "What changed",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "An account in progress"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "What I liked",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "text",
+          "style": "quote",
+          "text": "Slowing down."
+        }
+      ]
+    },
+    {
+      "title": "What I’d change",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "text",
+          "style": "plain",
+          "text": "[ADD]"
+        }
+      ]
+    }
+  ],
+  "after_sections": "",
+  "prev": {
+    "id": "oasis",
+    "label": "Oasis Spot",
+    "follow_title": false
+  },
+  "next": {
+    "id": "aiid",
+    "label": "AI in Design",
+    "follow_title": false
+  },
+  "card": {
+    "pts": [
+      "One book, one recipe tested",
+      "One reflective text"
+    ],
+    "vis": "book",
+    "quote": "Le papier mâché",
+    "meta": "Instagram · 2026",
+    "title": "Le papier mâché",
+    "q": "What if cookbooks were reviewed like poetry?",
+    "a": "One book, one recipe tested, one reflective text. I collect cookbooks; someone had to read them properly.",
+    "jobs": [
+      "side",
+      "built"
+    ],
+    "who": [
+      "curious"
+    ],
+    "m": [],
+    "sc": []
+  },
+  "behind_decisions": []
+}

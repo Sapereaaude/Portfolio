@@ -1,0 +1,149 @@
+{
+  "id": "palier",
+  "page_title": "Le Palier",
+  "draft_banner": true,
+  "header": {
+    "eyebrow": "Side project",
+    "title": "Le Palier",
+    "question": "How can neighbours in the same building talk without sharing their contact details?",
+    "background": "#F2F2F5",
+    "illustration": "<div aria-hidden=\"true\" style=\"flex: 0 1 300px; min-width: 200px; aspect-ratio: 196 / 150\">\n<svg sc-camel-view-box=\"44 8 196 150\" style=\"width: 100%; height: 100%; display: block\">\n<rect x=\"104\" y=\"30\" width=\"76\" height=\"120\" rx=\"4\" fill=\"#FFFFFF\" stroke=\"#17171F\" stroke-width=\"1.2\"></rect>\n<g fill=\"{{accent}}\" opacity=\"0.25\"><rect x=\"116\" y=\"44\" width=\"18\" height=\"16\" rx=\"2\"></rect><rect x=\"150\" y=\"44\" width=\"18\" height=\"16\" rx=\"2\"></rect><rect x=\"116\" y=\"74\" width=\"18\" height=\"16\" rx=\"2\"></rect><rect x=\"116\" y=\"104\" width=\"18\" height=\"16\" rx=\"2\"></rect><rect x=\"150\" y=\"104\" width=\"18\" height=\"16\" rx=\"2\"></rect></g>\n<rect x=\"150\" y=\"74\" width=\"18\" height=\"16\" rx=\"2\" fill=\"#D13A28\"></rect>\n<rect x=\"134\" y=\"128\" width=\"16\" height=\"22\" rx=\"2\" fill=\"#17171F\"></rect>\n<rect x=\"176\" y=\"40\" width=\"54\" height=\"22\" rx=\"11\" fill=\"{{accent}}\"></rect><rect x=\"186\" y=\"48\" width=\"34\" height=\"6\" rx=\"3\" fill=\"#FFFFFF\"></rect>\n<rect x=\"60\" y=\"86\" width=\"50\" height=\"22\" rx=\"11\" fill=\"#FFFFFF\" stroke=\"#17171F\" stroke-width=\"1.2\"></rect><rect x=\"70\" y=\"94\" width=\"30\" height=\"6\" rx=\"3\" fill=\"#17171F\" opacity=\"0.5\"></rect>\n</svg>\n</div>\n"
+  },
+  "facts": [
+    {
+      "label": "Role",
+      "value": "Designer"
+    },
+    {
+      "label": "When",
+      "value": "Side project"
+    },
+    {
+      "label": "With",
+      "value": "Solo"
+    },
+    {
+      "label": "Phase",
+      "value": "Mentoring & side projects"
+    }
+  ],
+  "threads": false,
+  "before_main": "\n",
+  "decisions": true,
+  "sections": [
+    {
+      "title": "The context",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "text",
+          "style": "plain",
+          "text": "Neighbours share walls, not phone numbers."
+        }
+      ]
+    },
+    {
+      "title": "The question",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Let neighbours share what matters",
+            "Without exchanging contact details"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "What I did",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Concept and screens"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "What changed",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "A concept: pet sitter, works, parties, parcels"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "What I liked",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "text",
+          "style": "quote",
+          "text": "Small, everyday kindness by design."
+        }
+      ]
+    },
+    {
+      "title": "What I’d change",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "text",
+          "style": "plain",
+          "text": "Interview a few buildings first."
+        }
+      ]
+    }
+  ],
+  "after_sections": "",
+  "prev": {
+    "id": "bastille",
+    "label": "Bastille",
+    "follow_title": false
+  },
+  "next": {
+    "id": "askip",
+    "label": "Askip",
+    "follow_title": false
+  },
+  "card": {
+    "pts": [
+      "No phone numbers, no emails",
+      "Pet sitter, works, a party next door",
+      "“I have your parcel”"
+    ],
+    "vis": "palier",
+    "meta": "Side project",
+    "title": "Le Palier",
+    "q": "How can neighbours in the same building talk without sharing their contact details?",
+    "a": "An app for the people of one building to pass on what matters: I need a pet sitter, there will be works, I am throwing a party, I have your parcel. No numbers or emails exchanged.",
+    "jobs": [
+      "side",
+      "built"
+    ],
+    "who": [
+      "designer",
+      "founder",
+      "pm",
+      "curious"
+    ],
+    "m": [],
+    "sc": [
+      "generative"
+    ]
+  },
+  "behind_decisions": []
+}

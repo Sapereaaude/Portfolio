@@ -1,0 +1,185 @@
+{
+  "id": "usab",
+  "page_title": "Usability, readable in one glance",
+  "draft_banner": true,
+  "header": {
+    "eyebrow": "Usability practice",
+    "title": "Usability, readable in one glance",
+    "question": "How do you make a usability verdict readable in ten seconds?",
+    "background": "#F2F2F5",
+    "illustration": "<div aria-hidden=\"true\" style=\"flex: 0 1 300px; min-width: 200px; aspect-ratio: 196 / 150\">\n<svg sc-camel-view-box=\"44 8 196 150\" style=\"width: 100%; height: 100%; display: block\">\n<circle cx=\"166\" cy=\"74\" r=\"56\" fill=\"#FFFFFF\" opacity=\"0.7\"></circle>\n<rect x=\"104\" y=\"40\" width=\"116\" height=\"22\" rx=\"11\" fill=\"{{accent}}\"></rect><circle cx=\"208\" cy=\"51\" r=\"6\" fill=\"#FFFFFF\"></circle>\n<rect x=\"104\" y=\"70\" width=\"116\" height=\"22\" rx=\"11\" fill=\"#FFFFFF\" stroke=\"#17171F\" stroke-width=\"1.2\"></rect><circle cx=\"208\" cy=\"81\" r=\"6\" fill=\"#17171F\" opacity=\"0.4\"></circle>\n<rect x=\"104\" y=\"100\" width=\"116\" height=\"22\" rx=\"11\" fill=\"#D13A28\"></rect><circle cx=\"208\" cy=\"111\" r=\"6\" fill=\"#FFFFFF\"></circle>\n</svg>\n</div>\n"
+  },
+  "facts": [
+    {
+      "label": "Role",
+      "value": "Researcher"
+    },
+    {
+      "label": "When",
+      "value": "2023–25"
+    },
+    {
+      "label": "With",
+      "value": "Product designers and PMs"
+    },
+    {
+      "label": "Phase",
+      "value": "User research & ResearchOps"
+    }
+  ],
+  "threads": true,
+  "before_main": "\n",
+  "decisions": true,
+  "sections": [
+    {
+      "title": "The context",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "text",
+          "style": "plain",
+          "text": "Usability results often died in long reports. PMs needed the verdict fast, designers needed the detail."
+        }
+      ]
+    },
+    {
+      "title": "The question",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Standardise how usability is measured",
+            "Make results readable in seconds",
+            "Keep the detail available"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "What I did",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "CSUQ questionnaire",
+            "Success rate per task",
+            "Results split into three readable tiers"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "What we learned",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "text",
+          "style": "note",
+          "text": "To complete: key findings, and what surprised us."
+        }
+      ]
+    },
+    {
+      "title": "What changed",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "One shared format across studies",
+            "Faster decisions after tests",
+            "[ADD AN EXAMPLE]"
+          ]
+        },
+        {
+          "type": "custom",
+          "html": "<figure style=\"margin: 20px 0 0; padding: 20px; border-radius: 16px; background: #F7F8FC; border: 1px solid #E3E3EA\">\n<div style=\"display: flex; flex-direction: column; gap: 8px\"><div style=\"display: flex; align-items: center; gap: 12px; padding: 10px 14px; border-radius: 999px; background: {{accent}}; color: #FFFFFF\"><span style=\"font-size: 14px; font-weight: 700; flex: 0 0 170px\">Works</span><span style=\"font-size: 13px\">The task succeeds without help</span></div><div style=\"display: flex; align-items: center; gap: 12px; padding: 10px 14px; border-radius: 999px; background: #FFFFFF; color: #17171F; border: 1px solid #D5D7E0\"><span style=\"font-size: 14px; font-weight: 700; flex: 0 0 170px\">Works, with friction</span><span style=\"font-size: 13px\">Succeeds, with hesitation or errors</span></div><div style=\"display: flex; align-items: center; gap: 12px; padding: 10px 14px; border-radius: 999px; background: #D13A28; color: #FFFFFF\"><span style=\"font-size: 14px; font-weight: 700; flex: 0 0 170px\">Blocks people</span><span style=\"font-size: 13px\">The task fails</span></div></div>\n<figcaption style=\"margin-top: 14px; font-size: 12px; font-weight: 600; color: #4A4A57\">The three-tier readout</figcaption>\n</figure>"
+        }
+      ]
+    },
+    {
+      "title": "What I liked",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "text",
+          "style": "quote",
+          "text": "The three tiers: simple enough for a slide, rigorous enough for a researcher."
+        }
+      ]
+    },
+    {
+      "title": "What I’d change",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "text",
+          "style": "plain",
+          "text": "Add time-on-task and a short qualitative quote per tier."
+        }
+      ]
+    },
+    {
+      "title": "What remains unknown",
+      "long_title": true,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "text",
+          "style": "note",
+          "text": "To complete: open questions, limits, what deserves another look."
+        }
+      ]
+    }
+  ],
+  "after_sections": "",
+  "prev": {
+    "id": "sat3d",
+    "label": "A monthly pulse on 3D tools",
+    "follow_title": false
+  },
+  "next": {
+    "id": "agents",
+    "label": "A small pantheon of agents",
+    "follow_title": false
+  },
+  "card": {
+    "company": "Decathlon",
+    "pts": [
+      "CSUQ scores and task success",
+      "Three tiers anyone can read",
+      "The verdict in ten seconds"
+    ],
+    "vis": "tiers",
+    "meta": "Usability practice",
+    "title": "Usability, readable in one glance",
+    "q": "How do you make a usability verdict readable in ten seconds?",
+    "a": "CSUQ scores and success rate per task, split into three tiers anyone can read. The detail is there for whoever wants ten minutes more.",
+    "jobs": [
+      "research",
+      "built"
+    ],
+    "who": [
+      "researcher",
+      "designer",
+      "pm"
+    ],
+    "m": [
+      "mixed"
+    ],
+    "sc": [
+      "evaluative",
+      "tactical"
+    ]
+  },
+  "behind_decisions": []
+}

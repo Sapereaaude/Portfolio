@@ -1,0 +1,145 @@
+{
+  "id": "askip",
+  "page_title": "Askip",
+  "draft_banner": true,
+  "header": {
+    "eyebrow": "Side project · 2026",
+    "title": "Askip",
+    "question": "How do couples keep discovering each other?",
+    "background": "#FBEAE8",
+    "illustration": "<div aria-hidden=\"true\" style=\"flex: 0 1 300px; min-width: 200px; aspect-ratio: 196 / 150\">\n<svg sc-camel-view-box=\"44 8 196 150\" style=\"width: 100%; height: 100%; display: block\">\n<circle cx=\"168\" cy=\"74\" r=\"56\" fill=\"#FFFFFF\" opacity=\"0.7\"></circle>\n<rect x=\"116\" y=\"34\" width=\"62\" height=\"84\" rx=\"10\" fill=\"{{accent}}\" transform=\"rotate(-10 147 76)\"></rect>\n<rect x=\"150\" y=\"34\" width=\"62\" height=\"84\" rx=\"10\" fill=\"#FFFFFF\" stroke=\"#17171F\" stroke-width=\"1.2\" transform=\"rotate(8 181 76)\"></rect>\n<text x=\"181\" y=\"86\" text-anchor=\"middle\" font-family=\"Anton, sans-serif\" font-size=\"26\" fill=\"#D13A28\" transform=\"rotate(8 181 76)\">?</text>\n</svg>\n</div>\n"
+  },
+  "facts": [
+    {
+      "label": "Role",
+      "value": "Designer"
+    },
+    {
+      "label": "When",
+      "value": "2026"
+    },
+    {
+      "label": "With",
+      "value": "Solo"
+    },
+    {
+      "label": "Phase",
+      "value": "Mentoring & side projects"
+    }
+  ],
+  "threads": false,
+  "before_main": "\n",
+  "decisions": true,
+  "sections": [
+    {
+      "title": "The context",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "text",
+          "style": "plain",
+          "text": "Couples stop asking each other questions after a while."
+        }
+      ]
+    },
+    {
+      "title": "The question",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Help couples keep discovering each other"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "What I did",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Concept, design canvas, art direction"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "What changed",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "A daily card game with reciprocal reveal"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "What I liked",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "text",
+          "style": "quote",
+          "text": "The reveal mechanic."
+        }
+      ]
+    },
+    {
+      "title": "What I’d change",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "text",
+          "style": "plain",
+          "text": "Test with real couples."
+        }
+      ]
+    }
+  ],
+  "after_sections": "",
+  "prev": {
+    "id": "palier",
+    "label": "Le Palier",
+    "follow_title": false
+  },
+  "next": {
+    "id": "oasis",
+    "label": "Oasis Spot",
+    "follow_title": false
+  },
+  "card": {
+    "pts": [
+      "One card a day",
+      "Answers revealed when both have played"
+    ],
+    "vis": "askip",
+    "appName": "ASKIP",
+    "meta": "Side project · 2026",
+    "title": "Askip",
+    "q": "How do couples keep discovering each other?",
+    "a": "One card a day. Your answer is revealed only once your partner has played too.",
+    "jobs": [
+      "side",
+      "built"
+    ],
+    "who": [
+      "designer",
+      "founder",
+      "curious"
+    ],
+    "m": [],
+    "sc": []
+  },
+  "behind_decisions": []
+}

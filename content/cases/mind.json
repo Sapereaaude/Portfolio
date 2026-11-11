@@ -1,0 +1,187 @@
+{
+  "id": "mind",
+  "page_title": "Alan Mind",
+  "draft_banner": false,
+  "header": {
+    "eyebrow": "Alan · 2021–22",
+    "title": "Alan Mind",
+    "question": "How can an app help destigmatise therapy?",
+    "background": "#FBEAE8",
+    "illustration": "<div aria-hidden=\"true\" style=\"flex: 0 1 300px; min-width: 200px; aspect-ratio: 196 / 150\">\n<svg sc-camel-view-box=\"44 8 196 150\" style=\"width: 100%; height: 100%; display: block\">\n<path d=\"M150 130 v-22 c-26 -2 -40 -22 -40 -46 c0 -26 22 -44 48 -44 c28 0 46 20 46 44 c0 8 4 14 8 20 l-8 4 v14 c0 6 -4 8 -10 8 h-8 v22z\" fill=\"#FFFFFF\" stroke=\"#17171F\" stroke-width=\"1.2\"></path>\n<circle cx=\"150\" cy=\"54\" r=\"12\" fill=\"{{accent}}\"></circle><rect x=\"164\" y=\"40\" width=\"26\" height=\"10\" rx=\"5\" fill=\"#D13A28\"></rect><circle cx=\"178\" cy=\"68\" r=\"7\" fill=\"#17171F\"></circle><rect x=\"134\" y=\"72\" width=\"20\" height=\"10\" rx=\"5\" fill=\"{{accent}}\" opacity=\"0.45\"></rect>\n</svg>\n</div>\n"
+  },
+  "facts": [
+    {
+      "label": "Role",
+      "value": "Senior UXR"
+    },
+    {
+      "label": "When",
+      "value": "2021–22"
+    },
+    {
+      "label": "With",
+      "value": "Alan Mind team"
+    },
+    {
+      "label": "Phase",
+      "value": "User research & ResearchOps"
+    }
+  ],
+  "threads": true,
+  "before_main": "\n<figure style=\"margin: 24px 0 8px; padding: clamp(16px, 3vw, 28px); border-radius: 22px; background: #F5F6FA; border: 1px solid #E3E3EA\">\n<div style=\"display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: clamp(12px, 3vw, 32px)\"><img src=\"/photos/screen-alan-mind.jpg\" alt=\"Alan Mind app store screen: Mental health made simple, with a mental health score.\" width=\"643\" height=\"1392\" loading=\"lazy\" style=\"display: block; height: clamp(260px, 42vw, 520px); width: auto; max-width: 100%; border-radius: 14px; box-shadow: 0 10px 28px rgba(23, 23, 31, 0.12)\"><img src=\"/photos/screen-alan-mind-insights.jpg\" alt=\"Alan Mind insights screen: a week of moods and the areas of life behind them.\" width=\"643\" height=\"1392\" loading=\"lazy\" style=\"display: block; height: clamp(260px, 42vw, 520px); width: auto; max-width: 100%; border-radius: 14px; box-shadow: 0 10px 28px rgba(23, 23, 31, 0.12)\"></div>\n<figcaption style=\"margin-top: 14px; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #4A4A57; text-align: center\">Alan Mind</figcaption>\n</figure>\n",
+  "top_images": [
+    {
+      "src": "/photos/screen-alan-mind.jpg",
+      "alt": "Alan Mind app store screen: Mental health made simple, with a mental health score."
+    },
+    {
+      "src": "/photos/screen-alan-mind-insights.jpg",
+      "alt": "Alan Mind insights screen: a week of moods and the areas of life behind them."
+    }
+  ],
+  "top_caption": "Alan Mind",
+  "decisions": true,
+  "sections": [
+    {
+      "title": "The context",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "text",
+          "style": "plain",
+          "text": "Therapy was still stigmatised, even taboo, in France. We wanted to map how French people think about therapy, and whether an app could lower the friction."
+        }
+      ]
+    },
+    {
+      "title": "The question",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Understand the French population’s mental models of therapy",
+            "Find what stops people from seeking help",
+            "Find where Alan Mind can fit into that journey"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "What I did",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Interviews on beliefs about, and experiences of, therapy",
+            "Mental-model mapping",
+            "Concept and wording tests"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "What we learned",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "People needed therapy, and wanted it.",
+            "They wanted it on desktop, not on mobile.",
+            "Some were wary of therapy paid for by their employer: would it come with strings attached?",
+            "The main friction was finding a good therapist."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "What changed",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "We quickly moved to desktop and dropped mobile.",
+            "We added an orientation session, to help people find the right therapist."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "What I liked",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "text",
+          "style": "quote",
+          "text": "Having an impact on people’s lives."
+        }
+      ]
+    },
+    {
+      "title": "What I’d change",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "text",
+          "style": "plain",
+          "text": "More time, and more psychological training, to absorb what came up in the interviews."
+        }
+      ]
+    }
+  ],
+  "after_sections": "",
+  "prev": {
+    "id": "clinic",
+    "label": "Alan Clinic",
+    "follow_title": false
+  },
+  "next": {
+    "id": "clear",
+    "label": "Alan Clear",
+    "follow_title": false
+  },
+  "card": {
+    "tldr": true,
+    "tldrPriority": 4,
+    "pts": [
+      "Mental models of therapy in France",
+      "What stops people from going",
+      "How the app can lower the barrier"
+    ],
+    "vis": "mind",
+    "meta": "Alan · 2021–22",
+    "title": "Alan Mind",
+    "q": "How can an app help destigmatise therapy?",
+    "a": "Studying the mental models of the French population around therapy, to shape how Alan Mind could make seeking help feel normal. [ADD WHAT IT CHANGED]",
+    "jobs": [
+      "research",
+      "built"
+    ],
+    "who": [
+      "founder",
+      "researcher",
+      "pm",
+      "hiring",
+      "designer",
+      "curious"
+    ],
+    "m": [
+      "qual"
+    ],
+    "sc": [
+      "generative",
+      "strategic"
+    ]
+  },
+  "behind_decisions": []
+}

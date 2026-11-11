@@ -1,0 +1,186 @@
+{
+  "id": "stress",
+  "page_title": "Stress &amp; success",
+  "draft_banner": true,
+  "header": {
+    "eyebrow": "RBK Jordan · 2017–18",
+    "title": "Stress & success",
+    "question": "Can measuring bootcamp students’ stress reveal what helps them succeed?",
+    "background": "#FBEAE8",
+    "illustration": "<div aria-hidden=\"true\" style=\"flex: 0 1 300px; min-width: 200px; aspect-ratio: 196 / 150\">\n<svg sc-camel-view-box=\"44 8 196 150\" style=\"width: 100%; height: 100%; display: block\">\n<circle cx=\"150\" cy=\"66\" r=\"54\" fill=\"#FFFFFF\" opacity=\"0.75\"></circle>\n<path d=\"M70 80 h34 l10 -26 14 50 12 -40 10 16 h60\" fill=\"none\" stroke=\"#D13A28\" stroke-width=\"3\" stroke-linejoin=\"round\" stroke-linecap=\"round\"></path>\n<circle cx=\"210\" cy=\"80\" r=\"7\" fill=\"{{accent}}\"></circle>\n<path d=\"M206 40 l6 -10 6 10\" fill=\"none\" stroke=\"{{accent}}\" stroke-width=\"2.5\" stroke-linecap=\"round\"></path>\n</svg>\n</div>\n"
+  },
+  "facts": [
+    {
+      "label": "Role",
+      "value": "Programme manager"
+    },
+    {
+      "label": "When",
+      "value": "2017–18"
+    },
+    {
+      "label": "With",
+      "value": "Learners and educators"
+    },
+    {
+      "label": "Phase",
+      "value": "Programme management"
+    }
+  ],
+  "threads": true,
+  "before_main": "\n",
+  "decisions": true,
+  "sections": [
+    {
+      "title": "The context",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "text",
+          "style": "plain",
+          "text": "Intensive bootcamps are stressful for anyone, and more so for people rebuilding their lives."
+        }
+      ]
+    },
+    {
+      "title": "The question",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Measure learners’ stress and conditions",
+            "Identify success criteria",
+            "Adapt conditions to help them succeed"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "What I did",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "A tool to monitor stress and conditions",
+            "Regular check-ins",
+            "Cross-reading with progress"
+          ]
+        },
+        {
+          "type": "custom",
+          "html": "<figure style=\"margin: 20px 0 0; padding: 20px; border-radius: 16px; background: #F7F8FC; border: 1px solid #E3E3EA\">\n<div style=\"position: relative; width: 100%; max-width: 420px; aspect-ratio: 1 / 1; margin: 0 auto\">\n<div aria-hidden=\"true\" style=\"position: absolute; inset: 12%; border-radius: 50%; border: 2px dashed {{accent}}; opacity: 0.5\"></div>\n<div style=\"position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 30%; aspect-ratio: 1 / 1; border-radius: 50%; background: {{accent}}; color: #FFFFFF; display: flex; align-items: center; justify-content: center; text-align: center; font-family: 'Anton', Impact, sans-serif; font-size: 16px; text-transform: uppercase; padding: 6px; box-sizing: border-box\">Each week</div>\n<div style=\"position: absolute; left: 50.0%; top: 12.0%; transform: translate(-50%, -50%); width: 34%; text-align: center; background: #FFFFFF; border: 1px solid #E3E3EA; border-radius: 12px; padding: 8px\"><span style=\"display: block; font-size: 14px; font-weight: 700\">Check-in</span><span style=\"display: block; font-size: 12px; color: #4A4A57\">Stress and conditions</span></div><div style=\"position: absolute; left: 82.9%; top: 69.0%; transform: translate(-50%, -50%); width: 34%; text-align: center; background: #FFFFFF; border: 1px solid #E3E3EA; border-radius: 12px; padding: 8px\"><span style=\"display: block; font-size: 14px; font-weight: 700\">Read</span><span style=\"display: block; font-size: 12px; color: #4A4A57\">Cross with progress</span></div><div style=\"position: absolute; left: 17.1%; top: 69.0%; transform: translate(-50%, -50%); width: 34%; text-align: center; background: #FFFFFF; border: 1px solid #E3E3EA; border-radius: 12px; padding: 8px\"><span style=\"display: block; font-size: 14px; font-weight: 700\">Act</span><span style=\"display: block; font-size: 12px; color: #4A4A57\">Adjust support</span></div></div>\n<figcaption style=\"margin-top: 14px; font-size: 12px; font-weight: 600; color: #4A4A57\">How the monitoring tool worked (illustrative)</figcaption>\n</figure>"
+        }
+      ]
+    },
+    {
+      "title": "What we learned",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "text",
+          "style": "note",
+          "text": "To complete: key findings, and what surprised us."
+        }
+      ]
+    },
+    {
+      "title": "What changed",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Early signals to support learners",
+            "Adjustments to the programme",
+            "[ADD FINDINGS]"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "What I liked",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "text",
+          "style": "quote",
+          "text": "Data in service of care, not control."
+        }
+      ]
+    },
+    {
+      "title": "What I’d change",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "text",
+          "style": "plain",
+          "text": "Co-design the tool with the learners themselves."
+        }
+      ]
+    },
+    {
+      "title": "What remains unknown",
+      "long_title": true,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "text",
+          "style": "note",
+          "text": "To complete: open questions, limits, what deserves another look."
+        }
+      ]
+    }
+  ],
+  "after_sections": "",
+  "prev": {
+    "id": "rbk",
+    "label": "Refugees to software engineers",
+    "follow_title": false
+  },
+  "next": {
+    "id": "programme",
+    "label": "Better from cohort to cohort",
+    "follow_title": false
+  },
+  "card": {
+    "pts": [
+      "Measuring learners’ stress",
+      "Looking for what predicts success",
+      "Adapting conditions to help them through"
+    ],
+    "vis": "stress",
+    "meta": "RBK Jordan · 2017–18",
+    "title": "Stress & success",
+    "q": "Can measuring bootcamp students’ stress reveal what helps them succeed?",
+    "a": "Measuring the stress of learners during an intensive coding bootcamp, to identify success criteria and adapt their conditions. [ADD METHOD AND FINDINGS]",
+    "jobs": [
+      "research",
+      "career",
+      "built"
+    ],
+    "who": [
+      "researcher",
+      "founder",
+      "curious",
+      "hiring"
+    ],
+    "m": [
+      "quant"
+    ],
+    "sc": [
+      "generative",
+      "strategic"
+    ]
+  },
+  "behind_decisions": []
+}

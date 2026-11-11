@@ -1,0 +1,186 @@
+{
+  "id": "sat3d",
+  "page_title": "A monthly pulse on 3D tools",
+  "draft_banner": true,
+  "header": {
+    "eyebrow": "Decathlon · 2025",
+    "title": "A monthly pulse on 3D tools",
+    "question": "Are bike designers, engineers and 3D modellers happy with their tools, month after month?",
+    "background": "#F2F2F5",
+    "illustration": "<div aria-hidden=\"true\" style=\"flex: 0 1 300px; min-width: 200px; aspect-ratio: 196 / 150\">\n<svg sc-camel-view-box=\"44 8 196 150\" style=\"width: 100%; height: 100%; display: block\">\n<circle cx=\"170\" cy=\"74\" r=\"56\" fill=\"#FFFFFF\" opacity=\"0.7\"></circle>\n<rect x=\"110\" y=\"30\" width=\"100\" height=\"90\" rx=\"12\" fill=\"#FFFFFF\" stroke=\"#17171F\" stroke-width=\"1.2\"></rect>\n<rect x=\"110\" y=\"30\" width=\"100\" height=\"20\" rx=\"10\" fill=\"{{accent}}\"></rect><rect x=\"110\" y=\"40\" width=\"100\" height=\"10\" fill=\"{{accent}}\"></rect>\n<circle cx=\"130\" cy=\"26\" r=\"4\" fill=\"#17171F\"></circle><circle cx=\"190\" cy=\"26\" r=\"4\" fill=\"#17171F\"></circle>\n<rect x=\"122\" y=\"62\" width=\"10\" height=\"10\" rx=\"2.5\" fill=\"{{accent}}\"></rect><rect x=\"138\" y=\"64\" width=\"54\" height=\"6\" rx=\"3\" fill=\"#17171F\" opacity=\"0.4\"></rect>\n<rect x=\"122\" y=\"80\" width=\"10\" height=\"10\" rx=\"2.5\" fill=\"{{accent}}\"></rect><rect x=\"138\" y=\"82\" width=\"44\" height=\"6\" rx=\"3\" fill=\"#17171F\" opacity=\"0.4\"></rect>\n<rect x=\"122\" y=\"98\" width=\"10\" height=\"10\" rx=\"2.5\" fill=\"#FFFFFF\" stroke=\"#17171F\"></rect><rect x=\"138\" y=\"100\" width=\"50\" height=\"6\" rx=\"3\" fill=\"#17171F\" opacity=\"0.4\"></rect>\n<circle cx=\"88\" cy=\"110\" r=\"10\" fill=\"#D13A28\"></circle>\n</svg>\n</div>\n"
+  },
+  "facts": [
+    {
+      "label": "Role",
+      "value": "Researcher"
+    },
+    {
+      "label": "When",
+      "value": "2025"
+    },
+    {
+      "label": "With",
+      "value": "A product designer, bike development teams"
+    },
+    {
+      "label": "Phase",
+      "value": "User research & ResearchOps"
+    }
+  ],
+  "threads": true,
+  "before_main": "\n",
+  "decisions": true,
+  "sections": [
+    {
+      "title": "The context",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "text",
+          "style": "plain",
+          "text": "Bike designers, engineers and 3D modellers depend on 3D tools daily. Their frustrations surfaced in hallways, never in numbers."
+        }
+      ]
+    },
+    {
+      "title": "The question",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Measure satisfaction with 3D tools over time",
+            "Turn feedback into decided fixes, every month",
+            "Keep the effort tiny for respondents"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "What I did",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Monthly survey with a one-week response window",
+            "One week of analysis",
+            "A one-hour action workshop with the team",
+            "Tool comparison: Medallia, Airtable, Google Forms"
+          ]
+        },
+        {
+          "type": "custom",
+          "html": "<figure style=\"margin: 20px 0 0; padding: 20px; border-radius: 16px; background: #F7F8FC; border: 1px solid #E3E3EA\">\n<div style=\"display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 6px 12px; align-items: center\"><div style=\"display: contents\"><span style=\"font-size: 13px; font-weight: 700; padding: 6px 0\">Answer</span><div style=\"position: relative; height: 28px; background: #FFFFFF; border: 1px solid #E3E3EA; border-radius: 6px\"><div style=\"position: absolute; top: 3px; bottom: 3px; left: 0%; width: 25%; border-radius: 4px; background: {{accent}}\"></div></div></div><div style=\"display: contents\"><span style=\"font-size: 13px; font-weight: 700; padding: 6px 0\">Analyse</span><div style=\"position: relative; height: 28px; background: #FFFFFF; border: 1px solid #E3E3EA; border-radius: 6px\"><div style=\"position: absolute; top: 3px; bottom: 3px; left: 25%; width: 25%; border-radius: 4px; background: #7D93D4\"></div></div></div><div style=\"display: contents\"><span style=\"font-size: 13px; font-weight: 700; padding: 6px 0\">Workshop</span><div style=\"position: relative; height: 28px; background: #FFFFFF; border: 1px solid #E3E3EA; border-radius: 6px\"><div style=\"position: absolute; top: 3px; bottom: 3px; left: 52%; width: 6%; border-radius: 4px; background: #D13A28\"></div></div></div></div><div style=\"display: flex; justify-content: space-between; margin: 6px 0 0 132px; font-size: 11px; color: #4A4A57\"><span>Week 1</span><span>Week 2</span><span>Week 3</span><span>Week 4</span></div>\n<figcaption style=\"margin-top: 14px; font-size: 12px; font-weight: 600; color: #4A4A57\">One month of the pulse</figcaption>\n</figure>"
+        }
+      ]
+    },
+    {
+      "title": "What we learned",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "text",
+          "style": "note",
+          "text": "To complete: key findings, and what surprised us."
+        }
+      ]
+    },
+    {
+      "title": "What changed",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "A monthly rhythm the team could sustain",
+            "A running list of decided fixes",
+            "[ADD THE TREND]"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "What I liked",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "text",
+          "style": "quote",
+          "text": "The ritual: a survey only matters if it ends in a decision, and this one always did."
+        }
+      ]
+    },
+    {
+      "title": "What I’d change",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "text",
+          "style": "plain",
+          "text": "Add one open question that rotates, to catch what the scale questions miss."
+        }
+      ]
+    },
+    {
+      "title": "What remains unknown",
+      "long_title": true,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "text",
+          "style": "note",
+          "text": "To complete: open questions, limits, what deserves another look."
+        }
+      ]
+    }
+  ],
+  "after_sections": "",
+  "prev": {
+    "id": "plm",
+    "label": "Idea to recycling",
+    "follow_title": false
+  },
+  "next": {
+    "id": "usab",
+    "label": "Usability, readable in one glance",
+    "follow_title": false
+  },
+  "card": {
+    "pts": [
+      "One week to answer, one to analyse",
+      "A one-hour workshop to decide the fixes",
+      "Run every month with a product designer"
+    ],
+    "vis": "monthly",
+    "meta": "Decathlon · 2025",
+    "title": "A monthly pulse on 3D tools",
+    "q": "Are bike designers, engineers and 3D modellers happy with their tools, month after month?",
+    "a": "With a product designer: a monthly survey, one week to answer, one week to analyse, then a one-hour workshop to decide what to fix.",
+    "jobs": [
+      "research",
+      "built"
+    ],
+    "who": [
+      "researcher",
+      "designer",
+      "pm",
+      "hiring"
+    ],
+    "m": [
+      "quant"
+    ],
+    "sc": [
+      "evaluative",
+      "tactical"
+    ]
+  },
+  "behind_decisions": []
+}

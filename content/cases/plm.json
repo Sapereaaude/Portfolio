@@ -1,0 +1,185 @@
+{
+  "id": "plm",
+  "page_title": "Idea to recycling",
+  "draft_banner": true,
+  "header": {
+    "eyebrow": "Decathlon · 2023–25",
+    "title": "Idea to recycling",
+    "question": "How do more than a thousand engineers keep a product’s life in order, from idea to recycling?",
+    "background": "accent",
+    "illustration": "<div aria-hidden=\"true\" style=\"flex: 0 1 300px; min-width: 200px; aspect-ratio: 196 / 150\">\n<svg sc-camel-view-box=\"44 8 196 150\" style=\"width: 100%; height: 100%; display: block\">\n<circle cx=\"150\" cy=\"70\" r=\"46\" fill=\"none\" stroke=\"#FFFFFF\" stroke-width=\"10\" opacity=\"0.35\"></circle>\n<path d=\"M150 24 A46 46 0 1 1 104 70\" fill=\"none\" stroke=\"#FFFFFF\" stroke-width=\"10\" stroke-linecap=\"round\"></path>\n<path d=\"M96 60 l8 12 10 -10\" fill=\"none\" stroke=\"#FFFFFF\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>\n<circle cx=\"150\" cy=\"24\" r=\"9\" fill=\"#D13A28\" stroke=\"#FFFFFF\" stroke-width=\"2\"></circle>\n<rect x=\"134\" y=\"58\" width=\"32\" height=\"24\" rx=\"4\" fill=\"#FFFFFF\"></rect><path d=\"M134 66 h32\" stroke=\"{{accent}}\" stroke-width=\"2\"></path>\n</svg>\n</div>\n"
+  },
+  "facts": [
+    {
+      "label": "Role",
+      "value": "Senior UXR"
+    },
+    {
+      "label": "When",
+      "value": "2023–25"
+    },
+    {
+      "label": "With",
+      "value": "Product lifecycle teams, engineers, a huge programme with Dassault"
+    },
+    {
+      "label": "Phase",
+      "value": "User research & ResearchOps"
+    }
+  ],
+  "threads": true,
+  "before_main": "\n",
+  "decisions": true,
+  "sections": [
+    {
+      "title": "The context",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "text",
+          "style": "plain",
+          "text": "More than a thousand engineers keep each product alive from the first idea to recycling: components, bills of materials, versions, eco-design data. The tools were changing under their feet."
+        },
+        {
+          "type": "custom",
+          "html": "<figure style=\"margin: 20px 0 0; padding: 20px; border-radius: 16px; background: #F7F8FC; border: 1px solid #E3E3EA\">\n<div style=\"position: relative; width: 100%; max-width: 420px; aspect-ratio: 1 / 1; margin: 0 auto\">\n<div aria-hidden=\"true\" style=\"position: absolute; inset: 12%; border-radius: 50%; border: 2px dashed {{accent}}; opacity: 0.5\"></div>\n<div style=\"position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 30%; aspect-ratio: 1 / 1; border-radius: 50%; background: {{accent}}; color: #FFFFFF; display: flex; align-items: center; justify-content: center; text-align: center; font-family: 'Anton', Impact, sans-serif; font-size: 16px; text-transform: uppercase; padding: 6px; box-sizing: border-box\">One product</div>\n<div style=\"position: absolute; left: 50.0%; top: 12.0%; transform: translate(-50%, -50%); width: 34%; text-align: center; background: #FFFFFF; border: 1px solid #E3E3EA; border-radius: 12px; padding: 8px\"><span style=\"display: block; font-size: 14px; font-weight: 700\">Idea</span><span style=\"display: block; font-size: 12px; color: #4A4A57\">Brief</span></div><div style=\"position: absolute; left: 86.1%; top: 38.3%; transform: translate(-50%, -50%); width: 34%; text-align: center; background: #FFFFFF; border: 1px solid #E3E3EA; border-radius: 12px; padding: 8px\"><span style=\"display: block; font-size: 14px; font-weight: 700\">Design</span><span style=\"display: block; font-size: 12px; color: #4A4A57\">Components</span></div><div style=\"position: absolute; left: 72.3%; top: 80.7%; transform: translate(-50%, -50%); width: 34%; text-align: center; background: #FFFFFF; border: 1px solid #E3E3EA; border-radius: 12px; padding: 8px\"><span style=\"display: block; font-size: 14px; font-weight: 700\">Development</span><span style=\"display: block; font-size: 12px; color: #4A4A57\">BOM, versions</span></div><div style=\"position: absolute; left: 27.7%; top: 80.7%; transform: translate(-50%, -50%); width: 34%; text-align: center; background: #FFFFFF; border: 1px solid #E3E3EA; border-radius: 12px; padding: 8px\"><span style=\"display: block; font-size: 14px; font-weight: 700\">Production</span><span style=\"display: block; font-size: 12px; color: #4A4A57\">Suppliers</span></div><div style=\"position: absolute; left: 13.9%; top: 38.3%; transform: translate(-50%, -50%); width: 34%; text-align: center; background: #FFFFFF; border: 1px solid #E3E3EA; border-radius: 12px; padding: 8px\"><span style=\"display: block; font-size: 14px; font-weight: 700\">End of life</span><span style=\"display: block; font-size: 12px; color: #4A4A57\">Repair, recycling</span></div></div>\n<figcaption style=\"margin-top: 14px; font-size: 12px; font-weight: 600; color: #4A4A57\">The lifecycle engineers maintain</figcaption>\n</figure>"
+        }
+      ]
+    },
+    {
+      "title": "The question",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Understand how engineers maintain a product’s lifecycle today",
+            "Identify where data trust and versioning break",
+            "Make sure the new system fits real work"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "What I did",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Interviews and shadowing with engineers",
+            "Retrospective surveys with the programme team",
+            "Insight synthesis on components, BOM, access rights, eco-design"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "What we learned",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "text",
+          "style": "note",
+          "text": "To complete: key findings, and what surprised us."
+        }
+      ]
+    },
+    {
+      "title": "What changed",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "A clear list of pain points: unreferenced components, data trust, versioning",
+            "An opportunity tree on making eco-design the default",
+            "[ADD WHAT IT CHANGED IN THE PROGRAMME]"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "What I liked",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "text",
+          "style": "quote",
+          "text": "The scale: one interview could reveal a problem affecting thousands of products."
+        }
+      ]
+    },
+    {
+      "title": "What I’d change",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "text",
+          "style": "plain",
+          "text": "Push harder for research to come before the editor’s roadmap, not after."
+        }
+      ]
+    },
+    {
+      "title": "What remains unknown",
+      "long_title": true,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "text",
+          "style": "note",
+          "text": "To complete: open questions, limits, what deserves another look."
+        }
+      ]
+    }
+  ],
+  "after_sections": "",
+  "prev": {
+    "id": "prio",
+    "label": "How products get chosen",
+    "follow_title": false
+  },
+  "next": {
+    "id": "sat3d",
+    "label": "A monthly pulse on 3D tools",
+    "follow_title": false
+  },
+  "card": {
+    "pts": [
+      "1,000+ engineers, one product lifecycle",
+      "From the idea to recycling",
+      "A huge programme with Dassault"
+    ],
+    "vis": "plm",
+    "meta": "Decathlon · 2023–25",
+    "title": "Idea to recycling",
+    "q": "How do more than a thousand engineers keep a product’s life in order, from idea to recycling?",
+    "a": "Research on how engineers maintain the lifecycle of a product, inside a huge programme with Dassault: components, bills of materials, data trust, versioning, access rights, eco-design. [ADD WHAT IT CHANGED]",
+    "jobs": [
+      "research",
+      "built"
+    ],
+    "who": [
+      "pm",
+      "researcher",
+      "hiring",
+      "founder"
+    ],
+    "m": [
+      "mixed"
+    ],
+    "sc": [
+      "generative",
+      "strategic"
+    ]
+  },
+  "behind_decisions": []
+}

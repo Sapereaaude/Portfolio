@@ -1,0 +1,194 @@
+{
+  "id": "aiid",
+  "page_title": "AI in Design",
+  "draft_banner": true,
+  "header": {
+    "eyebrow": "Decathlon · 2025",
+    "title": "AI in Design",
+    "question": "How do industrial designers really bring AI into their creative work?",
+    "background": "#EEF1FA",
+    "illustration": "<div aria-hidden=\"true\" style=\"flex: 0 1 300px; min-width: 200px; aspect-ratio: 196 / 150\">\n<svg sc-camel-view-box=\"44 8 196 150\" style=\"width: 100%; height: 100%; display: block\">\n<circle cx=\"168\" cy=\"70\" r=\"58\" fill=\"#FFFFFF\" opacity=\"0.7\"></circle>\n<rect x=\"96\" y=\"34\" width=\"124\" height=\"78\" rx=\"10\" fill=\"#FFFFFF\" stroke=\"#17171F\" stroke-width=\"1.2\" transform=\"rotate(-4 158 73)\"></rect>\n<g transform=\"rotate(-4 158 73)\"><rect x=\"108\" y=\"48\" width=\"56\" height=\"7\" rx=\"3.5\" fill=\"#17171F\"></rect><rect x=\"108\" y=\"60\" width=\"40\" height=\"7\" rx=\"3.5\" fill=\"{{accent}}\"></rect><rect x=\"108\" y=\"82\" width=\"28\" height=\"18\" rx=\"5\" fill=\"{{accent}}\"></rect><rect x=\"140\" y=\"82\" width=\"28\" height=\"18\" rx=\"5\" fill=\"#EEF1FA\"></rect><rect x=\"172\" y=\"82\" width=\"28\" height=\"18\" rx=\"5\" fill=\"#D13A28\"></rect></g>\n<circle cx=\"214\" cy=\"128\" r=\"9\" fill=\"#D13A28\"></circle><circle cx=\"80\" cy=\"118\" r=\"5\" fill=\"{{accent}}\"></circle>\n</svg>\n</div>\n"
+  },
+  "facts": [
+    {
+      "label": "Role",
+      "value": "Co-lead researcher"
+    },
+    {
+      "label": "When",
+      "value": "2025"
+    },
+    {
+      "label": "With",
+      "value": "A designer, a PM, the AI & data teams"
+    },
+    {
+      "label": "Phase",
+      "value": "User research & ResearchOps"
+    }
+  ],
+  "threads": true,
+  "before_main": "\n",
+  "decisions": true,
+  "sections": [
+    {
+      "title": "The context",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "text",
+          "style": "plain",
+          "text": "Industrial designers at Decathlon were discovering AI tools on their own, in a scattered way. Leadership wanted to “give them a tool”, without knowing how designers really worked or what was blocking them."
+        }
+      ]
+    },
+    {
+      "title": "The question",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Map how designers actually use AI today, by seniority and craft",
+            "Identify the real barriers to adoption",
+            "Recommend what the company should invest in"
+          ]
+        },
+        {
+          "type": "custom",
+          "html": "<figure style=\"margin: 20px 0 0; padding: 20px; border-radius: 16px; background: #F7F8FC; border: 1px solid #E3E3EA\">\n<div style=\"display: flex; gap: 10px\"><div style=\"writing-mode: vertical-rl; transform: rotate(180deg); font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #4A4A57; text-align: center\">Seniority →</div>\n<div style=\"flex: 1 1 auto\"><div style=\"display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px\"><div style=\"background: #EEF1FA; border-radius: 10px; padding: 14px; min-height: 80px\"><span style=\"display: block; font-size: 14px; font-weight: 700\">Experienced explorers</span><span style=\"font-size: 12px; color: #4A4A57\">Already using several tools</span></div><div style=\"background: #FFFFFF; border-radius: 10px; padding: 14px; min-height: 80px\"><span style=\"display: block; font-size: 14px; font-weight: 700\">Senior and cautious</span><span style=\"font-size: 12px; color: #4A4A57\">Need proof and rules</span></div><div style=\"background: #FFFFFF; border-radius: 10px; padding: 14px; min-height: 80px\"><span style=\"display: block; font-size: 14px; font-weight: 700\">Self-taught explorers</span><span style=\"font-size: 12px; color: #4A4A57\">Curious, experimenting alone</span></div><div style=\"background: #FBEAE8; border-radius: 10px; padding: 14px; min-height: 80px\"><span style=\"display: block; font-size: 14px; font-weight: 700\">Curious but blocked</span><span style=\"font-size: 12px; color: #4A4A57\">Want to, don’t know where to start</span></div></div>\n<div style=\"margin-top: 8px; text-align: center; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #4A4A57\">Comfort with AI tools →</div></div></div>\n<figcaption style=\"margin-top: 14px; font-size: 12px; font-weight: 600; color: #4A4A57\">Segmentation of designer profiles (illustrative)</figcaption>\n</figure>"
+        }
+      ]
+    },
+    {
+      "title": "What I did",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Community-wide survey with heatmaps by seniority",
+            "Segmentation into profiles to recruit the right people",
+            "Designer interviews and field days in Sallanches",
+            "Risk sessions with Legal, IT and the data team, plus a vendor benchmark"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "What we learned",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "text",
+          "style": "note",
+          "text": "To complete: key findings, and what surprised us."
+        }
+      ]
+    },
+    {
+      "title": "What changed",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "The top barrier was not the tech but “not knowing which tool to use”",
+            "The project shifted from buying a tool to an adoption programme: licences, training, a sandbox",
+            "Insights presented to 300–400 designers at Designer Day"
+          ]
+        },
+        {
+          "type": "custom",
+          "html": "<figure style=\"margin: 20px 0 0; padding: 20px; border-radius: 16px; background: #F7F8FC; border: 1px solid #E3E3EA\">\n<div style=\"display: flex; flex-wrap: wrap; gap: 20px\"><div style=\"flex: 1 1 240px; min-width: 0\"><span style=\"display: block; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #A42A1C; margin-bottom: 8px\">Before</span><div style=\"display: flex; flex-wrap: wrap; gap: 6px\"><span style=\"padding: 6px 12px; border-radius: 999px; background: #FBEAE8; font-size: 13px; font-weight: 600\">“We just need a tool”</span><span style=\"padding: 6px 12px; border-radius: 999px; background: #FBEAE8; font-size: 13px; font-weight: 600\">Scattered experiments</span><span style=\"padding: 6px 12px; border-radius: 999px; background: #FBEAE8; font-size: 13px; font-weight: 600\">No shared rules</span></div></div><div style=\"flex: 1 1 240px; min-width: 0\"><span style=\"display: block; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #2A3F8F; margin-bottom: 8px\">After</span><div style=\"display: flex; flex-wrap: wrap; gap: 6px\"><span style=\"padding: 6px 12px; border-radius: 999px; background: #EEF1FA; font-size: 13px; font-weight: 600\">Licences</span><span style=\"padding: 6px 12px; border-radius: 999px; background: #EEF1FA; font-size: 13px; font-weight: 600\">Training</span><span style=\"padding: 6px 12px; border-radius: 999px; background: #EEF1FA; font-size: 13px; font-weight: 600\">Sandbox for new tech</span><span style=\"padding: 6px 12px; border-radius: 999px; background: #EEF1FA; font-size: 13px; font-weight: 600\">Curious profiles train others</span></div></div></div>\n<figcaption style=\"margin-top: 14px; font-size: 12px; font-weight: 600; color: #4A4A57\">From a tool to a programme</figcaption>\n</figure>"
+        }
+      ]
+    },
+    {
+      "title": "What I liked",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "text",
+          "style": "quote",
+          "text": "Watching the question change in the room: from “which tool?” to “how do we learn together?”. That is research doing its job."
+        }
+      ]
+    },
+    {
+      "title": "What I’d change",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "text",
+          "style": "plain",
+          "text": "I would have involved Legal and IT from week one instead of mid-way, to shorten the path from insight to licences."
+        }
+      ]
+    },
+    {
+      "title": "What remains unknown",
+      "long_title": true,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "text",
+          "style": "note",
+          "text": "To complete: open questions, limits, what deserves another look."
+        }
+      ]
+    }
+  ],
+  "after_sections": "",
+  "prev": {
+    "id": "papier",
+    "label": "Le papier mâché",
+    "follow_title": false
+  },
+  "next": {
+    "id": "vizcom",
+    "label": "After the demo effect",
+    "follow_title": false
+  },
+  "card": {
+    "tldr": true,
+    "tldrPriority": 5,
+    "pts": [
+      "Survey + heatmaps by seniority",
+      "Profiles: self-taught explorers, curious but blocked",
+      "Became a programme, shared with 300–400 designers"
+    ],
+    "vis": "slide",
+    "meta": "Decathlon · 2025",
+    "title": "AI in Design",
+    "q": "How do industrial designers really bring AI into their creative work?",
+    "a": "A community survey with heatmaps by seniority, profiles like \"self-taught explorers\" and \"curious but blocked\", then interviews. The barrier wasn’t the tech, it was not knowing which tool to use. So the project became a programme: licences, training, a sandbox. Presented to 300–400 designers.",
+    "jobs": [
+      "built",
+      "research",
+      "ai"
+    ],
+    "who": [
+      "hiring",
+      "designer",
+      "pm",
+      "founder",
+      "researcher"
+    ],
+    "m": [
+      "mixed"
+    ],
+    "sc": [
+      "generative",
+      "strategic"
+    ]
+  },
+  "behind_decisions": []
+}

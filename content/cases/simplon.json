@@ -1,0 +1,162 @@
+{
+  "id": "simplon",
+  "page_title": "Kuala Lumpur, Singapore, Paris",
+  "draft_banner": true,
+  "header": {
+    "eyebrow": "2018",
+    "title": "Kuala Lumpur, Singapore, Paris",
+    "question": "How do learners leave a bootcamp with a job?",
+    "background": "#EEF1FA",
+    "illustration": "<div aria-hidden=\"true\" style=\"flex: 0 1 300px; min-width: 200px; aspect-ratio: 196 / 150\">\n<svg sc-camel-view-box=\"44 8 196 150\" style=\"width: 100%; height: 100%; display: block\">\n<circle cx=\"152\" cy=\"72\" r=\"54\" fill=\"#FFFFFF\" opacity=\"0.7\"></circle>\n<rect x=\"110\" y=\"56\" width=\"84\" height=\"58\" rx=\"8\" fill=\"{{accent}}\"></rect>\n<path d=\"M138 56 v-8 a6 6 0 0 1 6 -6 h16 a6 6 0 0 1 6 6 v8\" fill=\"none\" stroke=\"#17171F\" stroke-width=\"3\"></path>\n<rect x=\"110\" y=\"78\" width=\"84\" height=\"6\" fill=\"#17171F\" opacity=\"0.25\"></rect>\n<circle cx=\"208\" cy=\"48\" r=\"12\" fill=\"#D13A28\"></circle><path d=\"M202 48 l4 4 8 -8\" stroke=\"#FFFFFF\" stroke-width=\"2.4\" fill=\"none\"></path>\n</svg>\n</div>\n"
+  },
+  "facts": [
+    {
+      "label": "Role",
+      "value": "Programme manager"
+    },
+    {
+      "label": "When",
+      "value": "2018"
+    },
+    {
+      "label": "With",
+      "value": "Next Academy, Simplon, hiring partners"
+    },
+    {
+      "label": "Phase",
+      "value": "Programme management"
+    }
+  ],
+  "threads": false,
+  "before_main": "\n",
+  "decisions": true,
+  "sections": [
+    {
+      "title": "The context",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "text",
+          "style": "plain",
+          "text": "A bootcamp is only as good as the jobs it leads to."
+        }
+      ]
+    },
+    {
+      "title": "The question",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Build hiring partnerships",
+            "Prepare learners for interviews",
+            "Make sure learners leave with a contract"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "What I did",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Partnerships with companies",
+            "Job-dating events",
+            "Employer feedback"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "What changed",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Partnerships with Orange, Microsoft, Capgemini, Malakoff Humanis, Accenture, Apple",
+            "[ADD PLACEMENT]"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "What I liked",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "text",
+          "style": "quote",
+          "text": "Opening doors that learners could not open alone."
+        }
+      ]
+    },
+    {
+      "title": "What I’d change",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "text",
+          "style": "plain",
+          "text": "Follow learners longer after hiring."
+        }
+      ]
+    },
+    {
+      "title": "Sources",
+      "long_title": false,
+      "wrap": "plain",
+      "blocks": [
+        {
+          "type": "custom",
+          "html": "<ul style=\"margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 8px\"><li style=\"display: flex; gap: 10px; align-items: baseline\"><span aria-hidden=\"true\" style=\"flex: none; width: 6px; height: 6px; border-radius: 50%; background: {{accent}}; transform: translateY(-2px)\"></span><a href=\"https://www.simplon.co/en/about/about-us\" target=\"_blank\" rel=\"noopener\" style=\"color: #17171F\">Simplon — about us</a></li><li style=\"display: flex; gap: 10px; align-items: baseline\"><span aria-hidden=\"true\" style=\"flex: none; width: 6px; height: 6px; border-radius: 50%; background: {{accent}}; transform: translateY(-2px)\"></span><a href=\"https://group.bnpparibas/en/news/pitch-simplon-network-digital-inclusive-factories\" target=\"_blank\" rel=\"noopener\" style=\"color: #17171F\">BNP Paribas — the Simplon network of inclusive digital schools</a></li></ul>"
+        }
+      ]
+    }
+  ],
+  "after_sections": "",
+  "prev": {
+    "id": "programme",
+    "label": "Better from cohort to cohort",
+    "follow_title": false
+  },
+  "next": {
+    "id": "teach",
+    "label": "Teacher, then instructional designer",
+    "follow_title": false
+  },
+  "card": {
+    "pts": [
+      "Next Academy in Kuala Lumpur and Singapore",
+      "Hiring partnerships at Simplon",
+      "Orange, Microsoft, Apple and more"
+    ],
+    "vis": "job",
+    "hl": [
+      3
+    ],
+    "meta": "2018",
+    "title": "Kuala Lumpur, Singapore, Paris",
+    "q": "How do learners leave a bootcamp with a job?",
+    "a": "At Next Academy, then at Simplon: hiring partnerships with Orange, Microsoft, Capgemini, Malakoff Humanis, Accenture and Apple.",
+    "jobs": [
+      "career"
+    ],
+    "who": [
+      "hiring",
+      "curious"
+    ],
+    "m": [],
+    "sc": []
+  },
+  "behind_decisions": []
+}

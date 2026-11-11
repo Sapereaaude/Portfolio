@@ -1,0 +1,154 @@
+{
+  "id": "superpowers",
+  "page_title": "Superpowers Directory",
+  "draft_banner": true,
+  "header": {
+    "eyebrow": "Decathlon · pitched 2023",
+    "title": "Superpowers Directory",
+    "question": "How do designers find the right mentor inside a huge company?",
+    "background": "#FBEAE8",
+    "illustration": "<div aria-hidden=\"true\" style=\"flex: 0 1 300px; min-width: 200px; aspect-ratio: 196 / 150\">\n<svg sc-camel-view-box=\"44 8 196 150\" style=\"width: 100%; height: 100%; display: block\">\n<circle cx=\"140\" cy=\"74\" r=\"40\" fill=\"{{accent}}\" opacity=\"0.85\"></circle>\n<circle cx=\"190\" cy=\"74\" r=\"40\" fill=\"#D13A28\" opacity=\"0.75\"></circle>\n<rect x=\"138\" y=\"116\" width=\"54\" height=\"22\" rx=\"11\" fill=\"#FFFFFF\" stroke=\"#17171F\" stroke-width=\"1.2\"></rect>\n<path d=\"M159 127 l4 4 8 -8\" fill=\"none\" stroke=\"#17171F\" stroke-width=\"2\"></path>\n</svg>\n</div>\n"
+  },
+  "facts": [
+    {
+      "label": "Role",
+      "value": "Initiator"
+    },
+    {
+      "label": "When",
+      "value": "Pitched 2023"
+    },
+    {
+      "label": "With",
+      "value": "The design org"
+    },
+    {
+      "label": "Phase",
+      "value": "User research & ResearchOps, Mentoring & side projects"
+    }
+  ],
+  "threads": true,
+  "before_main": "\n",
+  "decisions": true,
+  "sections": [
+    {
+      "title": "The context",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "text",
+          "style": "plain",
+          "text": "In a huge company, designers rarely know who could help them grow, or whom they could help."
+        }
+      ]
+    },
+    {
+      "title": "The question",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Make mentoring easy to start",
+            "Let anyone be mentor and mentee",
+            "Keep it human"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "What I did",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "A community poll",
+            "A matching concept by domain, format and place",
+            "A pilot plan in one product area"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "What changed",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Concept pitched to the design org",
+            "Pilot planned",
+            "[ADD WHAT HAPPENED]"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "What I liked",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "text",
+          "style": "quote",
+          "text": "Refusing to make it a swipe app. People are not products."
+        }
+      ]
+    },
+    {
+      "title": "What I’d change",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "text",
+          "style": "plain",
+          "text": "Ship a tiny manual version first: a spreadsheet and a Slack message would have proven it."
+        }
+      ]
+    }
+  ],
+  "after_sections": "",
+  "prev": {
+    "id": "community",
+    "label": "One community, four cities",
+    "follow_title": false
+  },
+  "next": {
+    "id": "clinic",
+    "label": "Alan Clinic",
+    "follow_title": false
+  },
+  "card": {
+    "pts": [
+      "List your superpowers and what you want to grow",
+      "Matched by domain, format and place",
+      "No swiping: too inhumane"
+    ],
+    "vis": "matchscreen",
+    "meta": "Decathlon · pitched 2023",
+    "title": "Superpowers Directory",
+    "q": "How do designers find the right mentor inside a huge company?",
+    "a": "List your superpowers and what you want to grow, get matched by domain, format and place, then message. I polled the community first, and rejected swiping as inhumane.",
+    "jobs": [
+      "built"
+    ],
+    "who": [
+      "designer",
+      "founder",
+      "curious"
+    ],
+    "m": [
+      "quant"
+    ],
+    "sc": [
+      "generative"
+    ]
+  },
+  "behind_decisions": []
+}

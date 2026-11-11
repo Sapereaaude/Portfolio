@@ -1,0 +1,185 @@
+{
+  "id": "swiss",
+  "page_title": "The ten-question Swiss knife",
+  "draft_banner": true,
+  "header": {
+    "eyebrow": "AI-assisted research",
+    "title": "The ten-question Swiss knife",
+    "question": "How do you analyse interviews faster without losing rigour?",
+    "background": "#FBEAE8",
+    "illustration": "<div aria-hidden=\"true\" style=\"flex: 0 1 300px; min-width: 200px; aspect-ratio: 196 / 150\">\n<svg sc-camel-view-box=\"44 8 196 150\" style=\"width: 100%; height: 100%; display: block\">\n<circle cx=\"168\" cy=\"74\" r=\"56\" fill=\"#FFFFFF\" opacity=\"0.7\"></circle>\n<rect x=\"116\" y=\"24\" width=\"84\" height=\"104\" rx=\"8\" fill=\"#FFFFFF\" stroke=\"#17171F\" stroke-width=\"1.2\"></rect>\n<rect x=\"140\" y=\"18\" width=\"36\" height=\"12\" rx=\"4\" fill=\"#17171F\"></rect>\n<g><rect x=\"128\" y=\"44\" width=\"8\" height=\"8\" rx=\"2\" fill=\"{{accent}}\"></rect><rect x=\"142\" y=\"45\" width=\"46\" height=\"5\" rx=\"2.5\" fill=\"#17171F\" opacity=\"0.35\"></rect>\n<rect x=\"128\" y=\"60\" width=\"8\" height=\"8\" rx=\"2\" fill=\"{{accent}}\"></rect><rect x=\"142\" y=\"61\" width=\"38\" height=\"5\" rx=\"2.5\" fill=\"#17171F\" opacity=\"0.35\"></rect>\n<rect x=\"128\" y=\"76\" width=\"8\" height=\"8\" rx=\"2\" fill=\"#D13A28\"></rect><rect x=\"142\" y=\"77\" width=\"42\" height=\"5\" rx=\"2.5\" fill=\"#17171F\" opacity=\"0.35\"></rect>\n<rect x=\"128\" y=\"92\" width=\"8\" height=\"8\" rx=\"2\" fill=\"{{accent}}\"></rect><rect x=\"142\" y=\"93\" width=\"30\" height=\"5\" rx=\"2.5\" fill=\"#17171F\" opacity=\"0.35\"></rect></g>\n<circle cx=\"200\" cy=\"118\" r=\"18\" fill=\"none\" stroke=\"#17171F\" stroke-width=\"3\"></circle><path d=\"M213 131 l12 12\" stroke=\"#17171F\" stroke-width=\"4\" stroke-linecap=\"round\"></path>\n</svg>\n</div>\n"
+  },
+  "facts": [
+    {
+      "label": "Role",
+      "value": "Researcher"
+    },
+    {
+      "label": "When",
+      "value": "2025"
+    },
+    {
+      "label": "With",
+      "value": "The UXR community"
+    },
+    {
+      "label": "Phase",
+      "value": "User research & ResearchOps"
+    }
+  ],
+  "threads": true,
+  "before_main": "\n",
+  "decisions": true,
+  "sections": [
+    {
+      "title": "The context",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "text",
+          "style": "plain",
+          "text": "AI makes transcript analysis fast, and dangerously shallow. Researchers needed speed without losing rigour."
+        }
+      ]
+    },
+    {
+      "title": "The question",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Speed up interview analysis",
+            "Keep a human in charge of meaning",
+            "Make the method shareable"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "What I did",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Ten questions every transcript must answer",
+            "AI runs the first pass",
+            "The researcher checks, cuts and decides"
+          ]
+        },
+        {
+          "type": "custom",
+          "html": "<figure style=\"margin: 20px 0 0; padding: 20px; border-radius: 16px; background: #F7F8FC; border: 1px solid #E3E3EA\">\n<div style=\"display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 8px\"><div style=\"background: #FFFFFF; border: 1px solid #E3E3EA; border-radius: 10px; padding: 10px 12px; display: flex; gap: 10px; align-items: baseline\"><span style=\"font-family: 'Anton', Impact, sans-serif; font-size: 18px; color: {{accent}}\">01</span><span style=\"font-size: 14px; font-weight: 600\">Context</span></div><div style=\"background: #FFFFFF; border: 1px solid #E3E3EA; border-radius: 10px; padding: 10px 12px; display: flex; gap: 10px; align-items: baseline\"><span style=\"font-family: 'Anton', Impact, sans-serif; font-size: 18px; color: {{accent}}\">02</span><span style=\"font-size: 14px; font-weight: 600\">Goals</span></div><div style=\"background: #FFFFFF; border: 1px solid #E3E3EA; border-radius: 10px; padding: 10px 12px; display: flex; gap: 10px; align-items: baseline\"><span style=\"font-family: 'Anton', Impact, sans-serif; font-size: 18px; color: {{accent}}\">03</span><span style=\"font-size: 14px; font-weight: 600\">Pain points</span></div><div style=\"background: #FFFFFF; border: 1px solid #E3E3EA; border-radius: 10px; padding: 10px 12px; display: flex; gap: 10px; align-items: baseline\"><span style=\"font-family: 'Anton', Impact, sans-serif; font-size: 18px; color: {{accent}}\">04</span><span style=\"font-size: 14px; font-weight: 600\">Workarounds</span></div><div style=\"background: #FFFFFF; border: 1px solid #E3E3EA; border-radius: 10px; padding: 10px 12px; display: flex; gap: 10px; align-items: baseline\"><span style=\"font-family: 'Anton', Impact, sans-serif; font-size: 18px; color: {{accent}}\">05</span><span style=\"font-size: 14px; font-weight: 600\">Emotional cues</span></div><div style=\"background: #FFFFFF; border: 1px solid #E3E3EA; border-radius: 10px; padding: 10px 12px; display: flex; gap: 10px; align-items: baseline\"><span style=\"font-family: 'Anton', Impact, sans-serif; font-size: 18px; color: {{accent}}\">06</span><span style=\"font-size: 14px; font-weight: 600\">Surprises</span></div><div style=\"background: #FFFFFF; border: 1px solid #E3E3EA; border-radius: 10px; padding: 10px 12px; display: flex; gap: 10px; align-items: baseline\"><span style=\"font-family: 'Anton', Impact, sans-serif; font-size: 18px; color: {{accent}}\">07</span><span style=\"font-size: 14px; font-weight: 600\">Quotes</span></div><div style=\"background: #FFFFFF; border: 1px solid #E3E3EA; border-radius: 10px; padding: 10px 12px; display: flex; gap: 10px; align-items: baseline\"><span style=\"font-family: 'Anton', Impact, sans-serif; font-size: 18px; color: {{accent}}\">08</span><span style=\"font-size: 14px; font-weight: 600\">Opportunities</span></div><div style=\"background: #FFFFFF; border: 1px solid #E3E3EA; border-radius: 10px; padding: 10px 12px; display: flex; gap: 10px; align-items: baseline\"><span style=\"font-family: 'Anton', Impact, sans-serif; font-size: 18px; color: {{accent}}\">09</span><span style=\"font-size: 14px; font-weight: 600\">Fit with research goals</span></div><div style=\"background: #FFFFFF; border: 1px solid #E3E3EA; border-radius: 10px; padding: 10px 12px; display: flex; gap: 10px; align-items: baseline\"><span style=\"font-family: 'Anton', Impact, sans-serif; font-size: 18px; color: {{accent}}\">10</span><span style=\"font-size: 14px; font-weight: 600\">Gaps</span></div></div>\n<figcaption style=\"margin-top: 14px; font-size: 12px; font-weight: 600; color: #4A4A57\">The ten questions every transcript answers</figcaption>\n</figure>"
+        }
+      ]
+    },
+    {
+      "title": "What we learned",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "text",
+          "style": "note",
+          "text": "To complete: key findings, and what surprised us."
+        }
+      ]
+    },
+    {
+      "title": "What changed",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "A workflow shared with the UXR community",
+            "Consistent analysis across researchers",
+            "[ADD TIME SAVED]"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "What I liked",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "text",
+          "style": "quote",
+          "text": "It made researchers more critical of AI, not less."
+        }
+      ]
+    },
+    {
+      "title": "What I’d change",
+      "long_title": false,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "text",
+          "style": "plain",
+          "text": "Add a step that checks every claim against a verbatim quote."
+        }
+      ]
+    },
+    {
+      "title": "What remains unknown",
+      "long_title": true,
+      "wrap": "pretty",
+      "blocks": [
+        {
+          "type": "text",
+          "style": "note",
+          "text": "To complete: open questions, limits, what deserves another look."
+        }
+      ]
+    }
+  ],
+  "after_sections": "",
+  "prev": {
+    "id": "agents",
+    "label": "A small pantheon of agents",
+    "follow_title": false
+  },
+  "next": {
+    "id": "community",
+    "label": "One community, four cities",
+    "follow_title": false
+  },
+  "card": {
+    "company": "Decathlon",
+    "pts": [
+      "Ten questions every transcript must answer",
+      "AI runs them, a human decides",
+      "Faster, and still rigorous"
+    ],
+    "vis": "sheet",
+    "meta": "AI-assisted research",
+    "title": "The ten-question Swiss knife",
+    "q": "How do you analyse interviews faster without losing rigour?",
+    "a": "Ten questions every transcript must answer, from context and workarounds to emotional cues, surprises and gaps. AI runs them, a human decides what matters.",
+    "jobs": [
+      "research",
+      "ai",
+      "built"
+    ],
+    "who": [
+      "researcher",
+      "designer",
+      "pm"
+    ],
+    "m": [
+      "qual"
+    ],
+    "sc": [
+      "tactical"
+    ]
+  },
+  "behind_decisions": []
+}

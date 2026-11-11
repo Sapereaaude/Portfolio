@@ -3,7 +3,9 @@
 Each artboard's template is turned into a JSON tree that site/dc.js renders in the browser.
 Run from the repository root:  python3 scripts/build_site.py
 """
-import glob, html, json, os, re, shutil
+import glob, html, json, os, re, shutil, sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import cases  # case studies are written from content/cases/*.json first
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SRC = os.path.join(ROOT, 'project')
@@ -238,14 +240,39 @@ def doc_scores():
         open(main, 'w', encoding='utf-8').write(new)
 
 
+def optimise(folder, max_w=1800):
+    """Images uploaded from the studio: scaled down and recompressed for the site (originals stay in the repo)."""
+    try:
+        from PIL import Image
+    except ImportError:
+        print('Pillow not installed: uploaded images copied as they are')
+        return
+    for f in glob.glob(os.path.join(folder, '**', '*'), recursive=True):
+        if not re.search(r'\.(jpe?g|png|webp)$', f, re.I):
+            continue
+        try:
+            im = Image.open(f)
+            if im.width > max_w:
+                im = im.resize((max_w, round(im.height * max_w / im.width)), Image.LANCZOS)
+            if f.lower().endswith(('.jpg', '.jpeg')):
+                im.convert('RGB').save(f, quality=82, optimize=True, progressive=True)
+            elif f.lower().endswith('.png'):
+                im.save(f, optimize=True)
+            else:
+                im.save(f, quality=82)
+        except Exception as err:
+            print('could not optimise', f, err)
+
+
 def main():
+    cases.generate()
     doc_scores()
     names = sorted(os.path.basename(f)[:-len('.dc.html')] for f in glob.glob(os.path.join(SRC, '*.dc.html')))
     routes = dict(ROUTES)
     for n in names:
         if n.startswith('Case-'):
             routes[n] = 'work/' + n[5:].replace('_', '-')
-    comps = {c: site_fixes(c, load(c)[0]) for c in COMPONENTS}
+    comps = {c: site_fixes(c, load(c)[0]) for c in sorted(COMPONENTS)}
     for c in comps.values():
         c.pop('css', None)
     for old in glob.glob(os.path.join(OUT, '*')):
@@ -259,7 +286,7 @@ def main():
         d = site_fixes(n, d)
         css = d.pop('css', '')
         defs = {n: d}
-        for c in COMPONENTS:
+        for c in sorted(COMPONENTS):
             if 'dc-import name="%s"' % c in body:
                 defs[c] = comps[c]
         if n == 'Main':
@@ -280,6 +307,13 @@ def main():
     shutil.copytree(os.path.join(ROOT, 'assets', 'audio'), os.path.join(OUT, 'audio'), dirs_exist_ok=True)
     shutil.copytree(os.path.join(ROOT, 'assets', 'tools'), os.path.join(OUT, 'tools'), dirs_exist_ok=True)
     shutil.copy(os.path.join(ROOT, 'assets', 'tldr.js'), os.path.join(OUT, 'tldr.js'))
+    # the Content Studio (/admin): only its own page loads the CMS
+    shutil.copytree(os.path.join(ROOT, 'assets', 'admin'), os.path.join(OUT, 'admin'), dirs_exist_ok=True)
+    cases.export_js(os.path.join(OUT, 'admin', 'case-templates.js'))
+    uploads = os.path.join(ROOT, 'assets', 'uploads')
+    if os.path.isdir(uploads):
+        shutil.copytree(uploads, os.path.join(OUT, 'uploads'), dirs_exist_ok=True)
+        optimise(os.path.join(OUT, 'uploads'))
     open(os.path.join(OUT, '404.html'), 'w', encoding='utf-8').write(
         '<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Not found | Safaa El Ouafi</title></head>'
         '<body style="margin:0;font-family:system-ui,sans-serif;padding:48px 24px"><h1>Nothing in that drawer.</h1><p><a href="/">Back to the portfolio</a></p></body></html>')
