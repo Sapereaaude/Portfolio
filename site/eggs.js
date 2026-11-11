@@ -151,6 +151,8 @@
     '@media (prefers-reduced-motion: reduce){.egg-wink::after{animation:none}}' +
     '@keyframes egg-in{from{opacity:0}to{opacity:1}}' +
     '@media (prefers-reduced-motion: reduce){.egg-veil{animation:none}.egg-note{transform:none !important}}' +
+    '.site-note{margin:0;padding:10px 76px 22px;background:#FFFFFF;color:#4A4A57;font:400 12px/1.5 Figtree,system-ui,sans-serif;text-align:center;text-wrap:balance}' +
+    '@media print{.site-note,.to-top,.nav-shell,.resume-bar,.egg-toast,.dust-back,.tldr-panel{display:none !important}}' +
     '.me-portrait img{-webkit-touch-callout:none;-webkit-user-select:none;user-select:none}';
   var st = document.createElement('style'); st.textContent = css; document.head.appendChild(st);
 
@@ -265,6 +267,14 @@
     var r = t.getBoundingClientRect();
     toast('<b>Unexpected user behaviour · 05</b><p>You clicked a full stop. Interesting. Not enough data yet to say&nbsp;why.</p><small>n=1 · ' + n + (n === 1 ? ' page' : ' pages') + ' · ' + (secs < 60 ? secs + ' s' : Math.round(secs / 60) + ' min') + '. Look around a bit more, then try&nbsp;again.</small>', r.left + r.width / 2, r.top, 5200);
   }, true);
+
+  /* ── a one-line privacy note at the very bottom of every page ── */
+  (function () {
+    var n = document.createElement('p'); n.className = 'site-note';
+    n.textContent = 'No cookies, no ads. Anonymous visit stats by Vercel Analytics. Anything else stays in your browser.';
+    function put() { if (document.body && !n.parentNode) { document.body.appendChild(n); } }
+    put(); document.addEventListener('DOMContentLoaded', put);
+  })();
 
   /* ── Say hello constellations, site-wide: the mail star copies my address ── */
   document.addEventListener('click', function (e) {

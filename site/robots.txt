@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /api/
+Disallow: /off-the-map
+
+Sitemap: https://uxrsafaaelouafi.vercel.app/sitemap.xml

@@ -11,6 +11,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SRC = os.path.join(ROOT, 'project')
 OUT = os.path.join(ROOT, 'site')
 PDF = 'Safaa_El_Ouafi_Cover_Letter_Dust.pdf'
+RESUME_PDF = 'Safaa_El_Ouafi_Resume.pdf'  # made by scripts/build_resume_pdf.py (run it after editing the resume)
 EMAIL = 'safaa.elouafi.am@gmail.com'
 LINKEDIN = 'https://www.linkedin.com/in/safaa-el-ouafi/en/'
 SITE = 'https://uxrsafaaelouafi.vercel.app'
@@ -166,6 +167,8 @@ def site_fixes(name, d):
             drop_links(d['ast'], 'Back to timeline')
         if name == 'Resume':  # an A4 sheet: the navigation sits above it, the sheet scrolls sideways on a phone
             d['ast'] = [['div', {'style': 'max-width: 794px; margin: 0 auto; padding: 0 12px; box-sizing: content-box'}, [nav]],
+                        ['div', {'class': 'resume-bar', 'style': 'max-width: 794px; margin: 0 auto; padding: 4px 12px 14px; box-sizing: content-box; display: flex; justify-content: flex-end'},
+                         [['a', {'href': '/' + RESUME_PDF, 'download': RESUME_PDF, 'style': "display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 20px; border-radius: 999px; background: #3B5BB8; color: #FFFFFF; font-family: 'Figtree', sans-serif; font-size: 14px; font-weight: 700; text-decoration: none; white-space: nowrap"}, ['Download PDF']]]],
                         ['div', {'style': 'overflow-x: auto; padding: 0 12px 24px'}, [['div', {'style': 'width: 794px; margin: 0 auto; background: #FFFFFF'}, d['ast']]]]]
         elif not replace_first_nav(d['ast'], nav) and not (name == 'About' and replace_first_nav(d['ast'], nav, 'header')):
             print('no top nav in', name)
@@ -306,7 +309,7 @@ def main():
         os.makedirs(os.path.dirname(path), exist_ok=True)
         open(path, 'w', encoding='utf-8').write(page)
         count += 1
-    for asset in (PDF, 'og.png', 'og-dust.png'):
+    for asset in (PDF, RESUME_PDF, 'og.png', 'og-dust.png'):
         shutil.copy(os.path.join(ROOT, 'assets', asset), os.path.join(OUT, asset))
     shutil.copytree(os.path.join(ROOT, 'assets', 'photos'), os.path.join(OUT, 'photos'), dirs_exist_ok=True)
     shutil.copytree(os.path.join(ROOT, 'assets', 'audio'), os.path.join(OUT, 'audio'), dirs_exist_ok=True)
@@ -325,6 +328,13 @@ def main():
         shutil.copytree(uploads, os.path.join(OUT, 'uploads'), dirs_exist_ok=True)
         optimise(os.path.join(OUT, 'uploads'))
     shutil.copy(os.path.join(ROOT, 'assets', '404.html'), os.path.join(OUT, '404.html'))  # field notes on a missing page
+    # for search engines: every public page, not the Dust application pages, the admin or the hidden ones
+    public = sorted(r for n, r in routes.items() if n not in COMPONENTS and not n.startswith('Dust'))
+    open(os.path.join(OUT, 'sitemap.xml'), 'w', encoding='utf-8').write(
+        '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
+        ''.join('  <url><loc>%s</loc></url>\n' % (SITE + '/' + r if r else SITE + '/') for r in public) + '</urlset>\n')
+    open(os.path.join(OUT, 'robots.txt'), 'w', encoding='utf-8').write(
+        'User-agent: *\nAllow: /\nDisallow: /admin\nDisallow: /api/\nDisallow: /off-the-map\n\nSitemap: %s/sitemap.xml\n' % SITE)
     print('built', count, 'pages')
 
 
