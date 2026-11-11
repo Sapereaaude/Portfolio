@@ -89,7 +89,7 @@ a{color:#17171F}a:hover{color:#3B5BB8}
 
 <!-- HOME: DIFFERENT JOBS. SAME OBSESSION. -->
 <sc-if value="{{isHome}}" hint-placeholder-val="{{ true }}">
-<div style="display: flex; flex-direction: column; gap: clamp(56px, 8vw, 104px); padding: clamp(28px, 5vw, 64px) 0 20px">
+<div style="display: flex; flex-direction: column; gap: clamp(56px, 8vw, 104px); padding: clamp(28px, 5vw, 64px) 0 0">
 
 <header style="display: flex; flex-direction: column; gap: 22px">
 <p style="margin: 0; font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #4A4A57">User Experience Researcher · Paris</p>
@@ -154,7 +154,9 @@ a{color:#17171F}a:hover{color:#3B5BB8}
 </sc-if>
 </span><span style="color: #D13A28">.</span>
 </div>
-<p class="search-count" aria-live="polite" style="margin: 0; font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #4A4A57">{{resultCount}}<span class="search-suffix">{{resultSuffix}}</span></p>
+<div>
+<button type="button" onClick="{{go}}" style="min-height: 56px; padding: 0 28px; border: none; border-radius: 999px; background: {{accent}}; color: #FFFFFF; font-family: 'Figtree', sans-serif; font-size: 17px; font-weight: 700; cursor: pointer; display: inline-flex; align-items: center; gap: 10px; white-space: nowrap">Show me <svg aria-hidden="true" width="18" height="18" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11h15M12 5l6 6-6 6"></path></svg></button>
+</div>
 </section>
 </div>
 </sc-if>
@@ -959,13 +961,14 @@ a{color:#17171F}a:hover{color:#3B5BB8}
 class Component extends DCLogic {
 constructor(props) {
 super(props);
-this.state = { pick: null, screen: 'home', theme: 't1', persona: 'any', job: 'all', outcome: 'talk', phase: 'all', open: null, side: true, lb: null, slide: 0, locked: false, copied: false, hello: false, refer: false, cta: false, intro: false, pigeon: false };
-try { var saved = JSON.parse(window.localStorage.getItem('se-portfolio-v2') || 'null'); if (saved && saved.persona) { this.state = Object.assign(this.state, saved, { open: null, screen: 'home', pick: null }); } } catch (err) {}
+this.state = { pick: null, screen: 'home', theme: 't1', persona: 'hiring', job: 'all', picked: false, outcome: 'talk', phase: 'all', open: null, side: true, lb: null, slide: 0, locked: false, copied: false, hello: false, refer: false, cta: false, intro: false, pigeon: false };
+try { var saved = JSON.parse(window.localStorage.getItem('se-portfolio-v3') || 'null'); if (saved && saved.persona) { this.state = Object.assign(this.state, saved, { open: null, screen: 'home', pick: null }); } } catch (err) {}
 var fromHash = this.readHash();
 if (fromHash) { this.state = Object.assign(this.state, fromHash); }
 if (['home', 'results', 'theme', 'outside'].indexOf(this.state.screen) === -1) { this.state.screen = 'home'; }
 if (['t1', 't2', 't3'].indexOf(this.state.theme) === -1) { this.state.theme = 't1'; }
 this._viewKey = this.state.screen + '/' + this.state.theme;
+this._rot = [0, 1, 2, 3].map(function (i) { return [Math.random(), i]; }).sort(function (a, b) { return a[0] - b[0]; }).map(function (x) { return x[1]; });
 }
 readHash() {
 var map = { 'thinking': { screen: 'home', anchor: 'thinking' }, 'search': { screen: 'results' }, 'outside': { screen: 'outside' }, 'thinking-understand': { screen: 'theme', theme: 't1' }, 'thinking-knowledge': { screen: 'theme', theme: 't2' }, 'thinking-automate': { screen: 'theme', theme: 't3' } };
@@ -990,7 +993,7 @@ try { window.removeEventListener('hashchange', this.onHash); document.removeEven
 }
 componentDidUpdate(prevProps, prevState) {
 var st = this.state;
-try { window.localStorage.setItem('se-portfolio-v2', JSON.stringify({ screen: st.screen, theme: st.theme, persona: st.persona, job: st.job, outcome: st.outcome, phase: st.phase, side: !!st.side })); } catch (err) {}
+try { window.localStorage.setItem('se-portfolio-v3', JSON.stringify({ screen: st.screen, theme: st.theme, picked: !!st.picked, persona: st.persona, job: st.job, outcome: st.outcome, phase: st.phase, side: !!st.side })); } catch (err) {}
 try { var pop = document.getElementById('pick-pop'); if (pop) { pop.style.transform = ''; var pr = pop.getBoundingClientRect(); var over = pr.right - (window.innerWidth - 12); if (over > 0) { pop.style.transform = 'translateX(-' + Math.min(over, Math.max(0, pr.left - 12)) + 'px)'; } } } catch (err) {}
 var viewKey = st.screen + '/' + st.theme;
 if (this._viewKey !== viewKey) {
@@ -1035,7 +1038,9 @@ var outcomes = [
 
 /* PROJECT RECORDS: one canonical record per project. Themes and connections are curated below.
    TL;DR box in the search: add  tldr: true  to make a project eligible (as many as you like),
-   and optionally  tldrPriority: 1  (1 = highest) to break ties. Two at most are shown at once. */
+   and optionally  tldrPriority: 1  (1 = highest) to break ties. Two at most are shown at once.
+   Before the visitor picks anything, the box shows two of TLDR_ROTATION, drawn at random on each visit. */
+var TLDR_ROTATION = ['aiid', 'cassandre', 'mind', 'agents'];
 var items = [
 { id: 'workshops', pts: ['Created in 2011', 'For children, adults and companies', 'Funded with grants and private money'], vis: 'pot', meta: 'Founder · 2011', title: 'Cultural cooking workshops', q: 'Can cooking together bring cultures closer?', a: 'In 2011 I created a programme of intercultural cooking-and-culture workshops for children, adults and companies. I designed them, brought in cultural and food professionals, and wrote the business plans and funding applications.', jobs: ['side', 'built', 'career'], who: ['curious', 'founder', 'designer'], m: [], sc: [] },
 { id: 'bsf', pts: ['Volunteer', 'During my Algolia years'], vis: 'library', meta: 'Volunteering · 2019–21', title: 'Bibliothèques Sans Frontières', q: 'Giving time to libraries without borders.', a: 'Volunteer at Bibliothèques Sans Frontières while working at Algolia.', jobs: ['career', 'built'], who: ['curious', 'founder'], m: [], sc: [] },
@@ -1139,7 +1144,7 @@ options: opts.map(function (o) {
 var on = o.id === current.id;
 return { label: o.label, on: on,
 style: 'font-family: Anton, Impact, sans-serif; font-size: 18px; letter-spacing: 0.02em; line-height: 1.15; text-transform: uppercase; text-align: left; white-space: nowrap; min-height: 44px; padding: 10px 14px; border: none; border-radius: 10px; cursor: pointer;' + (on ? ' background: ' + accent + '; color: #FFFFFF;' : ' color: #17171F;'),
-pick: function () { var st = { pick: null }; st[key] = o.id; if (extra) { Object.assign(st, extra); } self.setState(st, refocus); } };
+pick: function () { var st = { pick: null }; st[key] = o.id; if (key !== 'outcome') { st.picked = true; } if (extra) { Object.assign(st, extra); } self.setState(st, refocus); } };
 })
 };
 }
@@ -1222,7 +1227,11 @@ return (org(a) === org(b) ? 1.5 : 0) + shared * 0.5 + (a.m[0] && a.m[0] === b.m[
 }
 var cand = byJob.filter(function (it) { return it.tldr === true; });
 cand.sort(function (a, b) { return (tier(a) - tier(b)) || (noFilter ? ((prio(a) - prio(b)) || (b._s - a._s)) : ((rel(b) - rel(a)) || (prio(a) - prio(b)) || (b._s - a._s))); });
-if (cand.length) {
+if (!s.picked) {
+/* nothing chosen yet: two of the four rotating highlights, a different pair from one visit to the next */
+var order = self._rot || [0, 1, 2, 3];
+tldr = order.map(function (i) { return byId[TLDR_ROTATION[i]]; }).filter(function (it) { return it && byJob.indexOf(it) !== -1; }).slice(0, 2);
+} else if (cand.length) {
 tldr.push(cand[0]);
 var rest = cand.slice(1);
 if (rest.length) {
@@ -1401,7 +1410,7 @@ onSlide: function (e) { var el = e.currentTarget || e.target; var k = Math.round
 accent: accent,
 grain: this.props.grain ?? true,
 isHome: isHome, isResults: isResults, isTheme: isTheme, isOutside: isOutside, isT3: isT3,
-showGrid: !isHome || results.length > 0, showGridBar: !isHome && !isResults, homeMore: homeMore, homeMoreLabel: homeMoreLabel, hasTldr: (isHome || isResults) && tldr.length > 0, tldrTitle: tldr.length > 1 ? 'If you only read two, make it these' : 'If you only read one, make it this',
+showGrid: !isHome, showGridBar: !isHome && !isResults, homeMore: homeMore, homeMoreLabel: homeMoreLabel, hasTldr: isResults && tldr.length > 0, tldrTitle: tldr.length > 1 ? 'If you only read two, make it these' : 'If you only read one, make it this',
 pkPersona: pkPersona, pkJob: pkJob, pkOutcome: pkOutcome,
 pickKey: function (e) { if (e.key === 'Escape' && self.state.pick) { var k = self.state.pick; self.setState({ pick: null }, function () { try { var b = document.querySelector('[data-pick="' + k + '"] .pick'); if (b) { b.focus(); } } catch (err) {} }); } },
 navItems: navItems, themeCards: themeCards, themeChips: themeChips,
