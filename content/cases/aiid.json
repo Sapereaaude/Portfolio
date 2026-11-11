@@ -149,6 +149,9 @@
     "meta": "Decathlon · 2025",
     "tldr": true,
     "tldrPriority": 5,
+    "rtype": [
+      "strategic"
+    ],
     "m": [
       "mixed"
     ],
