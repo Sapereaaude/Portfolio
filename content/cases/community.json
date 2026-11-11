@@ -1,14 +1,4 @@
 {
-  "id": "community",
-  "page_title": "One community, four cities",
-  "draft_banner": true,
-  "header": {
-    "eyebrow": "Decathlon · 2025",
-    "title": "One community, four cities",
-    "question": "How do ~20 researchers spread across four cities become a team?",
-    "background": "#EEF1FA",
-    "illustration": "<div aria-hidden=\"true\" style=\"flex: 0 1 300px; min-width: 200px; aspect-ratio: 196 / 150\">\n<svg sc-camel-view-box=\"44 8 196 150\" style=\"width: 100%; height: 100%; display: block\">\n<circle cx=\"166\" cy=\"76\" r=\"44\" fill=\"none\" stroke=\"#17171F\" stroke-width=\"1\" stroke-dasharray=\"3 5\"></circle>\n<text x=\"166\" y=\"94\" text-anchor=\"middle\" font-family=\"Anton, sans-serif\" font-size=\"52\" fill=\"#17171F\">#</text>\n<circle cx=\"166\" cy=\"32\" r=\"10\" fill=\"{{accent}}\"></circle><circle cx=\"210\" cy=\"76\" r=\"10\" fill=\"#D13A28\"></circle><circle cx=\"166\" cy=\"120\" r=\"10\" fill=\"#17171F\"></circle><circle cx=\"122\" cy=\"76\" r=\"10\" fill=\"{{accent}}\" opacity=\"0.5\"></circle>\n<circle cx=\"200\" cy=\"44\" r=\"5\" fill=\"#FFFFFF\" stroke=\"#17171F\"></circle>\n</svg>\n</div>\n"
-  },
   "facts": [
     {
       "label": "Role",
@@ -27,9 +17,16 @@
       "value": "User research & ResearchOps"
     }
   ],
+  "page_title": "One community, four cities",
   "threads": true,
-  "before_main": "\n",
-  "decisions": true,
+  "draft_banner": true,
+  "header": {
+    "eyebrow": "Decathlon · 2025",
+    "title": "Building a community across cities and teams",
+    "question": "How do ~20 scattered researchers become a team? And why I really care about it.",
+    "background": "#EEF1FA",
+    "illustration": "<div aria-hidden=\"true\" style=\"flex: 0 1 300px; min-width: 200px; aspect-ratio: 196 / 150\">\n<svg sc-camel-view-box=\"44 8 196 150\" style=\"width: 100%; height: 100%; display: block\">\n<circle cx=\"166\" cy=\"76\" r=\"44\" fill=\"none\" stroke=\"#17171F\" stroke-width=\"1\" stroke-dasharray=\"3 5\"></circle>\n<text x=\"166\" y=\"94\" text-anchor=\"middle\" font-family=\"Anton, sans-serif\" font-size=\"52\" fill=\"#17171F\">#</text>\n<circle cx=\"166\" cy=\"32\" r=\"10\" fill=\"{{accent}}\"></circle><circle cx=\"210\" cy=\"76\" r=\"10\" fill=\"#D13A28\"></circle><circle cx=\"166\" cy=\"120\" r=\"10\" fill=\"#17171F\"></circle><circle cx=\"122\" cy=\"76\" r=\"10\" fill=\"{{accent}}\" opacity=\"0.5\"></circle>\n<circle cx=\"200\" cy=\"44\" r=\"5\" fill=\"#FFFFFF\" stroke=\"#17171F\"></circle>\n</svg>\n</div>\n"
+  },
   "sections": [
     {
       "title": "The context",
@@ -138,7 +135,31 @@
       ]
     }
   ],
+  "card": {
+    "vis": "channel",
+    "a": "A shared space, an AI-for-UXR toolkit, a first in-person day, and UX Therapy, a weekly ritual with the designers.",
+    "meta": "Decathlon · 2025",
+    "m": [],
+    "pts": [
+      "~20 researchers, 4 cities",
+      "An AI-for-UXR toolkit",
+      "UX Therapy, a weekly ritual"
+    ],
+    "sc": [],
+    "q": "How do ~20 researchers spread across four cities become a team?",
+    "jobs": [
+      "built",
+      "research"
+    ],
+    "title": "One community, four cities",
+    "who": [
+      "researcher",
+      "hiring",
+      "designer"
+    ]
+  },
   "after_sections": "",
+  "behind_decisions": [],
   "prev": {
     "id": "swiss",
     "label": "The ten-question Swiss knife",
@@ -149,28 +170,7 @@
     "label": "Superpowers Directory",
     "follow_title": false
   },
-  "card": {
-    "pts": [
-      "~20 researchers, 4 cities",
-      "An AI-for-UXR toolkit",
-      "UX Therapy, a weekly ritual"
-    ],
-    "vis": "channel",
-    "meta": "Decathlon · 2025",
-    "title": "One community, four cities",
-    "q": "How do ~20 researchers spread across four cities become a team?",
-    "a": "A shared space, an AI-for-UXR toolkit, a first in-person day, and UX Therapy, a weekly ritual with the designers.",
-    "jobs": [
-      "built",
-      "research"
-    ],
-    "who": [
-      "researcher",
-      "hiring",
-      "designer"
-    ],
-    "m": [],
-    "sc": []
-  },
-  "behind_decisions": []
+  "decisions": true,
+  "before_main": "\n",
+  "id": "community"
 }
