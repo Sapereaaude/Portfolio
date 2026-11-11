@@ -21,14 +21,15 @@ h1{margin:clamp(28px,5vw,56px) 0 0;font-family:Anton,Impact,sans-serif;font-weig
 h1 span{color:#D13A28}
 .sub{margin:14px 0 0;max-width:760px;text-wrap:balance;font-family:Newsreader,Georgia,serif;font-style:italic;font-size:clamp(20px,2.4vw,28px);line-height:1.3;text-wrap:pretty}
 .map{position:relative;margin:clamp(12px,3vw,32px) 0 0}
-@media (max-width:760px){.map{margin-left:calc(-1 * clamp(20px,4vw,56px));margin-right:calc(-1 * clamp(20px,4vw,56px));overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}.map::-webkit-scrollbar{display:none}.wrap .map > svg{width:900px;max-width:none}}
 .hint{display:none;margin:6px 0 0;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#4A4A57}
 @media (max-width:760px){.hint{display:block}}
-.map svg{cursor:grab;touch-action:pan-x pan-y}.map svg.grabbing{cursor:grabbing}
+.map svg{cursor:grab;touch-action:pan-y}.map svg.grabbing{cursor:grabbing}
 .zoom{position:absolute;right:0;top:0;display:flex;gap:6px;z-index:2}
+.map > svg{touch-action:pan-y}
 .zoom button{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;padding:0;border:1px solid #D5D7E0;border-radius:50%;background:#FFFFFF;color:#17171F;font:700 16px/1 Figtree,sans-serif;cursor:pointer;transition:border-color .15s ease}
 .zoom button:hover{border-color:#17171F}.zoom button[disabled]{opacity:.4;cursor:default}
-@media (max-width:760px){.zoom,.pinch{display:none}}
+@media (hover:none){.pinch .desk{display:none}}@media (hover:hover){.pinch .touch{display:none}}
+.map{padding-top:44px}
 .legend{display:flex;flex-wrap:wrap;align-items:center;gap:10px 24px;margin:18px 0 0;padding:0;list-style:none;font-size:13px;font-weight:600;color:#4A4A57}
 .pinch{margin:8px 0 0;font-size:12px;color:#4A4A57}
 .legend li{display:inline-flex;align-items:center;gap:8px;white-space:nowrap}
@@ -70,9 +71,8 @@ h1 span{color:#D13A28}
 <h1>Off the map<span>.</span></h1>
 <p class="sub">Where I’ve been, and where I’d like to go next.</p>
 <div class="map" id="map" role="img" aria-label="An isometric dot map of the world. The countries I have been to are blue; the ones I am going to are pale red: Mexico, Argentina, eastern Canada, Iceland, Nepal, New Zealand, Benin, Algeria, Senegal, Côte d’Ivoire, Iran, Cuba, Japan, Cambodia, Laos and Georgia."></div>
-<p class="hint" aria-hidden="true">← Swipe the map →</p>
 <ul class="legend"><li><i class="land"></i>Countries I’ve been to</li><li><i class="land wishland"></i>Countries I’m going to</li></ul>
-<p class="pinch">Pinch or ⌘ + scroll to zoom, drag to move.</p>
+<p class="pinch"><span class="desk">Pinch or ⌘ + scroll to zoom, drag to move.</span><span class="touch">Pinch to zoom, drag to move, tap a pin.</span></p>
 <aside class="uub" aria-label="Unexpected user behaviour 03"><span>Unexpected user behaviour · 03</span><p class="uub-1">You’re one of the 0.01% who click on icons.</p><p class="uub-2">Or you know how easter eggs work. Can you find the other&nbsp;one?</p></aside>
 </div>
 <script src="/off-the-map/dots.js"></script>
@@ -152,16 +152,17 @@ h1 span{color:#D13A28}
   svg.removeAttribute('aria-hidden'); svg.setAttribute('role', 'img'); svg.setAttribute('aria-label', box.getAttribute('aria-label'));
   box.removeAttribute('role'); box.removeAttribute('aria-label');
   box.appendChild(svg);
-  requestAnimationFrame(function () { var f = fromLonLat(60, 35); if (box.scrollWidth > box.clientWidth) { box.scrollLeft = (+sx(f[0])) / W * box.scrollWidth - box.clientWidth / 2; } });
 
   /* ── zoom: trackpad pinch (or ⌘/Ctrl + scroll) zooms where the pointer is; drag to move; double-click zooms in ── */
-  var MAXZ = 6, vb = { x: 0, y: 0, w: W, h: H };
+  var PHONE = window.matchMedia('(max-width: 760px)').matches;
+  var MAXZ = PHONE ? 10 : 6, AR = PHONE ? 1.05 : W / H, vb = { x: 0, y: 0, w: W, h: W / AR };  // on a phone the frame is almost square
   var zoomUI = document.createElement('div'); zoomUI.className = 'zoom';
   zoomUI.innerHTML = '<button type="button" data-z="in" aria-label="Zoom in">+</button><button type="button" data-z="out" aria-label="Zoom out">−</button><button type="button" data-z="reset" aria-label="Show the whole map">⟲</button>';
   box.appendChild(zoomUI);
   function clamp() {
-    vb.w = Math.min(W, Math.max(W / MAXZ, vb.w)); vb.h = vb.w * H / W;
-    vb.x = Math.min(W - vb.w, Math.max(0, vb.x)); vb.y = Math.min(H - vb.h, Math.max(0, vb.y));
+    vb.w = Math.min(W, Math.max(W / MAXZ, vb.w)); vb.h = vb.w / AR;
+    vb.x = Math.min(W - vb.w, Math.max(0, vb.x));
+    vb.y = vb.h >= H ? (H - vb.h) / 2 : Math.min(H - vb.h, Math.max(0, vb.y));  // taller than the map: keep it centred
   }
   function apply() {
     clamp();
@@ -237,7 +238,8 @@ h1 span{color:#D13A28}
   });
   svg.appendChild(pinLayer);
   function placePins() {
-    var k = Math.pow(W / vb.w, -0.75);  // pins grow a little when zoomed, not as much as the land
+    var wpx = svg.getBoundingClientRect().width || 1, z = W / vb.w;
+    var k = (PHONE ? 3.3 : 4.2) * Math.pow(z, PHONE ? 0.3 : 0.22) * vb.w / wpx / 5.5;  // pin heads keep a finger-friendly size on screen, whatever the zoom
     pins.forEach(function (p) { p.inner.setAttribute('transform', 'translate(' + p.x + ' ' + p.y + ') scale(' + k.toFixed(3) + ')'); });
   }
 
@@ -266,6 +268,7 @@ h1 span{color:#D13A28}
     p.el.addEventListener('click', function (e) {
       e.stopPropagation();
       if (down && Math.abs(e.clientX - down.x) + Math.abs(e.clientY - down.y) > 6) { return; }
+      if (Date.now() - lastTap < 700) { return; }  // already opened by the tap
       showTip(p);
     });
     p.el.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); showTip(p); } });
@@ -275,8 +278,53 @@ h1 span{color:#D13A28}
   ['wheel', 'gesturechange'].forEach(function (t) { svg.addEventListener(t, hideTip); });
   box.addEventListener('scroll', hideTip, { passive: true });
 
+  /* ── touch: two fingers pinch the map (not the page), one finger moves it once zoomed, a tap opens a pin ── */
+  var touch = null, lastTap = 0;
+  function mid(t) { return { x: (t[0].clientX + t[1].clientX) / 2, y: (t[0].clientY + t[1].clientY) / 2, d: Math.hypot(t[0].clientX - t[1].clientX, t[0].clientY - t[1].clientY) }; }
+  svg.addEventListener('touchstart', function (e) {
+    if (e.touches.length === 2) { e.preventDefault(); var m = mid(e.touches); touch = { pinch: true, d: m.d, moved: true }; hideTip(); return; }
+    if (e.touches.length === 1) { var t = e.touches[0]; touch = { x: t.clientX, y: t.clientY, vx: vb.x, vy: vb.y, moved: false, zoomed: W / vb.w > 1.001 }; }
+  }, { passive: false });
+  svg.addEventListener('touchmove', function (e) {
+    if (!touch) { return; }
+    if (e.touches.length === 2) {
+      e.preventDefault();
+      var m = mid(e.touches);
+      if (!touch.pinch) { touch = { pinch: true, d: m.d, moved: true }; }
+      zoomAt(m.d / touch.d, m.x, m.y); touch.d = m.d; return;
+    }
+    if (touch.pinch || e.touches.length !== 1) { return; }
+    var t = e.touches[0], dx = t.clientX - touch.x, dy = t.clientY - touch.y;
+    if (Math.abs(dx) + Math.abs(dy) > 6) { touch.moved = true; }
+    if (!touch.zoomed) { return; }  // not zoomed: the finger scrolls the page as usual
+    e.preventDefault(); hideTip();
+    var r = svg.getBoundingClientRect();
+    vb.x = touch.vx - dx / r.width * vb.w; vb.y = touch.vy - dy / r.height * vb.h; apply();
+  }, { passive: false });
+  svg.addEventListener('touchend', function (e) {
+    if (!touch) { return; }
+    var tapped = !touch.moved && !touch.pinch && e.changedTouches.length === 1;
+    if (e.touches.length === 0) { touch = null; }
+    if (!tapped) { return; }
+    var c = e.changedTouches[0], el = document.elementFromPoint(c.clientX, c.clientY), pin = el && el.closest && el.closest('.pin');
+    var now = Date.now();
+    if (pin) {
+      e.preventDefault(); lastTap = now;
+      for (var i = 0; i < pins.length; i++) { if (pins[i].el === pin) { showTip(pins[i]); break; } }
+      return;
+    }
+    hideTip();
+  });
+  svg.addEventListener('dblclick', function (e) { e.preventDefault(); });
+
   apply();
+  window.addEventListener('resize', apply);
+  if (PHONE) {  // on a phone, start closer, on Europe → Asia
+    var f = fromLonLat(58, 30);
+    vb.w = H * AR * 1.15; clamp(); vb.x = (+sx(f[0])) - vb.w / 2; vb.y = (+sy(f[1])) - vb.h / 2; apply();
+  }
 })();
 </script>
+<script src="/eggs.js"></script>
 </body>
 </html>

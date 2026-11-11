@@ -238,7 +238,15 @@
       '@media (max-width: 700px){#page-top>span,nav#top>span,nav#top>div{flex-wrap:nowrap !important;overflow-x:auto;scrollbar-width:none;max-width:100%;padding-bottom:2px}#page-top>span::-webkit-scrollbar,nav#top>span::-webkit-scrollbar,nav#top>div::-webkit-scrollbar{display:none}#page-top>span>*,nav#top>span>*,nav#top>div>*{flex:none}}',
       '.to-top{position:fixed;right:16px;bottom:16px;z-index:80;display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:50%;border:1px solid #17171F;background:#FFFFFF;color:#17171F;cursor:pointer;box-shadow:0 8px 24px rgba(23,23,31,.18);opacity:0;transform:translateY(12px);pointer-events:none;transition:opacity .2s ease,transform .2s ease}',
       '.to-top.on{opacity:1;transform:none;pointer-events:auto}',
-      '@media (prefers-reduced-motion: reduce){.to-top{transition:none}}'
+      '@media (prefers-reduced-motion: reduce){.to-top{transition:none}}',
+      /* phone: the menu scrolls sideways; fade the edge that hides more, and show a small arrow */
+      '.nav-row.more-r{-webkit-mask-image:linear-gradient(to right,#000 calc(100% - 72px),transparent calc(100% - 28px));mask-image:linear-gradient(to right,#000 calc(100% - 72px),transparent calc(100% - 28px))}',
+      '.nav-row.more-l{-webkit-mask-image:linear-gradient(to right,transparent,#000 36px);mask-image:linear-gradient(to right,transparent,#000 36px)}',
+      '.nav-row.more-l.more-r{-webkit-mask-image:linear-gradient(to right,transparent,#000 36px,#000 calc(100% - 72px),transparent calc(100% - 28px));mask-image:linear-gradient(to right,transparent,#000 36px,#000 calc(100% - 72px),transparent calc(100% - 28px))}',
+      '.nav-more{position:absolute;z-index:2;right:0;display:none;align-items:center;justify-content:center;width:32px;height:32px;padding:0;border:1px solid #17171F;border-radius:50%;background:#FFFFFF;color:#17171F;cursor:pointer;animation:navNudge 1.6s ease-in-out 1s 3}',
+      '.nav-more.on{display:inline-flex}',
+      '@keyframes navNudge{0%,100%{transform:none}50%{transform:translateX(4px)}}',
+      '@media (prefers-reduced-motion: reduce){.nav-more{animation:none}}'
     ].join('\n');
     var st = document.createElement('style'); st.textContent = css; document.head.appendChild(st);
     function navH() {
@@ -248,6 +256,34 @@
       document.documentElement.style.setProperty('--tl-h', (t ? t.offsetHeight : 0) + 'px');
     }
     window.addEventListener('resize', navH);
+    /* the sideways menu on a phone: is there more to the right or the left? */
+    function navMore() {
+      var row = document.querySelector('#page-top>span,nav#top>span,nav#top>div');
+      var old = document.querySelector('.nav-more');
+      if (!row) { if (old) { old.classList.remove('on'); } return; }
+      var nav = row.parentNode, over = row.scrollWidth - row.clientWidth > 4;
+      row.classList.add('nav-row');
+      row.classList.toggle('more-r', over && row.scrollLeft < row.scrollWidth - row.clientWidth - 4);
+      row.classList.toggle('more-l', over && row.scrollLeft > 4);
+      var btn = nav.querySelector('.nav-more');
+      if (!btn) {
+        if (old) { old.remove(); }
+        btn = document.createElement('button');
+        btn.type = 'button'; btn.className = 'nav-more'; btn.setAttribute('aria-label', 'More sections');
+        btn.innerHTML = '<svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"></path></svg>';
+        btn.addEventListener('click', function () {
+          var r = document.querySelector('.nav-row'); if (!r) { return; }
+          var smooth = !(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+          r.scrollBy({ left: Math.max(140, r.clientWidth * 0.6), behavior: smooth ? 'smooth' : 'auto' });
+        });
+        nav.appendChild(btn);
+      }
+      btn.classList.toggle('on', row.classList.contains('more-r'));
+      btn.style.top = (row.offsetTop + (row.offsetHeight - 32) / 2) + 'px';
+    }
+    document.addEventListener('scroll', function (e) { if (e.target && e.target.classList && e.target.classList.contains('nav-row')) { navMore(); } }, true);
+    window.addEventListener('resize', navMore);
+    setInterval(navMore, 700);  // the navbar is redrawn with the page
     var b = document.createElement('button');
     b.type = 'button'; b.className = 'to-top'; b.setAttribute('aria-label', 'Back to top');
     b.innerHTML = '<svg aria-hidden="true" width="20" height="20" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M11 18V4M5 10l6-6 6 6"></path></svg>';

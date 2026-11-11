@@ -214,6 +214,7 @@ a[aria-current="page"]:hover{{color:#FFFFFF}}
 <script src="/tldr-episode.js"></script>
 <script src="/tldr.js"></script>
 <script src="/home-motion.js"></script>
+<script src="/eggs.js"></script>
 <script src="/dc.js"></script>
 </body>
 </html>
@@ -310,6 +311,7 @@ def main():
     shutil.copytree(os.path.join(ROOT, 'assets', 'tools'), os.path.join(OUT, 'tools'), dirs_exist_ok=True)
     shutil.copy(os.path.join(ROOT, 'assets', 'tldr.js'), os.path.join(OUT, 'tldr.js'))
     shutil.copy(os.path.join(ROOT, 'assets', 'home-motion.js'), os.path.join(OUT, 'home-motion.js'))
+    shutil.copy(os.path.join(ROOT, 'assets', 'eggs.js'), os.path.join(OUT, 'eggs.js'))
     # hidden page behind the paper plane on About (no link elsewhere, not indexed)
     shutil.copytree(os.path.join(ROOT, 'assets', 'places'), os.path.join(OUT, 'off-the-map'), dirs_exist_ok=True)
     shutil.copy(os.path.join(ROOT, 'assets', 'tldr-episode.js'), os.path.join(OUT, 'tldr-episode.js'))
