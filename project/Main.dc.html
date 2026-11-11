@@ -89,7 +89,7 @@ a{color:#17171F}a:hover{color:#3B5BB8}
 
 <!-- HOME: DIFFERENT JOBS. SAME OBSESSION. -->
 <sc-if value="{{isHome}}" hint-placeholder-val="{{ true }}">
-<div style="display: flex; flex-direction: column; gap: clamp(56px, 8vw, 104px); padding: clamp(28px, 5vw, 64px) 0 clamp(40px, 6vw, 72px)">
+<div style="display: flex; flex-direction: column; gap: clamp(56px, 8vw, 104px); padding: clamp(28px, 5vw, 64px) 0 20px">
 
 <header style="display: flex; flex-direction: column; gap: 22px">
 <p style="margin: 0; font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #4A4A57">User Experience Researcher · Paris</p>
@@ -128,8 +128,7 @@ a{color:#17171F}a:hover{color:#3B5BB8}
 <div style="font-family: 'Anton', Impact, sans-serif; font-size: clamp(26px, 4.4vw, 60px); line-height: 1.24; text-transform: uppercase; display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 0.28em; max-width: 1180px">
 <span style="white-space: nowrap">I am a</span>
 <span data-pick="persona" onKeyDown="{{pickKey}}" style="position: relative; display: inline-flex; align-items: center; max-width: 100%">
-<button type="button" class="pick" aria-haspopup="listbox" aria-expanded="{{pkPersona.open}}" aria-label="{{pkPersona.aria}}" onClick="{{pkPersona.toggle}}" style="font: inherit; text-transform: inherit; text-align: left; color: {{accent}}; background: transparent; border: none; border-bottom: 3px solid {{accent}}; border-radius: 0; padding: 0 0.6em 0 0; margin: 0; cursor: pointer; line-height: 1.1; max-width: 100%">{{pkPersona.label}}</button>
-<svg aria-hidden="true" width="0.4em" height="0.4em" viewBox="0 0 10 10" style="position: absolute; right: 0.05em; pointer-events: none"><path d="M1 3 L5 7 L9 3" fill="none" stroke="{{accent}}" stroke-width="1.8"></path></svg>
+<button type="button" class="pick" aria-haspopup="listbox" aria-expanded="{{pkPersona.open}}" aria-label="{{pkPersona.aria}}" onClick="{{pkPersona.toggle}}" style="font: inherit; text-transform: inherit; text-align: left; color: {{accent}}; background: transparent; border: none; border-radius: 0; padding: 0; text-decoration: underline; text-decoration-color: {{accent}}; text-decoration-thickness: 3px; text-underline-offset: 0.12em; text-decoration-skip-ink: none; margin: 0; cursor: pointer; line-height: inherit; max-width: 100%">{{pkPersona.head}}<span style="white-space: nowrap">{{pkPersona.last}}<svg aria-hidden="true" width="0.4em" height="0.4em" viewBox="0 0 10 10" style="display: inline-block; margin-left: 0.14em; vertical-align: 0.1em; pointer-events: none"><path d="M1 3 L5 7 L9 3" fill="none" stroke="{{accent}}" stroke-width="1.8"></path></svg></span></button>
 <sc-if value="{{pkPersona.open}}" hint-placeholder-val="{{ false }}">
 <span id="pick-pop" role="listbox" aria-label="I am a" style="position: absolute; top: calc(100% + 10px); left: 0; z-index: 20; display: flex; flex-direction: column; gap: 2px; padding: 8px; border-radius: 16px; border: 1.5px solid #17171F; background: #FFFFFF; box-shadow: 0 18px 40px rgba(23, 23, 31, 0.18)">
 <sc-for list="{{pkPersona.options}}" as="o" hint-placeholder-count="5"><button type="button" class="pick-opt" role="option" aria-selected="{{o.on}}" onClick="{{o.pick}}" style="{{o.style}}">{{o.label}}</button></sc-for>
@@ -138,8 +137,7 @@ a{color:#17171F}a:hover{color:#3B5BB8}
 </span>
 <span style="white-space: nowrap">and I want to</span>
 <span data-pick="job" onKeyDown="{{pickKey}}" style="position: relative; display: inline-flex; align-items: center; max-width: 100%">
-<button type="button" class="pick" aria-haspopup="listbox" aria-expanded="{{pkJob.open}}" aria-label="{{pkJob.aria}}" onClick="{{pkJob.toggle}}" style="font: inherit; text-transform: inherit; text-align: left; color: {{accent}}; background: transparent; border: none; border-bottom: 3px solid {{accent}}; border-radius: 0; padding: 0 0.6em 0 0; margin: 0; cursor: pointer; line-height: 1.1; max-width: 100%">{{pkJob.label}}</button>
-<svg aria-hidden="true" width="0.4em" height="0.4em" viewBox="0 0 10 10" style="position: absolute; right: 0.05em; pointer-events: none"><path d="M1 3 L5 7 L9 3" fill="none" stroke="{{accent}}" stroke-width="1.8"></path></svg>
+<button type="button" class="pick" aria-haspopup="listbox" aria-expanded="{{pkJob.open}}" aria-label="{{pkJob.aria}}" onClick="{{pkJob.toggle}}" style="font: inherit; text-transform: inherit; text-align: left; color: {{accent}}; background: transparent; border: none; border-radius: 0; padding: 0; text-decoration: underline; text-decoration-color: {{accent}}; text-decoration-thickness: 3px; text-underline-offset: 0.12em; text-decoration-skip-ink: none; margin: 0; cursor: pointer; line-height: inherit; max-width: 100%">{{pkJob.head}}<span style="white-space: nowrap">{{pkJob.last}}<svg aria-hidden="true" width="0.4em" height="0.4em" viewBox="0 0 10 10" style="display: inline-block; margin-left: 0.14em; vertical-align: 0.1em; pointer-events: none"><path d="M1 3 L5 7 L9 3" fill="none" stroke="{{accent}}" stroke-width="1.8"></path></svg></span></button>
 <sc-if value="{{pkJob.open}}" hint-placeholder-val="{{ false }}">
 <span id="pick-pop" role="listbox" aria-label="I want to" style="position: absolute; top: calc(100% + 10px); left: 0; z-index: 20; display: flex; flex-direction: column; gap: 2px; padding: 8px; border-radius: 16px; border: 1.5px solid #17171F; background: #FFFFFF; box-shadow: 0 18px 40px rgba(23, 23, 31, 0.18)">
 <sc-for list="{{pkJob.options}}" as="o" hint-placeholder-count="5"><button type="button" class="pick-opt" role="option" aria-selected="{{o.on}}" onClick="{{o.pick}}" style="{{o.style}}">{{o.label}}</button></sc-for>
@@ -148,8 +146,7 @@ a{color:#17171F}a:hover{color:#3B5BB8}
 </span>
 <span style="white-space: nowrap">so that I can</span>
 <span data-pick="outcome" onKeyDown="{{pickKey}}" style="position: relative; display: inline-flex; align-items: center; max-width: 100%">
-<button type="button" class="pick" aria-haspopup="listbox" aria-expanded="{{pkOutcome.open}}" aria-label="{{pkOutcome.aria}}" onClick="{{pkOutcome.toggle}}" style="font: inherit; text-transform: inherit; text-align: left; color: {{accent}}; background: transparent; border: none; border-bottom: 3px solid {{accent}}; border-radius: 0; padding: 0 0.6em 0 0; margin: 0; cursor: pointer; line-height: 1.1; max-width: 100%">{{pkOutcome.label}}</button>
-<svg aria-hidden="true" width="0.4em" height="0.4em" viewBox="0 0 10 10" style="position: absolute; right: 0.05em; pointer-events: none"><path d="M1 3 L5 7 L9 3" fill="none" stroke="{{accent}}" stroke-width="1.8"></path></svg>
+<button type="button" class="pick" aria-haspopup="listbox" aria-expanded="{{pkOutcome.open}}" aria-label="{{pkOutcome.aria}}" onClick="{{pkOutcome.toggle}}" style="font: inherit; text-transform: inherit; text-align: left; color: {{accent}}; background: transparent; border: none; border-radius: 0; padding: 0; text-decoration: underline; text-decoration-color: {{accent}}; text-decoration-thickness: 3px; text-underline-offset: 0.12em; text-decoration-skip-ink: none; margin: 0; cursor: pointer; line-height: inherit; max-width: 100%">{{pkOutcome.head}}<span style="white-space: nowrap">{{pkOutcome.last}}<svg aria-hidden="true" width="0.4em" height="0.4em" viewBox="0 0 10 10" style="display: inline-block; margin-left: 0.14em; vertical-align: 0.1em; pointer-events: none"><path d="M1 3 L5 7 L9 3" fill="none" stroke="{{accent}}" stroke-width="1.8"></path></svg></span></button>
 <sc-if value="{{pkOutcome.open}}" hint-placeholder-val="{{ false }}">
 <span id="pick-pop" role="listbox" aria-label="So that I can" style="position: absolute; top: calc(100% + 10px); left: 0; z-index: 20; display: flex; flex-direction: column; gap: 2px; padding: 8px; border-radius: 16px; border: 1.5px solid #17171F; background: #FFFFFF; box-shadow: 0 18px 40px rgba(23, 23, 31, 0.18)">
 <sc-for list="{{pkOutcome.options}}" as="o" hint-placeholder-count="5"><button type="button" class="pick-opt" role="option" aria-selected="{{o.on}}" onClick="{{o.pick}}" style="{{o.style}}">{{o.label}}</button></sc-for>
@@ -157,20 +154,8 @@ a{color:#17171F}a:hover{color:#3B5BB8}
 </sc-if>
 </span><span style="color: #D13A28">.</span>
 </div>
-<div>
-<button type="button" onClick="{{go}}" style="min-height: 56px; padding: 0 28px; border: none; border-radius: 999px; background: {{accent}}; color: #FFFFFF; font-family: 'Figtree', sans-serif; font-size: 17px; font-weight: 700; cursor: pointer; display: inline-flex; align-items: center; gap: 10px; white-space: nowrap">Show me <svg aria-hidden="true" width="18" height="18" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11h15M12 5l6 6-6 6"></path></svg></button>
-</div>
+<p class="search-count" aria-live="polite" style="margin: 0; font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #4A4A57">{{resultCount}}<span class="search-suffix">{{resultSuffix}}</span></p>
 </section>
-
-<section aria-labelledby="h-outside" style="display: flex; flex-direction: column; gap: 20px">
-<h2 id="h-outside" style="margin: 0; font-family: 'Anton', Impact, sans-serif; font-weight: 400; font-size: clamp(26px, 3.2vw, 40px); line-height: 1.05; text-transform: uppercase; text-wrap: balance">Or get to know me</h2>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 16px">
-<a href="About.dc.html" class="thread-card" style="display: flex; flex-direction: column; gap: 10px; text-align: left; padding: 22px 22px 20px; border-radius: 20px; border: 1px solid #D5D7E0; background: #FFFFFF; color: #17171F; cursor: pointer; font-family: 'Figtree', sans-serif; text-decoration: none"><span style="font-family: 'Anton', Impact, sans-serif; font-size: clamp(24px, 2.2vw, 30px); line-height: 1.08; text-transform: uppercase; white-space: nowrap">As a colleague</span><span style="font-family: 'Newsreader', Georgia, serif; font-style: italic; font-size: 19px; line-height: 1.3; text-wrap: pretty">How I work, and what I bring to a team.</span><span style="margin-top: auto; padding-top: 6px; display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 700; color: {{accent}}">About me <svg aria-hidden="true" width="18" height="18" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11h14M12 5l6 6-6 6"></path></svg></span></a>
-<button type="button" class="thread-card" onClick="{{goOutside}}" style="display: flex; flex-direction: column; gap: 10px; text-align: left; padding: 22px 22px 20px; border-radius: 20px; border: 1px solid #D5D7E0; background: #FFFFFF; color: #17171F; cursor: pointer; font-family: 'Figtree', sans-serif; text-decoration: none"><span style="font-family: 'Anton', Impact, sans-serif; font-size: clamp(24px, 2.2vw, 30px); line-height: 1.08; text-transform: uppercase; white-space: nowrap">As a person</span><span style="font-family: 'Newsreader', Georgia, serif; font-style: italic; font-size: 19px; line-height: 1.3; text-wrap: pretty">(I promise I’m not that weird.)</span><span style="margin-top: auto; padding-top: 6px; display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 700; color: {{accent}}">Off the clock <svg aria-hidden="true" width="18" height="18" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11h14M12 5l6 6-6 6"></path></svg></span></button>
-</div>
-</section>
-
-
 </div>
 </sc-if>
 
@@ -184,8 +169,7 @@ a{color:#17171F}a:hover{color:#3B5BB8}
 <div class="search-sentence" style="font-family: 'Anton', Impact, sans-serif; font-size: clamp(24px, 3.2vw, 44px); line-height: 1.3; text-transform: uppercase; display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 0.28em; max-width: 1180px; margin-top: 8px">
 <span style="white-space: nowrap">I am a</span>
 <span data-pick="persona" onKeyDown="{{pickKey}}" style="position: relative; display: inline-flex; align-items: center; max-width: 100%">
-<button type="button" class="pick" aria-haspopup="listbox" aria-expanded="{{pkPersona.open}}" aria-label="{{pkPersona.aria}}" onClick="{{pkPersona.toggle}}" style="font: inherit; text-transform: inherit; text-align: left; color: {{accent}}; background: transparent; border: none; border-bottom: 3px solid {{accent}}; border-radius: 0; padding: 0 0.6em 0 0; margin: 0; cursor: pointer; line-height: 1.1; max-width: 100%">{{pkPersona.label}}</button>
-<svg aria-hidden="true" width="0.4em" height="0.4em" viewBox="0 0 10 10" style="position: absolute; right: 0.05em; pointer-events: none"><path d="M1 3 L5 7 L9 3" fill="none" stroke="{{accent}}" stroke-width="1.8"></path></svg>
+<button type="button" class="pick" aria-haspopup="listbox" aria-expanded="{{pkPersona.open}}" aria-label="{{pkPersona.aria}}" onClick="{{pkPersona.toggle}}" style="font: inherit; text-transform: inherit; text-align: left; color: {{accent}}; background: transparent; border: none; border-radius: 0; padding: 0; text-decoration: underline; text-decoration-color: {{accent}}; text-decoration-thickness: 3px; text-underline-offset: 0.12em; text-decoration-skip-ink: none; margin: 0; cursor: pointer; line-height: inherit; max-width: 100%">{{pkPersona.head}}<span style="white-space: nowrap">{{pkPersona.last}}<svg aria-hidden="true" width="0.4em" height="0.4em" viewBox="0 0 10 10" style="display: inline-block; margin-left: 0.14em; vertical-align: 0.1em; pointer-events: none"><path d="M1 3 L5 7 L9 3" fill="none" stroke="{{accent}}" stroke-width="1.8"></path></svg></span></button>
 <sc-if value="{{pkPersona.open}}" hint-placeholder-val="{{ false }}">
 <span id="pick-pop" role="listbox" aria-label="I am a (change)" style="position: absolute; top: calc(100% + 10px); left: 0; z-index: 20; display: flex; flex-direction: column; gap: 2px; padding: 8px; border-radius: 16px; border: 1.5px solid #17171F; background: #FFFFFF; box-shadow: 0 18px 40px rgba(23, 23, 31, 0.18)">
 <sc-for list="{{pkPersona.options}}" as="o" hint-placeholder-count="5"><button type="button" class="pick-opt" role="option" aria-selected="{{o.on}}" onClick="{{o.pick}}" style="{{o.style}}">{{o.label}}</button></sc-for>
@@ -194,8 +178,7 @@ a{color:#17171F}a:hover{color:#3B5BB8}
 </span>
 <span style="white-space: nowrap">and I want to</span>
 <span data-pick="job" onKeyDown="{{pickKey}}" style="position: relative; display: inline-flex; align-items: center; max-width: 100%">
-<button type="button" class="pick" aria-haspopup="listbox" aria-expanded="{{pkJob.open}}" aria-label="{{pkJob.aria}}" onClick="{{pkJob.toggle}}" style="font: inherit; text-transform: inherit; text-align: left; color: {{accent}}; background: transparent; border: none; border-bottom: 3px solid {{accent}}; border-radius: 0; padding: 0 0.6em 0 0; margin: 0; cursor: pointer; line-height: 1.1; max-width: 100%">{{pkJob.label}}</button>
-<svg aria-hidden="true" width="0.4em" height="0.4em" viewBox="0 0 10 10" style="position: absolute; right: 0.05em; pointer-events: none"><path d="M1 3 L5 7 L9 3" fill="none" stroke="{{accent}}" stroke-width="1.8"></path></svg>
+<button type="button" class="pick" aria-haspopup="listbox" aria-expanded="{{pkJob.open}}" aria-label="{{pkJob.aria}}" onClick="{{pkJob.toggle}}" style="font: inherit; text-transform: inherit; text-align: left; color: {{accent}}; background: transparent; border: none; border-radius: 0; padding: 0; text-decoration: underline; text-decoration-color: {{accent}}; text-decoration-thickness: 3px; text-underline-offset: 0.12em; text-decoration-skip-ink: none; margin: 0; cursor: pointer; line-height: inherit; max-width: 100%">{{pkJob.head}}<span style="white-space: nowrap">{{pkJob.last}}<svg aria-hidden="true" width="0.4em" height="0.4em" viewBox="0 0 10 10" style="display: inline-block; margin-left: 0.14em; vertical-align: 0.1em; pointer-events: none"><path d="M1 3 L5 7 L9 3" fill="none" stroke="{{accent}}" stroke-width="1.8"></path></svg></span></button>
 <sc-if value="{{pkJob.open}}" hint-placeholder-val="{{ false }}">
 <span id="pick-pop" role="listbox" aria-label="I want to (change)" style="position: absolute; top: calc(100% + 10px); left: 0; z-index: 20; display: flex; flex-direction: column; gap: 2px; padding: 8px; border-radius: 16px; border: 1.5px solid #17171F; background: #FFFFFF; box-shadow: 0 18px 40px rgba(23, 23, 31, 0.18)">
 <sc-for list="{{pkJob.options}}" as="o" hint-placeholder-count="5"><button type="button" class="pick-opt" role="option" aria-selected="{{o.on}}" onClick="{{o.pick}}" style="{{o.style}}">{{o.label}}</button></sc-for>
@@ -204,8 +187,7 @@ a{color:#17171F}a:hover{color:#3B5BB8}
 </span>
 <span style="white-space: nowrap">so that I can</span>
 <span data-pick="outcome" onKeyDown="{{pickKey}}" style="position: relative; display: inline-flex; align-items: center; max-width: 100%">
-<button type="button" class="pick" aria-haspopup="listbox" aria-expanded="{{pkOutcome.open}}" aria-label="{{pkOutcome.aria}}" onClick="{{pkOutcome.toggle}}" style="font: inherit; text-transform: inherit; text-align: left; color: {{accent}}; background: transparent; border: none; border-bottom: 3px solid {{accent}}; border-radius: 0; padding: 0 0.6em 0 0; margin: 0; cursor: pointer; line-height: 1.1; max-width: 100%">{{pkOutcome.label}}</button>
-<svg aria-hidden="true" width="0.4em" height="0.4em" viewBox="0 0 10 10" style="position: absolute; right: 0.05em; pointer-events: none"><path d="M1 3 L5 7 L9 3" fill="none" stroke="{{accent}}" stroke-width="1.8"></path></svg>
+<button type="button" class="pick" aria-haspopup="listbox" aria-expanded="{{pkOutcome.open}}" aria-label="{{pkOutcome.aria}}" onClick="{{pkOutcome.toggle}}" style="font: inherit; text-transform: inherit; text-align: left; color: {{accent}}; background: transparent; border: none; border-radius: 0; padding: 0; text-decoration: underline; text-decoration-color: {{accent}}; text-decoration-thickness: 3px; text-underline-offset: 0.12em; text-decoration-skip-ink: none; margin: 0; cursor: pointer; line-height: inherit; max-width: 100%">{{pkOutcome.head}}<span style="white-space: nowrap">{{pkOutcome.last}}<svg aria-hidden="true" width="0.4em" height="0.4em" viewBox="0 0 10 10" style="display: inline-block; margin-left: 0.14em; vertical-align: 0.1em; pointer-events: none"><path d="M1 3 L5 7 L9 3" fill="none" stroke="{{accent}}" stroke-width="1.8"></path></svg></span></button>
 <sc-if value="{{pkOutcome.open}}" hint-placeholder-val="{{ false }}">
 <span id="pick-pop" role="listbox" aria-label="So that I can (change)" style="position: absolute; top: calc(100% + 10px); left: 0; z-index: 20; display: flex; flex-direction: column; gap: 2px; padding: 8px; border-radius: 16px; border: 1.5px solid #17171F; background: #FFFFFF; box-shadow: 0 18px 40px rgba(23, 23, 31, 0.18)">
 <sc-for list="{{pkOutcome.options}}" as="o" hint-placeholder-count="5"><button type="button" class="pick-opt" role="option" aria-selected="{{o.on}}" onClick="{{o.pick}}" style="{{o.style}}">{{o.label}}</button></sc-for>
@@ -328,6 +310,12 @@ a{color:#17171F}a:hover{color:#3B5BB8}
 </sc-if>
 <sc-if value="{{isResults}}" hint-placeholder-val="{{ true }}"><div style="height: 16px"></div></sc-if>
 <sc-if value="{{hasResults}}" hint-placeholder-val="{{ true }}">
+<sc-if value="{{hasTldr}}" hint-placeholder-val="{{ false }}">
+<div role="group" aria-labelledby="h-tldr" style="display: flex; flex-direction: column; gap: 6px; padding: clamp(20px, 3vw, 32px) clamp(14px, 2.6vw, 28px) 18px; border-radius: 24px 24px 0 0; background: #17171F; color: #FFFFFF">
+<span style="font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #C9CCDA">TL;DR</span>
+<h3 id="h-tldr" style="margin: 0; font-family: 'Anton', Impact, sans-serif; font-weight: 400; font-size: clamp(26px, 3.2vw, 40px); line-height: 1.05; text-transform: uppercase; text-wrap: balance; color: #FFFFFF">{{tldrTitle}}<span style="color: #D13A28">.</span></h3>
+</div>
+</sc-if>
 <sc-for list="{{groups}}" as="g" hint-placeholder-count="1">
 <sc-if value="{{g.hasHead}}" hint-placeholder-val="{{ false }}">
 <div style="{{g.headStyle}}">
@@ -798,6 +786,11 @@ a{color:#17171F}a:hover{color:#3B5BB8}
 <sc-if value="{{noResults}}" hint-placeholder-val="{{ false }}">
 <div style="border: 1px dashed #D5D7E0; border-radius: 16px; padding: 40px; font-family: 'Newsreader', Georgia, serif; font-style: italic; font-size: 21px; text-align: center">Nothing in that drawer. Loosen a filter, or change your search.</div>
 </sc-if>
+<sc-if value="{{homeMore}}" hint-placeholder-val="{{ false }}">
+<div style="margin-top: 24px">
+<button type="button" onClick="{{go}}" style="min-height: 56px; padding: 0 28px; border: none; border-radius: 999px; background: {{accent}}; color: #FFFFFF; font-family: 'Figtree', sans-serif; font-size: 17px; font-weight: 700; cursor: pointer; display: inline-flex; align-items: center; gap: 10px; white-space: nowrap">{{homeMoreLabel}} <svg aria-hidden="true" width="18" height="18" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11h15M12 5l6 6-6 6"></path></svg></button>
+</div>
+</sc-if>
 
 <sc-if value="{{isT3}}" hint-placeholder-val="{{ false }}">
 <section aria-labelledby="h-cassandre" style="margin-top: 40px; border-radius: 24px; background: #17171F; color: #FFFFFF; padding: clamp(22px, 4vw, 48px); display: flex; flex-wrap: wrap; gap: 20px 48px">
@@ -931,6 +924,19 @@ a{color:#17171F}a:hover{color:#3B5BB8}
 </sc-if>
 </sc-if>
 
+
+<sc-if value="{{isHome}}" hint-placeholder-val="{{ true }}">
+<div style="display: flex; flex-direction: column; padding: clamp(56px, 8vw, 104px) 0 clamp(40px, 6vw, 72px)">
+<section aria-labelledby="h-outside" style="display: flex; flex-direction: column; gap: 20px">
+<h2 id="h-outside" style="margin: 0; font-family: 'Anton', Impact, sans-serif; font-weight: 400; font-size: clamp(26px, 3.2vw, 40px); line-height: 1.05; text-transform: uppercase; text-wrap: balance">Or get to know me</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 16px">
+<a href="About.dc.html" class="thread-card" style="display: flex; flex-direction: column; gap: 10px; text-align: left; padding: 22px 22px 20px; border-radius: 20px; border: 1px solid #D5D7E0; background: #FFFFFF; color: #17171F; cursor: pointer; font-family: 'Figtree', sans-serif; text-decoration: none"><span style="font-family: 'Anton', Impact, sans-serif; font-size: clamp(24px, 2.2vw, 30px); line-height: 1.08; text-transform: uppercase; white-space: nowrap">As a colleague</span><span style="font-family: 'Newsreader', Georgia, serif; font-style: italic; font-size: 19px; line-height: 1.3; text-wrap: pretty">How I work, and what I bring to a team.</span><span style="margin-top: auto; padding-top: 6px; display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 700; color: {{accent}}">About me <svg aria-hidden="true" width="18" height="18" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11h14M12 5l6 6-6 6"></path></svg></span></a>
+<button type="button" class="thread-card" onClick="{{goOutside}}" style="display: flex; flex-direction: column; gap: 10px; text-align: left; padding: 22px 22px 20px; border-radius: 20px; border: 1px solid #D5D7E0; background: #FFFFFF; color: #17171F; cursor: pointer; font-family: 'Figtree', sans-serif; text-decoration: none"><span style="font-family: 'Anton', Impact, sans-serif; font-size: clamp(24px, 2.2vw, 30px); line-height: 1.08; text-transform: uppercase; white-space: nowrap">As a person</span><span style="font-family: 'Newsreader', Georgia, serif; font-style: italic; font-size: 19px; line-height: 1.3; text-wrap: pretty">(I promise I’m not that weird.)</span><span style="margin-top: auto; padding-top: 6px; display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 700; color: {{accent}}">Off the clock <svg aria-hidden="true" width="18" height="18" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11h14M12 5l6 6-6 6"></path></svg></span></button>
+</div>
+</section>
+</div>
+</sc-if>
+
 </main>
 
 <footer style="display: flex; justify-content: flex-end; gap: 4px; padding: 20px 0 28px">
@@ -945,8 +951,8 @@ a{color:#17171F}a:hover{color:#3B5BB8}
 class Component extends DCLogic {
 constructor(props) {
 super(props);
-this.state = { pick: null, screen: 'home', theme: 't1', persona: 'hiring', job: 'built', outcome: 'talk', phase: 'all', open: null, side: false, lb: null, slide: 0, locked: false, copied: false, hello: false, refer: false, cta: false, intro: false, pigeon: false };
-try { var saved = JSON.parse(window.localStorage.getItem('se-portfolio') || 'null'); if (saved && saved.persona) { this.state = Object.assign(this.state, saved, { open: null, screen: 'home', pick: null }); } } catch (err) {}
+this.state = { pick: null, screen: 'home', theme: 't1', persona: 'any', job: 'all', outcome: 'talk', phase: 'all', open: null, side: true, lb: null, slide: 0, locked: false, copied: false, hello: false, refer: false, cta: false, intro: false, pigeon: false };
+try { var saved = JSON.parse(window.localStorage.getItem('se-portfolio-v2') || 'null'); if (saved && saved.persona) { this.state = Object.assign(this.state, saved, { open: null, screen: 'home', pick: null }); } } catch (err) {}
 var fromHash = this.readHash();
 if (fromHash) { this.state = Object.assign(this.state, fromHash); }
 if (['home', 'results', 'theme', 'outside'].indexOf(this.state.screen) === -1) { this.state.screen = 'home'; }
@@ -976,7 +982,7 @@ try { window.removeEventListener('hashchange', this.onHash); document.removeEven
 }
 componentDidUpdate(prevProps, prevState) {
 var st = this.state;
-try { window.localStorage.setItem('se-portfolio', JSON.stringify({ screen: st.screen, theme: st.theme, persona: st.persona, job: st.job, outcome: st.outcome, phase: st.phase, side: !!st.side })); } catch (err) {}
+try { window.localStorage.setItem('se-portfolio-v2', JSON.stringify({ screen: st.screen, theme: st.theme, persona: st.persona, job: st.job, outcome: st.outcome, phase: st.phase, side: !!st.side })); } catch (err) {}
 try { var pop = document.getElementById('pick-pop'); if (pop) { pop.style.transform = ''; var pr = pop.getBoundingClientRect(); var over = pr.right - (window.innerWidth - 12); if (over > 0) { pop.style.transform = 'translateX(-' + Math.min(over, Math.max(0, pr.left - 12)) + 'px)'; } } } catch (err) {}
 var viewKey = st.screen + '/' + st.theme;
 if (this._viewKey !== viewKey) {
@@ -995,6 +1001,7 @@ var accent = this.props.accent ?? '#3B5BB8';
 var s = this.state;
 
 var personas = [
+{ id: 'any', label: 'visitor', a: 'a visitor' },
 { id: 'hiring', label: 'hiring manager', a: 'a hiring manager' },
 { id: 'designer', label: 'product designer', a: 'a product designer' },
 { id: 'pm', label: 'product manager', a: 'a product manager' },
@@ -1003,10 +1010,13 @@ var personas = [
 { id: 'curious', label: 'curious human', a: 'a curious human' }
 ];
 var jobs = [
-{ id: 'built', label: "see what you've built" },
-{ id: 'research', label: 'see how you run research' },
-{ id: 'ai', label: 'see your AI work' },
-{ id: 'all', label: 'see everything' }
+{ id: 'needs', label: 'understand how you uncover user needs' },
+{ id: 'evaluate', label: 'see how you evaluate experiences' },
+{ id: 'decide', label: 'see how you inform product decisions' },
+{ id: 'built', label: "explore what you've designed and built" },
+{ id: 'ai', label: 'discover how you work with AI' },
+{ id: 'learning', label: 'see how you design learning experiences' },
+{ id: 'all', label: "explore everything you've worked on" }
 ];
 var outcomes = [
 { id: 'talk', label: 'decide if we should talk', title: 'Seen enough to decide? Let’s talk.', button: 'Write to me' },
@@ -1015,7 +1025,9 @@ var outcomes = [
 { id: 'inspired', label: 'get inspired', title: 'Go make something. Then tell me about it.', button: 'Show me yours' }
 ];
 
-/* PROJECT RECORDS: one canonical record per project. Themes and connections are curated below. */
+/* PROJECT RECORDS: one canonical record per project. Themes and connections are curated below.
+   TL;DR box in the search: add  tldr: true  to make a project eligible (as many as you like),
+   and optionally  tldrPriority: 1  (1 = highest) to break ties. Two at most are shown at once. */
 var items = [
 { id: 'workshops', pts: ['Created in 2011', 'For children, adults and companies', 'Funded with grants and private money'], vis: 'pot', meta: 'Founder · 2011', title: 'Cultural cooking workshops', q: 'Can cooking together bring cultures closer?', a: 'In 2011 I created a programme of intercultural cooking-and-culture workshops for children, adults and companies. I designed them, brought in cultural and food professionals, and wrote the business plans and funding applications.', jobs: ['side', 'built', 'career'], who: ['curious', 'founder', 'designer'], m: [], sc: [] },
 { id: 'bsf', pts: ['Volunteer', 'During my Algolia years'], vis: 'library', meta: 'Volunteering · 2019–21', title: 'Bibliothèques Sans Frontières', q: 'Giving time to libraries without borders.', a: 'Volunteer at Bibliothèques Sans Frontières while working at Algolia.', jobs: ['career', 'built'], who: ['curious', 'founder'], m: [], sc: [] },
@@ -1025,20 +1037,20 @@ var items = [
 { id: 'sistech', pts: ['Mentor in the Boost programme', 'Refugee and displaced women', 'Toward tech and digital jobs in France'], vis: 'mentor', meta: 'Volunteering · 2018–22', title: 'Mentoring at Sistech', q: 'How do refugee women move into tech jobs in France?', a: 'I mentored women in Sistech’s Boost programme, which helps refugee and displaced women retrain toward tech and digital jobs in France.', jobs: ['career', 'built', 'looking'], who: ['curious', 'founder', 'hiring'], m: [], sc: [] },
 { id: 'vgwb', pts: ['Antura and the Letters, a free reading game', 'Video Games Without Borders × Cologne Game Lab', 'For refugee children out of school'], vis: 'game', meta: 'Video Games Without Borders · 2017–20', title: 'A game to learn Arabic', q: 'How do refugee children out of school learn to read Arabic?', a: 'With Video Games Without Borders and the Cologne Game Lab, I helped build Antura and the Letters, a free game that teaches refugee children to read Arabic, no school and no internet needed.', jobs: ['career', 'built'], who: ['curious', 'designer', 'founder'], m: [], sc: [] },
 { id: 'daradam', pts: ['Educational cube games', 'Arabic language and culture', 'Contributed to the design'], vis: 'cubes', meta: 'Dar Adam · 2017–20', title: 'Cubes that teach Arabic', q: 'Can a game of cubes teach a language and a culture?', a: 'I contributed to the design of Dar Adam’s educational games: cube games to learn the Arabic language and culture.', jobs: ['career', 'built'], who: ['curious', 'designer'], m: [], sc: [] },
-{ id: 'clinic', pts: ['Mapped the use cases of a medical chat', 'What makes members come back', 'The chat as a bridge, not a gatekeeper'], vis: 'clinic', meta: 'Alan · 2021–22', title: 'Alan Clinic', q: 'How do we make a medical chat the bridge between patients and health professionals?', a: 'Research on how Alan members adopt and engage with Alan Clinic, its different use cases, and how the medical chat could become an ally between patients and their health professionals. [ADD WHAT IT CHANGED]', jobs: ['research', 'built'], who: ['founder', 'pm', 'hiring', 'researcher', 'designer'], m: ['qual'], sc: ['generative', 'strategic'] },
-{ id: 'mind', pts: ['Mental models of therapy in France', 'What stops people from going', 'How the app can lower the barrier'], vis: 'mind', meta: 'Alan · 2021–22', title: 'Alan Mind', q: 'How can an app help destigmatise therapy?', a: 'Studying the mental models of the French population around therapy, to shape how Alan Mind could make seeking help feel normal. [ADD WHAT IT CHANGED]', jobs: ['research', 'built'], who: ['founder', 'researcher', 'pm', 'hiring', 'designer', 'curious'], m: ['qual'], sc: ['generative', 'strategic'] },
+{ id: 'clinic', tldr: true, tldrPriority: 3, pts: ['Mapped the use cases of a medical chat', 'What makes members come back', 'The chat as a bridge, not a gatekeeper'], vis: 'clinic', meta: 'Alan · 2021–22', title: 'Alan Clinic', q: 'How do we make a medical chat the bridge between patients and health professionals?', a: 'Research on how Alan members adopt and engage with Alan Clinic, its different use cases, and how the medical chat could become an ally between patients and their health professionals. [ADD WHAT IT CHANGED]', jobs: ['research', 'built'], who: ['founder', 'pm', 'hiring', 'researcher', 'designer'], m: ['qual'], sc: ['generative', 'strategic'] },
+{ id: 'mind', tldr: true, tldrPriority: 4, pts: ['Mental models of therapy in France', 'What stops people from going', 'How the app can lower the barrier'], vis: 'mind', meta: 'Alan · 2021–22', title: 'Alan Mind', q: 'How can an app help destigmatise therapy?', a: 'Studying the mental models of the French population around therapy, to shape how Alan Mind could make seeking help feel normal. [ADD WHAT IT CHANGED]', jobs: ['research', 'built'], who: ['founder', 'researcher', 'pm', 'hiring', 'designer', 'curious'], m: ['qual'], sc: ['generative', 'strategic'] },
 { id: 'clear', pts: ['A purchase people rarely make blind', 'Where trust breaks online', 'What reassures enough to order'], vis: 'clear', meta: 'Alan · 2022', title: 'Alan Clear', q: 'How do you buy glasses without trying them on?', a: 'Research for Alan Clear on buying glasses online, without the fitting-room moment. [ADD METHOD AND WHAT IT CHANGED]', jobs: ['research', 'built'], who: ['designer', 'pm', 'founder', 'researcher'], m: ['qual'], sc: ['evaluative', 'tactical'] },
 { id: 'plm', pts: ['1,000+ engineers, one product lifecycle', 'From the idea to recycling', 'A huge programme with Dassault'], vis: 'plm', meta: 'Decathlon · 2023–25', title: 'Idea to recycling', q: 'How do more than a thousand engineers keep a product’s life in order, from idea to recycling?', a: 'Research on how engineers maintain the lifecycle of a product, inside a huge programme with Dassault: components, bills of materials, data trust, versioning, access rights, eco-design. [ADD WHAT IT CHANGED]', jobs: ['research', 'built'], who: ['pm', 'researcher', 'hiring', 'founder'], m: ['mixed'], sc: ['generative', 'strategic'] },
 { id: 'stress', pts: ['Measuring learners’ stress', 'Looking for what predicts success', 'Adapting conditions to help them through'], vis: 'stress', meta: 'RBK Jordan · 2017–18', title: 'Stress & success', q: 'Can measuring bootcamp students’ stress reveal what helps them succeed?', a: 'Measuring the stress of learners during an intensive coding bootcamp, to identify success criteria and adapt their conditions. [ADD METHOD AND FINDINGS]', jobs: ['research', 'career', 'built'], who: ['researcher', 'founder', 'curious', 'hiring'], m: ['quant'], sc: ['generative', 'strategic'] },
 { id: 'tracking', pts: ['Daily tracking: mood, food, sleep, sport', 'A weekly analysis, confounders flagged', 'A data mind turned on itself'], vis: 'tracking', meta: 'Personal project · 2026', title: 'Tracking Bad', q: 'Can a data-driven mind turn its obsession into care for its own mental health?', a: 'I track my own days and analyse them every week to find the factors that support my mental health. The researcher is also the participant.', jobs: ['side', 'research', 'ai', 'built'], who: ['curious', 'researcher', 'founder'], m: ['quant'], sc: ['generative'] },
-{ id: 'aiid', pts: ['Survey + heatmaps by seniority', 'Profiles: self-taught explorers, curious but blocked', 'Became a programme, shared with 300–400 designers'], vis: 'slide', meta: 'Decathlon · 2025', title: 'AI in Design', q: 'How do industrial designers really bring AI into their creative work?', a: 'A community survey with heatmaps by seniority, profiles like "self-taught explorers" and "curious but blocked", then interviews. The barrier wasn’t the tech, it was not knowing which tool to use. So the project became a programme: licences, training, a sandbox. Presented to 300–400 designers.', jobs: ['built', 'research', 'ai'], who: ['hiring', 'designer', 'pm', 'founder', 'researcher'], m: ['mixed'], sc: ['generative', 'strategic'] },
+{ id: 'aiid', tldr: true, tldrPriority: 5, pts: ['Survey + heatmaps by seniority', 'Profiles: self-taught explorers, curious but blocked', 'Became a programme, shared with 300–400 designers'], vis: 'slide', meta: 'Decathlon · 2025', title: 'AI in Design', q: 'How do industrial designers really bring AI into their creative work?', a: 'A community survey with heatmaps by seniority, profiles like "self-taught explorers" and "curious but blocked", then interviews. The barrier wasn’t the tech, it was not knowing which tool to use. So the project became a programme: licences, training, a sandbox. Presented to 300–400 designers.', jobs: ['built', 'research', 'ai'], who: ['hiring', 'designer', 'pm', 'founder', 'researcher'], m: ['mixed'], sc: ['generative', 'strategic'] },
 { id: 'vizcom', pts: ['20 designers, 3 months, one shared diary', 'Biweekly check-ins, monthly moderated tests', 'Some said they wouldn’t go back'], vis: 'finding', meta: 'Decathlon · 2025', title: 'After the demo effect', q: 'What happens to an AI tool once the wow wears off?', a: 'A 3-month diary study with 20 designers using an AI sketch-to-3D tool: a shared diary, biweekly check-ins, a chat channel and monthly moderated tests. Some said they wouldn’t go back.', jobs: ['research', 'ai', 'built'], who: ['researcher', 'designer', 'founder', 'hiring'], m: ['qual'], sc: ['evaluative', 'tactical'] },
-{ id: 'system', pts: ['A 3-week study on how teams use user knowledge', 'One atomic research repository', 'A monthly Research Grooming before sprints'], vis: 'repo', meta: 'Decathlon · 2023–24', title: 'A research system for 5 teams', q: 'How do five product teams stop losing what they learn about users?', a: 'A 3-week study on how teams collect user knowledge, then one atomic research repository, a monthly Research Grooming before sprint planning, and weekly office hours.', jobs: ['built', 'research'], who: ['hiring', 'researcher', 'pm', 'founder'], m: ['mixed'], sc: ['generative', 'strategic'] },
+{ id: 'system', tldr: true, tldrPriority: 2, pts: ['A 3-week study on how teams use user knowledge', 'One atomic research repository', 'A monthly Research Grooming before sprints'], vis: 'repo', meta: 'Decathlon · 2023–24', title: 'A research system for 5 teams', q: 'How do five product teams stop losing what they learn about users?', a: 'A 3-week study on how teams collect user knowledge, then one atomic research repository, a monthly Research Grooming before sprint planning, and weekly office hours.', jobs: ['built', 'research'], who: ['hiring', 'researcher', 'pm', 'founder'], m: ['mixed'], sc: ['generative', 'strategic'] },
 { id: 'podcast', pts: ['A weekly podcast, made with AI', 'Findings from every team I work with', 'Shared with everyone, not just the team'], vis: 'podcast', meta: 'Decathlon', title: 'Continuous Discovery, the podcast', q: 'How do findings reach everyone, not just the team that asked?', a: 'A weekly podcast that gathers the findings from every team I work with, so the knowledge is shared with everyone, not just the team that asked for it. Made with AI, run as continuous discovery.', jobs: ['built', 'research', 'ai'], who: ['hiring', 'researcher', 'pm', 'founder'], m: [], sc: [] },
 { id: 'prio', pts: ['Sports leaders, PMOs and PMs interviewed', 'Analysed with atomic research', 'Then: how engineers actually plan'], vis: 'report', meta: 'Decathlon · 2025', title: 'How products get chosen', q: 'Who really decides which products get developed?', a: 'Interviews with sports leaders, PMOs and product managers, analysed with atomic research, then a second round with product engineers on how they actually plan.', jobs: ['research', 'built'], who: ['pm', 'researcher', 'hiring', 'founder'], m: ['qual'], sc: ['generative', 'strategic'] },
 { id: 'sat3d', pts: ['One week to answer, one to analyse', 'A one-hour workshop to decide the fixes', 'Run every month with a product designer'], vis: 'monthly', meta: 'Decathlon · 2025', title: 'A monthly pulse on 3D tools', q: 'Are bike designers, engineers and 3D modellers happy with their tools, month after month?', a: 'With a product designer: a monthly survey, one week to answer, one week to analyse, then a one-hour workshop to decide what to fix.', jobs: ['research', 'built'], who: ['researcher', 'designer', 'pm', 'hiring'], m: ['quant'], sc: ['evaluative', 'tactical'] },
 { id: 'usab', pts: ['CSUQ scores and task success', 'Three tiers anyone can read', 'The verdict in ten seconds'], vis: 'tiers', meta: 'Usability practice', title: 'Usability, readable in one glance', q: 'How do you make a usability verdict readable in ten seconds?', a: 'CSUQ scores and success rate per task, split into three tiers anyone can read. The detail is there for whoever wants ten minutes more.', jobs: ['research', 'built'], who: ['researcher', 'designer', 'pm'], m: ['mixed'], sc: ['evaluative', 'tactical'] },
-{ id: 'agents', pts: ['Metis frames problems for PMs', 'Sophia mentors researchers', 'Helix turns user knowledge into monthly insights'], vis: 'chat', meta: 'Built for my teams', title: 'A small pantheon of agents', q: 'How do I help more teams than I have hours?', a: 'I built them colleagues. Metis helps PMs frame a problem and decide if they need discovery. Sophia mentors researchers. Helix turns ongoing user knowledge into monthly insights.', jobs: ['built', 'ai'], who: ['founder', 'pm', 'researcher', 'hiring', 'designer'], m: [], sc: [] },
+{ id: 'agents', tldr: true, tldrPriority: 7, pts: ['Metis frames problems for PMs', 'Sophia mentors researchers', 'Helix turns user knowledge into monthly insights'], vis: 'chat', meta: 'Built for my teams', title: 'A small pantheon of agents', q: 'How do I help more teams than I have hours?', a: 'I built them colleagues. Metis helps PMs frame a problem and decide if they need discovery. Sophia mentors researchers. Helix turns ongoing user knowledge into monthly insights.', jobs: ['built', 'ai'], who: ['founder', 'pm', 'researcher', 'hiring', 'designer'], m: [], sc: [] },
 { id: 'swiss', pts: ['Ten questions every transcript must answer', 'AI runs them, a human decides', 'Faster, and still rigorous'], vis: 'sheet', meta: 'AI-assisted research', title: 'The ten-question Swiss knife', q: 'How do you analyse interviews faster without losing rigour?', a: 'Ten questions every transcript must answer, from context and workarounds to emotional cues, surprises and gaps. AI runs them, a human decides what matters.', jobs: ['research', 'ai', 'built'], who: ['researcher', 'designer', 'pm'], m: ['qual'], sc: ['tactical'] },
 { id: 'community', pts: ['~20 researchers, 4 cities', 'An AI-for-UXR toolkit', 'UX Therapy, a weekly ritual'], vis: 'channel', meta: 'Decathlon · 2025', title: 'One community, four cities', q: 'How do ~20 researchers spread across four cities become a team?', a: 'A shared space, an AI-for-UXR toolkit, a first in-person day, and UX Therapy, a weekly ritual with the designers.', jobs: ['built', 'research'], who: ['researcher', 'hiring', 'designer'], m: [], sc: [] },
 { id: 'superpowers', pts: ['List your superpowers and what you want to grow', 'Matched by domain, format and place', 'No swiping: too inhumane'], vis: 'matchscreen', meta: 'Decathlon · pitched 2023', title: 'Superpowers Directory', q: 'How do designers find the right mentor inside a huge company?', a: 'List your superpowers and what you want to grow, get matched by domain, format and place, then message. I polled the community first, and rejected swiping as inhumane.', jobs: ['built'], who: ['designer', 'founder', 'curious'], m: ['quant'], sc: ['generative'] },
@@ -1048,15 +1060,15 @@ var items = [
 { id: 'oasis', pts: ['Cool places and water fountains', 'Free, public utility'], vis: 'oasis', appName: 'OASIS SPOT', meta: 'Side project · 2026', title: 'Oasis Spot', q: 'Where can I cool down when the city is boiling?', a: 'A free map of cool places and water fountains for heatwaves. Public utility, no catch.', jobs: ['side', 'built'], who: ['designer', 'founder', 'curious'], m: [], sc: [] },
 { id: 'papier', pts: ['One book, one recipe tested', 'One reflective text'], vis: 'book', quote: 'Le papier mâché', meta: 'Instagram · 2026', title: 'Le papier mâché', q: 'What if cookbooks were reviewed like poetry?', a: 'One book, one recipe tested, one reflective text. I collect cookbooks; someone had to read them properly.', jobs: ['side', 'built'], who: ['curious'], m: [], sc: [] },
 { id: 'programme', pts: ['Set up the programmes', 'Improved them from one cohort to the next', 'Learners and employers at the centre'], vis: 'loop', meta: 'Programme manager · RBK, Next Academy, Simplon', title: 'Better from cohort to cohort', q: 'How does a bootcamp get better with every cohort?', a: 'Each cohort teaches you how to run the next one, if you listen.', jobs: ['career', 'built'], who: ['hiring', 'founder', 'curious'], m: [], sc: [] },
-{ id: 'cassandre', pts: ['Predictable UX issues, checked before human research', 'HCI knowledge, accessibility criteria, heuristics', 'A prototype, not a validated product'], vis: 'sheet', meta: 'Side project · prototype · 2026', title: 'Cassandre', q: 'Which UX problems can be caught before involving a single participant?', a: 'A UX pretesting tool for developers and product teams. Test what you can. Research what you can’t.', jobs: ['side', 'ai', 'built'], who: ['founder', 'researcher', 'pm', 'designer', 'hiring'], m: [], sc: [] },
-{ id: 'rbk', pts: ['Rebuilt the programme after a rough first cohort', '3 cohorts of about 30', '1:1s, speaking and restorative justice circles'], vis: 'grads', meta: 'RBK Jordan · 2017–18', title: 'Refugees to software engineers', q: 'Can a bootcamp turn refugees into software engineers?', a: 'I audited and rebuilt the programme, led educators across three cohorts, added English and digital literacy from employer feedback, and ran 1:1s, speaking circles and restorative justice circles. The one I’m proudest of.', jobs: ['career', 'built'], who: ['hiring', 'founder', 'curious', 'pm'], m: [], sc: [] },
+{ id: 'cassandre', tldr: true, tldrPriority: 1, pts: ['Predictable UX issues, checked before human research', 'HCI knowledge, accessibility criteria, heuristics', 'A prototype, not a validated product'], vis: 'sheet', meta: 'Side project · prototype · 2026', title: 'Cassandre', q: 'Which UX problems can be caught before involving a single participant?', a: 'A UX pretesting tool for developers and product teams. Test what you can. Research what you can’t.', jobs: ['side', 'ai', 'built'], who: ['founder', 'researcher', 'pm', 'designer', 'hiring'], m: [], sc: ['evaluative'] },
+{ id: 'rbk', tldr: true, tldrPriority: 6, pts: ['Rebuilt the programme after a rough first cohort', '3 cohorts of about 30', '1:1s, speaking and restorative justice circles'], vis: 'grads', meta: 'RBK Jordan · 2017–18', title: 'Refugees to software engineers', q: 'Can a bootcamp turn refugees into software engineers?', a: 'I audited and rebuilt the programme, led educators across three cohorts, added English and digital literacy from employer feedback, and ran 1:1s, speaking circles and restorative justice circles. The one I’m proudest of.', jobs: ['career', 'built'], who: ['hiring', 'founder', 'curious', 'pm'], m: [], sc: [] },
 { id: 'teach', pts: ['Arabic, then French', 'From three-year-olds to engineers at Thales', 'Then the French Embassy in Amman'], vis: 'chalk', hl: [0, 1], meta: '2008–2016', title: 'Teacher, then instructional designer', q: 'What did teaching teach me?', a: 'Arabic, then French, to children and adults, employees in companies and pupils in state schools, from three-year-olds to engineers at Thales. Then French teacher and coordinator at the French Embassy in Amman, also working with the Institut français. Understand where someone really is before deciding where to take them. That turned out to be research.', jobs: ['career'], who: ['curious', 'hiring'], m: [], sc: [] },
 { id: 'simplon', pts: ['Next Academy in Kuala Lumpur and Singapore', 'Hiring partnerships at Simplon', 'Orange, Microsoft, Apple and more'], vis: 'job', hl: [3], meta: '2018', title: 'Kuala Lumpur, Singapore, Paris', q: 'How do learners leave a bootcamp with a job?', a: 'At Next Academy, then at Simplon: hiring partnerships with Orange, Microsoft, Capgemini, Malakoff Humanis, Accenture and Apple.', jobs: ['career'], who: ['hiring', 'curious'], m: [], sc: [] },
 { id: 'tech', pts: ['Algolia: next to Sales and CS', 'Alan: mental health and care', 'Decathlon: tools for product creation'], vis: 'timeline', hl: [4, 5, 6], meta: '2019–now', title: 'Algolia, Alan, Decathlon', q: 'What did tech add to the teacher?', a: 'Instructional design, then user research at Algolia, next to Sales and Customer Success. Mental health, care and glasses at Alan. Tools for product creation at Decathlon.', jobs: ['career'], who: ['hiring', 'founder', 'pm', 'researcher'], m: [], sc: [] },
 { id: 'asp1', pts: ['A bar that’s shared', 'Work that changes something real'], vis: 'balance', quote: 'Rigour and heart, same room', meta: 'What I’m looking for', title: 'Rigour and heart', q: 'Why not just pick one?', a: 'Mission-driven places often forgive sloppiness. Rigorous places are often rigorous about something hollow. I want a team where the bar is shared and the work changes something real.', jobs: ['looking'], who: ['hiring', 'founder', 'curious'], m: [], sc: [] },
 { id: 'asp2', pts: ['Framing before the roadmap', 'Docs first, then meetings'], vis: 'doc', quote: 'Upstream, written first', meta: 'What I’m looking for', title: 'Upstream, written first', q: 'Where am I most useful?', a: 'Framing the problem before the roadmap does. Docs first, then meetings. In an office: I like offices.', jobs: ['looking'], who: ['hiring', 'pm', 'founder'], m: [], sc: [] },
 { id: 'asp3', pts: ['Displaced and vulnerable people', 'Mental health'], vis: 'home', quote: 'For people losing their place', meta: 'What I’m looking for', title: 'Tech for people losing their place', q: 'Where does research have the most to give?', a: 'Displaced people, vulnerable people, mental health. Jordan taught me what it looks like when lives visibly improve. I want that again.', jobs: ['looking'], who: ['founder', 'curious', 'hiring'], m: [], sc: [] },
-{ id: 'quechua', pts: ['The 2‑second tent, used as a home', 'Escape for some, refuge for others'], vis: 'tent', meta: 'Decathlon · photo series · 2025', title: 'The forgotten users', q: 'Who really lives in a 2‑second tent?', a: 'Asked to help redesign Quechua’s pop-up tent, I photographed the users nobody designs for: homeless people and migrants.', jobs: ['research', 'photo'], who: ['researcher', 'designer', 'hiring', 'curious'], m: ['qual'], sc: ['generative'] },
+{ id: 'quechua', tldr: true, tldrPriority: 8, pts: ['The 2‑second tent, used as a home', 'Escape for some, refuge for others'], vis: 'tent', meta: 'Decathlon · photo series · 2025', title: 'The forgotten users', q: 'Who really lives in a 2‑second tent?', a: 'Asked to help redesign Quechua’s pop-up tent, I photographed the users nobody designs for: homeless people and migrants.', jobs: ['research', 'photo'], who: ['researcher', 'designer', 'hiring', 'curious'], m: ['qual'], sc: ['generative'] },
 { id: 'ph1', pts: ['Morocco', 'Food and family, in warm colours'], vis: 'photo', meta: 'Morocco', title: 'Msemmen de Proust', q: 'What does a memory taste like?', a: 'Family and food, in warm colours. The madeleine, but Moroccan.', jobs: ['photo'], who: ['curious', 'designer'], m: [], sc: [] },
 { id: 'ph3', pts: ['Paris', 'Habitation non incluse'], vis: 'photo', meta: 'Paris', title: 'Assurance habitation, habitation non incluse*', q: 'Who is left out of the promise?', a: 'A man asleep under a home insurance ad. Habitation non incluse.', jobs: ['photo'], who: ['curious', 'designer'], m: [], sc: [] },
 { id: 'ph4', pts: ['Djerba, 2026', 'Absence, then life coming back'], vis: 'photo', meta: 'Djerba · 2026', title: 'Le village s’endort', q: 'Can absence be a portrait?', a: 'The Jewish quarter at the end of shabbat: closed doors, then children, lights and prayers coming back.', jobs: ['photo'], who: ['curious', 'designer'], m: [], sc: [] }
@@ -1065,6 +1077,7 @@ var items = [
 var CASES = ['aiid', 'vizcom', 'system', 'prio', 'plm', 'sat3d', 'usab', 'agents', 'swiss', 'community', 'superpowers', 'clinic', 'mind', 'clear', 'algo_academy', 'algo_journey', 'algo_personas', 'rbk', 'stress', 'programme', 'simplon', 'teach', 'embassy', 'workshops', 'sistech', 'bsf', 'vgwb', 'daradam', 'tracking', 'bastille', 'palier', 'askip', 'oasis', 'papier', 'cassandre', 'quechua'];
 var SIDE = ['cassandre', 'sistech', 'vgwb', 'daradam', 'bsf', 'workshops', 'bastille', 'palier', 'askip', 'oasis', 'papier', 'tracking'];
 var PHASES = {'teach': ['teaching'], 'rbk': ['pm'], 'stress': ['pm'], 'programme': ['pm'], 'cassandre': ['side'], 'simplon': ['pm'], 'algo_academy': ['id'], 'algo_journey': ['id'], 'algo_personas': ['id'], 'aiid': ['research'], 'vizcom': ['research'], 'system': ['research'], 'podcast': ['research'], 'prio': ['research'], 'plm': ['research'], 'sat3d': ['research'], 'usab': ['research'], 'agents': ['research'], 'swiss': ['research'], 'community': ['research'], 'superpowers': ['research', 'side'], 'clinic': ['research'], 'mind': ['research'], 'clear': ['research'], 'tech': ['research'], 'sistech': ['side'], 'vgwb': ['side'], 'daradam': ['side'], 'bsf': ['side'], 'workshops': ['side'], 'bastille': ['side'], 'palier': ['side'], 'askip': ['side'], 'oasis': ['side'], 'papier': ['side'], 'tracking': ['side'], 'quechua': ['research']};
+var DOC = {"agents": 2, "aiid": 3, "algo_academy": 1.53, "algo_journey": 1.5, "algo_personas": 1.78, "askip": 0.92, "bastille": 2.77, "bsf": 0, "cassandre": 6, "clear": 2.08, "clinic": 5.95, "community": 1.12, "daradam": 0, "embassy": 0, "mind": 5.78, "oasis": 1.0, "palier": 0.93, "papier": 0, "plm": 2.0, "prio": 2, "programme": 0.75, "quechua": 3.48, "rbk": 1.55, "sat3d": 1.8, "simplon": 0.53, "sistech": 0, "stress": 1.13, "superpowers": 0.75, "swiss": 1.57, "system": 2, "teach": 1.43, "tracking": 2.9, "usab": 1.35, "vgwb": 0.72, "vizcom": 2, "workshops": 1.88};
 var stopsDefUnused = [{ y: '2008', l: 'Teaching' }, { y: '2015', l: 'Amman' }, { y: '2017', l: 'RBK' }, { y: '2018', l: 'Asia · Simplon' }, { y: '2019', l: 'Algolia' }, { y: '2021', l: 'Alan' }, { y: '2023', l: 'Decathlon' }];
 var visKeys = ['pot', 'library', 'mentor', 'chalk', 'job', 'balance', 'doc', 'home', 'speech', 'loop', 'academy', 'journey', 'personas', 'game', 'cubes', 'palier', 'clinic', 'mind', 'clear', 'plm', 'stress', 'tracking', 'slide', 'finding', 'repo', 'report', 'monthly', 'chat', 'sheet', 'channel', 'tiers', 'matchscreen', 'bastille', 'grads', 'timeline', 'quote', 'askip', 'oasis', 'book', 'photo', 'podcast', 'tent'];
 var tones = { pot: 'red', library: 'blue', mentor: 'grey', chalk: 'grey', job: 'blue', balance: 'grey', doc: 'blue', home: 'red', speech: 'blue', loop: 'grey', academy: 'blue', journey: 'grey', personas: 'red', game: 'blue', cubes: 'red', palier: 'grey', clinic: 'blue', mind: 'red', clear: 'grey', plm: 'solid', stress: 'red', tracking: 'blue', slide: 'blue', finding: 'red', repo: 'grey', report: 'blue', monthly: 'grey', chat: 'blue', sheet: 'red', channel: 'blue', tiers: 'grey', matchscreen: 'red', bastille: 'blue', grads: 'solid', timeline: 'grey', quote: 'blue', askip: 'red', oasis: 'blue', book: 'red', photo: 'grey', tent: 'red' };
@@ -1112,7 +1125,7 @@ function picker(key, aria, opts, current, extra) {
 var open = s.pick === key;
 function refocus() { try { var b = document.querySelector('[data-pick="' + key + '"] .pick'); if (b) { b.focus({ preventScroll: true }); } if (self.state.screen === 'results') { window.scrollTo(0, 0); } } catch (err) {} }
 return {
-open: open, aria: aria + ': ' + current.label, label: current.label,
+open: open, aria: aria + ': ' + current.label, label: current.label, head: current.label.split(' ').length > 1 ? current.label.split(' ').slice(0, -1).join(' ') + ' ' : '', last: current.label.split(' ').slice(-1)[0],
 toggle: function () { self.setState({ pick: open ? null : key }); },
 options: opts.map(function (o) {
 var on = o.id === current.id;
@@ -1142,31 +1155,75 @@ var nextTheme = THEMES[(THEMES.indexOf(theme) + 1) % THEMES.length];
 var pool = [];
 var phaseDefs = [{ id: 'all', label: 'All' }, { id: 'pm', label: 'Programme management' }, { id: 'id', label: 'Instructional design' }, { id: 'research', label: 'User research & ResearchOps' }, { id: 'side', label: 'Mentoring & side projects' }];
 var phaseChips = [];
-var resultLine = '', resultCount = '', resultSuffix = '', groupDefs = [];
-if (isResults) {
+var resultLine = '', resultCount = '', resultSuffix = '', groupDefs = [], homeMore = false, homeMoreLabel = '', tldr = [];
+if (isResults || isHome) {
+/* Search: the intent filters, the persona reorders, the outcome only changes the closing call to action. */
+var LEARN = ['sistech', 'vgwb', 'daradam', 'bsf', 'workshops'];
+function has(list, x) { return list.indexOf(x) !== -1; }
+function inTheme(it, t) { return it.themes.some(function (x) { return x.id === t; }); }
+var MATCH = {
+needs: function (it) { return has(it.jobs, 'research') && has(it.sc, 'generative') ? (inTheme(it, 't1') ? 2 : 1) : 0; },
+evaluate: function (it) { return has(it.sc, 'evaluative') ? 2 : 0; },
+decide: function (it) { return has(it.sc, 'strategic') ? (inTheme(it, 't1') ? 2 : 1) : 0; },
+built: function (it) { return has(it.jobs, 'built') && (!it.m.length || has(SIDE, it.id) || inTheme(it, 't2')) ? 2 : 0; },
+ai: function (it) { return has(it.jobs, 'ai') ? (inTheme(it, 't3') ? 2 : 1) : (inTheme(it, 't3') ? 1 : 0); },
+learning: function (it) { return (has(it.ph, 'id') || has(it.ph, 'pm')) ? 2 : (has(LEARN, it.id) ? 1 : 0); },
+all: function () { return 1; }
+};
+var match = MATCH[job.id] || MATCH.all;
+/* Editorial order kept as a light signal: most telling work first. */
+var PRIORITY = ['system', 'community', 'aiid', 'agents', 'podcast', 'vizcom', 'swiss', 'cassandre', 'superpowers', 'sat3d', 'usab', 'prio', 'plm', 'clinic', 'mind', 'clear', 'algo_journey', 'algo_academy', 'algo_personas', 'rbk', 'stress', 'programme', 'embassy', 'workshops'];
+function rank(it) { var i = PRIORITY.indexOf(it.id); return i === -1 ? 999 : i; }
+function score(it) {
+var d = DOC[it.id] || 0;
+var p = s.persona !== 'any' && has(it.who, s.persona) ? 2 : 0;
+var r = rank(it), ed = r < 8 ? 1.5 : (r < 16 ? 0.75 : 0);
+return it._m * 3 + p + d + ed;
+}
 var sideCount = 0;
 var byJob = items.filter(function (it) {
 if ((CASES.indexOf(it.id) === -1 && it.id !== 'podcast') || it.id === 'teach' || it.id === 'simplon') { return false; }
-if (job.id !== 'all' && it.jobs.indexOf(job.id) === -1) { return false; }
+it._m = match(it);
+if (!it._m) { return false; }
 var isSide = SIDE.indexOf(it.id) !== -1;
 if (isSide) { sideCount++; }
 return !isSide || s.side;
 });
-/* Most telling work first: research ops and community, then AI adoption and use, then the rest. */
-var PRIORITY = ['system', 'community', 'aiid', 'agents', 'podcast', 'vizcom', 'swiss', 'cassandre', 'superpowers', 'sat3d', 'usab', 'prio', 'plm', 'clinic', 'mind', 'clear', 'algo_journey', 'algo_academy', 'algo_personas', 'rbk', 'stress', 'programme', 'embassy', 'workshops'];
-function rank(it) { var i = PRIORITY.indexOf(it.id); return i === -1 ? 999 : i; }
-byJob.sort(function (a, b) {
-var ma = a.who.indexOf(s.persona) === -1 ? 1 : 0; var mb = b.who.indexOf(s.persona) === -1 ? 1 : 0;
-return (ma - mb) || (rank(a) - rank(b));
-});
+byJob.forEach(function (it) { it._s = score(it); });
+byJob.sort(function (a, b) { return (b._s - a._s) || (rank(a) - rank(b)); });
 phaseChips = phaseDefs.map(function (d) {
 var n = byJob.filter(function (it) { return okP(it, d.id); }).length;
 var on = s.phase === d.id;
 return { label: d.label, count: n, on: on, style: chipStyle(on, n), pick: function () { self.setState({ phase: d.id, open: null }); } };
 });
-pool = byJob;
-resultLine = pool.length + (pool.length === 1 ? ' project' : ' projects') + ' · sorted for ' + persona.a;
-resultCount = pool.length + (pool.length === 1 ? ' project' : ' projects'); resultSuffix = ' · sorted for ' + persona.a;
+var total = byJob.length;
+/* TL;DR: two flagged projects at most, the most relevant for persona + intent, complementary, never padded with unflagged ones. */
+var noFilter = job.id === 'all' && s.persona === 'any';
+function prio(it) { return typeof it.tldrPriority === 'number' ? it.tldrPriority : 999; }
+function rel(it) { return it._m * 3 + (s.persona !== 'any' && has(it.who, s.persona) ? 2 : 0); }
+function org(it) { return String(it.meta || '').split(' · ')[0]; }
+function sim(a, b) {
+var shared = a.themes.filter(function (t) { return b.themes.indexOf(t) !== -1; }).length;
+return (org(a) === org(b) ? 1.5 : 0) + shared * 0.5 + (a.m[0] && a.m[0] === b.m[0] ? 0.5 : 0) + (has(SIDE, a.id) && has(SIDE, b.id) ? 1 : 0);
+}
+var cand = byJob.filter(function (it) { return it.tldr === true; });
+cand.sort(function (a, b) { return noFilter ? ((prio(a) - prio(b)) || (b._s - a._s)) : ((rel(b) - rel(a)) || (prio(a) - prio(b)) || (b._s - a._s)); });
+if (cand.length) {
+tldr.push(cand[0]);
+var rest = cand.slice(1);
+if (rest.length) {
+if (!noFilter) { rest.sort(function (a, b) { return ((rel(b) - 1.5 * sim(cand[0], b)) - (rel(a) - 1.5 * sim(cand[0], a))) || (prio(a) - prio(b)) || (b._s - a._s); }); }
+tldr.push(rest[0]);
+}
+}
+var others = byJob.filter(function (it) { return tldr.indexOf(it) === -1; });
+var HOME_N = 4;
+pool = isHome ? others.slice(0, HOME_N) : others;
+var sortedBy = s.persona === 'any' ? ' · best documented first' : ' · sorted for ' + persona.a;
+resultCount = total + (total === 1 ? ' project' : ' projects'); resultSuffix = sortedBy;
+resultLine = resultCount + sortedBy;
+homeMore = isHome && total > pool.length + tldr.length;
+homeMoreLabel = 'See all ' + total + ' projects';
 } else if (isTheme) {
 pool = theme.order.map(function (id) { return byId[id]; }).filter(function (it) { return it && !(isT3 && it.id === 'cassandre'); });
 resultLine = pool.length + ' projects on this thread';
@@ -1186,6 +1243,8 @@ pool = pool.concat(its);
 resultLine = pool.length + ' side projects and commitments';
 }
 
+var tldrN = tldr.length;
+pool = tldr.concat(pool);
 var results = pool.map(function (it, i) {
 var v = {}; visKeys.forEach(function (k) { v[k] = it.vis === k; });
 var hl = it.hl || [];
@@ -1215,7 +1274,10 @@ style: 'display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandator
 headStyle: 'display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: ' + (gi ? '36px' : '0') + ' 0 14px; padding-top: ' + (gi ? '22px' : '0') + '; border-top: ' + (gi ? '1px solid #E3E3EA' : 'none') + ';',
 items: results.slice(g.from, g.from + g.n),
 prevRow: function () { rowScroll(id, -1); }, nextRow: function () { rowScroll(id, 1); } };
-}) : [{ head: '', hasHead: false, more: false, rowId: 'row-all', cls: '', style: GRID, items: results }];
+}) : (tldrN ? [
+{ head: '', hasHead: false, more: false, rowId: 'row-tldr', cls: 'tldr-row', style: GRID.replace('auto-fill', 'auto-fit') + '; padding: 0 clamp(14px, 2.6vw, 28px) clamp(14px, 2.6vw, 28px); background: #17171F; border-radius: 0 0 24px 24px', items: results.slice(0, tldrN) },
+{ head: '', hasHead: false, more: false, rowId: 'row-all', cls: '', style: GRID + '; margin-top: clamp(24px, 3vw, 36px)', items: results.slice(tldrN) }
+] : [{ head: '', hasHead: false, more: false, rowId: 'row-all', cls: '', style: GRID, items: results }]);
 
 var photos = [
 { title: 'The subtle art of looking like art', sub: 'France · Observation', img: '/photos/looking-fine.jpg', noImg: false, alt: '', btnId: 'open-looking', n: 4, open: function () { openSeries('looking'); } },
@@ -1302,7 +1364,7 @@ function closeIntroFn() { self.setState({ intro: false, copied: false }, functio
 return {
 lockedOpen: !!s.locked, lockedClosed: !s.locked,
 openLocked: function () { self.setState({ locked: true }); },
-helloOpen: !!s.hello, ctaOpen: !!s.cta, notOutside: !isOutside,
+helloOpen: !!s.hello, ctaOpen: !!s.cta, notOutside: !isOutside && !isHome,
 toggleCta: function () { self.setState({ cta: !s.cta, pigeon: false }); }, referOpen: !!s.refer, pigeonSent: !!s.pigeon, introOpen: !!s.intro, introText: INTRO,
 hello_gmail: links.hello_gmail, hello_mail: links.hello_mail, hello_linkedin: links.hello_linkedin, hello_pigeon: '',
 refer_gmail: links.refer_gmail, refer_mail: links.refer_mail, refer_linkedin: links.refer_linkedin, refer_pigeon: '',
@@ -1325,7 +1387,7 @@ onSlide: function (e) { var el = e.currentTarget || e.target; var k = Math.round
 accent: accent,
 grain: this.props.grain ?? true,
 isHome: isHome, isResults: isResults, isTheme: isTheme, isOutside: isOutside, isT3: isT3,
-showGrid: !isHome, showGridBar: !isHome && !isResults,
+showGrid: !isHome || results.length > 0, showGridBar: !isHome && !isResults, homeMore: homeMore, homeMoreLabel: homeMoreLabel, hasTldr: (isHome || isResults) && tldr.length > 0, tldrTitle: tldr.length > 1 ? 'If you only read two, make it these' : 'If you only read one, make it this',
 pkPersona: pkPersona, pkJob: pkJob, pkOutcome: pkOutcome,
 pickKey: function (e) { if (e.key === 'Escape' && self.state.pick) { var k = self.state.pick; self.setState({ pick: null }, function () { try { var b = document.querySelector('[data-pick="' + k + '"] .pick'); if (b) { b.focus(); } } catch (err) {} }); } },
 navItems: navItems, themeCards: themeCards, themeChips: themeChips,

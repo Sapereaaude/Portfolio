@@ -215,7 +215,30 @@ a[aria-current="page"]:hover{{color:#FFFFFF}}
 '''
 
 
+def doc_scores():
+    """How well each case is documented (0-6), written into Main as `var DOC`. Search ranks by it.
+
+    Real written content counts (up to 3), a page without the draft banner gets +2,
+    a screen or photo +1, each [PLACEHOLDER] left in the case costs 1.
+    """
+    out = {}
+    for f in sorted(glob.glob(os.path.join(SRC, 'Case-*.dc.html'))):
+        h = open(f, encoding='utf-8').read()
+        m = re.search(r'<main.*?</main>', h, re.S)
+        body = m.group(0) if m else h
+        holes = len(re.findall(r'\[[A-Z][A-Z ]+[^\]]*\]', body))
+        txt = re.sub(r'\[[^\]]*\]', ' ', html.unescape(re.sub(r'<[^>]+>', ' ', body)))
+        d = min(len(txt.split()) / 60, 3) + (0 if 'Draft ·' in h else 2) + (1 if '<img ' in h else 0) - holes
+        out[os.path.basename(f)[5:-8]] = round(max(d, 0), 2)
+    main = os.path.join(SRC, 'Main.dc.html')
+    src = open(main, encoding='utf-8').read()
+    new = re.sub(r'var DOC = \{[^\n]*\};', 'var DOC = ' + json.dumps(out, separators=(', ', ': ')) + ';', src, count=1)
+    if new != src:
+        open(main, 'w', encoding='utf-8').write(new)
+
+
 def main():
+    doc_scores()
     names = sorted(os.path.basename(f)[:-len('.dc.html')] for f in glob.glob(os.path.join(SRC, '*.dc.html')))
     routes = dict(ROUTES)
     for n in names:

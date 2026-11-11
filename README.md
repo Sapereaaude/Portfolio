@@ -10,7 +10,7 @@ website is generated from them into `site/`.
 
 - `site/` — the static site: `/`, `/dust`, `/dust/letter`, `/timeline`, `/about`, `/resume` and `/work/<project>`.
 - `site/dc.js` — the small script that renders each page in the browser.
-- `scripts/build_site.py` — rebuilds `site/` from `project/` (`python3 scripts/build_site.py`).
+- `scripts/build_site.py` — rebuilds `site/` from `project/` (`python3 scripts/build_site.py`). It also refreshes `var DOC` in `Main.dc.html`: how well each case is documented, which the search uses to rank results.
 - `vercel.json` — tells Vercel to serve `site/` as is, with no build step (preset: Other).
 
 ## What is here
