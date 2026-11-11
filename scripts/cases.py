@@ -239,6 +239,9 @@ def generate():
 
 # ---------------------------------------------------------------- the search card and Behind the decisions
 MAIN = os.path.join(PROJECT, 'Main.dc.html')
+DUST = os.path.join(PROJECT, 'Dust.dc.html')
+# The card takes its colour from the case's header colour, so changing one changes the other.
+HEADER_TONE = {'#EEF1FA': 'blue', '#FBEAE8': 'red', '#F2F2F5': 'grey', 'accent': 'solid'}
 DECISIONS_FILE = os.path.join(PROJECT, 'Decisions.dc.html')
 CARD_ORDER = ['id', 'tldr', 'tldrPriority', 'company', 'pts', 'vis', 'appName', 'quote', 'meta', 'title', 'q', 'a', 'jobs', 'who', 'm', 'sc', 'hl']
 
@@ -265,18 +268,34 @@ def item_lines(src):
     return a, b, src[a:b].split('\n')
 
 
+def tone_of(c):
+    return HEADER_TONE.get((c.get('header') or {}).get('background'))
+
+
+def with_tone(line, tone):
+    """Set (or drop) `tone: '…'` right after the id of a card line written by card_line."""
+    line = re.sub(r", tone: '\w+'", '', line, count=1)
+    return re.sub(r"^(\{ id: '\w+')", lambda m: m.group(1) + (", tone: '%s'" % tone if tone else ''), line, count=1)
+
+
 def write_cards(cases):
-    src = open(MAIN, encoding='utf-8').read()
-    a, b, lines = item_lines(src)
-    for i, line in enumerate(lines):
-        m = re.match(r"\{ id: '(\w+)'", line)
-        if m and m.group(1) in cases and cases[m.group(1)].get('card'):
-            card = dict(cases[m.group(1)]['card'])
-            card['id'] = m.group(1)
-            lines[i] = card_line(card) + (',' if line.rstrip().endswith(',') else '')
-    out = src[:a] + '\n'.join(lines) + src[b:]
-    if out != src:
-        open(MAIN, 'w', encoding='utf-8').write(out)
+    for path, rewrite in ((MAIN, True), (DUST, False)):
+        src = open(path, encoding='utf-8').read()
+        a, b, lines = item_lines(src)
+        for i, line in enumerate(lines):
+            m = re.match(r"\{ id: '(\w+)'", line)
+            if not m or m.group(1) not in cases:
+                continue
+            c = cases[m.group(1)]
+            if rewrite and c.get('card'):
+                card = dict(c['card'])
+                card['id'] = m.group(1)
+                card.pop('tone', None)
+                line = card_line(card) + (',' if line.rstrip().endswith(',') else '')
+            lines[i] = with_tone(line, tone_of(c))
+        out = src[:a] + '\n'.join(lines) + src[b:]
+        if out != src:
+            open(path, 'w', encoding='utf-8').write(out)
 
 
 def write_decisions(cases):
