@@ -7,7 +7,7 @@
   "trailingSlash": false,
   "headers": [
     {
-      "source": "/admin(.*)",
+      "source": "/(.*)",
       "headers": [
         {
           "key": "X-Robots-Tag",

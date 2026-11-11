@@ -186,6 +186,7 @@ SHELL = '''<!DOCTYPE html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
 <title>{title}</title>
 <meta name="description" content="{desc}">
 <meta property="og:type" content="website">
@@ -328,13 +329,12 @@ def main():
         shutil.copytree(uploads, os.path.join(OUT, 'uploads'), dirs_exist_ok=True)
         optimise(os.path.join(OUT, 'uploads'))
     shutil.copy(os.path.join(ROOT, 'assets', '404.html'), os.path.join(OUT, '404.html'))  # field notes on a missing page
-    # for search engines: every public page, not the Dust application pages, the admin or the hidden ones
-    public = sorted(r for n, r in routes.items() if n not in COMPONENTS and not n.startswith('Dust'))
-    open(os.path.join(OUT, 'sitemap.xml'), 'w', encoding='utf-8').write(
-        '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
-        ''.join('  <url><loc>%s</loc></url>\n' % (SITE + '/' + r if r else SITE + '/') for r in public) + '</urlset>\n')
-    open(os.path.join(OUT, 'robots.txt'), 'w', encoding='utf-8').write(
-        'User-agent: *\nAllow: /\nDisallow: /admin\nDisallow: /api/\nDisallow: /off-the-map\n\nSitemap: %s/sitemap.xml\n' % SITE)
+    # The site is not listed on search engines: people reach it by its link (resume, LinkedIn, applications).
+    # Crawlers may still read the pages, so that they see the noindex and drop them (vercel.json sends it on every file).
+    open(os.path.join(OUT, 'robots.txt'), 'w', encoding='utf-8').write('User-agent: *\nAllow: /\n')
+    old_map = os.path.join(OUT, 'sitemap.xml')
+    if os.path.exists(old_map):
+        os.remove(old_map)
     print('built', count, 'pages')
 
 
