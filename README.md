@@ -9,7 +9,8 @@ website is generated from them into `site/`.
 ## The website
 
 - `site/` — the static site: `/`, `/dust`, `/dust/letter`, `/timeline`, `/about`, `/resume` and `/work/<project>`.
-- `site/dc.js` — the small script that renders each page in the browser.
+- `site/dc.js` — the small script that renders each page in the browser. While the podcast plays, it swaps pages in place so the audio never stops.
+- `assets/tldr.js` — the TL;DR ◖)) podcast player in the navbar. To publish the episode: put the MP3 in `assets/audio/`, set `src` (and the transcript) at the top of the file, rebuild.
 - `scripts/build_site.py` — rebuilds `site/` from `project/` (`python3 scripts/build_site.py`). It also refreshes `var DOC` in `Main.dc.html`: how well each case is documented, which the search uses to rank results.
 - `vercel.json` — tells Vercel to serve `site/` as is, with no build step (preset: Other).
 

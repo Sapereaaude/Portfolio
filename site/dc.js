@@ -5,6 +5,7 @@
   var SVGNS = 'http://www.w3.org/2000/svg';
   var DATA = JSON.parse(document.getElementById('dc-data').textContent);
   var ROUTES = DATA.routes;
+  var CURRENT = null, RENDERED = location.pathname;
 
   function DCLogic(props) { this.props = props || {}; this.state = {}; }
   DCLogic.prototype.setState = function (p, cb) {
@@ -159,12 +160,14 @@
       for (var i = 0; i < def.ast.length; i++) { render(def.ast[i], [vals], null, next); }
       patchKids(root, old, next);
       old = next;
+      if (window.__dcAfterDraw) { try { window.__dcAfterDraw(); } catch (err) {} }
     }
     inst.__update = function (prevState, cb) {
       draw();
       if (inst.componentDidUpdate) { inst.componentDidUpdate(inst.props, prevState); }
       if (cb) { cb(); }
     };
+    CURRENT = inst;
     draw();
     if (inst.componentDidMount) { inst.componentDidMount(); }
     if (location.hash.length > 1) {
@@ -173,6 +176,48 @@
       if (target) { target.scrollIntoView(); }
     }
   }
+
+  /* While the TL;DR podcast plays, moving to another page swaps the page in place instead of reloading,
+     so the one audio element (outside #app) keeps playing. Any other time, links work as usual. */
+  function isPage(url) {
+    if (url.origin !== location.origin) { return false; }
+    var p = url.pathname.replace(/\/$/, '') || '/';
+    for (var k in ROUTES) { if (Object.prototype.hasOwnProperty.call(ROUTES, k) && ('/' + ROUTES[k]).replace(/\/$/, '') === p.replace(/^\/$/, '')) { return true; } }
+    return p === '/';
+  }
+  function softNav(href, push) {
+    fetch(href, { credentials: 'same-origin' }).then(function (r) { if (!r.ok) { throw new Error('load'); } return r.text(); }).then(function (html) {
+      var doc = new DOMParser().parseFromString(html, 'text/html');
+      var data = JSON.parse(doc.getElementById('dc-data').textContent);
+      try { if (CURRENT && CURRENT.componentWillUnmount) { CURRENT.componentWillUnmount(); } } catch (err) {}
+      if (CURRENT) { CURRENT.__update = null; }
+      DATA = data; ROUTES = data.routes;
+      document.title = doc.title;
+      var ns = doc.querySelector('head style'), os = document.querySelector('head style');
+      if (ns && os) { os.textContent = ns.textContent; }
+      if (push) { history.pushState({ soft: 1 }, '', href); }
+      RENDERED = location.pathname;
+      var root = document.getElementById('app');
+      root.innerHTML = '';
+      mount(root);
+      if (location.hash.length < 2) { window.scrollTo(0, 0); }
+    }).catch(function () { location.href = href; });
+  }
+  document.addEventListener('click', function (e) {
+    if (!window.__tldrPlaying || !window.__tldrPlaying()) { return; }
+    if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) { return; }
+    var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+    if (!a || (a.target && a.target !== '_self') || a.hasAttribute('download')) { return; }
+    var url;
+    try { url = new URL(a.getAttribute('href'), location.href); } catch (err) { return; }
+    if (!isPage(url) || url.pathname === location.pathname) { return; }
+    e.preventDefault();
+    softNav(url.href, true);
+  });
+  window.addEventListener('popstate', function () {
+    if (location.pathname === RENDERED) { return; }
+    if (window.__tldrPlaying && window.__tldrPlaying()) { softNav(location.href, false); } else { location.reload(); }
+  });
 
   document.addEventListener('click', function (e) {
     var a = e.target && e.target.closest ? e.target.closest('a') : null;

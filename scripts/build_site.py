@@ -209,6 +209,7 @@ a[aria-current="page"]:hover{{color:#FFFFFF}}
 <div id="app"></div>
 <noscript><p style="font-family: sans-serif; padding: 24px">This portfolio needs JavaScript. You can also write to safaa.elouafi.am@gmail.com.</p></noscript>
 <script type="application/json" id="dc-data">{data}</script>
+<script src="/tldr.js"></script>
 <script src="/dc.js"></script>
 </body>
 </html>
@@ -278,6 +279,7 @@ def main():
     shutil.copytree(os.path.join(ROOT, 'assets', 'photos'), os.path.join(OUT, 'photos'), dirs_exist_ok=True)
     shutil.copytree(os.path.join(ROOT, 'assets', 'audio'), os.path.join(OUT, 'audio'), dirs_exist_ok=True)
     shutil.copytree(os.path.join(ROOT, 'assets', 'tools'), os.path.join(OUT, 'tools'), dirs_exist_ok=True)
+    shutil.copy(os.path.join(ROOT, 'assets', 'tldr.js'), os.path.join(OUT, 'tldr.js'))
     open(os.path.join(OUT, '404.html'), 'w', encoding='utf-8').write(
         '<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Not found | Safaa El Ouafi</title></head>'
         '<body style="margin:0;font-family:system-ui,sans-serif;padding:48px 24px"><h1>Nothing in that drawer.</h1><p><a href="/">Back to the portfolio</a></p></body></html>')
