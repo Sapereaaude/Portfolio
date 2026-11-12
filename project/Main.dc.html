@@ -90,6 +90,48 @@ html.search-intro .home-sentence [data-pick="outcome"] .pick{animation-delay:1.8
 .slides{scrollbar-width:none;overscroll-behavior-x:contain}
 .slides::-webkit-scrollbar{display:none}
 @media (max-width: 700px){.photo-row{display:grid !important;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 12px !important;overflow:visible !important;scroll-snap-type:none !important}.photo-card{flex:none !important;min-width:0}}
+
+/* Search uses compact native disclosures; themed and side-project cards keep their layouts. */
+.work-index{border-top:2px solid #17171F;margin-top:8px}
+.work-preview{border-bottom:1px solid #D5D7E0}
+.work-summary{display:grid;grid-template-columns:32px minmax(0,1fr) auto;align-items:center;gap:18px;padding:20px 0;cursor:pointer;list-style:none}
+.work-summary{scroll-margin-top:calc(var(--nav-h,80px) + 180px)}
+.work-summary::-webkit-details-marker{display:none}
+.work-summary::marker{content:""}
+.work-order{font-family:Newsreader,Georgia,serif;font-size:18px;color:#666674}
+.work-summary-copy{min-width:0;display:flex;flex-direction:column;gap:7px}
+.work-meta{font-size:11px;font-weight:700;line-height:1.4;letter-spacing:.08em;text-transform:uppercase;color:#4A4A57}
+.work-featured{display:inline-block;margin-left:8px;color:#3B5BB8;letter-spacing:.04em}
+.work-title{font-family:Anton,Impact,sans-serif;font-size:clamp(21px,2.1vw,27px);line-height:1.12;text-transform:uppercase;color:#17171F;text-decoration:none;align-self:flex-start}
+.work-title:hover{text-decoration:underline;text-underline-offset:4px}
+.work-question{font-family:Newsreader,Georgia,serif;font-style:italic;font-size:18px;line-height:1.35;color:#4A4A57}
+.work-toggle{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-width:44px;min-height:44px;color:#3B5BB8;border-radius:7px}
+.work-toggle-label{font-size:13px;font-weight:600}
+.work-chevron{width:16px;height:16px;flex:none}
+.work-preview[open] .work-toggle-label{display:none}
+.work-preview[open] .work-chevron{transform:rotate(180deg)}
+.work-summary:hover .work-toggle{background:#EEF1FA}
+.work-summary:focus-visible{outline:3px solid #3B5BB8;outline-offset:3px;border-radius:6px}
+.work-editorial{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);margin:0 0 26px 50px;border:1px solid #D5D7E0;border-radius:16px;overflow:hidden;background:#FFFFFF}
+.work-art{position:relative;isolation:isolate;display:flex;flex-direction:column;justify-content:space-between;gap:20px;padding:26px;min-height:330px;background:#3B5BB8;color:#FFFFFF}
+.work-art:after{content:"";position:absolute;z-index:-1;width:220px;height:220px;right:-90px;top:40px;border:1px solid #FFFFFF40;border-radius:50%;box-shadow:0 0 0 28px #FFFFFF0D,0 0 0 58px #FFFFFF0D;pointer-events:none}
+.work-art-label{font-size:10px;font-weight:700;letter-spacing:.12em;line-height:1.5;text-transform:uppercase}
+.work-art-main{display:flex;flex-direction:column;gap:8px;padding:8px 0}
+.work-art-display{font-family:Anton,Impact,sans-serif;font-size:clamp(32px,4.3vw,62px);line-height:1.08;text-wrap:balance;overflow-wrap:anywhere}
+.work-art-caption{font-family:Newsreader,Georgia,serif;font-style:italic;font-size:21px;line-height:1.25}
+.work-stages{display:flex;gap:12px;border-top:1px solid #FFFFFF66;padding-top:16px}
+.work-stage{flex:1;font-size:12px;line-height:1.4}
+.work-editorial-copy{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:18px;padding:28px 30px;min-width:0}
+.work-editorial-copy p{margin:0;font-size:16px;line-height:1.6;text-wrap:pretty}
+.work-editorial-copy .work-pullquote{font-family:Newsreader,Georgia,serif;font-style:italic;font-size:28px;line-height:1.2;text-wrap:balance}
+.work-evidence{display:flex;flex-wrap:wrap;gap:10px;width:100%;margin:0;padding:0;list-style:none}
+.work-evidence li{flex:1 1 110px;border-left:2px solid #3B5BB8;padding-left:10px;font-size:12px;line-height:1.5;color:#4A4A57}
+.work-read{display:inline-flex;align-items:center;gap:10px;min-height:44px;padding:0 17px;border-radius:5px;background:#17171F;color:#FFFFFF;text-decoration:none;font-size:14px;font-weight:700}
+.work-read:hover{background:#3B5BB8;color:#FFFFFF}
+.work-tags{display:flex;flex-wrap:wrap;gap:6px}
+.work-tags span{padding:5px 9px;background:#F2F2F5;color:#4A4A57;border-radius:5px;font-size:12px}
+@media(max-width:700px){.work-summary{grid-template-columns:minmax(0,1fr) auto;gap:12px;padding:18px 0}.work-order{display:none}.work-question{font-size:17px}.work-editorial{grid-template-columns:1fr;margin-left:0}.work-art{padding:20px;min-height:0;gap:14px}.work-art-main{padding:0}.work-art-display{font-size:38px}.work-art-caption{font-size:19px}.work-stages{padding-top:10px}.work-stage{font-size:12px}.work-editorial-copy{padding:22px 20px;gap:16px}.work-editorial-copy .work-pullquote{font-size:24px}.work-evidence li{flex-basis:100%}.work-featured{margin-left:0;display:block}}
+
 </style>
 </helmet>
 <div style="position: relative; background: #FFFFFF; color: #17171F; font-family: 'Figtree', sans-serif; overflow: clip; min-height: 100vh; display: flex; flex-direction: column">
@@ -376,6 +418,41 @@ html.search-intro .home-sentence [data-pick="outcome"] .pick{animation-delay:1.8
 <h3 id="h-tldr" style="margin: 0; font-family: 'Anton', Impact, sans-serif; font-weight: 400; font-size: clamp(26px, 3.2vw, 40px); line-height: 1.05; text-transform: uppercase; text-wrap: balance; color: #FFFFFF">{{tldrTitle}}<span style="color: #D13A28">.</span></h3>
 </div>
 </sc-if>
+<!-- Compact search results: native details keeps focus and avoids a full-page redraw on toggle. -->
+<sc-if value="{{isResults}}" hint-placeholder-val="{{ true }}">
+<div class="work-index" aria-label="Projects">
+<sc-for list="{{results}}" as="r" hint-placeholder-count="5">
+<details class="work-preview" data-project="{{r.id}}">
+<summary class="work-summary" aria-label="Preview {{r.title}}">
+<span class="work-order" aria-hidden="true">{{r.order}}</span>
+<span class="work-summary-copy">
+<span class="work-meta">{{r.meta}}<sc-if value="{{r.featured}}" hint-placeholder-val="{{ false }}"><span class="work-featured">Recommended</span></sc-if></span>
+<sc-if value="{{r.hasCase}}" hint-placeholder-val="{{ true }}"><a class="work-title" href="{{r.href}}">{{r.title}}</a></sc-if>
+<sc-if value="{{r.noCase}}" hint-placeholder-val="{{ false }}"><span class="work-title">{{r.title}}</span></sc-if>
+<span class="work-question">{{r.q}}</span>
+</span>
+<span class="work-toggle" aria-hidden="true"><span class="work-toggle-label">Overview</span><svg class="work-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg></span>
+</summary>
+<div class="work-editorial">
+<div class="work-art" style="{{r.artStyle}}">
+<span class="work-art-label">{{r.artLabel}}</span>
+<div class="work-art-main"><span class="work-art-display">{{r.artDisplay}}</span><span class="work-art-caption">{{r.artCaption}}</span></div>
+<sc-if value="{{r.hasStages}}" hint-placeholder-val="{{ false }}"><div class="work-stages"><sc-for list="{{r.stages}}" as="stage" hint-placeholder-count="3"><span class="work-stage">{{stage}}</span></sc-for></div></sc-if>
+</div>
+<div class="work-editorial-copy">
+<sc-if value="{{r.hasPullquote}}" hint-placeholder-val="{{ false }}"><p class="work-pullquote">{{r.pullquote}}</p></sc-if>
+<p>{{r.a}}</p>
+<sc-if value="{{r.hasEvidence}}" hint-placeholder-val="{{ true }}"><ul class="work-evidence"><sc-for list="{{r.pts}}" as="point" hint-placeholder-count="3"><li>{{point}}</li></sc-for></ul></sc-if>
+<sc-if value="{{r.hasRtags}}" hint-placeholder-val="{{ false }}"><div class="work-tags"><sc-for list="{{r.rtags}}" as="tag" hint-placeholder-count="2"><span>{{tag.label}}</span></sc-for></div></sc-if>
+<sc-if value="{{r.hasAudio}}" hint-placeholder-val="{{ false }}"><audio controls preload="none" src="{{r.audio}}" onPlay="{{r.onPlay}}" aria-label="Continuous Discovery podcast" style="max-width:100%"></audio></sc-if>
+<sc-if value="{{r.hasCase}}" hint-placeholder-val="{{ true }}"><a class="work-read" href="{{r.href}}">Read case study<svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 18 18 6M6 6h12v12"></path></svg></a></sc-if>
+</div>
+</div>
+</details>
+</sc-for>
+</div>
+</sc-if>
+<sc-if value="{{useProjectCards}}" hint-placeholder-val="{{ false }}">
 <sc-for list="{{groups}}" as="g" hint-placeholder-count="1">
 <sc-if value="{{g.hasHead}}" hint-placeholder-val="{{ false }}">
 <div style="{{g.headStyle}}">
@@ -877,6 +954,7 @@ html.search-intro .home-sentence [data-pick="outcome"] .pick{animation-delay:1.8
 </div>
 </sc-for>
 </sc-if>
+</sc-if>
 <sc-if value="{{noResults}}" hint-placeholder-val="{{ false }}">
 <div style="border: 1px dashed #D5D7E0; border-radius: 16px; padding: 40px; font-family: 'Newsreader', Georgia, serif; font-style: italic; font-size: 21px; text-align: center">Nothing in that drawer. Loosen a filter, or change your search.</div>
 </sc-if>
@@ -1080,6 +1158,9 @@ try { window.removeEventListener('hashchange', this.onHash); document.removeEven
 }
 componentDidUpdate(prevProps, prevState) {
 var st = this.state;
+if (['persona', 'job', 'phase', 'side', 'screen'].some(function (key) { return st[key] !== prevState[key]; })) {
+try { document.querySelectorAll('.work-preview[open]').forEach(function (el) { el.open = false; }); } catch (err) {}
+}
 try { window.localStorage.setItem('se-portfolio-v3', JSON.stringify({ screen: st.screen, theme: st.theme, picked: !!st.picked, persona: st.persona, job: st.job, outcome: st.outcome, phase: st.phase, side: !!st.side })); } catch (err) {}
 try { var pop = document.getElementById('pick-pop'); if (pop) { pop.style.transform = ''; var pr = pop.getBoundingClientRect(); var over = pr.right - (window.innerWidth - 12); if (over > 0) { pop.style.transform = 'translateX(-' + Math.min(over, Math.max(0, pr.left - 12)) + 'px)'; } } } catch (err) {}
 var viewKey = st.screen + '/' + st.theme;
@@ -1357,6 +1438,8 @@ resultLine = '';
 var tldrN = tldr.length;
 pool = tldr.concat(pool);
 var SHOT_SRC = { bastille: '/photos/screen-bastille.jpg', tracking: '/photos/screen-tracking.jpg', askip: '/photos/screen-askip.jpg', palier: '/photos/screen-palier.jpg', cassandre: '/photos/screen-cassandre.jpg' };
+// Editorial display labels use facts already present in the project records.
+var EDITORIAL = {"aiid": ["300–400", "designers in the audience", "From research to enablement", ["Survey", "Interviews", "Programme"]], "vizcom": ["20 designers", "3 months, one shared diary", "Beyond the demo", ["Diary", "Check-ins", "Moderated tests"]], "system": ["5 teams", "One living research system", "ResearchOps"], "plm": ["1,000+", "engineers, one product lifecycle", "From idea to recycling"], "community": ["~20", "researchers across 4 cities", "Building a community"], "swiss": ["10 questions", "Every transcript, a human decision", "AI-assisted research"], "agents": ["Metis. Sophia. Helix.", "Assistants built for my teams", "A small pantheon"], "clinic": ["A bridge.", "Between patients and health professionals", "Alan Clinic"], "mind": ["Mental models.", "Making it easier to seek help", "Alan Mind"], "clear": ["Trust.", "Buying glasses without trying them on", "Alan Clear"], "usab": ["One glance.", "CSUQ scores and task success", "Usability"], "prio": ["Who decides?", "From sports leaders to product engineers", "Product decisions"], "sat3d": ["Every month.", "A pulse on 3D tools", "Continuous feedback", ["Survey", "Analysis", "Workshop"]], "quechua": ["A home.", "The 2-second tent, seen through other lives", "The forgotten users"], "rbk": ["3 cohorts", "of about 30 learners", "RBK Jordan"], "cassandre": ["Before the test.", "A prototype for UX pretesting", "Cassandre"], "askip": ["One card.", "A day, answered together", "Askip <3"], "bastille": ["Swipe ideas.", "Not candidates", "Bastille"], "palier": ["Next door.", "A shared noticeboard for neighbours", "Le Palier"], "papier": ["One book.", "One recipe tested, one reflective text", "Le papier mâché"], "podcast": ["Every week.", "Findings shared across teams", "Continuous Discovery"], "algo_academy": ["An academy.", "Learning paths and partner certifications", "Algolia"], "algo_journey": ["The journey.", "From pre-sales to onboarding", "Customer learning"], "algo_personas": ["Real learners.", "Partners, customers and colleagues", "Learner personas"], "sistech": ["Boost.", "Mentoring refugee and displaced women", "Sistech"], "vgwb": ["Antura.", "Learning to read Arabic through play", "Video Games Without Borders"], "daradam": ["Play to learn.", "Arabic language and culture", "Dar Adam"], "bsf": ["Without borders.", "Volunteering during my Algolia years", "Bibliothèques Sans Frontières"], "workshops": ["Since 2011.", "Cooking and culture, together", "Cultural cooking workshops"], "stress": ["Stress & success.", "Understanding learners in a coding bootcamp", "RBK Jordan"], "programme": ["Cohort by cohort.", "Learners and employers at the centre", "Programme management"], "superpowers": ["Find your people.", "Cross-functional mentoring", "Superpowers Directory"], "simplon": ["Across borders.", "Coding bootcamps and hiring partnerships", "Programme management"], "teach": ["Teach. Learn. Teach.", "From young children to engineers", "Language teaching"], "tracking": ["Every day.", "Mood, food, sleep and sport", "Tracking Bad"]};
 var results = pool.map(function (it, i) {
 var v = {}; visKeys.forEach(function (k) { v[k] = it.vis === k; });
 var hl = it.hl || [];
@@ -1364,7 +1447,12 @@ var tone = it.tone || tones[it.vis] || 'grey';
 var solid = tone === 'solid';
 var hasCase = CASES.indexOf(it.id) !== -1;
 var threads = it.themes.map(function (t) { var on = isTheme && t.id === theme.id; return { label: t.n + ' ' + t.short, style: chipStyle(on, 1), go: goTheme(t.id) }; });
+var ed = EDITORIAL[it.id] || [it.title, (it.pts || [])[0] || it.q, it.meta];
 var r = {
+id: it.id, order: String(i + 1).padStart(2, '0'), featured: i < tldrN,
+artDisplay: ed[0], artCaption: ed[1], artLabel: ed[2], stages: ed[3] || [], hasStages: !!ed[3],
+artStyle: 'background: ' + (it.id === 'aiid' ? accent : (tone === 'red' ? '#A92F22' : (tone === 'solid' ? '#17171F' : accent))) + ';',
+pullquote: it.id === 'aiid' ? 'The barrier wasn’t the tech. It was knowing which tool to use.' : '', hasPullquote: it.id === 'aiid', hasEvidence: !!(it.pts && it.pts.length),
 hasCase: hasCase, noCase: !hasCase, hasAudio: it.id === 'podcast', audio: '/audio/balcony-birds.m4a', audioNote: !!s.podPlayed, onPlay: function () { if (!self.state.podPlayed) { self.setState({ podPlayed: true }); } }, href: 'Case-' + it.id + '.dc.html',
 title: it.title, meta: it.meta, q: it.q, a: it.a, v: v, pts: it.pts || [], shotSrc: SHOT_SRC[it.id] || '', hasShot: !!SHOT_SRC[it.id], noShot: !SHOT_SRC[it.id],
 threads: threads, hasThreads: threads.length > 0, rtags: rtagsOf(it), hasRtags: (it.rtype || []).length > 0, hasTagRow: threads.length > 0 || (it.rtype || []).length > 0,
@@ -1516,7 +1604,7 @@ onSlide: function (e) { var el = e.currentTarget || e.target; var k = Math.round
 accent: accent,
 grain: this.props.grain ?? true,
 isHome: isHome, isResults: isResults, isTheme: isTheme, isOutside: isOutside, isT3: isT3,
-showGrid: !isHome, showGridBar: !isHome && !isResults, homeMore: homeMore, homeMoreLabel: homeMoreLabel, hasTldr: isResults && tldr.length > 0, tldrTitle: tldr.length > 1 ? 'If you only read two, make it these' : 'If you only read one, make it this',
+showGrid: !isHome, showGridBar: !isHome && !isResults, homeMore: homeMore, homeMoreLabel: homeMoreLabel, useProjectCards: !isResults, hasTldr: false, tldrTitle: tldr.length > 1 ? 'If you only read two, make it these' : 'If you only read one, make it this',
 pkPersona: pkPersona, pkJob: pkJob, pkOutcome: pkOutcome,
 pickKey: function (e) { if (e.key === 'Escape' && self.state.pick) { var k = self.state.pick; self.setState({ pick: null }, function () { try { var b = document.querySelector('[data-pick="' + k + '"] .pick'); if (b) { b.focus(); } } catch (err) {} }); } },
 navItems: navItems, themeCards: themeCards, themeChips: themeChips,
@@ -1556,3 +1644,4 @@ ctaChat: outcome.id === 'chat', ctaNotChat: outcome.id !== 'chat'
 </script>
 </body>
 </html>
+
