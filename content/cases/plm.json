@@ -165,7 +165,8 @@
       "researcher",
       "hiring",
       "founder"
-    ]
+    ],
+    "preview": "I researched engineers’ workflows and data needs across the product lifecycle, from components and versioning to eco-design."
   },
   "after_sections": "",
   "behind_decisions": [],

@@ -165,7 +165,8 @@
       "researcher",
       "designer",
       "pm"
-    ]
+    ],
+    "preview": "I combined CSUQ scores and task success rates into three readable tiers so teams could understand usability findings at a glance."
   },
   "after_sections": "",
   "behind_decisions": [],

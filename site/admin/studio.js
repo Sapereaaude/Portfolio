@@ -52,6 +52,7 @@
         hidden('illustration')] },
       { name: 'card', label: 'Card (description, points, filters)', widget: 'object', collapsed: true, hint: 'The card’s title, question, eyebrow and colour come from the Header above.', fields: [
         hidden('title'), hidden('meta'), hidden('q'),
+        { name: 'preview', label: 'Search preview (one sentence)', widget: 'text', required: false, hint: 'The single sentence revealed in Search my work. The title stays the same as in Header.' },
         { name: 'a', label: 'Short description', widget: 'text' },
         { name: 'pts', label: 'Key points on the card', widget: 'list', field: str('pt', 'Point') },
         tags('jobs', 'Intents', [
@@ -249,3 +250,4 @@
 
   boot();
 })();
+
