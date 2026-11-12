@@ -291,6 +291,8 @@ def card_of(c, pid):
         if v:
             card[ck] = v
     card['id'] = pid
+    # Preserve the exact admin choice in every project-header consumer.
+    card['headerBackground'] = h.get('background') or '#EEF1FA'
     return card
 
 
@@ -329,6 +331,7 @@ def write_cards(cases):
             for pr in co.get('projects', []):
                 if pr.get('id') in cases and cases[pr['id']].get('card'):
                     card = card_of(cases[pr['id']], pr['id'])
+                    pr['headerBackground'] = card['headerBackground']
                     for tk, ck in (('t', 'title'), ('m', 'meta'), ('q', 'q'), ('p', 'pts'), ('a', 'a')):
                         if card.get(ck):
                             pr[tk] = card[ck]
@@ -502,3 +505,4 @@ if __name__ == '__main__':
     else:
         generate()
         print('generated', len(glob.glob(os.path.join(CONTENT, '*.json'))), 'case pages')
+
