@@ -148,7 +148,8 @@
       "pm",
       "designer",
       "hiring"
-    ]
+    ],
+    "preview": "I prototyped a tool that checks predictable UX issues so human research can focus on needs, motivations and real-world behaviour."
   },
   "after_sections": "",
   "behind_decisions": [],

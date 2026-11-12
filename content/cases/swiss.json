@@ -165,7 +165,8 @@
       "researcher",
       "designer",
       "pm"
-    ]
+    ],
+    "preview": "I structured interview analysis around ten questions that AI can explore while a researcher retains responsibility for interpretation."
   },
   "after_sections": "",
   "behind_decisions": [],
